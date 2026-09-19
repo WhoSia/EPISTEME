@@ -5,7 +5,7 @@
   "models": {
     "primary_a": {
       "provider": "groq",
-      "model": "qwen/qwen3.6-27b",
+      "model": "qwen/qwen3.8-27b",
       "role": "primary",
       "reasoning_effort": "default",
       "reasoning_format": "hidden"
