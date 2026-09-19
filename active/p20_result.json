@@ -1,0 +1,57 @@
+{
+  "stage": "EPISTEME-P20",
+  "descriptor": "Provenance-Linkage × History-Sensitivity Factorial Completion, Key-Visibility Decoy Control, Conjunctive Witness Necessity & Behavioral SVEC Attribution Test",
+  "run_id": 35435284585,
+  "run_head_sha": "0e80d3df6b88fce35a258b004215e16ca0bbdecd",
+  "workflow_conclusion": "success",
+  "scientific_verdict": "FAIL_FULL_GATE / NO_BEHAVIORAL_SVEC_PROMOTION",
+  "frozen_gate": {
+    "packet_correct": ">=2/3 replicates",
+    "P1H1_specific_success": ">=3/4",
+    "negative_cell_false_positive": "<=1/4 each",
+    "program_level": ">=2/3 models full-gate PASS"
+  },
+  "models": {
+    "qwen": {
+      "P0H0_fp": "0/4",
+      "P0H1_fp": "0/4",
+      "P1H0_fp": "0/4",
+      "P1H1_success": "0/4",
+      "gate_pass": false,
+      "format_or_api_failures": 0,
+      "diagnostic": "blanket abstention: all 48 replicates returned NONE"
+    },
+    "gemini": {
+      "P0H0_fp": "2/4",
+      "P0H1_fp": "4/4",
+      "P1H0_fp": "0/4",
+      "P1H1_success": "4/4",
+      "gate_pass": false,
+      "format_or_api_failures": 0,
+      "diagnostic": "history-sensitive cue dominates when visible_key matches retained trace; P0H1 control contaminated by an alternate linkage channel"
+    },
+    "gptoss": {
+      "P0H0_fp": "0/4",
+      "P0H1_fp": "4/4",
+      "P1H0_fp": "0/4",
+      "P1H1_success": "1/4",
+      "gate_pass": false,
+      "format_or_api_failures": "17/48",
+      "diagnostic": "same P0H1 susceptibility as Gemini plus severe structured-output/API failure confound"
+    }
+  },
+  "program_level": {
+    "models_passed": "0/3",
+    "promotion_eligible": false
+  },
+  "interpretation": {
+    "licensed": "P20 does not support behavioral SVEC promotion under the frozen gate.",
+    "not_licensed": "Do not treat this as a clean falsification of conjunctive provenance×history sensitivity.",
+    "confounds": [
+      "visible_key was intended as matched surface visibility but itself supplies an alternate semantic provenance-linkage cue in P0H1.",
+      "P20 introduced visible_key relative to the P19 positive-control representation, so Qwen's blanket abstention may reflect representation shift rather than loss of the recovered witness relation.",
+      "GPT-OSS had 17/48 FORMAT_OR_API_FAIL responses; its cell rates are not a clean behavioral estimate."
+    ]
+  },
+  "successor_authority": "Only diagnostic repair is authorized; no threshold changes and no P20 rerun under the same packet schema."
+}
