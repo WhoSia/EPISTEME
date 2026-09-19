@@ -1,0 +1,35 @@
+{
+  "stage": "EPISTEME-P20",
+  "descriptor": "Provenance-Linkage × History-Sensitivity Factorial Completion, Key-Visibility Decoy Control, Conjunctive Witness Necessity & Behavioral SVEC Attribution Test",
+  "status": "PRECOMMITTED",
+  "prerequisite": "P19 matched-control gate passed in all three models",
+  "design": {
+    "factors": {
+      "P": "provenance linkage",
+      "H": "history-sensitive relation"
+    },
+    "cells": ["P0H0", "P0H1", "P1H0", "P1H1"],
+    "worlds_per_cell": 4,
+    "packets_per_model": 16,
+    "replicates": 3,
+    "participants": ["qwen/qwen3.8-27b", "gemini-3.5-flash-lite", "openai/gpt-oss-120b"],
+    "total_calls": 144
+  },
+  "matching": {
+    "same_world_crossed_cells": true,
+    "key_visibility": "matched in all four cells",
+    "trace_length": "matched",
+    "distractor_structure": "matched",
+    "intervention_vocabulary": "matched",
+    "only_intended_manipulations": ["provenance linkage", "history sensitivity"]
+  },
+  "frozen_gate": {
+    "packet_correct": ">=2/3 replicates",
+    "P1H1_specific_success": ">=3/4",
+    "P0H0_false_positive": "<=1/4",
+    "P0H1_false_positive": "<=1/4",
+    "P1H0_false_positive": "<=1/4",
+    "program_level": ">=2/3 models pass full gate"
+  },
+  "authority": "If program-level gate passes, behavioral SVEC attribution becomes promotion-eligible. Primary-pair pass is reported separately and does not override the 2/3 rule. No post-hoc threshold changes."
+}
