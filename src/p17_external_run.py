@@ -37,7 +37,7 @@ FORMAT_REPAIR_SUFFIX = (
 MODELS = {
     "qwen": {
         "provider": "groq",
-        "model": "qwen/qwen3.6-27b",
+        "model": "qwen/qwen3.8-27b",
         "reasoning_effort": "default",
         "reasoning_format": "hidden",
     },
@@ -139,7 +139,7 @@ def groq_call(
         "stream": False,
     }
 
-    if model_cfg["model"] == "openai/gpt-oss-120b":
+    if model_cfg["model"] in {"openai/gpt-oss-120b", "qwen/qwen3.8-27b"}:
         kwargs["response_format"] = {
             "type": "json_schema",
             "json_schema": {
@@ -148,10 +148,6 @@ def groq_call(
                 "schema": RESPONSE_SCHEMA,
             },
         }
-    # Qwen 3.6 is intentionally left in text mode. Its server-side JSON Object
-    # mode can reject a generation before content is returned (json_validate_failed).
-    # The frozen prompt still requires JSON, and local validation permits exactly
-    # one format-only repair without changing the scientific judgment.
 
     response, attempts = with_transport_retry(
         lambda: client.chat.completions.create(**kwargs)
