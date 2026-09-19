@@ -12,9 +12,9 @@ Active execution surface for the EPISTEME research program.
 
 ## Active stage
 
-**EPISTEME-P18 — Blinded Twin-Archive Main Replay, Replicate Aggregation, Cross-Model Criticism Transfer & Behavioral SVEC Adjudication**
+**EPISTEME-P19 — Matched Recoverable-Witness Reconstruction, Positive-Control Representational Equating, Minimal Replay & SVEC Attribution Reopening
 
-P18 runs the **Twin-Archive Counterexample Test** under the frozen P17 execution constitution.
+P19 isolates the failed Recoverable-Coarse control from P18 and prospectively rebuilds only that identification surface.
 
 Each external generator sees one blinded scientific archive packet at a time and is asked only:
 
