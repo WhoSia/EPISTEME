@@ -8,11 +8,20 @@
       "P": "provenance linkage",
       "H": "history-sensitive relation"
     },
-    "cells": ["P0H0", "P0H1", "P1H0", "P1H1"],
+    "cells": [
+      "P0H0",
+      "P0H1",
+      "P1H0",
+      "P1H1"
+    ],
     "worlds_per_cell": 4,
     "packets_per_model": 16,
     "replicates": 3,
-    "participants": ["qwen/qwen3.8-27b", "gemini-3.5-flash-lite", "openai/gpt-oss-120b"],
+    "participants": [
+      "qwen/qwen3.8-27b",
+      "gemini-3.5-flash-lite",
+      "openai/gpt-oss-120b"
+    ],
     "total_calls": 144
   },
   "matching": {
@@ -21,7 +30,11 @@
     "trace_length": "matched",
     "distractor_structure": "matched",
     "intervention_vocabulary": "matched",
-    "only_intended_manipulations": ["provenance linkage", "history sensitivity"]
+    "only_intended_manipulations": [
+      "provenance linkage",
+      "history sensitivity"
+    ],
+    "criterion_disclosed_to_model": false
   },
   "frozen_gate": {
     "packet_correct": ">=2/3 replicates",
