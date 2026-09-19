@@ -11,8 +11,18 @@ on:
         options:
           - calibration
           - main
+      arm:
+        description: "which participant arm to run"
+        required: true
+        default: all
+        type: choice
+        options:
+          - all
+          - qwen
+          - gemini
+          - gptoss
       include_confirmatory:
-        description: "include GPT-OSS confirmatory arm"
+        description: "include GPT-OSS confirmatory arm when arm=all"
         required: true
         default: true
         type: boolean
@@ -22,6 +32,7 @@ permissions:
 
 jobs:
   qwen:
+    if: ${{ inputs.arm == 'all' || inputs.arm == 'qwen' }}
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
@@ -44,6 +55,7 @@ jobs:
           retention-days: 7
 
   gemini:
+    if: ${{ inputs.arm == 'all' || inputs.arm == 'gemini' }}
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
@@ -66,7 +78,7 @@ jobs:
           retention-days: 7
 
   gptoss:
-    if: ${{ inputs.include_confirmatory }}
+    if: ${{ inputs.arm == 'gptoss' || (inputs.arm == 'all' && inputs.include_confirmatory) }}
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
