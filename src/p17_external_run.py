@@ -124,7 +124,7 @@ def groq_call(
     packet: dict[str, Any],
     seed: int,
     repair: bool = False,
-) -> tuple[dict[str, Any], dict[str, Any], int]:
+) -> tuple[dict[str, Any], str, int]:
     client = Groq(api_key=os.environ["GROQ_API_KEY"], max_retries=0)
 
     kwargs: dict[str, Any] = {
@@ -156,10 +156,9 @@ def groq_call(
     response, attempts = with_transport_retry(
         lambda: client.chat.completions.create(**kwargs)
     )
-    content = response.choices[0].message.content
-    parsed = json.loads(content or "{}")
+    content = response.choices[0].message.content or ""
     raw = response.model_dump()
-    return raw, parsed, attempts
+    return raw, content, attempts
 
 
 def gemini_call(
@@ -167,7 +166,7 @@ def gemini_call(
     packet: dict[str, Any],
     seed: int,
     repair: bool = False,
-) -> tuple[dict[str, Any], dict[str, Any], int]:
+) -> tuple[dict[str, Any], str, int]:
     client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
 
     config = types.GenerateContentConfig(
@@ -187,7 +186,7 @@ def gemini_call(
         )
     )
 
-    parsed = json.loads(response.text or "{}")
+    content = response.text or ""
     raw = {
         "text": response.text,
         "usage_metadata": (
@@ -197,7 +196,33 @@ def gemini_call(
             else str(getattr(response, "usage_metadata", None))
         ),
     }
-    return raw, parsed, attempts
+    return raw, content, attempts
+
+
+def decode_model_json(content: str) -> dict[str, Any]:
+    text = content.strip()
+
+    if text.startswith("```"):
+        lines = text.splitlines()
+        if lines and lines[0].startswith("```"):
+            lines = lines[1:]
+        if lines and lines[-1].strip() == "```":
+            lines = lines[:-1]
+        text = "\n".join(lines).strip()
+
+    try:
+        parsed = json.loads(text)
+    except json.JSONDecodeError:
+        start = text.find("{")
+        if start < 0:
+            raise
+        decoder = json.JSONDecoder()
+        parsed, _end = decoder.raw_decode(text[start:])
+
+    if not isinstance(parsed, dict):
+        raise ValueError("top-level JSON must be object")
+
+    return parsed
 
 
 def call_model(
@@ -209,12 +234,17 @@ def call_model(
     clean_packet = {k: v for k, v in packet.items() if not k.startswith("_")}
     caller = groq_call if cfg["provider"] == "groq" else gemini_call
 
-    raw, parsed, attempts = caller(cfg, clean_packet, seed, False)
+    raw, content, attempts = caller(cfg, clean_packet, seed, False)
+
     try:
+        parsed = decode_model_json(content)
         validate(parsed)
         return raw, parsed, attempts, 0
-    except Exception:
-        raw2, parsed2, attempts2 = caller(cfg, clean_packet, seed, True)
+    except (json.JSONDecodeError, ValueError, TypeError):
+        # Exactly one format-only repair. This is triggered by parsing/schema failure,
+        # never by a scientifically wrong but well-formed answer.
+        raw2, content2, attempts2 = caller(cfg, clean_packet, seed, True)
+        parsed2 = decode_model_json(content2)
         validate(parsed2)
         return raw2, parsed2, attempts + attempts2, 1
 
