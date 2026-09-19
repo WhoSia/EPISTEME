@@ -1,0 +1,25 @@
+{
+  "stage": "EPISTEME-P18",
+  "descriptor": "Blinded Twin-Archive Main Replay, Replicate Aggregation, Cross-Model Criticism Transfer & Behavioral SVEC Adjudication",
+  "generation": {
+    "participants": ["qwen/qwen3.8-27b", "gemini-3.5-flash-lite", "openai/gpt-oss-120b"],
+    "packets_per_model": 36,
+    "replicates_per_packet": 3,
+    "total_generation_calls": 324,
+    "packet_success": ">=2 of 3 admissible replicates"
+  },
+  "frozen_generation_signature": {
+    "critical_R": ">=5/6",
+    "critical_C": "<=2/6",
+    "critical_S": "<=2/6",
+    "recoverable_C": ">=2/3",
+    "null_FP_each_retention": "<=1/3"
+  },
+  "transfer_gate": {
+    "source": "admissible rich-generated criticisms only",
+    "target": "different model on paired coarse archive",
+    "success": "ACCEPT + REVISE",
+    "threshold": ">=80%"
+  },
+  "interpretation_ceiling": "behavioral robustness only; no naturalistic prevalence claim"
+}
