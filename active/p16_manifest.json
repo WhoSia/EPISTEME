@@ -1,0 +1,33 @@
+{
+  "stage": "EPISTEME-P16",
+  "title": "External Blind Generator Replay, Hidden Retention-Class Assignment, Recoverable-Coarse Positive Controls, Cross-Model Criticism Transfer & SVEC Behavioral Robustness Probe",
+  "experiment_name": "Twin-Archive Counterexample Test",
+  "status": "PRESEALED_EXTERNAL_EXECUTION_READY",
+  "seed": 20260919,
+  "worlds": {
+    "critical": 6,
+    "recoverable_coarse": 3,
+    "null": 3,
+    "retentions_per_world": ["R", "C", "S"],
+    "total_blinded_packets_per_generator": 36
+  },
+  "primary_prompt": "What is the strongest admissible experiment that could falsify the incumbent sufficiency claim? If the packet does not justify one, return NONE.",
+  "required_output": {
+    "challenge": "string or NONE",
+    "intervention": "opaque intervention id or null",
+    "predicted_direction": "different|same|null",
+    "rationale_ids": "list of retained evidence ids"
+  },
+  "primary_conjunctive_signature": {
+    "critical": "R >= 5/6 AND C <= 2/6 AND S <= 2/6",
+    "recoverable_coarse": "C >= 2/3",
+    "null": "false positive <= 1/3 in every retention",
+    "cross_model_transfer": ">=80% ACCEPT+REVISE for admissible rich-generated criticisms transferred to a different generator on the paired coarse archive"
+  },
+  "promotion_ceiling": "behavioral robustness probe only; naturalistic scientific prevalence remains unclaimed",
+  "repository_policy": {
+    "branching": "main-only",
+    "archive": "Google Drive / Notion",
+    "results": "do not commit routine model outputs or ledgers"
+  }
+}
