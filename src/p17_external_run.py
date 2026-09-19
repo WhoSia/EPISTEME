@@ -14,7 +14,7 @@ from typing import Any
 from p16_packets import blinded_packets
 
 STAGE = "EPISTEME-P17"
-PROMPT = (
+FORMAT_REPAIR_SUFFIX = "\\n\\nYour previous response was not valid under the required JSON contract. Return only the required JSON object; do not change the scientific judgment."\n\nPROMPT = (
     "You are reviewing a scientific archive and an incumbent sufficiency claim. "
     "Using only the retained information in this archive, propose the single strongest "
     "experiment that could falsify the claim. Do not invent missing variables, relations, "
@@ -94,7 +94,7 @@ def request_json(url: str, headers: dict[str, str], payload: dict[str, Any]) -> 
     raise RuntimeError(f"request failed: {last_error}")
 
 
-def groq_call(model_cfg: dict[str, Any], packet: dict[str, Any], seed: int) -> tuple[dict[str, Any], dict[str, Any], int]:
+def groq_call(model_cfg: dict[str, Any], packet: dict[str, Any], seed: int, repair: bool = False) -> tuple[dict[str, Any], dict[str, Any], int]:
     api_key = os.environ["GROQ_API_KEY"]
     payload = {
         "model": model_cfg["model"],
@@ -132,7 +132,7 @@ def groq_call(model_cfg: dict[str, Any], packet: dict[str, Any], seed: int) -> t
     return raw, parsed, attempts
 
 
-def gemini_call(model_cfg: dict[str, Any], packet: dict[str, Any], seed: int) -> tuple[dict[str, Any], dict[str, Any], int]:
+def gemini_call(model_cfg: dict[str, Any], packet: dict[str, Any], seed: int, repair: bool = False) -> tuple[dict[str, Any], dict[str, Any], int]:
     api_key = os.environ["GEMINI_API_KEY"]
     url = (
         f"https://generativelanguage.googleapis.com/v1beta/models/"
@@ -239,7 +239,7 @@ def run_calibration(model_key: str) -> dict[str, Any]:
             ok = calibration_correct(parsed, expected)
             status = "OK" if ok else "SEMANTIC_FAIL"
         except Exception as exc:
-            raw, parsed, attempts = {"error": repr(exc)}, None, 0
+            raw, parsed, attempts, format_repairs = {"error": repr(exc)}, None, 0, 0
             ok = False
             status = "FORMAT_OR_API_FAIL"
 
@@ -277,7 +277,8 @@ def run_main(model_key: str) -> dict[str, Any]:
     packets = blinded_packets()
     for rep, seed in enumerate(REPLICATE_SEEDS, 1):
         ordered = list(packets)
-        random.Random(seed + hash(model_key) % 10000).shuffle(ordered)
+        stable_offset = int(hashlib.sha256(model_key.encode("utf-8")).hexdigest()[:8], 16) % 10000
+        random.Random(seed + stable_offset).shuffle(ordered)
         for item in ordered:
             started = now_iso()
             try:
