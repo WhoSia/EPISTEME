@@ -12,9 +12,9 @@ Active execution surface for the EPISTEME research program.
 
 ## Active stage
 
-**EPISTEME-P17 — Competence Calibration, Sampling Constitution, Retry Semantics, Stateless Runner, GitHub Actions Manual Launch & Blind Receipt Pipeline**
+**EPISTEME-P18 — Blinded Twin-Archive Main Replay, Replicate Aggregation, Cross-Model Criticism Transfer & Behavioral SVEC Adjudication**
 
-P17 freezes and operationalizes the **Twin-Archive Counterexample Test** for external-model execution.
+P18 runs the **Twin-Archive Counterexample Test** under the frozen P17 execution constitution.
 
 Each external generator sees one blinded scientific archive packet at a time and is asked only:
 
@@ -32,4 +32,4 @@ Hidden audit classes distinguish:
 
 Primary evidence comes from paired challenge generation and cross-model criticism transfer. Retention labels and audit classes are never exposed to generators.
 
-The repository contains only the active P16/P17 packet, runner, scoring and workflow surface needed for execution. Canonical receipts remain in Notion/Drive.
+The repository contains only the active P16/P17 packet+runner foundations and P18 scoring/main-execution surface needed for execution. Canonical receipts remain in Notion/Drive.
