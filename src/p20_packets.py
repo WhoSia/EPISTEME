@@ -52,11 +52,8 @@ def _packet_for_cell(w, cell: str) -> dict[str, Any]:
         ],
         "instructions": (
             "Using only this archive, propose the single strongest admissible experiment "
-            "that could falsify the claim. A relation licenses a specific counterexample "
-            "only when its source is actually linked to retained provenance and the relation "
-            "is history-sensitive. Mere token visibility is not provenance linkage. If those "
-            "conditions are not jointly satisfied, answer NONE. Do not speculate beyond "
-            "retained evidence."
+            "that could falsify the claim. If the archive does not justify a specific "
+            "counterexample test, answer NONE. Do not speculate beyond retained evidence."
         ),
         "surface_domain": w.skin,
     }
