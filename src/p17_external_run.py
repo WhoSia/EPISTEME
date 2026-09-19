@@ -6,11 +6,13 @@ import json
 import os
 import random
 import time
-import urllib.error
-import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+
+from groq import Groq
+from google import genai
+from google.genai import types
 
 from p16_packets import blinded_packets
 
@@ -41,7 +43,7 @@ MODELS = {
     },
     "gemini": {
         "provider": "gemini",
-        "model": "gemini-2.5-flash-lite",
+        "model": "gemini-3.5-flash-lite",
     },
     "gptoss": {
         "provider": "groq",
@@ -80,40 +82,41 @@ def now_iso() -> str:
     return datetime.now(timezone.utc).isoformat()
 
 
-def request_json(
-    url: str,
-    headers: dict[str, str],
-    payload: dict[str, Any],
-) -> tuple[dict[str, Any], int]:
-    data = json.dumps(payload).encode("utf-8")
-    last_error: Exception | None = None
-
-    for attempt in range(1, 5):
-        try:
-            req = urllib.request.Request(url, data=data, headers=headers, method="POST")
-            with urllib.request.urlopen(req, timeout=120) as resp:
-                return json.loads(resp.read().decode("utf-8")), attempt
-
-        except urllib.error.HTTPError as exc:
-            last_error = exc
-            retryable = exc.code in {408, 409, 425, 429, 500, 502, 503, 504}
-            if not retryable or attempt == 4:
-                body = exc.read().decode("utf-8", errors="replace")
-                raise RuntimeError(f"HTTP {exc.code}: {body}") from exc
-
-        except (urllib.error.URLError, TimeoutError, ConnectionResetError) as exc:
-            last_error = exc
-            if attempt == 4:
-                raise
-
-        time.sleep(BACKOFF[min(attempt - 1, len(BACKOFF) - 1)])
-
-    raise RuntimeError(f"request failed: {last_error}")
-
-
 def _prompt(packet: dict[str, Any], repair: bool) -> str:
     suffix = FORMAT_REPAIR_SUFFIX if repair else ""
     return PROMPT + suffix + "\n\nARCHIVE:\n" + json.dumps(packet, ensure_ascii=False)
+
+
+def validate(parsed: dict[str, Any]) -> None:
+    expected = {"challenge", "intervention", "predicted_direction", "rationale_ids"}
+    if set(parsed) != expected:
+        raise ValueError("schema keys mismatch")
+    if parsed["predicted_direction"] not in {"different", "same", None}:
+        raise ValueError("bad predicted_direction")
+    if not isinstance(parsed["rationale_ids"], list):
+        raise ValueError("bad rationale_ids")
+    if not all(isinstance(x, str) for x in parsed["rationale_ids"]):
+        raise ValueError("bad rationale_ids")
+    if parsed["challenge"] is not None and not isinstance(parsed["challenge"], str):
+        raise ValueError("bad challenge")
+    if parsed["intervention"] is not None and not isinstance(parsed["intervention"], str):
+        raise ValueError("bad intervention")
+
+
+def with_transport_retry(fn):
+    last_exc: Exception | None = None
+    for attempt in range(1, 5):
+        try:
+            return fn(), attempt
+        except Exception as exc:
+            last_exc = exc
+            # SDK clients normalize network/rate-limit/server failures differently.
+            # Calibration distinguishes transport/API failure from scientific failure;
+            # no semantic answer is retried here.
+            if attempt == 4:
+                raise
+            time.sleep(BACKOFF[min(attempt - 1, len(BACKOFF) - 1)])
+    raise RuntimeError(f"transport failed: {last_exc}")
 
 
 def groq_call(
@@ -122,9 +125,9 @@ def groq_call(
     seed: int,
     repair: bool = False,
 ) -> tuple[dict[str, Any], dict[str, Any], int]:
-    api_key = os.environ["GROQ_API_KEY"]
+    client = Groq(api_key=os.environ["GROQ_API_KEY"], max_retries=0)
 
-    payload: dict[str, Any] = {
+    kwargs: dict[str, Any] = {
         "model": model_cfg["model"],
         "messages": [{"role": "user", "content": _prompt(packet, repair)}],
         "temperature": TEMPERATURE,
@@ -133,10 +136,11 @@ def groq_call(
         "max_completion_tokens": MAX_OUTPUT_TOKENS,
         "reasoning_effort": model_cfg["reasoning_effort"],
         "reasoning_format": model_cfg["reasoning_format"],
+        "stream": False,
     }
 
     if model_cfg["model"] == "openai/gpt-oss-120b":
-        payload["response_format"] = {
+        kwargs["response_format"] = {
             "type": "json_schema",
             "json_schema": {
                 "name": "episteme_challenge",
@@ -145,19 +149,14 @@ def groq_call(
             },
         }
     else:
-        payload["response_format"] = {"type": "json_object"}
+        kwargs["response_format"] = {"type": "json_object"}
 
-    raw, attempts = request_json(
-        "https://api.groq.com/openai/v1/chat/completions",
-        {
-            "Authorization": f"Bearer {api_key}",
-            "Content-Type": "application/json",
-        },
-        payload,
+    response, attempts = with_transport_retry(
+        lambda: client.chat.completions.create(**kwargs)
     )
-
-    content = raw["choices"][0]["message"]["content"]
-    parsed = json.loads(content)
+    content = response.choices[0].message.content
+    parsed = json.loads(content or "{}")
+    raw = response.model_dump()
     return raw, parsed, attempts
 
 
@@ -167,59 +166,36 @@ def gemini_call(
     seed: int,
     repair: bool = False,
 ) -> tuple[dict[str, Any], dict[str, Any], int]:
-    api_key = os.environ["GEMINI_API_KEY"]
-    url = (
-        "https://generativelanguage.googleapis.com/v1beta/models/"
-        f"{model_cfg['model']}:generateContent?key={api_key}"
+    client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+
+    config = types.GenerateContentConfig(
+        temperature=TEMPERATURE,
+        top_p=TOP_P,
+        max_output_tokens=MAX_OUTPUT_TOKENS,
+        response_mime_type="application/json",
+        response_json_schema=RESPONSE_SCHEMA,
+        seed=seed,
     )
 
-    payload = {
-        "contents": [
-            {
-                "role": "user",
-                "parts": [{"text": _prompt(packet, repair)}],
-            }
-        ],
-        "generationConfig": {
-            "temperature": TEMPERATURE,
-            "topP": TOP_P,
-            "maxOutputTokens": MAX_OUTPUT_TOKENS,
-            "responseMimeType": "application/json",
-            "responseJsonSchema": RESPONSE_SCHEMA,
-            "seed": seed,
-        },
+    response, attempts = with_transport_retry(
+        lambda: client.models.generate_content(
+            model=model_cfg["model"],
+            contents=_prompt(packet, repair),
+            config=config,
+        )
+    )
+
+    parsed = json.loads(response.text or "{}")
+    raw = {
+        "text": response.text,
+        "usage_metadata": (
+            response.usage_metadata.model_dump()
+            if getattr(response, "usage_metadata", None) is not None
+            and hasattr(response.usage_metadata, "model_dump")
+            else str(getattr(response, "usage_metadata", None))
+        ),
     }
-
-    raw, attempts = request_json(
-        url,
-        {"Content-Type": "application/json"},
-        payload,
-    )
-
-    content = raw["candidates"][0]["content"]["parts"][0]["text"]
-    parsed = json.loads(content)
     return raw, parsed, attempts
-
-
-def validate(parsed: dict[str, Any]) -> None:
-    expected = {"challenge", "intervention", "predicted_direction", "rationale_ids"}
-
-    if set(parsed) != expected:
-        raise ValueError("schema keys mismatch")
-
-    if parsed["predicted_direction"] not in {"different", "same", None}:
-        raise ValueError("bad predicted_direction")
-
-    if not isinstance(parsed["rationale_ids"], list):
-        raise ValueError("bad rationale_ids")
-    if not all(isinstance(x, str) for x in parsed["rationale_ids"]):
-        raise ValueError("bad rationale_ids")
-
-    if parsed["challenge"] is not None and not isinstance(parsed["challenge"], str):
-        raise ValueError("bad challenge")
-
-    if parsed["intervention"] is not None and not isinstance(parsed["intervention"], str):
-        raise ValueError("bad intervention")
 
 
 def call_model(
@@ -229,23 +205,19 @@ def call_model(
 ) -> tuple[dict[str, Any], dict[str, Any], int, int]:
     cfg = MODELS[model_key]
     clean_packet = {k: v for k, v in packet.items() if not k.startswith("_")}
-
     caller = groq_call if cfg["provider"] == "groq" else gemini_call
 
     raw, parsed, attempts = caller(cfg, clean_packet, seed, False)
-
     try:
         validate(parsed)
         return raw, parsed, attempts, 0
     except Exception:
-        # Exactly one repair retry, and only for format/schema failure.
         raw2, parsed2, attempts2 = caller(cfg, clean_packet, seed, True)
         validate(parsed2)
         return raw2, parsed2, attempts + attempts2, 1
 
 
 def calibration_packets() -> list[dict[str, Any]]:
-    # Deliberately unrelated toy packets; they reveal no P16 pair structure.
     return [
         {
             "archive_id": "cal-v1",
@@ -257,17 +229,9 @@ def calibration_packets() -> list[dict[str, Any]]:
                 {"history": "b", "trace": ["rB"]},
             ],
             "relation_notes": [
-                {
-                    "source": "rA/rB",
-                    "intervention": "c1",
-                    "response_link": "history-sensitive",
-                }
+                {"source": "rA/rB", "intervention": "c1", "response_link": "history-sensitive"}
             ],
-            "_expected": {
-                "kind": "VALID",
-                "intervention": "c1",
-                "direction": "different",
-            },
+            "_expected": {"kind": "VALID", "intervention": "c1", "direction": "different"},
         },
         {
             "archive_id": "cal-v2",
@@ -279,17 +243,9 @@ def calibration_packets() -> list[dict[str, Any]]:
                 {"history": "b", "trace": ["q"]},
             ],
             "relation_notes": [
-                {
-                    "source": "p/q",
-                    "intervention": "c4",
-                    "response_link": "history-sensitive",
-                }
+                {"source": "p/q", "intervention": "c4", "response_link": "history-sensitive"}
             ],
-            "_expected": {
-                "kind": "VALID",
-                "intervention": "c4",
-                "direction": "different",
-            },
+            "_expected": {"kind": "VALID", "intervention": "c4", "direction": "different"},
         },
         {
             "archive_id": "cal-n1",
@@ -301,11 +257,7 @@ def calibration_packets() -> list[dict[str, Any]]:
                 {"history": "b", "trace": ["d2"]},
             ],
             "relation_notes": [
-                {
-                    "source": "d1/d2",
-                    "intervention": "c5",
-                    "response_link": "history-invariant",
-                }
+                {"source": "d1/d2", "intervention": "c5", "response_link": "history-invariant"}
             ],
             "_expected": {"kind": "NONE"},
         },
@@ -319,26 +271,17 @@ def calibration_packets() -> list[dict[str, Any]]:
                 {"history": "b", "trace": ["y"]},
             ],
             "relation_notes": [
-                {
-                    "source": "x/y",
-                    "intervention": "c6",
-                    "response_link": "irrelevant",
-                }
+                {"source": "x/y", "intervention": "c6", "response_link": "irrelevant"}
             ],
             "_expected": {"kind": "NONE"},
         },
     ]
 
 
-def calibration_correct(
-    parsed: dict[str, Any],
-    expected: dict[str, Any],
-) -> bool:
+def calibration_correct(parsed: dict[str, Any], expected: dict[str, Any]) -> bool:
     challenge = parsed.get("challenge")
-
     if expected["kind"] == "NONE":
         return challenge is None or str(challenge).upper() == "NONE"
-
     return (
         challenge is not None
         and str(challenge).upper() != "NONE"
@@ -355,16 +298,10 @@ def run_calibration(model_key: str) -> dict[str, Any]:
 
     for i, packet in enumerate(calibration_packets()):
         expected = packet["_expected"]
-
         try:
-            raw, parsed, attempts, format_repairs = call_model(
-                model_key,
-                packet,
-                9000 + i,
-            )
+            raw, parsed, attempts, format_repairs = call_model(model_key, packet, 9000 + i)
             ok = calibration_correct(parsed, expected)
             status = "OK" if ok else "SEMANTIC_FAIL"
-
         except Exception as exc:
             raw = {"error": repr(exc)}
             parsed = None
@@ -374,30 +311,23 @@ def run_calibration(model_key: str) -> dict[str, Any]:
             status = "FORMAT_OR_API_FAIL"
 
         total_correct += int(ok)
-
         if expected["kind"] == "VALID":
             valid_correct += int(ok)
         else:
             none_correct += int(ok)
 
-        rows.append(
-            {
-                "packet_id": packet["archive_id"],
-                "expected_kind": expected["kind"],
-                "correct": ok,
-                "status": status,
-                "http_attempts": attempts,
-                "format_repairs": format_repairs,
-                "raw_response": raw,
-                "parsed_response": parsed,
-            }
-        )
+        rows.append({
+            "packet_id": packet["archive_id"],
+            "expected_kind": expected["kind"],
+            "correct": ok,
+            "status": status,
+            "http_attempts": attempts,
+            "format_repairs": format_repairs,
+            "raw_response": raw,
+            "parsed_response": parsed,
+        })
 
-    passed = (
-        total_correct >= 3
-        and valid_correct >= 1
-        and none_correct >= 1
-    )
+    passed = total_correct >= 3 and valid_correct >= 1 and none_correct >= 1
 
     return {
         "stage": STAGE,
@@ -429,15 +359,11 @@ def run_main(model_key: str) -> dict[str, Any]:
 
         for item in ordered:
             started = now_iso()
-
             try:
                 raw, parsed, attempts, format_repairs = call_model(
-                    model_key,
-                    item["packet"],
-                    seed,
+                    model_key, item["packet"], seed
                 )
                 status = "OK"
-
             except Exception as exc:
                 raw = {"error": repr(exc)}
                 parsed = None
@@ -445,29 +371,27 @@ def run_main(model_key: str) -> dict[str, Any]:
                 format_repairs = 0
                 status = "FORMAT_OR_API_FAIL"
 
-            rows.append(
-                {
-                    "stage": STAGE,
-                    "phase": "main",
-                    "provider": MODELS[model_key]["provider"],
-                    "model": MODELS[model_key]["model"],
-                    "model_endpoint": MODELS[model_key]["model"],
-                    "run_started_at": started,
-                    "packet_id": item["packet_id"],
-                    "replicate": rep,
-                    "seed": seed,
-                    "sampling": {
-                        "temperature": TEMPERATURE,
-                        "top_p": TOP_P,
-                        "max_output_tokens": MAX_OUTPUT_TOKENS,
-                    },
-                    "http_attempts": attempts,
-                    "format_repairs": format_repairs,
-                    "status": status,
-                    "raw_response": raw,
-                    "parsed_response": parsed,
-                }
-            )
+            rows.append({
+                "stage": STAGE,
+                "phase": "main",
+                "provider": MODELS[model_key]["provider"],
+                "model": MODELS[model_key]["model"],
+                "model_endpoint": MODELS[model_key]["model"],
+                "run_started_at": started,
+                "packet_id": item["packet_id"],
+                "replicate": rep,
+                "seed": seed,
+                "sampling": {
+                    "temperature": TEMPERATURE,
+                    "top_p": TOP_P,
+                    "max_output_tokens": MAX_OUTPUT_TOKENS,
+                },
+                "http_attempts": attempts,
+                "format_repairs": format_repairs,
+                "status": status,
+                "raw_response": raw,
+                "parsed_response": parsed,
+            })
 
     return {
         "stage": STAGE,
@@ -481,30 +405,16 @@ def run_main(model_key: str) -> dict[str, Any]:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--phase",
-        choices=["calibration", "main"],
-        required=True,
-    )
-    parser.add_argument(
-        "--model",
-        choices=sorted(MODELS),
-        required=True,
-    )
+    parser.add_argument("--phase", choices=["calibration", "main"], required=True)
+    parser.add_argument("--model", choices=sorted(MODELS), required=True)
     parser.add_argument("--out", required=True)
     args = parser.parse_args()
 
-    if args.phase == "calibration":
-        result = run_calibration(args.model)
-    else:
-        result = run_main(args.model)
+    result = run_calibration(args.model) if args.phase == "calibration" else run_main(args.model)
 
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(
-        json.dumps(result, ensure_ascii=False, indent=2),
-        encoding="utf-8",
-    )
+    out.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
 
     if args.phase == "calibration" and not result["pass"]:
         raise SystemExit(2)
