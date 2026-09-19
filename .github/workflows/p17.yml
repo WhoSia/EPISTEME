@@ -29,7 +29,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Install API SDKs\n        run: pip install groq google-genai\n      - name: Run Qwen arm
+      - name: Install API SDKs
+        run: pip install groq google-genai
+      - name: Run Qwen arm
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
         run: |
@@ -49,7 +51,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Install API SDKs\n        run: pip install groq google-genai\n      - name: Run Gemini arm
+      - name: Install API SDKs
+        run: pip install groq google-genai
+      - name: Run Gemini arm
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
@@ -70,7 +74,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Install API SDKs\n        run: pip install groq google-genai\n      - name: Run GPT-OSS confirmatory arm
+      - name: Install API SDKs
+        run: pip install groq google-genai
+      - name: Run GPT-OSS confirmatory arm
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
         run: |
