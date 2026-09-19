@@ -12,13 +12,24 @@ Active execution surface for the EPISTEME research program.
 
 ## Active stage
 
-**EPISTEME-P15 — Independent Blind Challenge Generation, Mixed Critical–Null–Recoverable Packet Replay, Cross-Generator Concordance & SVEC Behavioral-Externalization Gate**
+**EPISTEME-P16 — External Blind Generator Replay, Hidden Retention-Class Assignment, Recoverable-Coarse Positive Controls, Cross-Model Criticism Transfer & SVEC Behavioral Robustness Probe**
 
-The active harness separates:
-1. packet construction,
-2. two structurally different blind challenge generators,
-3. hidden audit labels used only by the scorer.
+P16 is the **Twin-Archive Counterexample Test**.
 
-P15 can test algorithmic cross-generator robustness. It cannot by itself establish independent-model or human/LLM behavioral externalization.
+Each external generator sees one blinded scientific archive packet at a time and is asked only:
 
-Canonical research state and execution receipts remain in the EPISTEME Notion/Drive lineage.
+> What is the strongest admissible experiment that could falsify the incumbent sufficiency claim? If the packet does not justify one, return NONE.
+
+The same canonical world is projected into:
+- **R** — retains the counterexample-generating historical relation;
+- **C** — lawful coarse projection;
+- **S** — sham-rich projection with matched irrelevant detail.
+
+Hidden audit classes distinguish:
+- **critical** — C loses every equivalent counterexample witness;
+- **recoverable** — C retains an equivalent sufficient witness;
+- **null** — no genuine counterexample exists even in R.
+
+Primary evidence comes from paired challenge generation and cross-model criticism transfer. Retention labels and audit classes are never exposed to generators.
+
+The repository contains only the active P16 packet/scoring harness. Canonical receipts remain in Notion/Drive.
