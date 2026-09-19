@@ -1,0 +1,100 @@
+{
+  "stage": "EPISTEME-P17",
+  "descriptor": "Competence Calibration, Sampling Constitution, Retry Semantics, Stateless Runner, GitHub Actions Manual Launch & Blind Receipt Pipeline",
+  "status": "FROZEN",
+  "models": {
+    "primary_a": {
+      "provider": "groq",
+      "model": "qwen/qwen3.6-27b",
+      "role": "primary",
+      "reasoning_effort": "default",
+      "reasoning_format": "hidden"
+    },
+    "primary_b": {
+      "provider": "gemini",
+      "model": "gemini-2.5-flash-lite",
+      "role": "primary"
+    },
+    "confirmatory_c": {
+      "provider": "groq",
+      "model": "openai/gpt-oss-120b",
+      "role": "confirmatory",
+      "reasoning_effort": "medium",
+      "reasoning_format": "hidden"
+    }
+  },
+  "sampling": {
+    "temperature": 0.6,
+    "top_p": 0.95,
+    "replicates": 3,
+    "replicate_seeds": [1701, 1702, 1703],
+    "packet_success_rule": "at least 2 of 3 replicates admissible",
+    "max_output_tokens": 512,
+    "stateless": true,
+    "one_packet_per_request": true
+  },
+  "competence_calibration": {
+    "toy_packets": 4,
+    "composition": "2 obvious falsifier + 2 obvious NONE",
+    "replicates": 1,
+    "pass_rule": "at least 3/4 correct AND at least one correct VALID and one correct NONE",
+    "failure_action": "stop that model before blinded main packets; do not tune prompt from experimental results"
+  },
+  "retry": {
+    "transport_retry_limit": 3,
+    "retryable": [
+      "HTTP 408",
+      "HTTP 409",
+      "HTTP 425",
+      "HTTP 429",
+      "HTTP 5xx",
+      "connection reset",
+      "timeout"
+    ],
+    "non_retryable": [
+      "valid semantic answer",
+      "NONE answer",
+      "wrong intervention",
+      "wrong direction",
+      "schema-valid scientific failure"
+    ],
+    "format_failure": "one schema-repair retry using the same packet and same model parameters; if still invalid, FORMAT_FAIL",
+    "backoff_seconds": [2, 8, 20]
+  },
+  "blinding": {
+    "runner_must_not_import_hidden_key": true,
+    "runner_input": "blinded packet compiler output only",
+    "pair_identity_hidden": true,
+    "retention_class_hidden": true,
+    "audit_class_hidden": true,
+    "model_runs_stateless": true,
+    "scoring_after_generation_complete": true
+  },
+  "receipt": {
+    "raw_location": "workflow artifact for transient handoff; canonical research receipt is Notion/Google Drive after adjudication",
+    "commit_outputs": false,
+    "fields": [
+      "stage",
+      "provider",
+      "model",
+      "model_endpoint",
+      "run_started_at",
+      "packet_id",
+      "replicate",
+      "seed",
+      "sampling",
+      "http_attempts",
+      "status",
+      "raw_response",
+      "parsed_response",
+      "usage_if_available"
+    ]
+  },
+  "launch": {
+    "workflow": ".github/workflows/p17.yml",
+    "trigger": "workflow_dispatch",
+    "default_phase": "calibration",
+    "main_phase_requires": "explicit workflow input phase=main after calibration receipt is checked",
+    "confirmatory_arm": "included from the start; never enabled conditionally on primary outcome"
+  }
+}
