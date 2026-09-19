@@ -1,0 +1,23 @@
+{
+  "stage": "EPISTEME-P19",
+  "descriptor": "Matched Recoverable-Witness Reconstruction, Positive-Control Representational Equating, Minimal Replay & SVEC Attribution Reopening",
+  "status": "PRECOMMITTED",
+  "scope": "C-retention only",
+  "packets": {
+    "critical_C": 6,
+    "recoverable_C_matched": 3,
+    "null_C_structurally_matched": 3,
+    "total_per_model": 12
+  },
+  "replicates": 3,
+  "participants": ["qwen/qwen3.8-27b", "gemini-3.5-flash-lite", "openai/gpt-oss-120b"],
+  "total_calls": 108,
+  "matched_control_gate": {
+    "critical_C": "<=2/6",
+    "recoverable_C": ">=2/3",
+    "null_C_false_positive": "<=1/3",
+    "packet_success": ">=2/3 admissible replicates"
+  },
+  "reopening_rule": "At least 2/3 models must pass the matched-control gate; primary-pair pass is reported separately.",
+  "authority": "Reopens attribution design only. Does not itself promote behavioral SVEC."
+}
