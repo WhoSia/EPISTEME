@@ -148,8 +148,10 @@ def groq_call(
                 "schema": RESPONSE_SCHEMA,
             },
         }
-    else:
-        kwargs["response_format"] = {"type": "json_object"}
+    # Qwen 3.6 is intentionally left in text mode. Its server-side JSON Object
+    # mode can reject a generation before content is returned (json_validate_failed).
+    # The frozen prompt still requires JSON, and local validation permits exactly
+    # one format-only repair without changing the scientific judgment.
 
     response, attempts = with_transport_retry(
         lambda: client.chat.completions.create(**kwargs)
