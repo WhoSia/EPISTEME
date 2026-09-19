@@ -1,0 +1,83 @@
+name: EPISTEME P17 blind replay
+
+on:
+  workflow_dispatch:
+    inputs:
+      phase:
+        description: "calibration first; run main only after calibration receipts pass"
+        required: true
+        default: calibration
+        type: choice
+        options:
+          - calibration
+          - main
+      include_confirmatory:
+        description: "include GPT-OSS confirmatory arm"
+        required: true
+        default: true
+        type: boolean
+
+permissions:
+  contents: read
+
+jobs:
+  qwen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run Qwen arm
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: |
+          python src/p17_external_run.py --phase "${{ inputs.phase }}" --model qwen --out "receipts/qwen_${{ inputs.phase }}.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: p17-qwen-${{ inputs.phase }}
+          path: receipts/
+          retention-days: 7
+
+  gemini:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run Gemini arm
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          python src/p17_external_run.py --phase "${{ inputs.phase }}" --model gemini --out "receipts/gemini_${{ inputs.phase }}.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: p17-gemini-${{ inputs.phase }}
+          path: receipts/
+          retention-days: 7
+
+  gptoss:
+    if: ${{ inputs.include_confirmatory }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run GPT-OSS confirmatory arm
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: |
+          python src/p17_external_run.py --phase "${{ inputs.phase }}" --model gptoss --out "receipts/gptoss_${{ inputs.phase }}.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: p17-gptoss-${{ inputs.phase }}
+          path: receipts/
+          retention-days: 7
