@@ -1,0 +1,20 @@
+{
+  "stage": "EPISTEME-P15",
+  "title": "Independent Blind Challenge Generation, Mixed Critical–Null–Recoverable Packet Replay, Cross-Generator Concordance & SVEC Behavioral-Externalization Gate",
+  "status": "ACTIVE",
+  "seed": 20260919,
+  "design": {
+    "critical_worlds": 8,
+    "recoverable_coarse_worlds": 5,
+    "null_worlds": 5,
+    "retentions": ["R", "C", "S"],
+    "blind_generators": ["graph_cut_generator", "constraint_witness_generator"]
+  },
+  "repository_policy": {
+    "branching": "main-only unless a future engineering task genuinely needs isolation",
+    "keep": "current executable harness and active configuration only",
+    "archive": "Google Drive / Notion",
+    "results": "do not commit routine execution ledgers"
+  },
+  "promotion_ceiling": "algorithmic cross-generator robustness only; independent-model/human behavioral externalization remains gated"
+}
