@@ -1,0 +1,68 @@
+{
+  "stage": "EPISTEME-P24",
+  "descriptor": "Model-Conditional Transport Regimes, Representation Boundary Normal Forms, Cross-Model Quotient Failure & Minimal Behavioral Sufficiency Classification",
+  "canonical_run_id": 35907755393,
+  "canonical_run_head_sha": "f35720ac544732ee5b0b5d62240775fac3bd2d28",
+  "workflow_conclusion": "success",
+  "frozen_rules_applied": true,
+  "evaluable_models": 2,
+  "models": {
+    "qwen": {
+      "arm_evaluable": true,
+      "format_or_api_failures": "0/90",
+      "inherited_regime": "GLOBAL_ABSTENTION_REGIME",
+      "families": {
+        "filler_only": {"valid_success": "0/3", "null_false_positive": "0/3", "selective_pass": false},
+        "rename_plus_filler": {"valid_success": "0/3", "null_false_positive": "0/3", "selective_pass": false},
+        "rename_plus_history": {"valid_success": "0/3", "null_false_positive": "0/3", "selective_pass": false},
+        "rename_plus_trace": {"valid_success": "0/3", "null_false_positive": "0/3", "selective_pass": false},
+        "rename_plus_relation": {"valid_success": "0/3", "null_false_positive": "0/3", "selective_pass": false}
+      },
+      "rename_rescue_set": [],
+      "boundary_normal_form": "NO_SINGLE_COORDINATE_RESCUE / GLOBAL_ABSTENTION_PERSISTS",
+      "minimal_behavioral_sufficiency": "NO_BEHAVIORAL_SUFFICIENCY / GLOBAL_ABSTENTION"
+    },
+    "gemini": {
+      "arm_evaluable": true,
+      "format_or_api_failures": "0/90",
+      "inherited_regime": "SELECTIVE_BUT_RENAME_SENSITIVE_NONMONOTONE_REGIME",
+      "families": {
+        "filler_only": {"valid_success": "2/3", "null_false_positive": "1/3", "selective_pass": true},
+        "rename_plus_filler": {"valid_success": "3/3", "null_false_positive": "1/3", "selective_pass": true},
+        "rename_plus_history": {"valid_success": "3/3", "null_false_positive": "1/3", "selective_pass": true},
+        "rename_plus_trace": {"valid_success": "3/3", "null_false_positive": "1/3", "selective_pass": true},
+        "rename_plus_relation": {"valid_success": "3/3", "null_false_positive": "1/3", "selective_pass": true}
+      },
+      "rename_rescue_set": ["F", "H", "T", "L"],
+      "boundary_normal_form": "R FAIL; R+F, R+H, R+T, R+L PASS. Rename sensitivity is non-monotone and is rescued by every tested single additional representation coordinate.",
+      "minimal_behavioral_sufficiency": "SURFACE-RESPONSIVE MINIMAL / NOT STRUCTURALLY NECESSITY-CERTIFIED: minimal valid passes, but no-provenance and no-source-join ablations still trigger; intervention removal suppresses criticism"
+    },
+    "gptoss": {
+      "arm_evaluable": false,
+      "format_or_api_failures": "23/90",
+      "inherited_regime": "TECHNICALLY_UNEVALUABLE",
+      "descriptive_only_families": {
+        "filler_only": {"valid_success": "2/3", "null_false_positive": "0/3", "selective_pass": true},
+        "rename_plus_filler": {"valid_success": "2/3", "null_false_positive": "0/3", "selective_pass": true},
+        "rename_plus_history": {"valid_success": "0/3", "null_false_positive": "0/3", "selective_pass": false},
+        "rename_plus_trace": {"valid_success": "1/3", "null_false_positive": "0/3", "selective_pass": false},
+        "rename_plus_relation": {"valid_success": "1/3", "null_false_positive": "0/3", "selective_pass": false}
+      },
+      "boundary_normal_form": "UNCLASSIFIED / ARM UNEVALUABLE",
+      "minimal_behavioral_sufficiency": "UNCLASSIFIED / P23-P24 TECHNICAL UNEVALUABILITY"
+    }
+  },
+  "program_level": {
+    "transport_regime": "MODEL_CONDITIONAL_TRANSPORT_CONFIRMED",
+    "boundary_normal_forms": {
+      "qwen": "EMPTY_RESCUE_SET_WITH_GLOBAL_ABSTENTION",
+      "gemini": "R_FAIL_WITH_ALL_TESTED_SINGLE_COORDINATE_RESCUES_{F,H,T,L}",
+      "gptoss": "UNCLASSIFIED"
+    },
+    "cross_model_quotient": "CROSS_MODEL_QUOTIENT_FAILURE",
+    "cross_model_quotient_reason": "The two evaluable models do not share inherited regime class, rename rescue set, or minimal behavioral sufficiency class.",
+    "minimal_behavioral_sufficiency": "MODEL_CONDITIONAL: absent under Qwen global abstention; surface-responsive but not necessity-certified under Gemini; unclassified for GPT-OSS.",
+    "behavioral_svec_promotion": false
+  },
+  "authority": "Diagnostic classification only. No universal transport law and no behavioral SVEC promotion."
+}
