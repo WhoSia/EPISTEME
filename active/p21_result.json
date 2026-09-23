@@ -1,0 +1,56 @@
+{
+  "stage": "EPISTEME-P21",
+  "descriptor": "Schema-Invariant Provenance Role-Swap, P19-Compatible Witness Transport, False-Linkage Elimination & Behavioral SVEC Re-Identification",
+  "run_id": 35824986805,
+  "run_head_sha": "1648da770439b309c1a6e92f87b46a68c6937c47",
+  "workflow_conclusion": "success",
+  "scientific_verdict": "FAIL_REIDENTIFICATION",
+  "models": {
+    "qwen": {
+      "arm_evaluable": true,
+      "format_or_api_failures": "0/48",
+      "cells": {
+        "P0H0_fp": "0/4",
+        "P0H1_fp": "0/4",
+        "P1H0_fp": "0/4",
+        "P1H1_success": "0/4"
+      },
+      "gate_pass": false,
+      "diagnostic": "blanket abstention in the positive cell despite clean negative controls"
+    },
+    "gemini": {
+      "arm_evaluable": true,
+      "format_or_api_failures": "0/48",
+      "cells": {
+        "P0H0_fp": "0/4",
+        "P0H1_fp": "4/4",
+        "P1H0_fp": "0/4",
+        "P1H1_success": "4/4"
+      },
+      "gate_pass": false,
+      "diagnostic": "history-sensitive target relation dominates source provenance; P0H1 remains positive"
+    },
+    "gptoss": {
+      "arm_evaluable": false,
+      "format_or_api_failures": "12/48",
+      "cells": {
+        "P0H0_fp": "0/4",
+        "P0H1_fp": "4/4",
+        "P1H0_fp": "0/4",
+        "P1H1_success": "1/4"
+      },
+      "gate_pass": null,
+      "diagnostic": "technical unevaluability plus P0H1 susceptibility among surviving responses"
+    }
+  },
+  "program_level": {
+    "evaluable_models": 2,
+    "models_passing": 0,
+    "behavioral_svec_reidentification": false
+  },
+  "interpretation": {
+    "licensed": "P21 does not re-identify behavioral SVEC under the schema-invariant A/B provenance role swap.",
+    "not_licensed": "This does not show that the latent witness is behaviorally unusable under every representation.",
+    "successor": "Map equivalence-class transport and minimal sufficient encodings across explicitly precommitted representation families."
+  }
+}
