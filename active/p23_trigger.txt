@@ -1,0 +1,3 @@
+trigger=2026-09-24T04:07+09:00
+stage=EPISTEME-P23
+single_use=true
