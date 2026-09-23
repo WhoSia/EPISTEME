@@ -1,0 +1,45 @@
+{
+  "stage": "EPISTEME-P22",
+  "descriptor": "Cross-Representation Witness Transport, Provenance–Relation Equivalence Classes, Minimal Sufficient Archive Encoding & SVEC Representation-Invariance Test",
+  "status": "PRECOMMITTED",
+  "predecessor": {
+    "stage": "EPISTEME-P21",
+    "verdict": "FAIL_REIDENTIFICATION",
+    "interpretation": "P22 maps representation dependence directly rather than assuming P21 success."
+  },
+  "equivalence_classes": {
+    "WITNESS_VALID": "history-discriminating provenance source linked to oracle intervention by a history-sensitive relation",
+    "WITNESS_NULL": "same provenance linkage but history-invariant target relation",
+    "WITNESS_INSUFFICIENT": "history-sensitive target wording without a history-discriminating provenance contrast"
+  },
+  "representations": {
+    "canonical": "P19-compatible direct encoding with distractors",
+    "alpha_permuted": "alpha-renamed identifiers plus list/trace permutation; same latent graph",
+    "minimal": "only the provenance contrast and target relation retained"
+  },
+  "design": {
+    "worlds": 4,
+    "representations": 3,
+    "semantic_twins_per_representation": 2,
+    "minimal_no_provenance_ablation_per_world": 1,
+    "packets_per_model": 28,
+    "replicates": 3,
+    "participants": [
+      "qwen/qwen3.8-27b",
+      "gemini-3.5-flash-lite",
+      "openai/gpt-oss-120b"
+    ],
+    "total_calls": 252
+  },
+  "frozen_gate": {
+    "packet_correct": ">=2/3 replicates",
+    "arm_evaluable": "every packet has >=2 OK replicates",
+    "per_representation": "valid success >=3/4 and null false-positive <=1/4",
+    "valid_cross_representation_transport": ">=3/4 worlds correct across all three representations",
+    "null_cross_representation_transport": ">=3/4 worlds correct across all three representations",
+    "minimal_no_provenance_false_positive": "<=1/4",
+    "program_level": ">=2 evaluable models pass full invariance gate",
+    "technical_hold": "<2 evaluable models"
+  },
+  "authority": "PASS establishes behavioral SVEC representation-invariance only over the frozen equivalence class and supports the tested minimal encoding. No claim of arbitrary-representation invariance or universal sufficiency. No post-hoc threshold changes."
+}
