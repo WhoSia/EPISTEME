@@ -1,0 +1,49 @@
+{
+  "stage": "EPISTEME-P21",
+  "descriptor": "Schema-Invariant Provenance Role-Swap, P19-Compatible Witness Transport, False-Linkage Elimination & Behavioral SVEC Re-Identification",
+  "status": "PRECOMMITTED",
+  "predecessor": {
+    "stage": "EPISTEME-P20",
+    "verdict": "FAIL_FULL_GATE / NO_BEHAVIORAL_SVEC_PROMOTION",
+    "licensed_successor": "new-stage diagnostic re-identification without threshold changes or P20 rerun"
+  },
+  "design": {
+    "factors": {
+      "P": "relation source is the history-discriminating provenance family A rather than history-invariant family B",
+      "H": "target relation is history-sensitive rather than history-invariant"
+    },
+    "cells": ["P0H0", "P0H1", "P1H0", "P1H1"],
+    "worlds_per_cell": 4,
+    "packets_per_model": 16,
+    "replicates": 3,
+    "participants": [
+      "qwen/qwen3.8-27b",
+      "gemini-3.5-flash-lite",
+      "openai/gpt-oss-120b"
+    ],
+    "total_calls": 144
+  },
+  "schema_invariance": {
+    "p19_field_vocabulary_only": true,
+    "visible_key_field": false,
+    "retained_history_shape_fixed": true,
+    "relation_notes_shape_fixed": true,
+    "token_inventory_fixed_within_world": true,
+    "A_provenance": "history A contains A; history B contains A-alt",
+    "B_provenance": "both histories contain the identical B token",
+    "P_manipulation": "swap which source receives the target intervention relation",
+    "H_manipulation": "swap target response_link between history-sensitive and history-invariant",
+    "criterion_disclosed_to_model": false
+  },
+  "frozen_gate": {
+    "packet_correct": ">=2/3 replicates",
+    "arm_evaluable": "every packet has >=2 OK replicates",
+    "P1H1_specific_success": ">=3/4",
+    "P0H0_false_positive": "<=1/4",
+    "P0H1_false_positive": "<=1/4",
+    "P1H0_false_positive": "<=1/4",
+    "program_level": ">=2 evaluable models pass full scientific gate",
+    "technical_hold": "<2 evaluable models"
+  },
+  "authority": "PASS re-identifies behavioral SVEC under schema-invariant provenance role swap and reopens promotion lineage. It does not by itself establish broad representation-invariance. No post-hoc threshold changes."
+}
