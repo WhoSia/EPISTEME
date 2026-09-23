@@ -2,6 +2,9 @@ name: EPISTEME P23 failure-geometry replay
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - "active/p23_trigger.txt"
 
 permissions:
   contents: read
