@@ -1,0 +1,100 @@
+{
+  "stage": "EPISTEME-P22",
+  "descriptor": "Cross-Representation Witness Transport, Provenance–Relation Equivalence Classes, Minimal Sufficient Archive Encoding & SVEC Representation-Invariance Test",
+  "run_id": 35826697179,
+  "run_head_sha": "1d10b136adae8188f769600ccb53698d24c4e68d",
+  "workflow_conclusion": "success",
+  "scientific_verdict": "FAIL_REPRESENTATION_INVARIANCE",
+  "models": {
+    "qwen": {
+      "arm_evaluable": true,
+      "format_or_api_failures": "0/84",
+      "representations": {
+        "canonical": {
+          "valid_success": "0/4",
+          "null_fp": "0/4",
+          "gate_pass": false
+        },
+        "alpha_permuted": {
+          "valid_success": "0/4",
+          "null_fp": "0/4",
+          "gate_pass": false
+        },
+        "minimal": {
+          "valid_success": "0/4",
+          "null_fp": "0/4",
+          "gate_pass": false
+        }
+      },
+      "cross_representation_transport": {
+        "valid": "0/4",
+        "null": "4/4"
+      },
+      "minimal_no_provenance_fp": "0/4",
+      "full_gate_pass": false,
+      "diagnostic": "representation-independent blanket abstention on all valid witness packets"
+    },
+    "gemini": {
+      "arm_evaluable": true,
+      "format_or_api_failures": "0/84",
+      "representations": {
+        "canonical": {
+          "valid_success": "3/4",
+          "null_fp": "1/4",
+          "gate_pass": true
+        },
+        "alpha_permuted": {
+          "valid_success": "3/4",
+          "null_fp": "2/4",
+          "gate_pass": false
+        },
+        "minimal": {
+          "valid_success": "4/4",
+          "null_fp": "1/4",
+          "gate_pass": true
+        }
+      },
+      "cross_representation_transport": {
+        "valid": "3/4",
+        "null": "2/4"
+      },
+      "minimal_no_provenance_fp": "3/4",
+      "full_gate_pass": false,
+      "diagnostic": "valid transport mostly survives, but alpha-permuted null selectivity and minimal provenance necessity fail"
+    },
+    "gptoss": {
+      "arm_evaluable": false,
+      "format_or_api_failures": "20/84",
+      "representations": {
+        "canonical": {
+          "valid_success": "2/4",
+          "null_fp": "0/4",
+          "gate_pass": false
+        },
+        "alpha_permuted": {
+          "valid_success": "2/4",
+          "null_fp": "0/4",
+          "gate_pass": false
+        },
+        "minimal": {
+          "valid_success": "2/4",
+          "null_fp": "0/4",
+          "gate_pass": false
+        }
+      },
+      "cross_representation_transport": {
+        "valid": "0/4",
+        "null": "4/4"
+      },
+      "minimal_no_provenance_fp": "4/4",
+      "full_gate_pass": null,
+      "diagnostic": "technical unevaluability prevents scientific transport inference"
+    }
+  },
+  "program_level": {
+    "evaluable_models": 2,
+    "models_passing": 0,
+    "behavioral_svec_representation_invariant": false
+  },
+  "successor_authority": "Localize representation-coordinate failure boundaries and decompose minimal-encoding necessity; no SVEC promotion."
+}
