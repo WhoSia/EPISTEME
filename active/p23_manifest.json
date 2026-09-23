@@ -1,0 +1,53 @@
+{
+  "stage": "EPISTEME-P23",
+  "descriptor": "Representation-Dependent Failure Geometry, Equivalence-Class Boundary Localization, Minimal-Encoding Necessity Decomposition & SVEC Transport Law Extraction",
+  "status": "PRECOMMITTED",
+  "predecessor": {
+    "stage": "EPISTEME-P22",
+    "verdict": "FAIL_REPRESENTATION_INVARIANCE",
+    "diagnostic_basis": {
+      "qwen": "valid abstention across canonical/alpha/minimal",
+      "gemini": "canonical and minimal selective pass; alpha null-selectivity failure; no-provenance ablation failure",
+      "gptoss": "unevaluable due 20/84 technical failures"
+    }
+  },
+  "representation_geometry": {
+    "canonical": "P22-compatible baseline",
+    "rename_only": "identifier alpha-renaming only",
+    "history_order_only": "retained-history list order only",
+    "trace_order_only": "within-trace witness position only",
+    "relation_order_only": "relation-note order only",
+    "alpha_full": "joint rename + history order + trace order + relation order",
+    "minimal": "all fillers and distractor relation removed"
+  },
+  "minimal_necessity_decomposition": {
+    "minimal_no_provenance": "erase history-discriminating provenance contrast",
+    "minimal_no_source_join": "preserve contrast but break relation-source joinability",
+    "minimal_no_intervention": "preserve witness relation but remove target intervention from available interventions",
+    "history_sensitivity": "tested by each representation's null semantic twin"
+  },
+  "design": {
+    "worlds": 3,
+    "representation_families": 7,
+    "semantic_twins_per_family": 2,
+    "minimal_ablations_per_world": 3,
+    "packets_per_model": 51,
+    "replicates": 3,
+    "participants": [
+      "qwen/qwen3.8-27b",
+      "gemini-3.5-flash-lite",
+      "openai/gpt-oss-120b"
+    ],
+    "total_calls": 459
+  },
+  "frozen_rules": {
+    "packet_correct": ">=2/3 replicates",
+    "arm_evaluable": "every packet has >=2 OK replicates",
+    "representation_selective_pass": "valid >=2/3 and null false-positive <=1/3",
+    "ablation_necessity_pass": "false-positive <=1/3",
+    "shared_transport_law_candidate": "all evaluable models have identical representation pass maps and identical necessity maps",
+    "otherwise": "MODEL_CONDITIONAL_TRANSPORT",
+    "technical_hold": "<2 evaluable models"
+  },
+  "authority": "Diagnostic only. Extracts a tested-family transport rule or model-conditional failure geometry; no behavioral SVEC promotion and no universal-law claim."
+}
