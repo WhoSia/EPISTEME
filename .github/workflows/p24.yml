@@ -1,11 +1,14 @@
 name: EPISTEME P24 boundary-normal-form replay
+
 on:
   workflow_dispatch:
   push:
     paths:
       - "active/p24_trigger.txt"
+
 permissions:
   contents: read
+
 jobs:
   qwen:
     runs-on: ubuntu-24.04
@@ -13,39 +16,56 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
-        with: {python-version: "3.12"}
+        with:
+          python-version: "3.12"
       - run: pip install groq google-genai
       - name: Run Qwen P24 arm
-        env: {GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}}
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
         run: python src/p24_run.py --model qwen --out receipts/qwen_p24.json
       - uses: actions/upload-artifact@v7
         if: always()
-        with: {name: p24-qwen, path: receipts/qwen_p24.json, retention-days: 7}
+        with:
+          name: p24-qwen
+          path: receipts/qwen_p24.json
+          retention-days: 7
+
   gemini:
     runs-on: ubuntu-24.04
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
-        with: {python-version: "3.12"}
+        with:
+          python-version: "3.12"
       - run: pip install groq google-genai
       - name: Run Gemini P24 arm
-        env: {GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}}
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python src/p24_run.py --model gemini --out receipts/gemini_p24.json
       - uses: actions/upload-artifact@v7
         if: always()
-        with: {name: p24-gemini, path: receipts/gemini_p24.json, retention-days: 7}
+        with:
+          name: p24-gemini
+          path: receipts/gemini_p24.json
+          retention-days: 7
+
   gptoss:
     runs-on: ubuntu-24.04
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
-        with: {python-version: "3.12"}
+        with:
+          python-version: "3.12"
       - run: pip install groq google-genai
       - name: Run GPT-OSS P24 arm
-        env: {GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}}
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
         run: python src/p24_run.py --model gptoss --out receipts/gptoss_p24.json
       - uses: actions/upload-artifact@v7
         if: always()
-        with: {name: p24-gptoss, path: receipts/gptoss_p24.json, retention-days: 7}
+        with:
+          name: p24-gptoss
+          path: receipts/gptoss_p24.json
+          retention-days: 7
