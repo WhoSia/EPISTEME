@@ -1,0 +1,82 @@
+{
+  "stage": "EPISTEME-P29",
+  "source_runs": {
+    "P23": 35828847104,
+    "P24": 35907755393,
+    "P25": 35953236038,
+    "P27": 35956402854
+  },
+  "model": "gemini-3.5-flash-lite",
+  "vertex_order": [
+    "I",
+    "R",
+    "F",
+    "H",
+    "T",
+    "L",
+    "R_F",
+    "R_H",
+    "R_T",
+    "R_L",
+    "F_H",
+    "F_T",
+    "F_L",
+    "H_T",
+    "H_L",
+    "T_L",
+    "R_F_H",
+    "R_F_T",
+    "R_F_L",
+    "R_H_T",
+    "R_H_L",
+    "R_T_L",
+    "F_H_T",
+    "F_H_L",
+    "F_T_L",
+    "H_T_L",
+    "R_F_H_T",
+    "R_F_H_L",
+    "R_F_T_L",
+    "R_H_T_L",
+    "F_H_T_L",
+    "R_F_H_T_L"
+  ],
+  "encoding": "1=FAIL,0=PASS",
+  "worlds": {
+    "W01": {
+      "skin": "measurement-pipeline",
+      "intervention": "u1",
+      "row": "01100001100001011000000100011010"
+    },
+    "W02": {
+      "skin": "analysis-pipeline",
+      "intervention": "u2",
+      "row": "01100110010100101000001101010101"
+    },
+    "W03": {
+      "skin": "sample-handling",
+      "intervention": "u3",
+      "row": "00010000000001001001000001001000"
+    },
+    "W04": {
+      "skin": "measurement-pipeline",
+      "intervention": "u4",
+      "row": "00010000000010100001101001000101"
+    },
+    "W05": {
+      "skin": "analysis-pipeline",
+      "intervention": "u1",
+      "row": "01011010110000001011010001100010"
+    },
+    "W06": {
+      "skin": "sample-handling",
+      "intervention": "u2",
+      "row": "00011001010010100011110011010110"
+    }
+  },
+  "six_world_quotient_class_count": 21,
+  "provenance": {
+    "W01_W03": "P23/P24/P25 canonical Gemini receipts, reconstructed with frozen packet-majority semantics",
+    "W04_W06": "sealed P27 full-cube geometry"
+  }
+}
