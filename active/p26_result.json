@@ -1,0 +1,102 @@
+{
+  "stage": "EPISTEME-P26",
+  "descriptor": "Model-Relative Representation Quotients, Exceptional-Vertex Stability, Transport-Cube Compression & Cross-Model Non-Universality Theorem",
+  "canonical_run_id": 35955779455,
+  "canonical_run_head_sha": "a53f872e695518baef31527ba8e521106e7ad9a5",
+  "workflow_conclusion": "success",
+  "frozen_rules_applied": true,
+  "arm_evaluable": true,
+  "format_or_api_failures": "0/396",
+  "p25_prediction_exception_set": [
+    "R",
+    "H_T_L",
+    "R_F_H",
+    "R_F_T_L"
+  ],
+  "heldout_aggregate": {
+    "stable_exception_vertices": [
+      "H_T_L"
+    ],
+    "predicted_exceptions_that_flipped_to_pass": [
+      "R",
+      "R_F_H",
+      "R_F_T_L"
+    ],
+    "new_fail_vertices": [
+      "R_L",
+      "H_L",
+      "R_F_L",
+      "R_T_L",
+      "R_H_T_L",
+      "F_H_T_L"
+    ],
+    "exact_22_vertex_match": false,
+    "verdict": "EXCEPTION_QUOTIENT_NOT_STABLE"
+  },
+  "heldout_vertex_counts": {
+    "I": "3/3 valid, 0/3 null FP, PASS",
+    "R": "3/3 valid, 1/3 null FP, PASS",
+    "R_F": "3/3 valid, 1/3 null FP, PASS",
+    "R_H": "3/3 valid, 1/3 null FP, PASS",
+    "R_T": "3/3 valid, 1/3 null FP, PASS",
+    "R_L": "3/3 valid, 2/3 null FP, FAIL",
+    "F_H": "3/3 valid, 0/3 null FP, PASS",
+    "H_T": "3/3 valid, 0/3 null FP, PASS",
+    "H_L": "1/3 valid, 0/3 null FP, FAIL",
+    "T_L": "3/3 valid, 0/3 null FP, PASS",
+    "R_F_H": "3/3 valid, 1/3 null FP, PASS",
+    "R_F_T": "3/3 valid, 0/3 null FP, PASS",
+    "R_F_L": "3/3 valid, 2/3 null FP, FAIL",
+    "R_T_L": "3/3 valid, 2/3 null FP, FAIL",
+    "F_T_L": "2/3 valid, 0/3 null FP, PASS",
+    "H_T_L": "1/3 valid, 1/3 null FP, FAIL",
+    "R_F_H_T": "3/3 valid, 1/3 null FP, PASS",
+    "R_F_H_L": "2/3 valid, 0/3 null FP, PASS",
+    "R_F_T_L": "3/3 valid, 0/3 null FP, PASS",
+    "R_H_T_L": "3/3 valid, 2/3 null FP, FAIL",
+    "F_H_T_L": "1/3 valid, 1/3 null FP, FAIL",
+    "R_F_H_T_L": "2/3 valid, 0/3 null FP, PASS"
+  },
+  "world_indexed_partial_geometry": {
+    "W04_fail": [
+      "H_L",
+      "H_T_L",
+      "R_H_T_L",
+      "R_F_H_T_L"
+    ],
+    "W05_fail": [
+      "R",
+      "R_F",
+      "R_T",
+      "R_L",
+      "R_F_H",
+      "R_F_L",
+      "R_T_L",
+      "H_T_L",
+      "R_F_H_T",
+      "F_H_T_L"
+    ],
+    "W06_fail": [
+      "R_H",
+      "R_L",
+      "H_L",
+      "R_F_L",
+      "R_T_L",
+      "F_T_L",
+      "H_T_L",
+      "R_F_H_L",
+      "R_H_T_L",
+      "F_H_T_L"
+    ]
+  },
+  "compression_result": {
+    "p25_four_singleton_exception_compression_heldout_stable": false,
+    "reason": "exception membership changed on fresh worlds; no world-independent four-exception compression is licensed"
+  },
+  "cross_model_nonuniversality": {
+    "status": "STILL_LICENSED_ON_TESTED_DOMAIN",
+    "witness": "identity representation I differs between inherited Qwen global-abstention regime and Gemini selective behavior",
+    "scope": "tested task family and frozen representation coordinate system only"
+  },
+  "successor_authority": "Complete W04-W06 representation cubes and construct world-indexed/model-indexed behavioral geometry; no SVEC promotion."
+}
