@@ -1,0 +1,38 @@
+{
+  "stage": "EPISTEME-P27",
+  "descriptor": "Held-Out Quotient Transport, Exceptional-Set Persistence, Representation-Law Factorization & Model-Indexed Behavioral Geometry Constitution",
+  "status": "PRECOMMITTED",
+  "predecessor": {
+    "stage": "EPISTEME-P26",
+    "verdict": "EXCEPTION_QUOTIENT_NOT_STABLE",
+    "persistent_P25_exception": ["H_T_L"],
+    "flipped_P25_exceptions": ["R", "R_F_H", "R_F_T_L"],
+    "new_heldout_failures": ["R_L", "H_L", "R_F_L", "R_T_L", "R_H_T_L", "F_H_T_L"]
+  },
+  "design": {
+    "target_model": "gemini-3.5-flash-lite",
+    "worlds": ["W04", "W05", "W06"],
+    "full_cube_vertices": 32,
+    "vertices_already_observed_in_P26": 22,
+    "new_vertices": ["F", "H", "T", "L", "F_T", "F_L", "R_H_T", "R_H_L", "F_H_T", "F_H_L"],
+    "semantic_twins_per_vertex": 2,
+    "replicates": 3,
+    "new_packets": 60,
+    "total_calls": 180
+  },
+  "frozen_rules": {
+    "packet_correct": ">=2/3 replicates",
+    "arm_evaluable": "every new packet has >=2 OK replicates",
+    "world_vertex_state": "PASS iff both valid and null semantic-twin packets are packet-correct within that world",
+    "persistent_exception_core": "intersection of W04/W05/W06 full-cube failure sets",
+    "representation_only_law": "for every one of 32 vertices, PASS/FAIL state is identical across W04/W05/W06",
+    "world_shift_xor_factorization": "for each held-out world, XOR difference from W04 is constant over all 32 vertices",
+    "otherwise": "NONSEPARABLE_WORLD×REPRESENTATION_INTERACTION"
+  },
+  "model_indexed_geometry": {
+    "gemini": "constitute one full 32-vertex quotient per held-out world",
+    "qwen": "inherit prior global-abstention regime only; no new calls",
+    "gptoss": "remain unconstituted because of technical unevaluability; no new calls"
+  },
+  "authority": "Held-out/model-indexed diagnostic geometry only. No behavioral SVEC promotion."
+}
