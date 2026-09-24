@@ -1,0 +1,82 @@
+{
+  "stage": "EPISTEME-P30",
+  "descriptor": "Prospective Critical-World Contact, Balanced Crossing Identifiability & Presealed Geometry Adjudication",
+  "canonical_run_id": 35958987676,
+  "canonical_run_head_sha": "3ca8bbe93328c16559e02540d9bcd737e84021b8",
+  "workflow_conclusion": "success",
+  "frozen_rules_applied": true,
+  "arm_evaluable": true,
+  "format_or_api_failures": "0/1152",
+  "additive_prediction": {
+    "total_geometry_cells": 192,
+    "exact_cell_matches": 93,
+    "mismatches": 99,
+    "match_rate": 0.484375,
+    "exact_world_rows": "0/6",
+    "verdict": "ADDITIVE_GEOMETRY_DEFEATED_INTERACTION_REQUIRED"
+  },
+  "world_rows": {
+    "P30W01": {
+      "context": [
+        "measurement-pipeline",
+        "u2"
+      ],
+      "predicted": "01011101000101111011011000101101",
+      "observed": "00000011000111010000000010000000",
+      "matching_cells": 15,
+      "mismatches": 17
+    },
+    "P30W02": {
+      "context": [
+        "measurement-pipeline",
+        "u3"
+      ],
+      "predicted": "01010100010110010001101010110011",
+      "observed": "10000001001111110101010111010100",
+      "matching_cells": 13,
+      "mismatches": 19
+    },
+    "P30W03": {
+      "context": [
+        "analysis-pipeline",
+        "u3"
+      ],
+      "predicted": "01101111000111000010111111001011",
+      "observed": "00001100100001110100000111101110",
+      "matching_cells": 15,
+      "mismatches": 17
+    },
+    "P30W04": {
+      "context": [
+        "analysis-pipeline",
+        "u4"
+      ],
+      "predicted": "00101011010011110010111100111101",
+      "observed": "00110101110111110001000001110001",
+      "matching_cells": 17,
+      "mismatches": 15
+    },
+    "P30W05": {
+      "context": [
+        "sample-handling",
+        "u1"
+      ],
+      "predicted": "00100101110110000000101111100001",
+      "observed": "01010001100000010100001010001000",
+      "matching_cells": 17,
+      "mismatches": 15
+    },
+    "P30W06": {
+      "context": [
+        "sample-handling",
+        "u4"
+      ],
+      "predicted": "01010100010101111001000010111110",
+      "observed": "00100000000011010000000101011000",
+      "matching_cells": 16,
+      "mismatches": 16
+    }
+  },
+  "authority_update": "P29 M_S+U observed-data fit is prospectively defeated. Any surviving exact explanation within the frozen candidate family requires skin×intervention interaction; no nontrivial context-feature sufficiency is licensed.",
+  "behavioral_svec_promotion": false
+}
