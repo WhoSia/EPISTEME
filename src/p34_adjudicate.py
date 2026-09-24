@@ -2,8 +2,7 @@ from __future__ import annotations
 import argparse,json
 from collections import defaultdict
 from pathlib import Path
-from p34_design import WORLDS,TRAIN_WORLDS,HOLDOUT_WORLDS,VERTICES,VERTEX_ORDER,ANCHOR_ROW,hidden_key if False else label
-from p34_design import oid,main_features,quadratic_features
+from p34_design import WORLDS,TRAIN_WORLDS,HOLDOUT_WORLDS,VERTICES,VERTEX_ORDER,ANCHOR_ROW,label,oid,main_features,quadratic_features
 
 # hidden key is reconstructed locally to avoid exporting any outcome-derived object.
 def audit_key():
