@@ -1,0 +1,70 @@
+{
+  "stage": "EPISTEME-P33",
+  "descriptor": "World-Instance Variance Constitution, Cell-Identity Survival Boundary, Replicate Quotient Geometry & Context-vs-Instance Authority Separation",
+  "status": "SEALED_DETERMINISTIC_ANALYSIS",
+  "world_instance_variance_constitution": {
+    "paired_hamming_distances": [
+      13,
+      15,
+      15,
+      15,
+      14,
+      21,
+      14,
+      14,
+      13,
+      17,
+      9,
+      13
+    ],
+    "mean_paired_hamming": 14.416666666666666,
+    "paired_flip_rate": 0.4505208333333333,
+    "mean_unpaired_fresh_to_canonical_hamming": 14.628787878787879,
+    "difference_unpaired_minus_paired": 0.21212121212121327
+  },
+  "cell_identity_survival_boundary": {
+    "exact_geometry_matches": "0/12",
+    "unique_nearest_own_cell": "1/12",
+    "surviving_cell": "sample-handling|u3",
+    "mean_own_cell_min_rank": 5.916666666666667,
+    "global_minimum_bipartite_assignment_correct_cells": "1/12"
+  },
+  "context_vs_instance_row_space": {
+    "canonical_context_rank_gf2": 12,
+    "fresh_world_rank_gf2": 12,
+    "instance_residual_rank_gf2": 12,
+    "combined_context_plus_residual_rank_gf2": 24,
+    "context_residual_intersection_dimension": 0,
+    "classification": "ALGEBRAIC_ROW_SPACE_SEPARATION"
+  },
+  "replicate_quotient_geometry": {
+    "canonical_behavioral_classes": 31,
+    "fresh_behavioral_classes": 32,
+    "combined_24row_behavioral_classes": 32,
+    "residual_signature_classes": 32,
+    "canonical_only_nontrivial_merge": [
+      "I",
+      "F_H"
+    ],
+    "fresh_nontrivial_merges": [],
+    "combined_nontrivial_merges": [],
+    "residual_nontrivial_merges": [],
+    "stable_representation_vertices": [],
+    "persistent_flip_vertices": [
+      "H_T_L"
+    ]
+  },
+  "authority_separation": {
+    "context_cell_geometry": "NOT_REPRODUCIBLE",
+    "cell_identity": "NOT_REPRODUCIBLE_EXCEPT_ONE_OF_TWELVE",
+    "world_instance_component": "FULL_RANK_12_OF_12_RESIDUAL",
+    "representation_quotient": "MAXIMALLY_FINE_AFTER_FRESH_REPLICATION",
+    "verdict": "WORLD_INSTANCE_AUTHORITY_DOMINATES_CELL_IDENTITY_ON_TESTED_CONSTRUCTION",
+    "caveat": "Algebraic/predictive separation only; two instances per context cell do not identify causal variance components."
+  },
+  "successor_problem": "Instrument measurable world-instance construction features before model response, then prospectively test whether they predict residual geometry.",
+  "new_model_calls": 0,
+  "new_actions": 0,
+  "self_audit": "PASS",
+  "authority": "Deterministic analysis of sealed P31/P32 tensors only. No causal variance attribution, universal law, or behavioral SVEC promotion."
+}
