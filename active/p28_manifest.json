@@ -1,0 +1,33 @@
+{
+  "stage": "EPISTEME-P28",
+  "descriptor": "World–Representation Interaction Tensor, Persistent-Core Collapse, Quotient-Family Compression & Minimal Context-Indexed Transport Law",
+  "status": "SEALED_DETERMINISTIC_ANALYSIS",
+  "predecessor": {
+    "stage": "EPISTEME-P27",
+    "verdict": "NONSEPARABLE_WORLD×REPRESENTATION_INTERACTION",
+    "world_failure_counts": {"W04": 9, "W05": 13, "W06": 15},
+    "persistent_exception_core": ["H", "H_T_L", "R_H_T"]
+  },
+  "design": {
+    "new_model_calls": 0,
+    "reason": "P27 already materialized the complete 3×32 held-out Gemini outcome tensor.",
+    "tensor_shape": [3, 32],
+    "analysis": [
+      "binary failure tensor constitution",
+      "persistent PASS/FAIL core extraction",
+      "coarsest exact representation quotient by world-outcome signature",
+      "coarsest exact context quotient by row equality",
+      "GF(2) interaction-rank audit",
+      "minimal context-indexed transport-law construction"
+    ]
+  },
+  "frozen_rules": {
+    "representation_equivalence": "r~r' iff their W04/W05/W06 PASS/FAIL signatures are identical",
+    "context_equivalence": "w~w' iff their complete 32-vertex PASS/FAIL rows are identical",
+    "persistent_fail_core": "vertices FAIL in all three worlds",
+    "persistent_pass_core": "vertices PASS in all three worlds",
+    "interaction_shell": "all remaining vertices",
+    "minimal_context_indexed_law": "project the representation outcome signature onto the selected irreducible context coordinate"
+  },
+  "authority": "Exact deterministic compression on sealed P27 Gemini W04-W06 tensor only. No new replay and no behavioral SVEC promotion."
+}
