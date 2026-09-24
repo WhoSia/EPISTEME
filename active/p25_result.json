@@ -1,0 +1,61 @@
+{
+  "stage": "EPISTEME-P25",
+  "descriptor": "Rescue-Coordinate Interaction Algebra, Boundary-Set Minimality, Representation-Symmetry Breaking & Model-Relative Transport Quotient Construction",
+  "canonical_run_id": 35953236038,
+  "canonical_run_head_sha": "19d3a4da012eb37252dd73f51cb03de4869ad2cf",
+  "workflow_conclusion": "success",
+  "frozen_rules_applied": true,
+  "arm_evaluable": true,
+  "format_or_api_failures": "0/378",
+  "failure_vertices": [
+    "H_T_L",
+    "R",
+    "R_F_H",
+    "R_F_T_L"
+  ],
+  "pass_vertex_count": 28,
+  "failure_vertex_count": 4,
+  "boundary_normal_form": "FOUR_ISOLATED_HIGHER_ORDER_DEFECTS",
+  "rescue_coordinate_algebra": {
+    "singleton_rescue_generators": [
+      "F",
+      "H",
+      "T",
+      "L"
+    ],
+    "all_nonempty_R_rescue_subsets_pass": false,
+    "counterexamples": [
+      "R_F_H",
+      "R_F_T_L"
+    ],
+    "interpretation": "Every singleton rescues R, but rescue is non-monotone under higher-order composition."
+  },
+  "model_relative_transport_quotient": {
+    "fail_class": [
+      "H_T_L",
+      "R",
+      "R_F_H",
+      "R_F_T_L"
+    ],
+    "pass_class_size": 28,
+    "class_count": 2
+  },
+  "compression_candidate": {
+    "default_class": "PASS",
+    "exception_set": [
+      "R",
+      "H_T_L",
+      "R_F_H",
+      "R_F_T_L"
+    ],
+    "exact_on_training_cube": true,
+    "note": "All four exception vertices are Hamming-isolated in the 5-cube, so no positive-dimensional axis-aligned failure subcube can cover any exception without including a PASS vertex."
+  },
+  "cross_model_status": {
+    "qwen": "GLOBAL_ABSTENTION_REGIME inherited from P23/P24",
+    "gemini": "FOUR-EXCEPTION MODEL-RELATIVE QUOTIENT",
+    "gptoss": "TECHNICALLY_UNEVALUABLE",
+    "universal_representation_only_quotient": "NOT LICENSED"
+  },
+  "authority": "Model-relative diagnostic quotient only; no behavioral SVEC promotion."
+}
