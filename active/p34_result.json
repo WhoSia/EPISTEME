@@ -1,0 +1,38 @@
+{
+  "stage": "EPISTEME-P34",
+  "descriptor": "Prospective World-Instance Instrumentation, Construction-Feature Census, Residual-Geometry Prediction & Pre-Response Instance-Law Identification",
+  "canonical_run_id": 35973086351,
+  "canonical_run_head_sha": "15ddbe64c2781d5d382090aecda6ed8617e18ec3",
+  "workflow_conclusion": "success",
+  "frozen_rules_applied": true,
+  "arm_evaluable": true,
+  "format_or_api_failures": "0/3072",
+  "prospective_law_tests": {
+    "degree_1": {
+      "training_exact_vertices": "0/32",
+      "verdict": "DEFEATED_ON_IDENTIFICATION_SET"
+    },
+    "degree_2": {
+      "training_exact_vertices": "12/32",
+      "nonfit_vertices": "20/32",
+      "holdout_matches_among_train_exact_vertices": "24/48",
+      "overall_presealed_holdout_authority": "FAILED",
+      "verdict": "DEFEATED"
+    }
+  },
+  "full_factorial_posthoc_localization": {
+    "exact_boolean_function_exists_trivially_on_16_profiles": true,
+    "minimum_anf_degree_distribution": {
+      "3": 14,
+      "4": 18
+    },
+    "degree_le_2_vertices": 0,
+    "interpretation": "All 32 representation-specific profile functions require cubic or quartic terms for exact interpolation of the observed 16-profile tensor."
+  },
+  "design_confounds": {
+    "archive_id_channel": "P34 archive_id varied with world/profile and was not one of the four instrumented factors.",
+    "implication": "Failure of S/P/L/D low-order laws does not isolate whether residual structure came from higher-order S/P/L/D interactions, opaque archive identity, or their interaction."
+  },
+  "program_verdict": "NO_LOW_ORDER_INSTANCE_LAW",
+  "authority": "The four pre-response construction features do not support exact main-effect or quadratic geometry laws in the fixed measurement×u1 context. No cross-context transport, causal attribution, or behavioral SVEC promotion is licensed."
+}
