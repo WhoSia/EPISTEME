@@ -1,0 +1,31 @@
+name: EPISTEME P32 balanced-cell fresh-world replication
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "active/p32_trigger.txt"
+
+permissions:
+  contents: read
+
+jobs:
+  gemini:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: pip install groq google-genai
+      - name: Run Gemini P32 balanced-cell replication
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python src/p32_run.py --out receipts/gemini_p32.json
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: p32-gemini
+          path: receipts/gemini_p32.json
+          retention-days: 7
