@@ -1,0 +1,50 @@
+{
+  "stage": "EPISTEME-P34",
+  "descriptor": "Prospective World-Instance Instrumentation, Construction-Feature Census, Residual-Geometry Prediction & Pre-Response Instance-Law Identification",
+  "status": "PRECOMMITTED",
+  "predecessor": {
+    "stage": "EPISTEME-P33",
+    "verdict": "WORLD_INSTANCE_AUTHORITY_DOMINATES_CELL_IDENTITY_ON_TESTED_CONSTRUCTION",
+    "context_residual_intersection_dimension": 0,
+    "residual_rank_gf2": "12/12",
+    "fresh_representation_classes": "32/32"
+  },
+  "fixed_context": {
+    "cell": "measurement-pipeline|u1",
+    "rationale": "pre-existing P31 algebraic anchor; not selected from P32/P33 performance"
+  },
+  "response_blind_instance_factors": {
+    "S": "source/history-A token-stem overlap absent/present",
+    "P": "history-pair common-prefix structure low/high",
+    "L": "opaque identifier short/long",
+    "D": "separator morphology hyphen/underscore"
+  },
+  "factorial_design": {
+    "profiles": 16,
+    "training_profiles": 12,
+    "holdout_profiles": [
+      "0000",
+      "0011",
+      "0101",
+      "1110"
+    ],
+    "quadratic_training_design_rank_gf2": "11/11",
+    "main_effect_training_design_rank_gf2": "5/5",
+    "target_model": "gemini-3.5-flash-lite",
+    "representation_vertices": 32,
+    "semantic_twins": 2,
+    "replicates": 3,
+    "total_calls": 3072
+  },
+  "frozen_candidate_laws": {
+    "degree_1": "GF(2) intercept + S+P+L+D, fit on 12 training profiles independently for each representation vertex",
+    "degree_2": "GF(2) intercept + four mains + six pair interactions, fit on 12 training profiles independently for each representation vertex"
+  },
+  "frozen_adjudication": {
+    "main_effect_survival": "all 32 vertex laws fit training exactly AND all 128 holdout profile×vertex predictions exact",
+    "quadratic_survival": "all 32 vertex laws fit training exactly AND all 128 holdout predictions exact",
+    "otherwise": "NO_LOW_ORDER_INSTANCE_LAW",
+    "technical": "every packet must have >=2 OK replicates"
+  },
+  "authority": "Local prospective instance-feature identification in one fixed context only. No cross-context transport, causal attribution, or behavioral SVEC promotion."
+}
