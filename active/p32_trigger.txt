@@ -1,0 +1,5 @@
+stage=EPISTEME-P32
+single_use=true
+predecessor=EPISTEME-P31
+scientific_run=1
+fresh_worlds_per_balanced_cell=1
