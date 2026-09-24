@@ -1,0 +1,44 @@
+{
+  "stage": "EPISTEME-P29",
+  "descriptor": "Six-World Tensor Reconstruction, Training–Held-Out Geometry Alignment, Context-Feature Sufficiency & Prospective World-Class Assignment",
+  "verdict": "NO_NONTRIVIAL_PROSPECTIVE_ASSIGNMENT",
+  "y6_shape": [
+    6,
+    32
+  ],
+  "p28_heldout_quotient": {
+    "class_count": 7,
+    "transports_to_training": false,
+    "result": "TRAINING_INCONGRUENT"
+  },
+  "six_world_quotient": {
+    "class_count": 21,
+    "construction": "coarsest exact quotient by six-world outcome signature"
+  },
+  "context_feature_audit": {
+    "M0": {
+      "exact": false
+    },
+    "M_S": {
+      "exact": false
+    },
+    "M_U": {
+      "exact": false
+    },
+    "M_S+U": {
+      "exact": true,
+      "algebra": "GF(2) additive skin XOR intervention effects per representation vertex",
+      "scientific_sufficiency": false,
+      "reason": "Observed skin-intervention bipartite design is a connected 7-node/6-edge tree; additive model has 6 gauge-adjusted degrees of freedom, equal to six observed cells and therefore to the saturated observed-data ceiling."
+    },
+    "M_S×U": {
+      "exact": true,
+      "role": "saturated memorization ceiling"
+    }
+  },
+  "prospective_assignment": "NO_NONTRIVIAL_PROSPECTIVE_ASSIGNMENT",
+  "new_model_calls": 0,
+  "new_workflows": 0,
+  "self_audit": "PASS",
+  "authority": "Observed-data reconstruction and identifiability diagnosis only; no causal context law or behavioral SVEC promotion."
+}
