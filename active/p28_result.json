@@ -1,0 +1,136 @@
+{
+  "stage": "EPISTEME-P28",
+  "descriptor": "World–Representation Interaction Tensor, Persistent-Core Collapse, Quotient-Family Compression & Minimal Context-Indexed Transport Law",
+  "source_stage": "EPISTEME-P27",
+  "new_model_calls": 0,
+  "tensor": {
+    "shape": [
+      3,
+      32
+    ],
+    "world_order": [
+      "W04",
+      "W05",
+      "W06"
+    ],
+    "failure_counts": {
+      "W04": 9,
+      "W05": 13,
+      "W06": 15
+    },
+    "gf2_row_rank": 3,
+    "world_pair_hamming_distance": {
+      "W04-W05": 16,
+      "W04-W06": 10,
+      "W05-W06": 12
+    }
+  },
+  "persistent_core_collapse": {
+    "persistent_pass_core": [
+      "F",
+      "F_H",
+      "F_H_L",
+      "F_T",
+      "H_T",
+      "I",
+      "L",
+      "R_F_T",
+      "R_F_T_L",
+      "T_L"
+    ],
+    "persistent_pass_count": 10,
+    "persistent_fail_core": [
+      "H",
+      "H_T_L",
+      "R_H_T"
+    ],
+    "persistent_fail_count": 3,
+    "interaction_shell_count": 19
+  },
+  "coarsest_exact_representation_quotient": {
+    "class_count": 7,
+    "classes_by_failure_signature_W04_W05_W06": {
+      "100": [
+        "F_H_T",
+        "R_F_H_T_L"
+      ],
+      "101": [
+        "F_L",
+        "H_L",
+        "R_H_L",
+        "R_H_T_L"
+      ],
+      "111": [
+        "H",
+        "R_H_T",
+        "H_T_L"
+      ],
+      "000": [
+        "I",
+        "F",
+        "L",
+        "F_H",
+        "F_T",
+        "H_T",
+        "T_L",
+        "R_F_T",
+        "F_H_L",
+        "R_F_T_L"
+      ],
+      "001": [
+        "R_H",
+        "F_T_L",
+        "R_F_H_L"
+      ],
+      "010": [
+        "R",
+        "R_F",
+        "R_T",
+        "R_F_H",
+        "R_F_H_T"
+      ],
+      "011": [
+        "T",
+        "R_L",
+        "R_F_L",
+        "R_T_L",
+        "F_H_T_L"
+      ]
+    },
+    "absent_signature": "110",
+    "minimality_certificate": "Distinct signatures differ in at least one observed world, so no exact quotient with fewer than 7 representation classes exists."
+  },
+  "coarsest_exact_context_quotient": {
+    "class_count": 3,
+    "classes": [
+      [
+        "W04"
+      ],
+      [
+        "W05"
+      ],
+      [
+        "W06"
+      ]
+    ],
+    "minimality_certificate": "All three 32-vertex rows are distinct; pairwise Hamming distances are 16, 10, and 12."
+  },
+  "minimal_context_indexed_transport_law": {
+    "representation_state": "sigma(r)=(Y_W04(r),Y_W05(r),Y_W06(r))",
+    "context_state": "irreducible world class W_i",
+    "law": "Y(W_i,r)=sigma(r)_i",
+    "world_invariant_classes": [
+      "000",
+      "111"
+    ],
+    "context_dependent_classes": [
+      "001",
+      "010",
+      "011",
+      "100",
+      "101"
+    ],
+    "classification": "MINIMAL_CONTEXT_INDEXED_NONSEPARABLE_TRANSPORT"
+  },
+  "authority": "Exact only on Gemini, W04-W06, and the frozen 32-vertex representation cube. Deterministic analysis; no behavioral SVEC promotion."
+}
