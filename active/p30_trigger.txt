@@ -1,0 +1,5 @@
+stage=EPISTEME-P30
+single_use=true
+predecessor=EPISTEME-P29
+scientific_run=1
+balanced_crossing=complete_3x4
