@@ -1,0 +1,96 @@
+{
+  "stage": "EPISTEME-P31",
+  "descriptor": "Prospective Additive-Law Survival or Defeat, Interaction Residual Localization, Balanced-Factor Geometry & Context-Law Authority Update",
+  "status": "SEALED_DETERMINISTIC_ANALYSIS",
+  "predecessor": {
+    "stage": "EPISTEME-P30",
+    "verdict": "ADDITIVE_GEOMETRY_DEFEATED_INTERACTION_REQUIRED",
+    "technical_failures": "0/1152",
+    "prospective_geometry_matches": "93/192",
+    "mismatches": "99/192",
+    "exact_rows": "0/6"
+  },
+  "balanced_factor_tensor": {
+    "shape": [
+      3,
+      4,
+      32
+    ],
+    "binary_encoding": "1=FAIL, 0=PASS",
+    "context_row_rank_gf2": 12,
+    "context_rows_linearly_independent": true
+  },
+  "interaction_residual_geometry": {
+    "decomposition": "GF(2) two-factor main effects plus six independent 2x2 cycle contrasts relative to measurement-pipeline/u1",
+    "cycle_order": [
+      "analysis-pipeline|u2",
+      "analysis-pipeline|u3",
+      "analysis-pipeline|u4",
+      "sample-handling|u2",
+      "sample-handling|u3",
+      "sample-handling|u4"
+    ],
+    "cycle_nonzero_weights": [
+      17,
+      16,
+      15,
+      18,
+      14,
+      11
+    ],
+    "nonzero_residual_bits": "91/192",
+    "interaction_rank_gf2": 6,
+    "full_interaction_dimension_required": true,
+    "interaction_signature_class_count": 24,
+    "purely_additive_vertices": [
+      "R_F_H_L"
+    ],
+    "purely_additive_vertex_count": 1
+  },
+  "representation_interaction_algebra": {
+    "basis": "algebraic normal form over representation coordinates {R,F,H,T,L}",
+    "cycle_degrees": [
+      5,
+      3,
+      5,
+      4,
+      4,
+      5
+    ],
+    "cycle_term_counts": [
+      13,
+      14,
+      16,
+      16,
+      20,
+      11
+    ],
+    "interpretation": "Every independent context-interaction contrast depends nontrivially on representation coordinates; five of six require degree >=4 and three reach degree 5, so no low-order uniform representation-coordinate interaction law is supported by this exact tensor."
+  },
+  "exact_behavioral_compression": {
+    "full_12_context_signature_class_count": 31,
+    "representation_count": 32,
+    "only_nontrivial_merge": [
+      "I",
+      "F_H"
+    ],
+    "compression_ratio": "32 -> 31 exact classes"
+  },
+  "context_law_authority": {
+    "M0": "DEFEATED",
+    "M_S": "DEFEATED",
+    "M_U": "DEFEATED",
+    "M_S+U": "PROSPECTIVELY_DEFEATED",
+    "M_S×U": "SATURATED_CEILING_ONLY",
+    "verdict": "NO_CONTEXT_FEATURE_SUFFICIENCY / FULL_SKIN×INTERVENTION_INTERACTION_REQUIRED_ON_TESTED_GRID",
+    "authority_ceiling": "The complete balanced grid requires all six independent GF(2) interaction contrasts. Skin and intervention labels do not currently support a nontrivial predictive context law."
+  },
+  "successor_identifiability_problem": {
+    "question": "Are the observed 12 context-cell geometries reproducible properties of the cells, or idiosyncratic to particular world instantiations?",
+    "next_design": "fresh within-cell replication across all 12 balanced cells before introducing new context features or any new transport law"
+  },
+  "new_model_calls": 0,
+  "new_actions": 0,
+  "self_audit": "PASS",
+  "authority": "Exact deterministic decomposition of sealed P30 data only; no causal context-law claim, no universal representation law, and no behavioral SVEC promotion."
+}
