@@ -1,0 +1,20 @@
+{
+  "stage": "EPISTEME-P29",
+  "status": "SEALED_DETERMINISTIC_RECONSTRUCTION",
+  "descriptor": "Six-World Tensor Reconstruction, Training–Held-Out Geometry Alignment, Context-Feature Sufficiency & Prospective World-Class Assignment",
+  "sources": [
+    "P23 Gemini receipt",
+    "P24 Gemini receipt",
+    "P25 Gemini receipt",
+    "P27 sealed heldout cube"
+  ],
+  "new_model_calls": 0,
+  "frozen_candidate_context_models": [
+    "M0",
+    "M_S",
+    "M_U",
+    "M_S+U",
+    "M_S×U"
+  ],
+  "authority": "No prospective assignment unless a non-saturated identifiable context law survives."
+}
