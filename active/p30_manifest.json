@@ -1,0 +1,101 @@
+{
+  "stage": "EPISTEME-P30",
+  "descriptor": "Prospective Critical-World Contact, Balanced Crossing Identifiability & Presealed Geometry Adjudication",
+  "status": "PRECOMMITTED",
+  "predecessor": {
+    "stage": "EPISTEME-P29",
+    "verdict": "NO_NONTRIVIAL_PROSPECTIVE_ASSIGNMENT",
+    "six_world_quotient_classes": 21,
+    "smallest_observed_data_compatible_law": "M_S+U",
+    "identifiability_problem": "six observed skin-intervention cells form a connected tree, so additive and saturated ceilings have equal observed-data freedom"
+  },
+  "balanced_crossing": {
+    "existing_cells": [
+      [
+        "measurement-pipeline",
+        "u1"
+      ],
+      [
+        "measurement-pipeline",
+        "u4"
+      ],
+      [
+        "analysis-pipeline",
+        "u1"
+      ],
+      [
+        "analysis-pipeline",
+        "u2"
+      ],
+      [
+        "sample-handling",
+        "u2"
+      ],
+      [
+        "sample-handling",
+        "u3"
+      ]
+    ],
+    "prospective_cells": [
+      [
+        "measurement-pipeline",
+        "u2"
+      ],
+      [
+        "measurement-pipeline",
+        "u3"
+      ],
+      [
+        "analysis-pipeline",
+        "u3"
+      ],
+      [
+        "analysis-pipeline",
+        "u4"
+      ],
+      [
+        "sample-handling",
+        "u1"
+      ],
+      [
+        "sample-handling",
+        "u4"
+      ]
+    ],
+    "post_stage_design": "complete 3 skins x 4 interventions factorial"
+  },
+  "frozen_additive_law": "For every representation vertex r, failure Y(s,u,r)=A_s(r) XOR B_u(r). Gauge A_measurement=0; existing six-world tree uniquely determines all A_s and B_u.",
+  "predicted_failure_rows": {
+    "P30W01": "01011101000101111011011000101101",
+    "P30W02": "01010100010110010001101010110011",
+    "P30W03": "01101111000111000010111111001011",
+    "P30W04": "00101011010011110010111100111101",
+    "P30W05": "00100101110110000000101111100001",
+    "P30W06": "01010100010101111001000010111110"
+  },
+  "design": {
+    "target_model": "gemini-3.5-flash-lite",
+    "fresh_worlds": 6,
+    "vertices": 32,
+    "semantic_twins": 2,
+    "replicates": 3,
+    "packets_per_replicate": 384,
+    "total_calls": 1152
+  },
+  "frozen_rules": {
+    "packet_correct": ">=2/3 replicates",
+    "arm_evaluable": "every packet has >=2 OK replicates",
+    "world_vertex_pass": "valid and null semantic-twin packets are both packet-correct",
+    "additive_survival": "all 192 prospective world×representation states exactly match the presealed additive predictions",
+    "any_scientific_mismatch": "ADDITIVE_GEOMETRY_DEFEATED_INTERACTION_REQUIRED",
+    "technical_failure": "TECHNICAL_HOLD"
+  },
+  "rivals": {
+    "M0": "already defeated in P29",
+    "M_S": "already defeated in P29",
+    "M_U": "already defeated in P29",
+    "M_S+U": "prospectively tested here",
+    "M_S×U": "saturated interaction ceiling; no point prediction and survives any pattern"
+  },
+  "authority": "Prospective balanced-crossing adjudication only. No universal context law or behavioral SVEC promotion."
+}
