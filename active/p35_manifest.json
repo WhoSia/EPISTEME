@@ -1,0 +1,47 @@
+{
+  "stage": "EPISTEME-P35",
+  "descriptor": "Instance-Law Survival or Defeat, Cross-Context Transport of Instrumented Features, Residual Mechanism Localization & World-Construction Authority Update",
+  "status": "PRECOMMITTED",
+  "predecessor": {
+    "stage": "EPISTEME-P34",
+    "verdict": "NO_LOW_ORDER_INSTANCE_LAW",
+    "degree_1_training_exact": "0/32",
+    "degree_2_training_exact": "12/32",
+    "degree_2_holdout_matches_on_fitted_vertices": "24/48",
+    "p34_posthoc_anf_degrees": {
+      "3": 14,
+      "4": 18
+    }
+  },
+  "confound_repair": {
+    "issue": "P34 archive_id varied with profile and was not instrumented.",
+    "P35_rule": "archive_id is held byte-identical and constant across all profiles, vertices, semantics, and contexts; tracking IDs remain external to model-visible packet content.",
+    "same_profile_cross_context_packet_difference": "surface_domain only"
+  },
+  "phase_design": {
+    "A": "measurement-pipeline × u1, all 16 S/P/L/D profiles",
+    "B": "analysis × u1 and sample × u1, profile 0000 baseline only",
+    "preseal": "derive anchor profile-effect deltas; combine with each external baseline; hash 192-cell predictions before Phase C",
+    "C": "analysis and sample, profiles 0101, 1010, 1111"
+  },
+  "prospective_target": {
+    "contexts": 2,
+    "profiles_per_context": 3,
+    "representation_vertices": 32,
+    "cells": 192,
+    "prediction": "Y_c(z,r)=Y_c(0000,r) XOR [Y_anchor(z,r) XOR Y_anchor(0000,r)]",
+    "exact_survival": "192/192"
+  },
+  "calls": {
+    "phase_A": 3072,
+    "phase_B": 384,
+    "phase_C": 1152,
+    "total": 4608
+  },
+  "frozen_branches": [
+    "CONSTRUCTION_EFFECT_TRANSPORT_SURVIVES",
+    "CONSTRUCTION_EFFECT_CONTEXT_INTERACTION",
+    "TECHNICAL_HOLD"
+  ],
+  "authority": "Prospective transport of confound-stripped construction-effect geometry across skin contexts at fixed u1 only. No causal attribution or behavioral SVEC promotion."
+}
