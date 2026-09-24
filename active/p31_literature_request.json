@@ -1,0 +1,49 @@
+{
+  "stage": "EPISTEME-P31",
+  "purpose": "closest conceptual prior work for invariance, transport, domain generalization, and context/environment-conditioned prediction",
+  "drive_audit": {
+    "present": [
+      {
+        "title": "Pearl & Bareinboim (2011) — Transportability of Causal and Statistical Relations: A Formal Approach",
+        "drive_status": "PRESENT",
+        "drive_file_id": "1eEnQxWYFC5gjSyxBFF3BY4xfmmGllv_c"
+      }
+    ],
+    "requested_missing": [
+      {
+        "title": "Peters, Bühlmann & Meinshausen (2016) — Causal inference by using invariant prediction",
+        "doi": "10.1111/rssb.12167",
+        "arxiv": "1501.01332"
+      },
+      {
+        "title": "Arjovsky et al. (2019) — Invariant Risk Minimization",
+        "arxiv": "1907.02893"
+      },
+      {
+        "title": "Rosenfeld, Ravikumar & Risteski (2021) — The Risks of Invariant Risk Minimization",
+        "arxiv": "2010.05761"
+      },
+      {
+        "title": "Rothenhäusler et al. (2021) — Anchor Regression: Heterogeneous Data Meet Causality",
+        "doi": "10.1111/rssb.12398"
+      },
+      {
+        "title": "Krueger et al. (2021) — Out-of-Distribution Generalization via Risk Extrapolation (REx)",
+        "arxiv": "2003.00688"
+      },
+      {
+        "title": "Creager, Jacobsen & Zemel (2021) — Environment Inference for Invariant Learning",
+        "arxiv": "2010.07249"
+      },
+      {
+        "title": "Schölkopf et al. (2021) — Towards Causal Representation Learning",
+        "arxiv": "2102.11107"
+      },
+      {
+        "title": "Raj et al. (2017) — Local Group Invariant Representations via Orbit Embeddings",
+        "venue": "AISTATS 2017 / PMLR 54"
+      }
+    ]
+  },
+  "novelty_boundary": "These are conceptual neighbors, not evidence of novelty. P31 differs operationally by prospectively auditing a fixed LLM over symbolic representation transformations on a fully balanced context grid and decomposing exact binary behavioral geometry; a formal novelty claim requires a broader literature review."
+}
