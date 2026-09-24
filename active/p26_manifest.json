@@ -1,0 +1,41 @@
+{
+  "stage": "EPISTEME-P26",
+  "descriptor": "Model-Relative Representation Quotients, Exceptional-Vertex Stability, Transport-Cube Compression & Cross-Model Non-Universality Theorem",
+  "status": "PRECOMMITTED",
+  "predecessor": {
+    "stage": "EPISTEME-P25",
+    "verdict": "FOUR_ISOLATED_HIGHER_ORDER_DEFECTS",
+    "gemini_failure_vertices": ["R", "H_T_L", "R_F_H", "R_F_T_L"],
+    "gemini_pass_vertices": 28,
+    "qwen": "GLOBAL_ABSTENTION_REGIME",
+    "gptoss": "TECHNICALLY_UNEVALUABLE"
+  },
+  "heldout_design": {
+    "target_model": "gemini-3.5-flash-lite",
+    "training_worlds": ["W01", "W02", "W03"],
+    "heldout_worlds": ["W04", "W05", "W06"],
+    "validation_set": "four P25 failure vertices plus every Hamming-1 neighbor",
+    "validation_vertices": 22,
+    "semantic_twins_per_vertex": 2,
+    "replicates": 3,
+    "packets": 132,
+    "total_calls": 396
+  },
+  "frozen_rules": {
+    "packet_correct": ">=2/3 replicates",
+    "arm_evaluable": "every held-out packet has >=2 OK replicates",
+    "vertex_selective_pass": "valid >=2/3 and null false-positive <=1/3",
+    "exception_stability": "all four P25 exception vertices remain FAIL on held-out worlds",
+    "boundary_stability": "all 18 other validation vertices remain PASS",
+    "exact_heldout_transport": "all 22 held-out vertex states match P25 predictions",
+    "compression_minimality": "four isolated failure vertices imply four singleton cells are necessary in any exact axis-aligned failure-subcube cover"
+  },
+  "cross_model_nonuniversality": {
+    "claim": "No representation-only model-independent transport function fits both evaluable models on the tested domain.",
+    "counterexample_vertex": "I",
+    "qwen_I": "FAIL / abstention",
+    "gemini_I": "PASS / selective",
+    "scope": "tested task family and frozen five-coordinate representation system only"
+  },
+  "authority": "Held-out validation and tested-domain theorem only. No behavioral SVEC promotion."
+}
