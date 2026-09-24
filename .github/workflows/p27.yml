@@ -1,0 +1,31 @@
+name: EPISTEME P27 heldout cube completion
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "active/p27_trigger.txt"
+
+permissions:
+  contents: read
+
+jobs:
+  gemini:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: pip install groq google-genai
+      - name: Run Gemini P27 heldout cube completion
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python src/p27_run.py --out receipts/gemini_p27.json
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: p27-gemini
+          path: receipts/gemini_p27.json
+          retention-days: 7
