@@ -1,0 +1,57 @@
+{
+  "stage": "EPISTEME-P25",
+  "descriptor": "Rescue-Coordinate Interaction Algebra, Boundary-Set Minimality, Representation-Symmetry Breaking & Model-Relative Transport Quotient Construction",
+  "status": "PRECOMMITTED",
+  "predecessor": {
+    "stage": "EPISTEME-P24",
+    "verdict": "MODEL_CONDITIONAL_TRANSPORT_CONFIRMED / CROSS_MODEL_QUOTIENT_FAILURE",
+    "qwen": "GLOBAL_ABSTENTION_REGIME / EMPTY_RESCUE_SET",
+    "gemini": "R FAIL; R+F, R+H, R+T, R+L PASS",
+    "gptoss": "TECHNICALLY_UNEVALUABLE"
+  },
+  "representation_group": {
+    "coordinates": ["R", "F", "H", "T", "L"],
+    "formal_family": "(Z2)^5 Boolean transformation cube",
+    "R": "identifier/distractor alpha-renaming",
+    "F": "filler-token renaming",
+    "H": "retained-history order reversal",
+    "T": "within-trace witness position reversal",
+    "L": "relation-note order reversal"
+  },
+  "design": {
+    "target_model": "gemini-3.5-flash-lite",
+    "reason": "Only evaluable model exhibiting nontrivial selective transport geometry; Qwen is inherited global-abstention and GPT-OSS remains technically unevaluable.",
+    "total_cube_vertices": 32,
+    "inherited_vertices": 11,
+    "new_vertices": 21,
+    "worlds": 3,
+    "semantic_twins_per_vertex": 2,
+    "replicates": 3,
+    "new_packets": 126,
+    "total_calls": 378
+  },
+  "inherited_vertex_states": {
+    "I": true,
+    "R": false,
+    "F": true,
+    "H": true,
+    "T": true,
+    "L": true,
+    "R_F": true,
+    "R_H": true,
+    "R_T": true,
+    "R_L": true,
+    "R_F_H_T_L": true
+  },
+  "frozen_rules": {
+    "packet_correct": ">=2/3 replicates",
+    "arm_evaluable": "every new packet has >=2 OK replicates",
+    "vertex_selective_pass": "valid >=2/3 and null false-positive <=1/3",
+    "boundary_set_minimality": "after combining inherited and new vertices, the failure set is exactly {R}",
+    "rescue_upward_closure": "every R+S vertex with nonempty S subset of {F,H,T,L} selectively passes",
+    "minimal_rescue_generators": "singleton rescue coordinates X where R+X passes",
+    "gemini_quotient": "partition all 32 vertices by frozen selective-pass behavior",
+    "cross_model_authority": "Qwen and GPT-OSS are inherited only; no universal quotient claim"
+  },
+  "authority": "Diagnostic/model-relative quotient construction only. No behavioral SVEC promotion."
+}
