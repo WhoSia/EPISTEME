@@ -1,0 +1,46 @@
+{
+  "stage": "EPISTEME-P32",
+  "descriptor": "Balanced-Cell Fresh-World Replication, Within-Context Geometry Stability, Cell-Identity Reproducibility & World-Specific Residual Decomposition",
+  "canonical_run_id": 35963422947,
+  "canonical_run_head_sha": "b17266285b32c03355a4a7386ea28411592533ac",
+  "workflow_conclusion": "success",
+  "frozen_rules_applied": true,
+  "arm_evaluable": true,
+  "format_or_api_failures": "0/2304",
+  "exact_cell_geometry_matches": "0/12",
+  "unique_nearest_own_cell": "1/12",
+  "sole_surviving_identity_cell": "sample-handling|u3",
+  "paired_hamming_distances": [
+    13,
+    15,
+    15,
+    15,
+    14,
+    21,
+    14,
+    14,
+    13,
+    17,
+    9,
+    13
+  ],
+  "mean_paired_hamming_distance": 14.416666666666666,
+  "residual": {
+    "shape": [
+      12,
+      32
+    ],
+    "nonzero_bits": 173,
+    "total_bits": 384,
+    "flip_rate": 0.4505208333333333,
+    "gf2_rank": 12,
+    "full_rank": true,
+    "stable_representation_vertices": [],
+    "persistent_flip_vertices": [
+      "H_T_L"
+    ],
+    "residual_signature_class_count": 32
+  },
+  "program_verdict": "CELL_IDENTITY_NOT_REPRODUCIBLE_WORLD_INSTANCE_EFFECT",
+  "authority": "Skin×intervention cell identity is not sufficient to predict fresh-world geometry on this symbolic Gemini task. No causal context-law or behavioral SVEC promotion."
+}
