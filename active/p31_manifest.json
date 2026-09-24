@@ -1,0 +1,30 @@
+{
+  "stage": "EPISTEME-P31",
+  "descriptor": "Prospective Additive-Law Survival or Defeat, Interaction Residual Localization, Balanced-Factor Geometry & Context-Law Authority Update",
+  "status": "SEALED_DETERMINISTIC_ANALYSIS",
+  "predecessor": {
+    "stage": "EPISTEME-P30",
+    "verdict": "ADDITIVE_GEOMETRY_DEFEATED_INTERACTION_REQUIRED",
+    "matches": "93/192",
+    "mismatches": "99/192",
+    "technical_failures": "0/1152"
+  },
+  "design": {
+    "new_model_calls": 0,
+    "new_actions": 0,
+    "tensor": "complete 3 skins × 4 interventions × 32 representation vertices",
+    "decomposition": "GF(2) two-factor main effects plus six independent 2x2 cycle-interaction contrasts",
+    "exact_quotients": [
+      "interaction-signature quotient",
+      "full 12-context behavioral quotient"
+    ],
+    "successor_focus": "within-cell replication before any new context-feature theory"
+  },
+  "frozen_rules": {
+    "additive_residual": "J(s,u,r)=Y(s,u,r) XOR Y(s,u1,r) XOR Y(measurement,u,r) XOR Y(measurement,u1,r)",
+    "interaction_dimension": "GF(2) row rank of the 6×32 residual matrix",
+    "representation_interaction_equivalence": "same six-bit interaction residual signature",
+    "full_behavioral_equivalence": "same twelve-bit outcome signature across the complete balanced context grid"
+  },
+  "authority": "Deterministic authority update only; no new replay and no behavioral SVEC promotion."
+}
