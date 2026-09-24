@@ -1,0 +1,31 @@
+name: EPISTEME P25 Boolean transport-cube completion
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "active/p25_trigger.txt"
+
+permissions:
+  contents: read
+
+jobs:
+  gemini:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: pip install groq google-genai
+      - name: Run Gemini P25 cube completion
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python src/p25_run.py --out receipts/gemini_p25.json
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: p25-gemini
+          path: receipts/gemini_p25.json
+          retention-days: 7
