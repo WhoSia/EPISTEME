@@ -1,0 +1,34 @@
+{
+  "stage": "EPISTEME-P33",
+  "descriptor": "World-Instance Variance Constitution, Cell-Identity Survival Boundary, Replicate Quotient Geometry & Context-vs-Instance Authority Separation",
+  "status": "SEALED_DETERMINISTIC_ANALYSIS",
+  "predecessor": {
+    "stage": "EPISTEME-P32",
+    "verdict": "CELL_IDENTITY_NOT_REPRODUCIBLE_WORLD_INSTANCE_EFFECT",
+    "exact_geometry_matches": "0/12",
+    "unique_nearest_own_cell": "1/12",
+    "residual_rank_gf2": "12/12",
+    "residual_nonzero_bits": "173/384"
+  },
+  "design": {
+    "new_model_calls": 0,
+    "new_actions": 0,
+    "data": "paired canonical and fresh 12×32 context tensors",
+    "analyses": [
+      "paired within-cell Hamming geometry",
+      "fresh-to-canonical cell-identification rank",
+      "GF(2) context/residual row-space separation",
+      "fresh-only and combined 24-row representation quotients",
+      "residual-signature quotient",
+      "context-vs-instance authority boundary"
+    ]
+  },
+  "frozen_rules": {
+    "context_span": "row span of the 12 canonical cell geometries",
+    "instance_residual_span": "row span of fresh XOR canonical paired residuals",
+    "row_space_separation": "intersection dimension = rank(C)+rank(E)-rank([C;E])",
+    "combined_representation_equivalence": "same 24-bit canonical/fresh signature",
+    "residual_representation_equivalence": "same 12-bit paired residual signature"
+  },
+  "authority": "Exact algebraic constitution on sealed two-instance-per-cell evidence only; no causal variance decomposition."
+}
