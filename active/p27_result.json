@@ -1,0 +1,106 @@
+{
+  "stage": "EPISTEME-P27",
+  "descriptor": "Held-Out Quotient Transport, Exceptional-Set Persistence, Representation-Law Factorization & Model-Indexed Behavioral Geometry Constitution",
+  "canonical_run_id": 35956402854,
+  "canonical_run_head_sha": "9f711c442ff54e396a1d2cce43fe8ef269726561",
+  "workflow_conclusion": "success",
+  "frozen_rules_applied": true,
+  "arm_evaluable": true,
+  "format_or_api_failures": "0/180",
+  "world_indexed_behavioral_geometry": {
+    "W04_fail": [
+      "F_H_T",
+      "F_L",
+      "H",
+      "H_L",
+      "H_T_L",
+      "R_F_H_T_L",
+      "R_H_L",
+      "R_H_T",
+      "R_H_T_L"
+    ],
+    "W05_fail": [
+      "F_H_T_L",
+      "H",
+      "H_T_L",
+      "R",
+      "R_F",
+      "R_F_H",
+      "R_F_H_T",
+      "R_F_L",
+      "R_H_T",
+      "R_L",
+      "R_T",
+      "R_T_L",
+      "T"
+    ],
+    "W06_fail": [
+      "F_H_T_L",
+      "F_L",
+      "F_T_L",
+      "H",
+      "H_L",
+      "H_T_L",
+      "R_F_H_L",
+      "R_F_L",
+      "R_H",
+      "R_H_L",
+      "R_H_T",
+      "R_H_T_L",
+      "R_L",
+      "R_T_L",
+      "T"
+    ],
+    "fail_counts": {
+      "W04": 9,
+      "W05": 13,
+      "W06": 15
+    },
+    "persistent_exception_core": [
+      "H",
+      "H_T_L",
+      "R_H_T"
+    ],
+    "exception_union": [
+      "F_H_T",
+      "F_H_T_L",
+      "F_L",
+      "F_T_L",
+      "H",
+      "H_L",
+      "H_T_L",
+      "R",
+      "R_F",
+      "R_F_H",
+      "R_F_H_L",
+      "R_F_H_T",
+      "R_F_H_T_L",
+      "R_F_L",
+      "R_H",
+      "R_H_L",
+      "R_H_T",
+      "R_H_T_L",
+      "R_L",
+      "R_T",
+      "R_T_L",
+      "T"
+    ],
+    "pairwise_failset_jaccard": {
+      "W04-W05": 0.15789473684210525,
+      "W04-W06": 0.4117647058823529,
+      "W05-W06": 0.4
+    }
+  },
+  "representation_law_factorization": {
+    "representation_only": false,
+    "world_shift_xor_factorizable": false,
+    "classification": "NONSEPARABLE_WORLD×REPRESENTATION_INTERACTION"
+  },
+  "model_indexed_constitution": {
+    "gemini": "three complete 32-vertex world-indexed quotients Q_Gemini(W04), Q_Gemini(W05), Q_Gemini(W06)",
+    "qwen": "inherited global-abstention regime",
+    "gptoss": "unconstituted due persistent technical unevaluability",
+    "cross_model_universal_representation_law": false
+  },
+  "authority": "Held-out/model-indexed diagnostic geometry only. No behavioral SVEC promotion."
+}
