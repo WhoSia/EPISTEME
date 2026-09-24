@@ -1,0 +1,43 @@
+{
+  "stage": "EPISTEME-P32",
+  "descriptor": "Balanced-Cell Fresh-World Replication, Within-Context Geometry Stability, Cell-Identity Reproducibility & World-Specific Residual Decomposition",
+  "status": "PRECOMMITTED",
+  "predecessor": {
+    "stage": "EPISTEME-P31",
+    "verdict": "NO_CONTEXT_FEATURE_SUFFICIENCY / FULL_SKIN×INTERVENTION_INTERACTION_REQUIRED_ON_TESTED_GRID",
+    "tensor": "3×4×32",
+    "context_row_rank_gf2": "12/12",
+    "full_behavioral_classes": "31/32"
+  },
+  "prospective_design": {
+    "target_model": "gemini-3.5-flash-lite",
+    "contexts": "all 12 cells of the balanced 3-skin × 4-intervention grid",
+    "fresh_worlds_per_cell": 1,
+    "representation_vertices": 32,
+    "semantic_twins": 2,
+    "replicates": 3,
+    "packets_per_replicate": 768,
+    "total_calls": 2304,
+    "fresh_instance_change": "new opaque history/key identities only; semantic task, skin, intervention, claim template, representation transformations, and adjudication are held fixed"
+  },
+  "presealed_predictions": {
+    "exact_cell_geometry": "fresh 32-bit row equals the sealed P31 canonical row for that skin×intervention cell",
+    "cell_identity": "fresh row's unique nearest Hamming neighbor among the 12 sealed canonical rows is its own context cell"
+  },
+  "frozen_rules": {
+    "packet_correct": ">=2/3 replicates",
+    "arm_evaluable": "every packet has >=2 OK replicates",
+    "vertex_pass": "valid and null semantic-twin packets are both packet-correct",
+    "exact_geometry_reproducible": "12/12 fresh rows exactly equal their own canonical rows",
+    "cell_identity_reproducible": "12/12 fresh rows have their own canonical row as unique nearest Hamming neighbor",
+    "residual": "fresh row XOR own canonical row",
+    "world_specific_residual_dimension": "GF(2) rank of the 12×32 residual matrix",
+    "branches": [
+      "EXACT_CELL_GEOMETRY_REPRODUCIBLE",
+      "CELL_IDENTITY_REPRODUCIBLE_WITH_WORLD_SPECIFIC_RESIDUAL",
+      "CELL_IDENTITY_NOT_REPRODUCIBLE_WORLD_INSTANCE_EFFECT",
+      "TECHNICAL_HOLD"
+    ]
+  },
+  "authority": "Prospective within-cell reproducibility and residual-geometry adjudication only. No causal context-law or behavioral SVEC promotion."
+}
