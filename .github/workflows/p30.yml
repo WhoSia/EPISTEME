@@ -1,0 +1,31 @@
+name: EPISTEME P30 prospective balanced crossing
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "active/p30_trigger.txt"
+
+permissions:
+  contents: read
+
+jobs:
+  gemini:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: pip install groq google-genai
+      - name: Run Gemini P30 prospective crossing
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python src/p30_run.py --out receipts/gemini_p30.json
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: p30-gemini
+          path: receipts/gemini_p30.json
+          retention-days: 7
