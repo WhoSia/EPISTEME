@@ -110,7 +110,16 @@ def main():
       "test_profiles":[profile_label(p) for p in EXTERNAL_TEST_PROFILES],
     }
     canonical=json.dumps(preseal_payload,sort_keys=True,separators=(",",":"))
-    preseal_payload["sha256"]=hashlib.sha256(canonical.encode()).hexdigest()\n\n    # Materialize a pre-Phase-C sidecar before any external target-profile call.\n    out_path=Path(a.out)\n    preseal_path=out_path.with_name(out_path.stem+"_preseal.json")\n    preseal_path.parent.mkdir(parents=True,exist_ok=True)\n    preseal_path.write_text(json.dumps(preseal_payload,ensure_ascii=False,indent=2),encoding="utf-8")\n\n    # Only after the sidecar preseal exists do we call external target profiles.\n    C=run_packets(phase_c_packets(),"C_external_transport_test",35300)
+    preseal_payload["sha256"]=hashlib.sha256(canonical.encode()).hexdigest()
+
+    # Materialize a pre-Phase-C sidecar before any external target-profile call.
+    out_path=Path(a.out)
+    preseal_path=out_path.with_name(out_path.stem+"_preseal.json")
+    preseal_path.parent.mkdir(parents=True,exist_ok=True)
+    preseal_path.write_text(json.dumps(preseal_payload,ensure_ascii=False,indent=2),encoding="utf-8")
+
+    # Only after the sidecar preseal exists do we call external target profiles.
+    C=run_packets(phase_c_packets(),"C_external_transport_test",35300)
 
     out={
       "stage":STAGE,
@@ -120,7 +129,8 @@ def main():
       "preseal":preseal_payload,
       "rows":A+B+C,
     }
-    p=Path(a.out); p.parent.mkdir(parents=True,exist_ok=True)\n    p.write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding="utf-8")
+    p=Path(a.out); p.parent.mkdir(parents=True,exist_ok=True)
+    p.write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding="utf-8")
 
 if __name__=="__main__":
     main()
