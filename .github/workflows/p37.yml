@@ -1,0 +1,41 @@
+name: EPISTEME P37 orthogonal identifier channels
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "active/p37_trigger.txt"
+
+permissions:
+  contents: read
+
+jobs:
+  gemini:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: pip install groq google-genai
+      - name: Static compile and design self-audit
+        run: |
+          python -m py_compile src/p37_design.py src/p37_run.py src/p37_adjudicate.py
+          python - <<'PY'
+          import sys
+          sys.path.insert(0, "src")
+          import p37_design
+          assert p37_design.self_audit()
+          print("P37 preflight PASS")
+          PY
+      - name: Run P37 phased identifier factorial
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python src/p37_run.py --out receipts/gemini_p37.json
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: p37-gemini
+          path: receipts/
+          retention-days: 7
