@@ -1,0 +1,67 @@
+{
+  "stage": "EPISTEME-P41",
+  "descriptor": "Cross-Family Selective-Geometry Alignment, Model-Indexed Quotient Intersection, Regime-Boundary Stability & Whether Behavioral Selectivity Constitutes a Transportable Model Property",
+  "status": "SEALED_DETERMINISTIC_ADJUDICATION",
+  "promoted_domain_S": [],
+  "promoted_domain_size": 0,
+  "promoted_family_count": 0,
+  "cross_family_selective_geometry_alignment": {
+    "status": "UNDEFINED_EMPTY_PROMOTED_DOMAIN",
+    "pairwise_alignments": 0,
+    "reason": "P40 produced no model satisfying the frozen technical-plus-behavioral promotion gate; therefore no full selective geometry exists to align."
+  },
+  "model_indexed_quotient_intersection": {
+    "status": "NOT_CONSTITUTED",
+    "empty_intersection_treated_as_universal": false,
+    "reason": "The empty promoted domain is an identification failure, not a vacuous universal quotient."
+  },
+  "regime_boundary_stability": {
+    "qwen/qwen3.8-27b": {
+      "coordinate": "valid 0/6, null 6/6",
+      "distance_groups_to_partial": 2,
+      "distance_groups_to_selective": 4,
+      "interpretation": "Clean abstention is separated from partial selectivity by witness recovery, not null-control repair."
+    },
+    "small_Qwen2.5_Qwen3": {
+      "coordinate": "valid 0/6, null 0/6",
+      "distance_groups_to_partial": 6,
+      "distance_groups_to_selective": 9,
+      "interpretation": "The nonselective failure regime is not adjacent to the selective boundary."
+    },
+    "gemini-3.5-flash-lite": {
+      "coordinate": "valid 6/6, null 3/6",
+      "distance_groups_to_partial": 1,
+      "distance_groups_to_selective": 2,
+      "interpretation": "The model is immediately adjacent to partial selectivity: one additional null-majority group would cross the frozen partial-promotion boundary."
+    },
+    "openai/gpt-oss-120b": {
+      "classification": "TECHNICAL_UNEVALUABLE",
+      "technical_ok": "19/36",
+      "additional_OK_calls_needed_for_technical_gate": 15,
+      "shadow_coordinate": "valid 2/6, null 4/6",
+      "shadow_coordinate_is_scientifically_admissible": false,
+      "interpretation": "Its observed majority coordinate numerically lies in the partial-selective region, but the frozen technical gate fails; this is an unidentified behavioral regime, not a promoted arm."
+    },
+    "openai/gpt-oss-20b": {
+      "classification": "TECHNICAL_UNEVALUABLE",
+      "technical_ok": "1/36",
+      "additional_OK_calls_needed_for_technical_gate": 33
+    }
+  },
+  "transportable_model_property": {
+    "criterion": "at least two technically evaluable promoted models from distinct model families plus nonempty aligned full geometry",
+    "constituted": false,
+    "verdict": "NOT_CONSTITUTED_ON_CURRENT_EVIDENCE",
+    "reason": "The required domain is empty. Current evidence supports model-indexed regime heterogeneity, not transportable cross-family selectivity."
+  },
+  "constitutional_verdict": "SELECTIVITY_TRANSPORTABILITY_NOT_CONSTITUTED__BOUNDARY_IS_MODEL_INDEXED_AND_TECHNICAL_GATE_SENSITIVE",
+  "authority_limits": [
+    "This is not evidence that cross-family transportability is impossible.",
+    "No model-family capability ranking follows from the phase coordinates.",
+    "Technical failures are not imputed as behavioral failures or successes.",
+    "No behavioral SVEC promotion."
+  ],
+  "new_model_calls": 0,
+  "new_actions": 0,
+  "self_audit": "PASS"
+}
