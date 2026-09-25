@@ -1,0 +1,94 @@
+{
+  "stage": "EPISTEME-P36",
+  "descriptor": "Cross-Context Construction-Effect Survival Boundary, Transport-Residual Factorization, Identifier-Channel Decomposition, Observed No-Compression Frontier & Minimal World-Instance Sufficient Statistic",
+  "status": "SEALED_DETERMINISTIC_ANALYSIS",
+  "identifier_channel_decomposition": {
+    "contrast": "P34 matched-profile identifier package -> P35 matched-profile constant-archive package in measurement×u1",
+    "model_visible_changes": [
+      "archive_id channel",
+      "source namespace generation label k34/zeta34 -> k35/zeta35"
+    ],
+    "archive_id_only_attribution_allowed": false,
+    "changed_profile_rows": "16/16",
+    "geometry_bit_flips": "244/512",
+    "flip_rate": 0.4765625,
+    "mean_hamming_per_profile": 15.25,
+    "residual_rank_gf2": "16/16",
+    "vertex_residual_signature_classes": "32/32",
+    "nontrivial_vertex_merges": []
+  },
+  "cross_context_construction_effect": {
+    "prospective_transport_matches": "96/192",
+    "prospective_transport_mismatches": "96/192",
+    "exact_transported_rows": "0/6",
+    "transport_residual_rank_gf2": "6/6",
+    "common_profile_effect_rows": 9,
+    "unique_common_profile_effect_rows": "9/9",
+    "common_profile_effect_rank_gf2": "9/9",
+    "context_interaction_rank_gf2": "6/6",
+    "verdict": "CONSTRUCTION_EFFECT_CONTEXT_INTERACTION"
+  },
+  "observed_no_compression_frontier": {
+    "observed_world_conditions": 24,
+    "distinct_32bit_geometry_rows": "24/24",
+    "output_quotient_classes": 24,
+    "output_quotient_nontrivial_merges": [],
+    "candidate_pre_response_coordinates": [
+      "C",
+      "S",
+      "P",
+      "L",
+      "D"
+    ],
+    "minimum_coordinate_projection_size_for_full_geometry": 5,
+    "minimal_full_geometry_coordinate_subsets": [
+      [
+        "C",
+        "S",
+        "P",
+        "L",
+        "D"
+      ]
+    ],
+    "strict_subset_sufficient": false,
+    "theorem_like_statement": "For the observed P35 finite design, every strict coordinate projection of (C,S,P,L,D) identifies at least one pair of conditions with different 32-bit geometry. Therefore no nontrivial coordinate-projection sufficient statistic exists for the full geometry."
+  },
+  "vertexwise_minimal_sufficient_statistics": {
+    "minimum_size_distribution": {
+      "4": 1,
+      "5": 31
+    },
+    "exceptional_vertex": {
+      "vertex": "R_F",
+      "minimal_subset": [
+        "S",
+        "P",
+        "L",
+        "D"
+      ],
+      "context_required": false
+    },
+    "all_other_vertices": {
+      "count": 31,
+      "minimal_subset": [
+        "C",
+        "S",
+        "P",
+        "L",
+        "D"
+      ]
+    }
+  },
+  "constitutional_verdict": "OBSERVED_NO_COMPRESSION_FRONTIER",
+  "interpretation": "Within the currently measured pre-response coordinate system, exact behavioral geometry is effectively saturated: context plus all four construction coordinates are jointly necessary for full-row determination, while identifier-package changes introduce an additional full-rank matched-profile perturbation. This is an observational finite-design boundary, not a universal impossibility theorem.",
+  "authority_limits": [
+    "No universal minimal sufficient statistic claim",
+    "No archive_id-only causal attribution",
+    "No arbitrary-world generalization",
+    "No cross-model authority",
+    "No behavioral SVEC promotion"
+  ],
+  "new_model_calls": 0,
+  "new_actions": 0,
+  "self_audit": "PASS"
+}
