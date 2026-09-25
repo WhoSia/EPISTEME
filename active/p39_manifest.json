@@ -56,5 +56,20 @@
       "family-level quotient only if at least two distinct Qwen checkpoints are technically evaluable"
     ]
   },
-  "authority": "Screening and promoted-arm geometry are model-indexed. No Qwen-family-wide claim from a single checkpoint and no behavioral SVEC promotion."
+  "authority": "Screening and promoted-arm geometry are model-indexed. No Qwen-family-wide claim from a single checkpoint and no behavioral SVEC promotion.",
+  "compute_access": {
+    "huggingface_gpu_jobs": "UNAVAILABLE_402_PAYMENT_REQUIRED",
+    "paid_gpu_retry": false,
+    "zero_a10g_retry": "UNAVAILABLE_402_PAYMENT_REQUIRED",
+    "free_fallback": {
+      "provider": "GitHub-hosted CPU",
+      "checkpoints": [
+        "Qwen/Qwen2.5-0.5B-Instruct",
+        "Qwen/Qwen2.5-1.5B-Instruct",
+        "Qwen/Qwen3-0.6B",
+        "Qwen/Qwen3-1.7B"
+      ],
+      "purpose": "recover generation/scale breadth without paid compute"
+    }
+  }
 }
