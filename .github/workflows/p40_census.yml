@@ -1,0 +1,30 @@
+name: EPISTEME P40 provider census
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "active/p40_census_trigger.txt"
+
+permissions:
+  contents: read
+
+jobs:
+  census:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: pip install groq
+      - run: python -m py_compile src/p40_provider_census.py
+      - name: Enumerate Groq-visible models
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: python src/p40_provider_census.py
+      - uses: actions/upload-artifact@v7
+        with:
+          name: p40-groq-model-census
+          path: receipts/p40_groq_model_census.json
+          retention-days: 7
