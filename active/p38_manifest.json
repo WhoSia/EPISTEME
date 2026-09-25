@@ -1,0 +1,36 @@
+{
+  "stage": "EPISTEME-P38",
+  "descriptor": "Identifier-Channel Causal-Symmetry Test, Cross-Context Effect-Tensor Decomposition, Channel–Representation Interaction Algebra & Compression-Frontier Reconstitution",
+  "status": "SEALED_DETERMINISTIC_ANALYSIS",
+  "predecessor": {
+    "stage": "EPISTEME-P37",
+    "verdict": "IDENTIFIER_CHANNEL_CONTEXT_INTERACTION",
+    "prospective_matches": "293/576",
+    "exact_rows": "0/18",
+    "transport_residual_rank": "18/18"
+  },
+  "no_new_calls": true,
+  "symmetry_nulls": [
+    "channel exchange: ΔA = ΔN",
+    "additivity: ΔAxN = 0",
+    "context transport: Δchannel(c,z,r) = Δchannel(measurement,z,r)"
+  ],
+  "tensor_decomposition": {
+    "factors": [
+      "context C",
+      "construction profile Z",
+      "archive channel A",
+      "namespace channel N",
+      "representation r"
+    ],
+    "effect_families": [
+      "A",
+      "N",
+      "AxN"
+    ],
+    "algebra": "GF(2) exact effect tensors and span/intersection decomposition"
+  },
+  "representation_algebra": "ANF over full {R,F,H,T,L} Boolean cube for every context×profile channel-effect row",
+  "compression_reconstitution": "exhaustive projection sufficiency over {C,Z,A,N}, globally and vertexwise",
+  "authority": "Finite-design exact analysis on sealed P37 Gemini evidence only. Operational intervention symmetry, not neural-mechanism causal identification."
+}
