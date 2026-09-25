@@ -1,0 +1,80 @@
+{
+  "stage": "EPISTEME-P39",
+  "descriptor": "Intra-Family Model Geometry, Qwen-Lineage Abstention Boundary, Scale/Generation Reconstitution, Gemini-to-Qwen Counterexample Transport & Model-Family Quotient Comparison",
+  "status": "SEALED_SCREENING_STAGE",
+  "groq_run": {
+    "run_id": 36171851921,
+    "head_sha": "6e16064c50ca3f72e0f15fb88d77d9a514ef44d2",
+    "artifact_digest": "sha256:e2dddb54b03c2b9845c42aefcd806b2907b2d487680ef028535e85c7ea4e0924"
+  },
+  "cpu_run": {
+    "run_id": 36172027798,
+    "head_sha": "54c67048af23767a68e646b996caf85b6f8130bd",
+    "artifact_digest": "sha256:cc058f5419cb610c33d7af14f099b905228e16dd2a3fe97b3657193d5281b827"
+  },
+  "model_regimes": {
+    "qwen/qwen3.8-27b": {
+      "classification": "GLOBAL_ABSTENTION_REGIME",
+      "technical": "36/36",
+      "valid_majority_correct": "0/6",
+      "null_majority_correct": "6/6"
+    },
+    "qwen/qwen3.6-27b": {
+      "classification": "TECHNICAL_UNEVALUABLE",
+      "technical": "0/36"
+    },
+    "Qwen/Qwen2.5-0.5B-Instruct": {
+      "classification": "NONSELECTIVE_NO_PROMOTION",
+      "technical": "36/36",
+      "valid_majority_correct": "0/6",
+      "null_majority_correct": "0/6"
+    },
+    "Qwen/Qwen2.5-1.5B-Instruct": {
+      "classification": "NONSELECTIVE_NO_PROMOTION",
+      "technical": "35/36",
+      "valid_majority_correct": "0/6",
+      "null_majority_correct": "0/6"
+    },
+    "Qwen/Qwen3-0.6B": {
+      "classification": "NONSELECTIVE_NO_PROMOTION",
+      "technical": "36/36",
+      "valid_majority_correct": "0/6",
+      "null_majority_correct": "0/6"
+    },
+    "Qwen/Qwen3-1.7B": {
+      "classification": "NONSELECTIVE_NO_PROMOTION",
+      "technical": "36/36",
+      "valid_majority_correct": "0/6",
+      "null_majority_correct": "0/6"
+    }
+  },
+  "frozen_promotion_result": {
+    "selective_promote": [],
+    "partial_selective_promote": [],
+    "promoted_full_geometry_arms": [],
+    "reason": "No technically evaluable checkpoint met the precommitted SELECTIVE_PROMOTE or PARTIAL_SELECTIVE_PROMOTE thresholds."
+  },
+  "family_boundary": {
+    "qwen_family_global_abstention": false,
+    "observed_regimes": [
+      "clean abstention on qwen/qwen3.8-27b",
+      "nonselective semantic failure on small Qwen2.5/Qwen3 checkpoints",
+      "technical unevaluability on qwen/qwen3.6-27b"
+    ],
+    "interpretation": "The prior qwen3.8-27b abstention result is checkpoint-specific and cannot be generalized to the Qwen family. However, no screened Qwen checkpoint constituted a selective geometry arm on the frozen screen."
+  },
+  "hf_gpu_compute": {
+    "status": "UNAVAILABLE_402_PAYMENT_REQUIRED",
+    "scientific_calls": 0,
+    "authority": "Compute-access boundary only; not a model result."
+  },
+  "constitutional_verdict": "QWEN_FAMILY_REGIME_HETEROGENEITY_WITH_NO_SELECTIVE_ARM_CONSTITUTED",
+  "authority_limits": [
+    "No full-geometry Qwen quotient because no checkpoint passed promotion.",
+    "No family-wide abstention claim.",
+    "No scale-law claim from these sparse checkpoints.",
+    "No cross-model geometry transport claim.",
+    "No behavioral SVEC promotion."
+  ],
+  "self_audit": "PASS"
+}
