@@ -1,0 +1,62 @@
+{
+  "stage": "EPISTEME-P42",
+  "descriptor": "Cross-Provider Response-Contract Equalization, GPT-OSS Technical Recovery, Null-Boundary Prospective Replication, Selectivity-Domain Reopening & Non-Vacuous Cross-Family Geometry Constitution",
+  "status": "PRECOMMITTED",
+  "predecessor": {
+    "stage": "EPISTEME-P41",
+    "verdict": "SELECTIVITY_TRANSPORTABILITY_NOT_CONSTITUTED__BOUNDARY_IS_MODEL_INDEXED_AND_TECHNICAL_GATE_SENSITIVE"
+  },
+  "design_principle": "Separate response-contract failure from behavioral failure before reopening any scientific promotion gate.",
+  "models": [
+    "openai/gpt-oss-20b",
+    "openai/gpt-oss-120b",
+    "gemini-3.5-flash-lite"
+  ],
+  "phase_A_contract_calibration": {
+    "scientific_packets": 0,
+    "canary": "semantically neutral JSON-contract canary unrelated to valid/null archive classification",
+    "groq_candidate_contracts_in_order": [
+      "strict_json_schema + hidden reasoning + 1536 completion tokens",
+      "json_object + hidden reasoning + 1536 completion tokens",
+      "json_object + low reasoning + 1536 completion tokens",
+      "plain JSON prompt + low reasoning + 1536 completion tokens"
+    ],
+    "selection_rule": "First candidate producing exact client-validated schema on 3/3 canary calls; selection is technical-only and blind to scientific outcomes.",
+    "gemini_contract": "application/json + response_json_schema + identical client-side exact-schema validation",
+    "failure_rule": "If no contract passes 3/3 canaries, that model remains TECHNICAL_UNRECOVERED and receives zero scientific calls."
+  },
+  "phase_B_fresh_boundary_replication": {
+    "packet_family": "fresh P42 aliases and archive IDs; same six representation groups I,R,H_T_L,R_F_H,R_F_T_L,R_F_H_T_L; valid/null semantic twins",
+    "replicates_per_group": 5,
+    "seeds": [4201,4202,4203,4204,4205],
+    "calls_per_recovered_model": 60,
+    "technical_gate": ">=58/60 exact-schema successful calls",
+    "group_majority": ">=3/5 correct",
+    "promotion": {
+      "SELECTIVE_PROMOTE": ">=4/6 valid-majority groups and >=5/6 null-majority groups",
+      "PARTIAL_SELECTIVE_PROMOTE": ">=2/6 valid-majority groups and >=4/6 null-majority groups",
+      "GLOBAL_ABSTENTION_REGIME": "0/6 valid-majority and >=5/6 null-majority",
+      "NONSELECTIVE_NO_PROMOTION": "otherwise if technical gate passes"
+    }
+  },
+  "phase_C_geometry": {
+    "eligibility": "Only models promoted by fresh P42 evidence, never P40 shadow coordinates.",
+    "condition": "measurement-pipeline × u1 × profile0101 × A1N1",
+    "geometry": "32 representation vertices × valid/null twins × 3 replicates",
+    "technical_vertex_gate": ">=2/3 exact-schema successful calls for each semantic twin at every vertex",
+    "cross_family_constitution": "Requires >=2 technically evaluable promoted models from distinct model families.",
+    "outputs": [
+      "model-indexed 32-bit geometry rows",
+      "pairwise Hamming distance",
+      "agreement/intersection mask",
+      "quotient blocks induced by identical model-response signatures across promoted models"
+    ]
+  },
+  "frozen_nonpromotion_rules": [
+    "Technical failure is never counted as behavioral incorrectness for promotion.",
+    "Canary contract selection cannot inspect scientific outcomes.",
+    "P40 shadow coordinates cannot promote a model.",
+    "If fewer than two distinct families promote, cross-family geometry remains NOT_CONSTITUTED rather than vacuously universal."
+  ],
+  "authority": "Prospective behavioral evidence under equalized response contracts only; no neural-mechanism claim, no model-family capability ranking, no behavioral SVEC promotion."
+}
