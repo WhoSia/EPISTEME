@@ -1,0 +1,62 @@
+{
+  "stage": "EPISTEME-P37",
+  "descriptor": "Orthogonalized Identifier-Channel Factorial, Archive-ID × Source-Namespace Separation, Prospective Channel Attribution, Context-Conditional Transport & Sufficient-Statistic Reopening",
+  "status": "PRECOMMITTED",
+  "predecessor": {
+    "stage": "EPISTEME-P36",
+    "verdict": "OBSERVED_NO_COMPRESSION_FRONTIER",
+    "identifier_package_residual_rank": "16/16",
+    "caveat": "P34→P35 package contrast confounded archive_id with source namespace generation label"
+  },
+  "factors": {
+    "A": {
+      "zero": "fixed-length constant archive ID ar37-000000000000",
+      "one": "fixed-length per matched packet opaque archive ID; varies by profile×representation×semantic but is identical across contexts"
+    },
+    "N": {
+      "zero": "matched-length source namespace family a (ka37/za37)",
+      "one": "matched-length source namespace family b (kb37/zb37)"
+    }
+  },
+  "construction_profiles": [
+    "0000",
+    "0101",
+    "1111"
+  ],
+  "contexts": [
+    "measurement-pipeline",
+    "analysis-pipeline",
+    "sample-handling"
+  ],
+  "intervention": "u1",
+  "orthogonality_guarantees": [
+    "A manipulation changes archive_id only",
+    "N manipulation changes namespace-bearing retained_history/relation_notes content only",
+    "matched packet across contexts differs only in surface_domain",
+    "A1 archive string is context-invariant for matched profile×representation×semantic"
+  ],
+  "phased_prospective_design": {
+    "A": "measurement context, 3 profiles × 4 identifier arms × 32 vertices × semantic twins × 3 reps",
+    "B": "analysis/sample A0N0 baselines for all 3 profiles",
+    "preseal": "derive anchor A/N/A×N-complete arm deltas and hash 576 external target predictions",
+    "C": "analysis/sample, three nonbaseline identifier arms for all 3 profiles"
+  },
+  "calls": {
+    "phase_A": 2304,
+    "phase_B": 1152,
+    "phase_C": 3456,
+    "total": 6912
+  },
+  "frozen_transport_law": "Y_c(z,a,n,r)=Y_c(z,0,0,r) XOR [Y_measurement(z,a,n,r) XOR Y_measurement(z,0,0,r)]",
+  "exact_transport_survival": "576/576 prospective geometry cells",
+  "sufficiency_reopening": {
+    "observed_full_factorial": "C(3) × Z(3 profiles) × A(2) × N(2) = 36 conditions",
+    "search": "exhaustive coordinate-projection sufficiency over {C,Z,A,N}, globally and vertexwise"
+  },
+  "branches": [
+    "IDENTIFIER_CHANNEL_TRANSPORT_SURVIVES",
+    "IDENTIFIER_CHANNEL_CONTEXT_INTERACTION",
+    "TECHNICAL_HOLD"
+  ],
+  "authority": "Prospective orthogonal identifier-channel attribution and transport only. No universal causal law, arbitrary-world generalization, cross-model authority, or behavioral SVEC promotion."
+}
