@@ -1,0 +1,30 @@
+{
+  "stage": "EPISTEME-P41",
+  "descriptor": "Cross-Family Selective-Geometry Alignment, Model-Indexed Quotient Intersection, Regime-Boundary Stability & Whether Behavioral Selectivity Constitutes a Transportable Model Property",
+  "status": "PRECOMMITTED_DETERMINISTIC_ADJUDICATION",
+  "predecessor": {
+    "stage": "EPISTEME-P40",
+    "verdict": "NO_CROSS_FAMILY_SELECTIVE_GEOMETRY_CONSTITUTED",
+    "promoted_models": 0
+  },
+  "scientific_question": "Does the evidence currently constitute behavioral selectivity as a transportable model property, rather than a model/task-specific regime?",
+  "formal_domain": {
+    "S": "set of technically evaluable models satisfying the frozen SELECTIVE_PROMOTE or PARTIAL_SELECTIVE_PROMOTE gate",
+    "cross_family_alignment": "defined only if |S| >= 2 and S contains at least two model families",
+    "quotient_intersection": "intersection of model-indexed behavioral quotients is defined only over constituted promoted geometries; an empty-domain intersection must not be treated as universal by vacuous truth"
+  },
+  "boundary_stability": {
+    "metric": "minimum number of six valid/null majority-group outcomes that must change to enter a promotion region, conditional on technical evaluability",
+    "technical_gate": "kept logically prior to behavioral phase coordinates",
+    "no_imputation": "FORMAT_OR_API_FAIL rows are not repaired, reclassified, or counted as scientific negatives/positives for promotion"
+  },
+  "frozen_rules": {
+    "PARTIAL_SELECTIVE_PROMOTE": "valid >=2/6 and null >=4/6",
+    "SELECTIVE_PROMOTE": "valid >=4/6 and null >=5/6",
+    "technical_evaluable": ">=34/36 calls OK",
+    "transportable_property": "requires at least two technically evaluable promoted models from distinct model families plus nonempty aligned geometry support"
+  },
+  "new_model_calls": 0,
+  "new_workflow": false,
+  "authority": "Finite-design constitution test only. Failure to constitute transportability is not evidence that transportability is impossible in other models or tasks."
+}
