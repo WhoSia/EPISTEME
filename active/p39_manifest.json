@@ -1,0 +1,60 @@
+{
+  "stage": "EPISTEME-P39",
+  "descriptor": "Intra-Family Model Geometry, Qwen-Lineage Abstention Boundary, Scale/Generation Reconstitution, Gemini-to-Qwen Counterexample Transport & Model-Family Quotient Comparison",
+  "status": "SCREENING_PRECOMMITTED",
+  "predecessor": {
+    "stage": "EPISTEME-P38",
+    "verdict": "IDENTIFIER_CHANNELS_ORTHOGONAL_BUT_NONSEPARABLE_FROM_CONTEXT_AND_REPRESENTATION"
+  },
+  "correction_of_prior_authority": {
+    "invalid_generalization": "qwen/qwen3.8-27b GLOBAL_ABSTENTION_REGIME must not be treated as Qwen-family-wide.",
+    "target": "identify whether abstention is checkpoint-specific, generation-specific, scale-related, or family-persistent."
+  },
+  "screen": {
+    "cases": 12,
+    "valid_cases": 6,
+    "null_cases": 6,
+    "representations": [
+      "I",
+      "R",
+      "H_T_L",
+      "R_F_H",
+      "R_F_T_L",
+      "R_F_H_T_L"
+    ],
+    "replicates": 3,
+    "calls_per_model": 36,
+    "thresholds": {
+      "GLOBAL_ABSTENTION_REGIME": "0/6 valid majority-correct and >=5/6 null majority-correct",
+      "SELECTIVE_PROMOTE": ">=4/6 valid and >=5/6 null majority-correct",
+      "PARTIAL_SELECTIVE_PROMOTE": ">=2/6 valid and >=4/6 null majority-correct",
+      "NONSELECTIVE_NO_PROMOTION": "otherwise if technically evaluable",
+      "TECHNICAL_UNEVALUABLE": "more than 2 of 36 calls technically fail"
+    }
+  },
+  "arms": {
+    "groq": "discover every Qwen model visible to the current GROQ_API_KEY at runtime",
+    "huggingface_official": [
+      "Qwen/Qwen2.5-7B-Instruct",
+      "Qwen/Qwen3-4B",
+      "Qwen/Qwen3-8B",
+      "Qwen/Qwen3-14B"
+    ]
+  },
+  "promotion": {
+    "rule": "Only SELECTIVE_PROMOTE or PARTIAL_SELECTIVE_PROMOTE checkpoints enter full 32-vertex geometry.",
+    "target_condition": "measurement-pipeline × u1, construction profile 0101, identifier arm A1N1 inherited from P37.",
+    "geometry": "32 representation vertices × valid/null semantic twins × 3 replicates",
+    "no_outcome_based_model_selection": true
+  },
+  "family_comparison": {
+    "planned_outputs": [
+      "checkpoint-indexed abstention/selectivity regime",
+      "generation/scale boundary map",
+      "Gemini-derived counterexample transport",
+      "model-indexed representation quotient",
+      "family-level quotient only if at least two distinct Qwen checkpoints are technically evaluable"
+    ]
+  },
+  "authority": "Screening and promoted-arm geometry are model-indexed. No Qwen-family-wide claim from a single checkpoint and no behavioral SVEC promotion."
+}
