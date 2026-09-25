@@ -1,0 +1,55 @@
+{
+  "stage": "EPISTEME-P37",
+  "descriptor": "Orthogonalized Identifier-Channel Factorial, Archive-ID × Source-Namespace Separation, Prospective Channel Attribution, Context-Conditional Transport & Sufficient-Statistic Reopening",
+  "canonical_run_id": 36097657611,
+  "canonical_run_head_sha": "9fdcffd0961abb04d559f8f3ce82998f7a38bb88",
+  "workflow_conclusion": "success",
+  "arm_evaluable": true,
+  "format_or_api_failures": "0/6912",
+  "preseal_sha256": "d60f0fd684b358f8e6c859b33889982fc6408590dbf43729f71644f9758bad2c",
+  "orthogonal_identifier_factorial": {
+    "observed_conditions": 36,
+    "distinct_geometry_rows": "36/36",
+    "anchor_contrast_rank_gf2": {
+      "A": "3/3",
+      "N": "3/3",
+      "AxN": "3/3"
+    },
+    "anchor_contrast_nonzero_bits": {
+      "A": 43,
+      "N": 37,
+      "AxN": 43
+    }
+  },
+  "prospective_context_transport": {
+    "target_cells": 576,
+    "matching_cells": 293,
+    "mismatches": 283,
+    "match_rate": 0.5086805555555556,
+    "exact_rows": "0/18",
+    "transport_residual_rank_gf2": "18/18",
+    "verdict": "IDENTIFIER_CHANNEL_CONTEXT_INTERACTION"
+  },
+  "sufficient_statistic_reopening": {
+    "coordinates": [
+      "C",
+      "Z",
+      "A",
+      "N"
+    ],
+    "minimum_projection_size_for_full_geometry": 4,
+    "minimal_subsets": [
+      [
+        "C",
+        "Z",
+        "A",
+        "N"
+      ]
+    ],
+    "strict_subset_sufficient": false,
+    "vertex_minimum_size_distribution": {
+      "4": 32
+    }
+  },
+  "authority": "Orthogonal archive-ID and namespace manipulations are both behaviorally active and interact, but their geometry does not transport exactly across contexts. The P36 no-compression frontier remains closed after explicit A/N measurement. No causal mechanism beyond the manipulated lexical channels and no behavioral SVEC promotion."
+}
