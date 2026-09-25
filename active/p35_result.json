@@ -1,0 +1,34 @@
+{
+  "stage": "EPISTEME-P35",
+  "descriptor": "Instance-Law Survival or Defeat, Cross-Context Transport of Instrumented Features, Residual Mechanism Localization & World-Construction Authority Update",
+  "canonical_run_id": 36032383918,
+  "canonical_run_head_sha": "86f88d4f5affceb17899b322a736bad59889493d",
+  "canonical_selection_rule": "earliest repaired run in launch order that is technically evaluable",
+  "workflow_conclusion": "success",
+  "arm_evaluable": true,
+  "format_or_api_failures": "0/4608",
+  "preseal_sha256": "81ed9df10e11509b5b88a57ae7f85a91aa2753a01ef6a8af20470f9ddfc9f5a8",
+  "prospective_cross_context_transport": {
+    "target_cells": 192,
+    "matching_cells": 96,
+    "mismatches": 96,
+    "match_rate": 0.5,
+    "exact_profile_rows": "0/6",
+    "analysis_matches": "54/96",
+    "sample_matches": "42/96",
+    "transport_residual_rank_gf2": "6/6",
+    "verdict": "CONSTRUCTION_EFFECT_CONTEXT_INTERACTION"
+  },
+  "confound_stripped_anchor": {
+    "constant_archive_id": true,
+    "full_factorial_profiles": 16,
+    "exact_anf_degree_distribution": {
+      "3": 16,
+      "4": 16
+    },
+    "degree_le_2_vertices": 0,
+    "mean_anf_term_count": 7.71875,
+    "unique_profile_rows": "16/16"
+  },
+  "authority": "The measured construction-profile effect does not transport from measurement-pipeline to analysis/sample contexts at fixed u1. All six prospective external profile rows fail exact transport, and the residual has full 6/6 row rank. No causal or behavioral-SVEC promotion."
+}
