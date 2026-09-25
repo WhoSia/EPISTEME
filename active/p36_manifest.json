@@ -1,0 +1,38 @@
+{
+  "stage": "EPISTEME-P36",
+  "descriptor": "Cross-Context Construction-Effect Survival Boundary, Transport-Residual Factorization, Identifier-Channel Decomposition, Observed No-Compression Frontier & Minimal World-Instance Sufficient Statistic",
+  "status": "SEALED_DETERMINISTIC_ANALYSIS",
+  "predecessors": [
+    {
+      "stage": "EPISTEME-P34",
+      "verdict": "NO_LOW_ORDER_INSTANCE_LAW"
+    },
+    {
+      "stage": "EPISTEME-P35",
+      "verdict": "CONSTRUCTION_EFFECT_CONTEXT_INTERACTION"
+    }
+  ],
+  "explanandum": "Whether any nontrivial pre-response observable compression of context and world-instance construction coordinates exactly determines behavioral geometry on the observed design.",
+  "evidence": {
+    "p34_run": 35973086351,
+    "p35_canonical_run": 36032383918,
+    "p35_selection_rule": "earliest repaired technically evaluable run",
+    "p35_preseal_sha256": "81ed9df10e11509b5b88a57ae7f85a91aa2753a01ef6a8af20470f9ddfc9f5a8"
+  },
+  "frozen_definitions": {
+    "observed_world_condition": "one observed (context,S,P,L,D) combination with a 32-bit geometry row",
+    "coordinate_projection_sufficient": "all observed conditions equal on the retained coordinates have identical geometry outcomes",
+    "minimal_sufficient_projection": "smallest subset of {C,S,P,L,D} satisfying exact deterministic sufficiency on the observed finite design",
+    "identifier_channel_package": "P34->P35 matched-profile model-visible identifier changes; not attributed to archive_id alone",
+    "no_compression_frontier": "no strict subset of the measured pre-response coordinate set is sufficient for full geometry"
+  },
+  "analyses": [
+    "P34-vs-P35 matched-profile identifier-channel package residual",
+    "GF(2) rank and vertex-signature decomposition of identifier residual",
+    "P35 prospective transport residual factorization",
+    "exhaustive 2^5 coordinate-projection sufficiency search",
+    "vertexwise minimal sufficient-coordinate search",
+    "exact output quotient over all 24 observed world conditions"
+  ],
+  "authority": "Deterministic finite-design constitution only. No universal minimal statistic, no causal identifier attribution, no cross-model authority, and no behavioral SVEC promotion."
+}
