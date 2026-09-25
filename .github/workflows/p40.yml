@@ -1,0 +1,34 @@
+name: EPISTEME P40 cross-family selectivity and geometry
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "active/p40_trigger.txt"
+
+permissions:
+  contents: read
+
+jobs:
+  cross-family:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: pip install groq google-genai
+      - name: Static preflight
+        run: python -m py_compile src/p39_common.py src/p40_cross_family.py
+      - name: Run frozen cross-family screen and promoted geometry
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python src/p40_cross_family.py
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: p40-cross-family
+          path: receipts/p40_cross_family.json
+          retention-days: 7
