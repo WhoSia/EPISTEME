@@ -1,0 +1,122 @@
+{
+  "stage": "EPISTEME-P38",
+  "descriptor": "Identifier-Channel Causal-Symmetry Test, Cross-Context Effect-Tensor Decomposition, Channel–Representation Interaction Algebra & Compression-Frontier Reconstitution",
+  "status": "SEALED_DETERMINISTIC_ANALYSIS",
+  "identifier_channel_symmetry": {
+    "channel_exchange_A_equals_N": {
+      "matching_bits": "164/288",
+      "mismatching_bits": "124/288",
+      "exact_rows": "0/9",
+      "difference_rank_gf2": "9/9",
+      "verdict": "REJECTED"
+    },
+    "additive_no_interaction_AxN_zero": {
+      "zero_bits": "150/288",
+      "nonzero_bits": "138/288",
+      "exact_zero_rows": "0/9",
+      "verdict": "REJECTED"
+    },
+    "context_transport_symmetry": {
+      "A": {
+        "residual_rank": "6/6",
+        "nonzero_bits": "98/192",
+        "exact_rows": "0/6"
+      },
+      "N": {
+        "residual_rank": "6/6",
+        "nonzero_bits": "86/192",
+        "exact_rows": "0/6"
+      },
+      "AxN": {
+        "residual_rank": "6/6",
+        "nonzero_bits": "93/192",
+        "exact_rows": "0/6"
+      },
+      "verdict": "REJECTED_FOR_ALL_THREE_CHANNEL_EFFECT_FAMILIES"
+    }
+  },
+  "cross_context_effect_tensor": {
+    "channel_ranks": {
+      "A": "9/9",
+      "N": "9/9",
+      "AxN": "9/9"
+    },
+    "channel_nonzero_bits": {
+      "A": "129/288",
+      "N": "127/288",
+      "AxN": "138/288"
+    },
+    "distinct_effect_rows": {
+      "A": "9/9",
+      "N": "9/9",
+      "AxN": "9/9"
+    },
+    "pairwise_combined_ranks": {
+      "A+N": "18/18",
+      "A+AxN": "18/18",
+      "N+AxN": "18/18"
+    },
+    "pairwise_span_intersection_dimensions": {
+      "A_intersect_N": 0,
+      "A_intersect_AxN": 0,
+      "N_intersect_AxN": 0
+    },
+    "combined_rank": "27/27",
+    "interpretation": "The observed A, N, and AxN effect families form a 27-dimensional direct sum inside the 32-dimensional representation-geometry space."
+  },
+  "channel_representation_interaction_algebra": {
+    "A_anf_degree_distribution": {
+      "4": 4,
+      "5": 5
+    },
+    "N_anf_degree_distribution": {
+      "3": 1,
+      "4": 5,
+      "5": 3
+    },
+    "AxN_anf_degree_distribution": {
+      "4": 5,
+      "5": 4
+    },
+    "mean_anf_term_counts": {
+      "A": 15,
+      "N": 14.11111111111111,
+      "AxN": 17
+    },
+    "low_order_uniform_channel_law_supported": false
+  },
+  "compression_frontier_reconstitution": {
+    "observed_conditions": 36,
+    "distinct_geometry_rows": "36/36",
+    "coordinates": [
+      "C",
+      "Z",
+      "A",
+      "N"
+    ],
+    "minimum_projection_size_for_full_geometry": 4,
+    "minimal_subsets": [
+      [
+        "C",
+        "Z",
+        "A",
+        "N"
+      ]
+    ],
+    "strict_subset_sufficient": false,
+    "vertex_minimum_size_distribution": {
+      "4": 32
+    },
+    "frontier_status": "RECONSTITUTED_NO_COMPRESSION_FRONTIER"
+  },
+  "constitutional_verdict": "IDENTIFIER_CHANNELS_ORTHOGONAL_BUT_NONSEPARABLE_FROM_CONTEXT_AND_REPRESENTATION",
+  "authority_limits": [
+    "Operational symmetry of randomized/orthogonal model-visible interventions only",
+    "No claim about internal neural causal mechanisms",
+    "No arbitrary-world or cross-model generalization",
+    "No behavioral SVEC promotion"
+  ],
+  "new_model_calls": 0,
+  "new_actions": 0,
+  "self_audit": "PASS"
+}
