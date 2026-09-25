@@ -4,3 +4,4 @@ phase_A=technical_contract_calibration
 phase_B=fresh_boundary_replication
 phase_C=conditional_geometry
 rerun=false
+activation=registered-workflow
