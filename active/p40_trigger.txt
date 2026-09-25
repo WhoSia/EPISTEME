@@ -1,0 +1,5 @@
+stage=EPISTEME-P40
+scientific_run=1
+predecessor=EPISTEME-P39
+screen_models=gptoss20,gptoss120,gemini
+promotion=frozen
