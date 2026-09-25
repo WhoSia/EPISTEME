@@ -1,0 +1,23 @@
+{
+  "stage": "EPISTEME-P40",
+  "descriptor": "Selectivity Emergence Boundary, Capability-Matched Model-Family Reconstitution, Abstention↔Nonselective Phase Transition & Cross-Family Behavioral Geometry Constitution",
+  "canonical_run_id": 36184787708,
+  "canonical_run_head_sha": "0aab0f460971d5c5d125517b2345bf4d36f7bb2b",
+  "artifact_digest": "sha256:cbd49a8890ee90a7bd775786c629ff6e7b598abf677656d58342c929078a3e0c",
+  "workflow_conclusion": "success",
+  "current_model_results": {
+    "openai/gpt-oss-20b": {"classification": "TECHNICAL_UNEVALUABLE", "technical_ok": "1/36", "W": 0.0, "N": 0.0},
+    "openai/gpt-oss-120b": {"classification": "TECHNICAL_UNEVALUABLE", "technical_ok": "19/36", "shadow_W": 0.3333333333333333, "shadow_N": 0.6666666666666666, "note": "Observed majority coordinates would meet PARTIAL_SELECTIVE_PROMOTE numerically, but the frozen technical gate fails and therefore no scientific promotion is permitted."},
+    "gemini-3.5-flash-lite": {"classification": "NONSELECTIVE_NO_PROMOTION", "technical_ok": "36/36", "W": 1.0, "N": 0.5}
+  },
+  "inherited_p39": {
+    "qwen/qwen3.8-27b": {"classification": "GLOBAL_ABSTENTION_REGIME", "W": 0.0, "N": 1.0},
+    "qwen/qwen3.6-27b": {"classification": "TECHNICAL_UNEVALUABLE"},
+    "small_qwen2.5_qwen3": {"classification": "NONSELECTIVE_NO_PROMOTION", "W": 0.0, "N": 0.0, "checkpoints": 4}
+  },
+  "promoted_models": [],
+  "full_geometry_executed": false,
+  "constitutional_verdict": "NO_CROSS_FAMILY_SELECTIVE_GEOMETRY_CONSTITUTED",
+  "authority": "The frozen screen identifies heterogeneous model-indexed regimes but no technically evaluable model satisfies either promotion gate. Therefore P40 does not constitute a cross-family selective geometry and cannot support a transportable-selectivity claim.",
+  "self_audit": "PASS"
+}
