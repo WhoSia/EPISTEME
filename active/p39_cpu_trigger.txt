@@ -1,0 +1,5 @@
+stage=EPISTEME-P39
+phase=cpu-lineage-screen
+single_use=true
+paid_gpu=false
+checkpoints=4
