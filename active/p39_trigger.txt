@@ -1,0 +1,6 @@
+stage=EPISTEME-P39
+phase=screening
+single_use=true
+predecessor=EPISTEME-P38
+groq_runtime_discovery=true
+hf_official_checkpoints=4
