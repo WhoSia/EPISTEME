@@ -1,0 +1,49 @@
+{
+  "stage": "EPISTEME-P40",
+  "descriptor": "Selectivity Emergence Boundary, Capability-Matched Model-Family Reconstitution, Abstention↔Nonselective Phase Transition & Cross-Family Behavioral Geometry Constitution",
+  "status": "PRECOMMITTED",
+  "predecessor": {
+    "stage": "EPISTEME-P39",
+    "verdict": "QWEN_FAMILY_REGIME_HETEROGENEITY_WITH_NO_SELECTIVE_ARM_CONSTITUTED"
+  },
+  "provider_census": {
+    "run_id": 36184527123,
+    "artifact_digest": "sha256:644ea906db2491105b0b9fcb7696a5352dc14a3f7541eefa0020594d969b7bc4",
+    "general_purpose_reasoning_candidates": [
+      "qwen/qwen3.8-27b",
+      "qwen/qwen3.6-27b",
+      "openai/gpt-oss-20b",
+      "openai/gpt-oss-120b"
+    ],
+    "excluded": [
+      "ALLaM-2-7b: Arabic-specialized outgroup, not capability-matched English reasoning arm",
+      "prompt-guard models: classifiers, not general-purpose generation",
+      "speech/transcription models: task-incompatible"
+    ]
+  },
+  "current_screen_models": [
+    "openai/gpt-oss-20b",
+    "openai/gpt-oss-120b",
+    "gemini-3.5-flash-lite"
+  ],
+  "inherited_models": "All six P39 Qwen checkpoint regimes are included in the final phase map without rerunning them.",
+  "phase_coordinates": {
+    "W": "valid majority-correct / 6",
+    "N": "null majority-correct / 6",
+    "interpretation": "Observed behavioral regime coordinates only; not a causal capability scale."
+  },
+  "frozen_screen_thresholds": {
+    "GLOBAL_ABSTENTION_REGIME": "W=0 and null majority-correct >=5/6",
+    "SELECTIVE_PROMOTE": "valid >=4/6 and null >=5/6",
+    "PARTIAL_SELECTIVE_PROMOTE": "valid >=2/6 and null >=4/6",
+    "NONSELECTIVE_NO_PROMOTION": "otherwise if technically evaluable",
+    "TECHNICAL_UNEVALUABLE": "more than 2/36 technical failures"
+  },
+  "geometry_promotion": {
+    "condition": "measurement-pipeline × u1 × profile0101 × A1N1",
+    "rule": "Only current P40 arms classified SELECTIVE_PROMOTE or PARTIAL_SELECTIVE_PROMOTE.",
+    "geometry": "32 representation vertices × valid/null twins × 3 replicates",
+    "cross_family_comparison": "pairwise Hamming distance and model-indexed geometry rows"
+  },
+  "authority": "Observed model-indexed regime and promoted-arm geometry only. No causal parameter-scale transition, no family ranking, and no behavioral SVEC promotion."
+}
