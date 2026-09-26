@@ -1,0 +1,23 @@
+{
+  "stage": "EPISTEME-P42",
+  "canonical_run": 36187178756,
+  "duplicate_run_excluded": 36187199363,
+  "status": "SEALED_CANONICAL_ADJUDICATION",
+  "contracts": {
+    "gptoss20": "schema_hidden_medium",
+    "gptoss120": "schema_hidden_medium",
+    "gemini": "gemini_native_schema"
+  },
+  "screens": {
+    "gptoss20": {"classification":"TECHNICAL_UNEVALUABLE","technical_ok":52,"W":0.8333333333333334,"N":0.0},
+    "gptoss120": {"classification":"SELECTIVE_PROMOTE","technical_ok":60,"W":0.8333333333333334,"N":1.0},
+    "gemini": {"classification":"NONSELECTIVE_NO_PROMOTION","technical_ok":60,"W":0.8333333333333334,"N":0.5}
+  },
+  "promoted_models": ["gptoss120"],
+  "promoted_families": ["gpt-oss"],
+  "gptoss120_geometry": "00000000000001000000000100010000",
+  "gptoss120_exceptional_vertices": ["H_T","F_H_L","R_F_H_L"],
+  "cross_family_domain_constituted": false,
+  "constitutional_verdict": "SELECTIVITY_DOMAIN_REOPENED_BUT_CROSS_FAMILY_GEOMETRY_NOT_CONSTITUTED",
+  "authority": "Prospective P42 behavior under technically calibrated response contracts; no neural-mechanism or family-capability claim."
+}
