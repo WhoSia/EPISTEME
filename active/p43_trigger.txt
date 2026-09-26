@@ -1,0 +1,7 @@
+stage=EPISTEME-P43
+single_use=true
+canonical_predecessor_run=36187178756
+phase_A=independent_selectivity_replication
+phase_B=conditional_cross_family_boolean_geometry
+phase_C=exceptional_set_homology_and_quotient
+rerun=false
