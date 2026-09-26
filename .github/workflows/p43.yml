@@ -1,0 +1,45 @@
+name: EPISTEME P43 independent selectivity and boundary homology
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "active/p43_trigger.txt"
+
+permissions:
+  contents: read
+
+jobs:
+  p43:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: pip install groq google-genai
+      - name: Zero-call frozen preflight
+        run: |
+          python -m py_compile src/p42_reopen.py src/p43_replicate.py
+          python - <<'PY'
+          import json
+          m=json.load(open('active/p43_manifest.json'))
+          assert m['stage']=='EPISTEME-P43'
+          assert m['predecessor']['canonical_run']==36187178756
+          assert m['phase_A_independent_screen']['replicates_per_group']==5
+          assert m['phase_B_conditional_geometry']['calls_if_open']==384
+          assert '36187199363' in ' '.join(m['frozen_rules'])
+          print('P43_PRECHECK_PASS')
+          PY
+      - name: Run independent screen and conditional Boolean-lattice geometry
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python src/p43_replicate.py
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: p43-selectivity-boundary-homology-result
+          path: receipts/p43_result.json
+          retention-days: 7
