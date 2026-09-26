@@ -1,0 +1,56 @@
+{
+  "stage": "EPISTEME-P43",
+  "descriptor": "Independent Selectivity Replication, Exceptional-Set Persistence, Cross-Family Boundary Homology, Boolean-Lattice Transport Geometry & Non-Vacuous Behavioral Quotient Constitution",
+  "status": "PRECOMMITTED",
+  "predecessor": {
+    "stage": "EPISTEME-P42",
+    "canonical_run": 36187178756,
+    "verdict": "SELECTIVITY_DOMAIN_REOPENED_BUT_CROSS_FAMILY_GEOMETRY_NOT_CONSTITUTED",
+    "gptoss120": "SELECTIVE_PROMOTE; W=5/6; N=6/6; geometry=00000000000001000000000100010000",
+    "gemini": "NONSELECTIVE_NO_PROMOTION; W=5/6; N=3/6",
+    "gptoss20": "TECHNICAL_UNEVALUABLE; excluded from P43 scientific arms"
+  },
+  "scientific_question": "Does P42's GPT-OSS-120B selective regime survive an independent fresh replication, does Gemini cross the null boundary under the same frozen contract without contract reselection, and—only if both do—do their representation-failure sets define a reproducible non-vacuous quotient rather than a threshold accident?",
+  "models": ["openai/gpt-oss-120b", "gemini-3.5-flash-lite"],
+  "response_contract": "Exactly the P42-selected provider-native strict schema contracts; no adaptive contract search and no threshold changes.",
+  "phase_A_independent_screen": {
+    "packet_namespace": "fresh P43 aliases/archive IDs",
+    "groups": ["I","R","H_T_L","R_F_H","R_F_T_L","R_F_H_T_L"],
+    "semantic_twins": ["valid","null"],
+    "replicates_per_group": 5,
+    "seeds": [4301,4302,4303,4304,4305],
+    "calls_per_model": 60,
+    "technical_gate": ">=58/60 exact-schema successful calls",
+    "group_majority": ">=3/5 correct",
+    "promotion": {
+      "SELECTIVE_PROMOTE": ">=4/6 valid-majority and >=5/6 null-majority",
+      "PARTIAL_SELECTIVE_PROMOTE": ">=2/6 valid-majority and >=4/6 null-majority",
+      "GLOBAL_ABSTENTION_REGIME": "0/6 valid-majority and >=5/6 null-majority",
+      "NONSELECTIVE_NO_PROMOTION": "otherwise after technical gate"
+    },
+    "descriptive_uncertainty": "Wilson 95% intervals reported for W and N but never used to move frozen gates."
+  },
+  "phase_B_conditional_geometry": {
+    "eligibility": "Run only if both model instances independently satisfy SELECTIVE_PROMOTE or PARTIAL_SELECTIVE_PROMOTE in P43.",
+    "geometry": "32 Boolean-lattice representation vertices × valid/null twins × 3 fresh replicates",
+    "seeds": [4311,4312,4313],
+    "calls_if_open": 384,
+    "technical_vertex_gate": ">=2/3 exact-schema successful calls for each semantic twin at every vertex"
+  },
+  "phase_C_geometry_adjudication": {
+    "p42_gptoss120_replication": ["32-bit Hamming distance", "exceptional-set Jaccard", "Boolean-cube Hausdorff distance"],
+    "cross_family_homology": ["P43 pairwise Hamming", "exceptional-set Jaccard", "Boolean-cube Hausdorff distance"],
+    "persistent_core": "Vertices selective in P42 GPT-OSS-120B, P43 GPT-OSS-120B, and P43 Gemini.",
+    "quotient": "Partition the 32 vertices by the three-bit signature [P42 GPT-OSS-120B, P43 GPT-OSS-120B, P43 Gemini].",
+    "nonvacuity": "No quotient or transport geometry is constituted unless both P43 model instances promote and both full geometries pass technical evaluation."
+  },
+  "frozen_rules": [
+    "No response-contract reselection from scientific outcomes.",
+    "No use of the accidental duplicate P42 run 36187199363 in scientific adjudication.",
+    "P42 thresholds are inherited unchanged.",
+    "P42 GPT-OSS-120B geometry is a frozen replication target, not a tuning target.",
+    "GPT-OSS-20B remains outside P43 because P42 did not establish technical evaluability.",
+    "Cross-family denotes these observed model instances from distinct families, not a population-level family capability claim.",
+    "No behavioral SVEC promotion follows from P43 alone."
+  ]
+}
