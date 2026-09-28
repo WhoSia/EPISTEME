@@ -1,0 +1,19 @@
+{
+  "stage": "EPISTEME-P43",
+  "canonical_run_id": 36215290214,
+  "canonical_run_head_sha": "96fba7fccdba3239c6f7ae61ec3c8c75b7beb6b2",
+  "artifact_id": 10897995061,
+  "artifact_digest": "sha256:920a481e8413954e8e9df1247b0f0e95317cb56d80e3f43ad097ea3f32c79dfd",
+  "screens": {
+    "gptoss120": {"classification":"SELECTIVE_PROMOTE","technical_ok":60,"valid_majority_correct":6,"null_majority_correct":6,"W":1.0,"N":1.0},
+    "gemini": {"classification":"PARTIAL_SELECTIVE_PROMOTE","technical_ok":59,"valid_majority_correct":5,"null_majority_correct":4,"W":0.8333333333333334,"N":0.6666666666666666}
+  },
+  "geometries": {
+    "gptoss120": {"row":"00000001001000100000000001100011","exceptional_vertices":["R_H","F_H","H_L","H_T_L","R_F_H_T","F_H_T_L","R_F_H_T_L"]},
+    "gemini": {"row":"00001101000110000001101101100111","exceptional_vertices":["T","L","R_H","F_T","F_L","R_H_T","R_H_L","F_H_T","F_H_L","H_T_L","R_F_H_T","R_H_T_L","F_H_T_L","R_F_H_T_L"]}
+  },
+  "gptoss120_p42_p43_replication": {"hamming":10,"exceptional_jaccard":0.0,"boolean_cube_hausdorff":2},
+  "cross_family_boundary_homology": {"pairwise_hamming":11,"exceptional_jaccard":0.3125,"boolean_cube_hausdorff":2},
+  "constitutional_verdict": "NONVACUOUS_CROSS_FAMILY_BEHAVIORAL_QUOTIENT_CONSTITUTED",
+  "authority": "Independent prospective behavioral replication under P42-frozen response contracts. Cross-family means observed model instances from distinct families, not a population-level family capability theorem; no neural-mechanism or behavioral-SVEC promotion claim. Full raw rows remain in the canonical Actions artifact."
+}
