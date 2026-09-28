@@ -1,0 +1,11 @@
+stage=EPISTEME-P44
+phase=stochastic-field
+single_use=true
+predecessor=EPISTEME-P43
+models=gptoss120,gemini
+vertices=32
+semantic_twins=2
+alias_blocks=4
+replicates_per_alias=2
+total_calls=1024
+github_actions_writeback=false
