@@ -1,0 +1,93 @@
+{
+  "stage": "EPISTEME-P44",
+  "descriptor": "Stochastic Representation-Susceptibility Field, Replicate-Level Boundary Deconvolution, Walsh–Hadamard Effect Spectrum, Semantic-Twin Calibration & Cross-Family Transport of Failure Geometry",
+  "status": "PRECOMMITTED",
+  "predecessor": {
+    "stage": "EPISTEME-P43",
+    "canonical_run": 36215290214,
+    "verdict": "NONVACUOUS_CROSS_FAMILY_BEHAVIORAL_QUOTIENT_CONSTITUTED",
+    "critical_observation": "GPT-OSS-120B P42→P43 exceptional-set Jaccard=0.0 and Hamming=10/32 despite replicated selectivity; P43 GPT-OSS↔Gemini Hamming=11/32. A deterministic exceptional set is therefore no longer privileged as the primary ontological object."
+  },
+  "scientific_question": "Are P43's moving exceptional vertices realizations of a reproducible stochastic susceptibility field over the R/F/H/T/L Boolean cube, and if so does any low-order field structure transport across fresh archive aliases, stochastic replicates, semantic twins, and the two observed model instances?",
+  "models": {
+    "gptoss120": {"provider":"Groq","family":"gpt-oss","model":"openai/gpt-oss-120b","response_contract":"P42 schema_hidden_medium frozen unchanged"},
+    "gemini": {"provider":"Google Gemini","family":"gemini","model":"gemini-3.5-flash-lite","response_contract":"P42 gemini_native_schema frozen unchanged"}
+  },
+  "estimand": {
+    "primary": "p_m(v,s)=P(primary behavioral failure | model m, representation vertex v, semantic twin s) over the finite declared intervention cube",
+    "joint_object": "two-component field [p_m(v,valid), p_m(v,null)] rather than a single deterministic exceptional set",
+    "diagnostic_only": "P44 majority-threshold rows and P43 Hamming distances; these cannot override field-level inference"
+  },
+  "design": {
+    "representation_cube": "complete 2^5 cube on R,F,H,T,L = 32 vertices",
+    "semantic_twins": ["valid history-sensitive relation","null history-invariant relation"],
+    "fresh_archive_alias_blocks": 4,
+    "alias_rule": "A/B/C/D alter identifiers, history labels, filler tokens and decoy names while preserving the scientific relation structure",
+    "replicates_per_alias_block": 2,
+    "replicate_seeds": [4401,4402],
+    "crossing": "32 vertices × 2 semantic twins × 4 alias blocks × 2 repeated stochastic seeds × 2 model instances",
+    "calls_per_model": 512,
+    "total_scientific_calls": 1024,
+    "technical_cell_gate": ">=7/8 exact-schema successful calls for every vertex×semantic cell; technical failures are never recoded as behavioral failures"
+  },
+  "boundary_deconvolution": {
+    "complete_case_primary": "balanced sums-of-squares decomposition over vertex, alias, replicate and their interactions when all calls are technically complete",
+    "missing_case_rule": "if any technical call is missing, exact balanced ANOVA is marked unavailable rather than imputed",
+    "purpose": "separate representation-associated variation from archive-realization and stochastic-replicate variation without claiming neural mechanism"
+  },
+  "spectral_analysis": {
+    "transform": "Walsh–Hadamard/Fourier expansion of each 32-vertex failure-probability field",
+    "primary_spectrum": "orders 1–2 (five main effects + ten pairwise interactions); orders 3–5 retained descriptively and never discarded",
+    "within_model_replication": "alias blocks A+B versus C+D; cosine similarity of order-1/2 coefficient vectors",
+    "cross_family_transport": "full-field GPT-OSS-120B versus Gemini order-1/2 coefficient-vector cosine, separately for valid and null twins",
+    "null_test": "5000 deterministic vertex-label permutations for every spectral cosine test",
+    "multiplicity": "single Holm family across four within-model semantic tests plus two cross-model semantic tests at familywise alpha=0.05"
+  },
+  "evaluation_artifact_control": {
+    "primary": "P42 exact-schema behavioral adjudicator frozen unchanged",
+    "shadow": "zero-call lenient semantic abstention adjudicator over the same structured response",
+    "shadow_authority": "diagnostic only; it cannot silently replace the primary endpoint",
+    "artifact_dominant_gate": ">=10% primary-vs-shadow disagreement in either model instance"
+  },
+  "prospective_verdicts": [
+    "STOCHASTIC_FIELD_WITH_TRANSPORTABLE_LOW_ORDER_STRUCTURE — technical gates pass, artifact gate does not fire, all four within-model and both cross-model low-order spectral tests survive Holm",
+    "MODEL_INDEXED_STOCHASTIC_FIELDS — technical/artifact gates pass and all within-model tests survive Holm, but cross-model transport does not",
+    "POINTWISE_INSTABILITY_WITHOUT_STABLE_LOW_ORDER_FIELD — technical/artifact gates pass but within-model low-order structure fails prospective replication",
+    "EVALUATION_ARTIFACT_DOMINANT — primary/shadow disagreement reaches the frozen 10% gate",
+    "TECHNICALLY_UNEVALUABLE_FIELD — any model fails the frozen >=7/8 per-cell technical gate"
+  ],
+  "harvest_genealogy": {
+    "XLVII": "UNIQUENESS-BURDEN / METAMORPHIC-ORACLE-BRIDGE: a single exceptional set must earn uniqueness rather than be assumed canonical",
+    "XLVIII": "AMBIGUITY-vs-NOVELTY-ABSTENTION / CREDIBILITY-ENVELOPE: abstention and warnings are result semantics, not noise to erase",
+    "XLIX": "SAMPLING≠SPECIFICATION-UNCERTAINTY / BRANCH-GEOMETRY-BEFORE-COMPRESSION / BRANCH-SUFFICIENCY-WITNESS: stochastic replicate uncertainty is separated from representation/specification uncertainty before compression"
+  },
+  "literature_novelty_kill": {
+    "already_in_drive_and_read": [
+      "Hua et al. (2025), Flaw or Artifact? Rethinking Prompt Sensitivity in Evaluating LLMs — evaluation procedure can exaggerate apparent prompt sensitivity",
+      "Seleznyov et al. (2025), When Punctuation Matters — multi-component prompt-format perturbations, model-family comparisons and sampling-strategy effects"
+    ],
+    "missing_from_drive_acquisition_queue": [
+      {"work":"Brucks & Toubia (2025), Prompt architecture induces methodological artifacts in large language models","doi":"10.1371/journal.pone.0319159","novelty_kill":"full 2^5 factorial prompt-architecture experiments already exist; P44 must not claim novelty for factorial prompt perturbation itself"},
+      {"work":"Habba et al. (2025), DOVE","doi":"10.18653/v1/2025.findings-acl.611","arxiv":"2503.01622","novelty_kill":"large-scale joint multi-dimensional prompt perturbation space already exists"},
+      {"work":"Lior et al. (2025), ReliableEval","doi":"10.18653/v1/2025.findings-emnlp.594","arxiv":"2505.22169","novelty_kill":"stochastic prompt-resampling and moment-based evaluation already exist"},
+      {"work":"Cox et al. (2025), Mapping from Meaning","doi":"10.1609/aaai.v39i22.34540","arxiv":"2510.17028","novelty_kill":"prompt-sensitivity uncertainty decomposition and semantic concept-space sampling already exist"},
+      {"work":"Sclar et al. (2024), Quantifying Language Models' Sensitivity to Spurious Features in Prompt Design","arxiv":"2310.11324","novelty_kill":"atomic meaning-preserving format perturbations and cross-model format sensitivity already exist"}
+    ],
+    "surviving_P44_target": "Not generic prompt sensitivity, not factorial prompt design, and not stochastic resampling. The prospective target is the conjunction of semantic-twin-calibrated stochastic failure fields on a complete declared representation cube, crossed alias×replicate deconvolution, Walsh spectral structure, and cross-family transport of that structure under frozen response contracts."
+  },
+  "frozen_authority_limits": [
+    "The 32-vertex cube is a declared finite intervention family, not the universe of meaning-preserving representations.",
+    "Walsh coefficients are descriptive/interventional coordinates of this finite cube, not neural causal mechanisms.",
+    "Cross-family means these two observed model instances only.",
+    "A stable low-order spectrum does not imply stable pointwise vertices outside the tested archive/world.",
+    "P44 does not promote behavioral SVEC and does not establish a universal representation law.",
+    "No threshold, response contract, alias block, semantic scoring rule, permutation count or verdict rule may be changed after outcome observation."
+  ],
+  "execution_governance": {
+    "github_actions": "read/compute/artifact-only",
+    "contents_permission": "read",
+    "repository_writeback_from_actions": false,
+    "github_actions_bot_contribution": "FORBIDDEN",
+    "scientific_runs": 1
+  }
+}
