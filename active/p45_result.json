@@ -1,0 +1,30 @@
+{
+  "stage": "EPISTEME-P45",
+  "descriptor": "Fixed-Alias Prospective Replay, Cellwise Failure-Probability Calibration, Alias-Conditional Predictive Sufficiency, Stochastic-vs-Representation Variance Separation & Boundary-Law Persistence Test",
+  "status": "SEALED",
+  "canonical_run": 36501312148,
+  "canonical_head": "13053ab1adf42170fc3656f8222b993210600f2b",
+  "artifact": {
+    "id": 11006931250,
+    "digest": "sha256:c50bec6bb21ba1bb9faa9508195f418e78d7fc94b9bb4cf4d8a930872a301859"
+  },
+  "technical": {
+    "gptoss120": "1021/1024 OK; minimum 3/4 per cell; shadow disagreement 0",
+    "gemini": "1024/1024 OK; minimum 4/4 per cell; shadow disagreement 0"
+  },
+  "primary_tests": {
+    "gptoss120_valid": {"logloss_improvement": -0.055688362515554424, "holm_adjusted_p": 0.5910817836432714, "reject": false},
+    "gptoss120_null": {"logloss_improvement": -0.06947159059331176, "holm_adjusted_p": 0.5910817836432714, "reject": false},
+    "gemini_valid": {"logloss_improvement": 0.05309206867788352, "holm_adjusted_p": 0.0007998400319936012, "reject": true},
+    "gemini_null": {"logloss_improvement": -0.017113362503034413, "holm_adjusted_p": 0.0007998400319936012, "reject": true}
+  },
+  "interpretation": {
+    "gptoss120": "No prospective alias-conditioned predictive advantage; alias predictor was worse than vertex-only baseline for both semantics.",
+    "gemini": "Alias-conditioned prediction improved valid-semantic log loss but worsened null-semantic log loss; therefore no two-semantic model-level alias law.",
+    "variance": "For complete Gemini cells, within-cell stochastic variation dominated total sum of squares (valid 0.5360; null 0.6282), while vertex×alias remained nontrivial (valid 0.3037; null 0.2015).",
+    "calibration": "P44 alias-conditioned probabilities were generally overconfident or miscalibrated in P45; no stable calibrated alias law was earned."
+  },
+  "model_alias_law": {"gptoss120": false, "gemini": false},
+  "constitutional_verdict": "PARTIAL_ALIAS_PREDICTIVE_SIGNAL",
+  "authority": "Prospective predictive persistence test for exact P44 aliases under frozen contracts. One Gemini valid-semantic signal survived multiplicity correction, but the null twin moved in the opposite predictive direction and neither model satisfied the precommitted two-semantic alias-law gate. This licenses only a partial, model×semantic-specific signal."
+}
