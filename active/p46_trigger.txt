@@ -1,0 +1,1 @@
+EPISTEME-P46 frozen scientific run trigger. Exactly one run. Actions contents:read; no repository writeback.
