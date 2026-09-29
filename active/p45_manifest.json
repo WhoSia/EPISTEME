@@ -1,0 +1,69 @@
+{
+  "stage": "EPISTEME-P45",
+  "descriptor": "Fixed-Alias Prospective Replay, Cellwise Failure-Probability Calibration, Alias-Conditional Predictive Sufficiency, Stochastic-vs-Representation Variance Separation & Boundary-Law Persistence Test",
+  "status": "PRECOMMITTED",
+  "predecessor": {
+    "stage": "EPISTEME-P44",
+    "canonical_run": 36394059097,
+    "verdict": "POINTWISE_INSTABILITY_WITHOUT_STABLE_LOW_ORDER_FIELD",
+    "key_result": "No Holm-corrected low-order spectral replication/transport test passed; vertex×alias interaction exceeded the vertex main-effect share in every model×semantic ANOVA."
+  },
+  "scientific_question": "When the exact P44 alias/archive realizations are replayed prospectively under fresh stochastic replicates, do P44 alias-conditioned cell failure frequencies predict future failures beyond a representation-vertex-specific baseline, or was the large P44 vertex×alias component itself nonpersistent stochastic realization noise?",
+  "models": ["openai/gpt-oss-120b", "gemini-3.5-flash-lite"],
+  "frozen_surface": {
+    "aliases": "Exact P44 A/B/C/D lexical/archive constructions, unchanged.",
+    "vertices": "Exact 32 R/F/H/T/L Boolean-cube vertices.",
+    "semantics": ["valid", "null"],
+    "response_contract": "Exact P42/P44 provider-native strict contracts; no reselection.",
+    "fresh_replicates": 4,
+    "seeds": [4501, 4502, 4503, 4504]
+  },
+  "design": {
+    "cells_per_model": 256,
+    "fresh_replicates_per_cell": 4,
+    "calls_per_model": 1024,
+    "total_scientific_calls": 2048
+  },
+  "primary_estimand": {
+    "alias_predictor": "For each model×semantic×vertex×alias, frozen P44 Beta(1,1)-smoothed failure probability (k_alias+1)/(2+2).",
+    "vertex_baseline": "For each model×semantic×vertex, frozen P44 alias-pooled Beta(1,1)-smoothed failure probability (k_vertex+1)/(8+2).",
+    "score": "Mean Bernoulli log loss on independent P45 outcomes; improvement = vertex-baseline log loss minus alias-conditioned log loss.",
+    "null_test": "5000 within-vertex alias-label permutations of frozen P44 cell predictors; one-sided for positive prospective log-loss improvement.",
+    "family": "Four primary tests: GPT-OSS valid/null and Gemini valid/null; Holm FWER=0.05.",
+    "secondary": ["Brier-score improvement", "calibration by frozen p=.25/.50/.75 strata", "fresh cell failure rates", "P45 vertex×alias versus within-cell stochastic variance shares"]
+  },
+  "gates": {
+    "technical": "Every model×semantic×vertex×alias cell requires >=3/4 exact-schema successful fresh calls.",
+    "evaluation_artifact": "Primary-vs-shadow disagreement >=10% for a technically evaluable model triggers EVALUATION_ARTIFACT_DOMINANT.",
+    "model_alias_law": "Both valid and null primary tests have positive improvement and Holm-adjusted p<0.05.",
+    "partial_alias_signal": "At least one model×semantic primary test has positive improvement and Holm-adjusted p<0.05 but model_alias_law is not met.",
+    "cross_family": "Both models satisfy model_alias_law."
+  },
+  "constitutional_branches": [
+    "CROSS_FAMILY_ALIAS_CONDITIONAL_PERSISTENCE",
+    "MODEL_INDEXED_ALIAS_CONDITIONAL_PERSISTENCE",
+    "PARTIAL_ALIAS_PREDICTIVE_SIGNAL",
+    "NO_ALIAS_PREDICTIVE_PERSISTENCE",
+    "EVALUATION_ARTIFACT_DOMINANT",
+    "TECHNICAL_HOLD"
+  ],
+  "frozen_rules": [
+    "P44 raw outcomes are prediction inputs, never tuning targets.",
+    "No thresholded exceptional-set/Jaccard result is primary.",
+    "No alias vocabulary is changed after P44 outcome inspection.",
+    "No threshold or multiplicity rule changes after P45 outcomes.",
+    "A significant alias predictor licenses persistence for these exact alias constructions only; it does not identify a semantic or neural mechanism.",
+    "Failure to predict does not prove pure randomness; it defeats persistence of the tested P44 alias-conditioned boundary.",
+    "No behavioral SVEC promotion follows from P45 alone."
+  ],
+  "harvest_linkage": [
+    "XLIX: sampling uncertainty != specification uncertainty; branch geometry before compression; Branch Sufficiency Witness.",
+    "XLVIII: discrepancy and warnings are part of result semantics.",
+    "XLVII: uniqueness burden and metamorphic-oracle discipline."
+  ],
+  "execution_governance": {
+    "repository_writeback_from_actions": false,
+    "github_actions_bot_contribution": "FORBIDDEN",
+    "scientific_runs": 1
+  }
+}
