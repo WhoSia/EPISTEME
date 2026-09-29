@@ -1,0 +1,47 @@
+name: EPISTEME P48 seed-conditioned behavioral fingerprints
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "active/p48_trigger.txt"
+
+permissions:
+  contents: read
+
+jobs:
+  p48:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: pip install groq google-genai numpy
+      - name: Zero-call frozen preflight
+        run: |
+          python -m py_compile src/p42_reopen.py src/p44_field.py src/p48_seed_fingerprints.py
+          python src/p48_seed_fingerprints.py --self-test
+          python - <<'PY'
+          import json
+          m=json.load(open('active/p48_manifest.json'))
+          assert m['stage']=='EPISTEME-P48'
+          assert m['predecessor']['canonical_run']==36532610251
+          assert m['frozen_panel']['cells']==64
+          assert m['execution_lanes']['total_scientific_calls']==2048
+          assert m['gates']['no_numeric_seed_geometry'].startswith('Seed integers')
+          assert m['execution_governance']['repository_writeback_from_actions'] is False
+          assert m['execution_governance']['github_actions_bot_contribution']=='FORBIDDEN'
+          print('P48_MANIFEST_PRECHECK_PASS')
+          PY
+      - name: Run frozen seed-fingerprint experiment
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python src/p48_seed_fingerprints.py
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: p48-seed-fingerprint-transport-result
+          path: receipts/p48_result.json
+          retention-days: 7
