@@ -1,0 +1,75 @@
+{
+  "stage": "EPISTEME-P46",
+  "descriptor": "Latent Behavioral Regime Mixtures, Overdispersion Beyond Bernoulli Noise, Cross-Replicate State Persistence, Representation-Conditioned Switching Geometry & Model-Specific Stochastic Mechanism Adjudication",
+  "status": "PRECOMMITTED",
+  "predecessor": {
+    "stage": "EPISTEME-P45",
+    "canonical_run": 36501312148,
+    "verdict": "PARTIAL_ALIAS_PREDICTIVE_SIGNAL",
+    "key_result": "Within-cell stochastic variation dominated complete Gemini decompositions, while no two-semantic alias-conditioned predictive law survived."
+  },
+  "scientific_question": "Is the large within-cell stochastic component observed in P45 compatible with conditionally IID Bernoulli variation once representation×alias×semantic cells are held fixed, or does prospective repetition reveal temporal persistence, split-block overdispersion, or synchronized wave-level switching that requires a structured stochastic description?",
+  "models": ["openai/gpt-oss-120b", "gemini-3.5-flash-lite"],
+  "frozen_surface": {
+    "vertices": "Exact 32 R/F/H/T/L Boolean-cube vertices.",
+    "aliases": "Exact P44/P45 A/B/C/D archive realizations.",
+    "semantics": ["valid", "null"],
+    "response_contract": "Exact P42-P45 provider-native strict contracts; no reselection.",
+    "waves": 8,
+    "wave_seeds": [4601,4602,4603,4604,4605,4606,4607,4608],
+    "order": "Every wave visits every fixed cell exactly once in an independently pre-seeded random order; wave order itself is fixed 1..8."
+  },
+  "design": {
+    "cells_per_model": 256,
+    "calls_per_cell": 8,
+    "calls_per_model": 2048,
+    "total_scientific_calls": 4096
+  },
+  "primary_estimands": {
+    "lag1_persistence": "Cell-centered lag-1 covariance pooled across fixed cells. Null is exchangeability of the eight wave outcomes within each cell.",
+    "split_overdispersion": "Mean squared difference between failure rates in waves 1-4 versus 5-8 across fixed cells. Null is within-cell wave exchangeability.",
+    "wave_synchrony": "Variance across waves of cell-centered residual failure means. Null is independent within-cell wave-label permutation, preserving each cell's total failure count.",
+    "null_engine": "5000 synchronized within-cell permutations per model×semantic; one-sided greater-than tests.",
+    "multiplicity": "12 primary tests = 2 models × 2 semantic twins × 3 stochastic-structure statistics; Holm FWER=0.05."
+  },
+  "secondary_geometry": {
+    "vertex_switching_map": "For each model×semantic×vertex, report lag-1 centered covariance pooling four aliases; descriptive only.",
+    "alias_half_reproducibility": "Compare vertex switching maps from aliases A+B versus C+D by cosine similarity; descriptive only.",
+    "failure_rate": "Report model×semantic×vertex×alias empirical failure rates over eight waves."
+  },
+  "gates": {
+    "technical": "Every model×semantic×vertex×alias cell requires >=7/8 exact-schema successful calls.",
+    "evaluation_artifact": "Primary-vs-shadow disagreement >=10% for a technically evaluable model triggers EVALUATION_ARTIFACT_DOMINANT.",
+    "general_model_regime": "A model earns structured stochasticity only if at least one primary stochastic statistic survives Holm correction in BOTH semantic twins.",
+    "temporal_regime": "A model earns TEMPORALLY_PERSISTENT_REGIME only if lag1_persistence survives Holm correction in BOTH semantic twins.",
+    "semantic_specific": "A significant corrected primary statistic in only one semantic twin licenses only semantic-specific non-IID structure.",
+    "cross_family": "Cross-family stochastic-mechanism language is allowed only if both model instances independently satisfy the same precommitted model-level gate."
+  },
+  "constitutional_branches": [
+    "CROSS_FAMILY_TEMPORALLY_PERSISTENT_REGIME_SIGNAL",
+    "MODEL_INDEXED_TEMPORALLY_PERSISTENT_REGIME_SIGNAL",
+    "MODEL_INDEXED_NONIID_STOCHASTICITY",
+    "SEMANTIC_SPECIFIC_NONIID_SIGNAL",
+    "IID_BERNOULLI_NOT_REJECTED",
+    "EVALUATION_ARTIFACT_DOMINANT",
+    "TECHNICAL_HOLD"
+  ],
+  "frozen_rules": [
+    "No P45 high-variance or significant cells are selectively enriched; all 32×4×2 cells are repeated.",
+    "Failure-count differences across cells are nuisance heterogeneity and are conditioned away by within-cell permutation.",
+    "A wave-level signal cannot be called an internal neural state; provider/runtime/time effects remain observationally aliased.",
+    "A lag signal licenses temporal dependence in observed behavior, not a hidden-state mechanism identification.",
+    "No threshold changes, cell deletion, or statistic substitution after outcomes.",
+    "No behavioral SVEC promotion follows from P46 alone."
+  ],
+  "harvest_linkage": [
+    "XLIX: sampling uncertainty != specification uncertainty; repeated branches are not independent world contacts.",
+    "XLVIII: discrepancy/warnings belong to result semantics; simulator/model/world distinctions constrain mechanism language.",
+    "RITHM donor: stochastic finite-population dynamics and metastable switching are hypothesis generators only, not evidence for an LLM hidden state."
+  ],
+  "execution_governance": {
+    "repository_writeback_from_actions": false,
+    "github_actions_bot_contribution": "FORBIDDEN",
+    "scientific_runs": 1
+  }
+}
