@@ -1,0 +1,12 @@
+{
+  "receipt": "P46 correction receipt",
+  "scientific_run": 36523899976,
+  "technical_recovery_run": 36531904450,
+  "corrections": [
+    "Recovered only the 11 technically failed P46 calls.",
+    "Corrected the Holm implementation by sorting by p-value as precommitted.",
+    "Recomputed the same frozen primary statistics with no outcome-conditioned redesign."
+  ],
+  "scientific_effect": "Original TECHNICAL_HOLD is superseded by MODEL_INDEXED_NONIID_STOCHASTICITY after complete technical recovery and correct multiplicity adjudication.",
+  "governance": "The failed preflight recovery run 36531847724 made zero model calls and has no scientific authority."
+}
