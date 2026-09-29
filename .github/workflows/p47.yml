@@ -1,0 +1,48 @@
+name: EPISTEME P47 seed-time orthogonalization
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "active/p47_trigger.txt"
+
+permissions:
+  contents: read
+
+jobs:
+  p47:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: pip install groq google-genai
+      - name: Zero-call frozen preflight
+        run: |
+          python -m py_compile src/p42_reopen.py src/p44_field.py src/p47_seed_time.py
+          python src/p47_seed_time.py --self-test
+          python - <<'PY'
+          import json
+          m=json.load(open('active/p47_manifest.json'))
+          assert m['stage']=='EPISTEME-P47'
+          assert m['predecessor']['canonical_scientific_run']==36523899976
+          assert m['design']['total_scientific_calls']==4096
+          assert m['frozen_surface']['waves']==8
+          assert len(m['frozen_surface']['gemini_seed_lattice'])==8
+          assert m['execution_governance']['repository_writeback_from_actions'] is False
+          assert m['execution_governance']['github_actions_bot_contribution']=='FORBIDDEN'
+          print('P47_PRECHECK_PASS')
+          PY
+      - name: Run seed-time orthogonalized common-mode experiment
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python src/p47_seed_time.py
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: p47-seed-time-common-mode-result
+          path: receipts/p47_result.json
+          retention-days: 7
