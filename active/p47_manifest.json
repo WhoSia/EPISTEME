@@ -1,0 +1,92 @@
+{
+  "stage": "EPISTEME-P47",
+  "descriptor": "Fresh Common-Mode Wave Replication, Split-Panel Concordance, Contemporaneous Cross-Provider Pairing, Schedule-Randomized Temporal Localization & External-Confound Adjudication",
+  "status": "PRECOMMITTED",
+  "predecessor": {
+    "stage": "EPISTEME-P46",
+    "canonical_scientific_run": 36523899976,
+    "technical_recovery_run": 36531904450,
+    "verdict": "MODEL_INDEXED_NONIID_STOCHASTICITY",
+    "key_result": "After exact technical completion and corrected Holm adjudication, Gemini valid and null both showed wave_synchrony with Holm-adjusted p=0.0023995200959808036; GPT-OSS showed no corrected primary signal."
+  },
+  "scientific_question": "Does the P46 Gemini-arm wave-synchrony signal independently replicate under fresh waves and contemporaneous cross-provider interleaving, and if it does, is it coherent across pre-frozen disjoint cell panels and shared across model/provider arms, or does it remain an arm-specific common-mode temporal modulation?",
+  "models": ["openai/gpt-oss-120b", "gemini-3.5-flash-lite"],
+  "frozen_surface": {
+    "vertices": "Exact 32 R/F/H/T/L Boolean-cube vertices.",
+    "aliases": "Exact A/B/C/D archive constructions from P44-P46.",
+    "semantics": ["valid", "null"],
+    "response_contract": "Exact P42-P46 provider-native strict contracts; no reselection.",
+    "waves": 8,
+    "wave_seeds": [4701,4702,4703,4704,4705,4706,4707,4708],
+    "cell_order": "Within each wave, all 256 semantic×vertex×alias cells are independently randomized by a frozen deterministic PRNG seed.",
+    "paired_execution": "For every cell in a wave, the two model arms are executed consecutively; which arm is first alternates by frozen wave-position parity.",
+    "panel_partition": "Within each semantic twin, panel P0 iff (vertex_index + alias_index) mod 2 = 0, otherwise P1. The partition is fixed before P47 outcomes."
+  },
+  "design": {
+    "cells_per_model": 256,
+    "waves": 8,
+    "calls_per_model": 2048,
+    "total_scientific_calls": 4096
+  },
+  "primary_replication_family": {
+    "tests": "Four wave-synchrony tests: 2 model arms × 2 semantic twins.",
+    "statistic": "Variance across waves of cell-centered residual failure means, identical in meaning to P46.",
+    "null": "5000 within-cell wave-label permutations preserving each cell's total failures.",
+    "multiplicity": "Holm FWER=0.05 across the four replication tests.",
+    "model_level_replication_gate": "Both semantic twins for a model must reject after Holm correction."
+  },
+  "conditional_localization_family": {
+    "interpretation_gate": "Localization results acquire confirmatory authority only if Gemini passes the model-level replication gate.",
+    "split_panel_tests": "For each model×semantic, Pearson correlation between the 8-wave residual-mean vectors from P0 and P1; exact 8! wave-label permutation of P1.",
+    "cross_arm_tests": "For each semantic, Pearson correlation between contemporaneous 8-wave residual-mean vectors for GPT-OSS and Gemini; exact 8! permutation of one arm.",
+    "tests_total": 6,
+    "multiplicity": "Holm FWER=0.05 across the six localization tests.",
+    "model_panel_coherence": "Both semantic twins' split-panel tests must reject after Holm correction.",
+    "cross_arm_common_time": "Both semantic twins' cross-arm tests must reject after Holm correction."
+  },
+  "secondary_diagnostics": [
+    "Per-wave residual means by model and semantic.",
+    "Within-wave normalized position association with cell-centered outcomes.",
+    "API-call latency by model, wave and position.",
+    "Per-wave technical failure counts.",
+    "Panel-specific wave-synchrony magnitudes."
+  ],
+  "constitutional_branches": [
+    "P46_WAVE_SIGNAL_NOT_REPLICATED",
+    "GEMINI_ARM_SPECIFIC_COMMON_MODE_REPLICATED",
+    "DUAL_ARM_NONSYNCHRONIZED_COMMON_MODE",
+    "CONTEMPORANEOUS_CROSS_ARM_COMMON_TIME_SIGNAL",
+    "WAVE_SIGNAL_REPLICATED_WITHOUT_PANEL_COHERENCE",
+    "EVALUATION_ARTIFACT_DOMINANT",
+    "TECHNICAL_HOLD"
+  ],
+  "gates": {
+    "technical": "Every model×semantic×vertex×alias cell requires >=7/8 exact-schema successful calls.",
+    "evaluation_artifact": "Primary-vs-shadow disagreement >=10% for a technically evaluable model triggers EVALUATION_ARTIFACT_DOMINANT.",
+    "replication": "Gemini must reject wave_synchrony in both semantic twins after the four-test Holm family.",
+    "arm_specific_common_mode": "Gemini replication passes; Gemini split-panel coherence passes in both semantics; cross-arm common-time gate does not pass.",
+    "cross_arm_common_time": "Gemini replication passes and both semantic cross-arm correlations survive localization-family Holm correction."
+  },
+  "frozen_rules": [
+    "P47 does not select cells based on P46 significance; all fixed cells are replayed.",
+    "The P46 Holm implementation bug is repaired before P47 and P47 includes a zero-call unit test that verifies p-value sorting.",
+    "Contemporaneous pairing reduces, but does not eliminate, provider/runtime confounding.",
+    "A synchronized wave effect is an observed common-mode behavioral modulation, not an identified internal neural state.",
+    "Model identity and provider/runtime remain confounded within each arm.",
+    "No threshold, panel, statistic or multiplicity change after P47 outcomes.",
+    "No behavioral SVEC promotion follows from P47 alone."
+  ],
+  "literature_linkage": {
+    "existing_drive": ["Lee & Park (2026) behavioral consistency preprint"],
+    "missing_high_value_acquisition": {
+      "citation": "Atil et al. (2025), Non-Determinism of Deterministic LLM System Settings in Hosted Environments",
+      "doi": "10.18653/v1/2025.eval4nlp-1.12",
+      "reason": "Direct hosted-API nondeterminism comparator; useful novelty-kill and external-confound donor."
+    }
+  },
+  "execution_governance": {
+    "repository_writeback_from_actions": false,
+    "github_actions_bot_contribution": "FORBIDDEN",
+    "scientific_runs": 1
+  }
+}
