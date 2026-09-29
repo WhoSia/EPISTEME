@@ -1,0 +1,41 @@
+{
+  "stage": "EPISTEME-P47",
+  "descriptor": "Explicit-Seed × Temporal-Wave Orthogonalization, Common-Mode Reconstitution, Split-Panel Concordance, Cross-Provider Temporal Control & Hosted-Inference Nondeterminism Localization",
+  "status": "SEALED",
+  "canonical_run": 36532610251,
+  "canonical_head": "a6fe062a1c75531d3b21b3e537a3ecbf56d00e6d",
+  "artifact": {
+    "id": 11020827457,
+    "digest": "sha256:819a1a34824d5159eaacdba85ca5babc45772e82182ecdda8e97eddaef4aabfb"
+  },
+  "technical": {
+    "gptoss120": "2043/2048 OK; minimum 7/8 per fixed cell; evaluable",
+    "gemini": "2048/2048 OK; minimum 8/8 per fixed cell; evaluable",
+    "primary_shadow_disagreement": "0 for both arms"
+  },
+  "primary_wave": {
+    "gptoss120_valid_holm_p": 0.27034593081383723,
+    "gptoss120_null_holm_p": 0.9888022395520896,
+    "gemini_valid_holm_p": 0.10797840431913618,
+    "gemini_null_holm_p": 0.2315536892621476,
+    "model_wave_replication": {"gptoss120": false, "gemini": false}
+  },
+  "primary_seed": {
+    "gemini_valid_raw_p": 0.0001999600079984003,
+    "gemini_null_raw_p": 0.0001999600079984003,
+    "gemini_valid_holm_p": 0.0003999200159968006,
+    "gemini_null_holm_p": 0.0003999200159968006,
+    "seed_effect": true
+  },
+  "localization": {
+    "gemini_valid_seed_panel_r": 0.995395959356719,
+    "gemini_valid_seed_panel_holm_p": 0.0005952380952380953,
+    "gemini_null_seed_panel_r": 0.9847943659500976,
+    "gemini_null_seed_panel_holm_p": 0.0011160714285714285,
+    "seed_panel_coherence": true,
+    "wave_panel_coherence": false,
+    "cross_arm_temporal_concordance": false
+  },
+  "constitutional_verdict": "P46_SIGNAL_REDUCED_TO_EXPLICIT_SEED_INDEXING",
+  "authority": "P47 prospectively orthogonalized Gemini explicit seed from temporal wave. The P46 common-mode temporal signal did not replicate after this separation, while a strong explicit-seed-indexed behavioral modulation survived in both semantic twins and disjoint panels. This identifies the API seed as an observable control coordinate, not yet as a reproducible or transportable behavioral state variable, and not as a neural mechanism."
+}
