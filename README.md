@@ -13,23 +13,28 @@ Active execution surface for the EPISTEME research program.
 
 ## Active stage
 
-**EPISTEME-P47 — Explicit-Seed × Temporal-Wave Orthogonalization, Common-Mode Reconstitution, Split-Panel Concordance, Cross-Provider Temporal Control & Hosted-Inference Nondeterminism Localization**
+**EPISTEME-P48 — Seed-Conditioned Behavioral Fingerprints, Same-Seed Replay Determinism, Cross-Archive Signature Transport, Fresh-Seed Out-of-Sample Prediction & Hosted-Inference Randomness Decomposition**
 
 **Status:** PRECOMMITTED / RUNNING
 
-P47 follows a sequence in which deterministic exceptional-set geometry failed to remain stable and was progressively replaced by a stochastic behavioral description.
+The current lineage no longer treats representation failures as a fixed exceptional set. P44–P47 progressively localized the instability from representation geometry to stochastic hosted-inference structure.
 
-- **P44** — reconstructed the 32-vertex representation cube as a stochastic susceptibility field; pointwise boundaries were unstable and no low-order cross-model field survived multiplicity correction.
-- **P45** — replayed the exact P44 alias realizations prospectively; only a model×semantic-specific alias signal survived, not a general alias law.
-- **P46** — repeated every fixed representation×alias×semantic cell over temporal waves. After exact technical recovery and corrected Holm adjudication, Gemini showed a model-indexed common-mode wave signal in both semantic twins, while GPT-OSS did not.
-- **P47** — tests whether that P46 signal was genuinely temporal or was induced by an explicit-seed confound in the hosted Gemini interface.
+- **P44** — pointwise representation boundaries were unstable and no low-order cross-model susceptibility field survived multiplicity correction.
+- **P45** — exact alias replay produced only a partial model×semantic signal; no general alias-conditioned law was earned.
+- **P46** — an apparent Gemini wave-synchrony signal emerged, but temporal wave and explicit Gemini seed were initially confounded.
+- **P47** — prospectively orthogonalized explicit seed and temporal wave. Temporal common-mode structure did not replicate after correction, while explicit Gemini seed effects survived in both semantic twins and disjoint panels.
 
-P47 orthogonalizes eight explicit Gemini seeds against eight temporal waves using a frozen cyclic Latin assignment. Every fixed cell is observed once under each seed, while GPT-OSS and Gemini are called contemporaneously in alternating order as a cross-provider temporal control.
+P48 asks a stronger question than whether different seeds produce different outputs:
 
-The primary question is now:
+> When does a nominal API seed earn the status of a reproducible scientific intervention or transportable behavioral coordinate?
 
-> Does common-mode behavioral variation persist after explicit RNG seed and temporal wave are separated prospectively?
+The stage tests an authority ladder:
 
-A positive result would establish only an observed black-box common-mode modulation under the tested hosted inference systems. It would not identify a neural hidden state, provider mechanism, or population-level model-family law.
+1. **Seed parameter** — merely a user-supplied nominal value.
+2. **Reproducible intervention** — the same seed recreates a seed-specific behavioral fingerprint on exact replay.
+3. **Transportable coordinate** — seed identity remains recognizable after a semantically isomorphic archive renaming.
+4. **Randomization law** — entirely fresh seeds fall into a response subspace learned prospectively from old seeds.
+
+Seed integers are treated as nominal labels; P48 does not assume a numerical geometry over seed values. Even the strongest possible result would describe a hosted black-box behavioral randomization structure, not a neural RNG state, batching mechanism, hardware effect, or provider-internal cause.
 
 Canonical scientific receipts and literature custody remain in Notion / Drive; the repository retains the executable current-stage surface and compact sealed results needed for lineage continuity.
