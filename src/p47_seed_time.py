@@ -34,7 +34,7 @@ def self_test():
 def run_experiment():
     rows={m:[] for m in MODELS}
     cells=[(ci,vi,v,si,s,ai,a) for ci,(vi,v,si,s,ai,a) in enumerate(
-        (x for vi,v in enumerate(VERTICES) for si,s in enumerate(SEMANTICS) for ai,a in enumerate(ALIASES))
+        ((vi,v,si,s,ai,a) for vi,v in enumerate(VERTICES) for si,s in enumerate(SEMANTICS) for ai,a in enumerate(ALIASES))
     )]
     for wave in WAVES:
         order=list(cells);random.Random(470000+wave).shuffle(order)
