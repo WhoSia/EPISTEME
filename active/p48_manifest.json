@@ -1,0 +1,128 @@
+{
+  "stage": "EPISTEME-P48",
+  "descriptor": "Seed-Conditioned Behavioral Fingerprints, Same-Seed Replay Determinism, Cross-Archive Signature Transport, Fresh-Seed Out-of-Sample Prediction & Hosted-Inference Randomness Decomposition",
+  "status": "PRECOMMITTED",
+  "predecessor": {
+    "stage": "EPISTEME-P47",
+    "canonical_run": 36532610251,
+    "verdict": "P46_SIGNAL_REDUCED_TO_EXPLICIT_SEED_INDEXING",
+    "key_result": "After explicit seed × temporal-wave orthogonalization, temporal common-mode structure did not survive Holm correction, while Gemini explicit-seed structure survived in both semantic twins and disjoint frozen panels."
+  },
+  "theoretical_reframing": {
+    "problem": "P47 establishes between-seed heterogeneity, but heterogeneity alone does not make a seed a scientific state coordinate. A nominal API input may index a one-off realization without repeatability, transport, or predictive structure.",
+    "authority_ladder": [
+      "SEED PARAMETER: a user-supplied nominal API value.",
+      "REPRODUCIBLE INTERVENTION: the same seed recreates a seed-specific deviation pattern under exact replay.",
+      "TRANSPORTABLE COORDINATE: seed identity remains recognizable after an archive-isomorphic lexical/history renaming.",
+      "RANDOMIZATION LAW: previously unseen seeds occupy a response subspace learned prospectively from old seeds rather than generating arbitrary cell-wise patterns."
+    ],
+    "central_question": "Does an API seed merely label stochastic draws, or does it select a reproducible and transportable mode of behavioral susceptibility over representation space?"
+  },
+  "scientific_question": "For Gemini under the P42-frozen response contract, do P47 seed-conditioned behavioral fingerprints reproduce on exact same-archive replay, survive a fresh semantically isomorphic archive namespace, and constrain the response geometry of entirely fresh seeds out of sample?",
+  "model": "gemini-3.5-flash-lite",
+  "training_seed_set": [4701,4702,4703,4704,4705,4706,4707,4708],
+  "fresh_seed_set": [4801,4802,4803,4804,4805,4806,4807,4808],
+  "frozen_panel": {
+    "cells": 64,
+    "construction": "All 32 canonical R/F/H/T/L vertices × valid/null twins. Exactly one alias per vertex, alias=ABCD[vertex_index mod 4].",
+    "source": "active/p47_seed_panel_baseline.json",
+    "selection_authority": "Deterministic index rule fixed independently of P47 effect sizes."
+  },
+  "execution_lanes": {
+    "old_seed_exact_replay": "8 old seeds × 64 exact P47-namespace cells = 512 calls.",
+    "old_seed_fresh_archive": "8 old seeds × 64 semantically isomorphic fresh-namespace cells = 512 calls.",
+    "fresh_seed_old_archive": "8 fresh seeds × 64 P47-namespace cells = 512 calls.",
+    "fresh_seed_fresh_archive": "8 fresh seeds × 64 fresh-namespace cells = 512 calls.",
+    "total_scientific_calls": 2048
+  },
+  "fresh_archive_transformation": {
+    "scope": "Lexical/source/history/filler/archive identifiers are replaced prospectively while semantic relations, representation operators R/F/H/T/L, claim, intervention labels and adjudication stay fixed.",
+    "purpose": "Test archive-isomorphism transport rather than exact-string memorization."
+  },
+  "primary_estimands": {
+    "exact_replay_identity": {
+      "object": "For the eight old seeds, cell-centered 64-dimensional failure fingerprint from P47 versus exact P48 replay.",
+      "statistic": "Mean diagonal cosine similarity across matching seeds.",
+      "null": "Exact 8! permutation of seed labels on the replay matrix.",
+      "meaning": "Tests whether seed identity is a reproducible intervention coordinate under identical archive semantics and surface."
+    },
+    "old_seed_cross_archive_identity": {
+      "object": "P47 old-seed fingerprints versus P48 fresh-archive fingerprints for the same eight seeds.",
+      "statistic": "Mean diagonal centered-fingerprint cosine.",
+      "null": "Exact 8! seed-label permutation.",
+      "meaning": "Tests whether seed identity transports across an archive-isomorphic representation change."
+    },
+    "fresh_seed_cross_archive_identity": {
+      "object": "Fresh-seed fingerprints in old versus fresh archive namespaces.",
+      "statistic": "Mean diagonal centered-fingerprint cosine.",
+      "null": "Exact 8! seed-label permutation.",
+      "meaning": "Tests whether archive transport generalizes to seeds never observed in P47."
+    },
+    "fresh_seed_old_archive_subspace": {
+      "object": "Projection energy of fresh-seed centered fingerprints onto the full nonzero row-space learned from P47 old-seed centered fingerprints.",
+      "rank_rule": "Use the complete nonzero SVD row-space of the P47 training matrix; no rank tuning.",
+      "statistic": "Mean fraction of fresh fingerprint squared norm captured by the frozen training row-space.",
+      "null": "5000 common random cell-coordinate permutations of the fresh-seed matrix.",
+      "meaning": "Out-of-sample prediction of behavioral modes, not numerical prediction from seed magnitude."
+    },
+    "fresh_seed_fresh_archive_subspace": {
+      "object": "Same frozen P47 row-space tested on fresh seeds in the fresh archive namespace.",
+      "null": "5000 common random cell-coordinate permutations.",
+      "meaning": "Joint fresh-seed + cross-archive transport of the learned response subspace."
+    },
+    "multiplicity": "Five primary tests; Holm FWER=0.05."
+  },
+  "secondary_decomposition": {
+    "raw_agreement": "Same-seed same-archive agreement, same-seed cross-archive agreement, and average different-seed agreement.",
+    "seed_separation": "Within-seed fingerprint distance versus between-seed distance.",
+    "singular_spectrum": "P47 old-seed effect singular values and effective rank.",
+    "fresh_projection_by_seed": "Per-fresh-seed projection fraction into the frozen old-seed effect subspace.",
+    "cell_susceptibility": "Cells with largest between-seed variance, descriptive only."
+  },
+  "gates": {
+    "technical": "All 2048 calls must be exact-schema successful; otherwise P48 enters TECHNICAL_HOLD and only failed calls may be recovered.",
+    "evaluation_artifact": "Primary-vs-shadow disagreement >=10% triggers EVALUATION_ARTIFACT_DOMINANT.",
+    "reproducible_intervention": "Exact-replay identity statistic is positive and its Holm-adjusted test rejects.",
+    "transportable_coordinate": "Reproducible-intervention gate plus both old-seed and fresh-seed cross-archive identity tests reject after Holm correction.",
+    "randomization_law": "Transportable-coordinate gate plus both fresh-seed subspace tests reject after Holm correction.",
+    "no_numeric_seed_geometry": "Seed integers are treated as nominal labels. No regression on seed value, seed distance, parity, or ordering is permitted."
+  },
+  "constitutional_branches": [
+    "SEED_IDENTITY_NOT_REPRODUCIBLE",
+    "REPRODUCIBLE_SEED_INTERVENTION_WITHOUT_ARCHIVE_TRANSPORT",
+    "TRANSPORTABLE_SEED_COORDINATE_WITHOUT_FRESH_SEED_LAW",
+    "STABLE_SEED_EFFECT_SUBSPACE_WITHOUT_IDENTITY_TRANSPORT",
+    "TRANSPORTABLE_LOW_DIMENSIONAL_SEED_RANDOMIZATION_LAW",
+    "EVALUATION_ARTIFACT_DOMINANT",
+    "TECHNICAL_HOLD"
+  ],
+  "novelty_kill_and_literature": {
+    "killed": [
+      "Hosted LLM nondeterminism itself is not novel.",
+      "Repeated-run agreement metrics are not novel.",
+      "The mere fact that a seed changes output is not a sufficient theoretical contribution."
+    ],
+    "canonical_drive_source": "Atıl et al. (2025), Non-Determinism of “Deterministic” LLM System Settings in Hosted Environments, DOI 10.18653/v1/2025.eval4nlp-1.12.",
+    "surviving_candidate": "A prospective authority ladder from nominal seed parameter to reproducible intervention to archive-transportable coordinate to out-of-sample response subspace, tested on representation-conditioned behavioral susceptibility rather than benchmark-level accuracy."
+  },
+  "harvest_linkage": [
+    "XLVII: uniqueness burden and metamorphic-oracle bridge — cross-archive isomorphism is a transport test, not cosmetic replication.",
+    "XLVIII: simulator/model/world and discrepancy distinctions — hosted seed effects remain API-level observables.",
+    "XLIX: branch geometry before compression and Branch Sufficiency Witness — a finite seed list is not a law until fresh-seed structure is predicted."
+  ],
+  "frozen_rules": [
+    "No cell or seed is selected by P47 effect magnitude.",
+    "Seed numbers are nominal interventions, not a metric space.",
+    "Same-seed reproducibility is necessary but insufficient for archive transport.",
+    "Archive transport is necessary but insufficient for a fresh-seed law.",
+    "The fresh-seed law concerns a response subspace/distribution, not prediction of a fresh seed's identity from its integer value.",
+    "No neural RNG-state, hardware, batching, or provider mechanism is identified by P48.",
+    "No threshold, SVD rank rule, null model, or multiplicity rule may change after P48 outcomes.",
+    "No behavioral SVEC promotion follows from P48 alone."
+  ],
+  "execution_governance": {
+    "repository_writeback_from_actions": false,
+    "github_actions_bot_contribution": "FORBIDDEN",
+    "scientific_runs": 1
+  }
+}
