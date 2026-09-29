@@ -21,8 +21,8 @@ jobs:
       - name: Zero-call recovery preflight
         run: |
           python -m py_compile src/p42_reopen.py src/p44_field.py src/p46_recover.py
-          python - <<'PY'
-          from src.p46_recover import FAILED
+          PYTHONPATH=src python - <<'PY'
+          from p46_recover import FAILED
           assert sum(map(len,FAILED.values()))==11
           print('P46_RECOVERY_PRECHECK_PASS')
           PY
