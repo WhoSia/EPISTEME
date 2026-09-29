@@ -1,0 +1,57 @@
+{
+  "stage": "EPISTEME-P46",
+  "descriptor": "Latent Behavioral Regime Mixtures, Overdispersion Beyond Bernoulli Noise, Cross-Replicate State Persistence, Representation-Conditioned Switching Geometry & Model-Specific Stochastic Mechanism Adjudication",
+  "status": "SEALED_AFTER_TECHNICAL_RECOVERY_AND_STATISTICAL_KERNEL_CORRECTION",
+  "canonical_scientific_run": 36523899976,
+  "canonical_head": "7e3e2c017bc9faf493b740ada6e9aa3f0189011b",
+  "scientific_artifact": {
+    "id": 11016601892,
+    "digest": "sha256:74e8f9749ac185d9d78175381ac731c9697b0283042ce9a47dfd043d8562f307"
+  },
+  "technical_recovery": {
+    "zero_call_failed_run": 36531847724,
+    "successful_recovery_run": 36531904450,
+    "artifact_id": 11017595007,
+    "artifact_digest": "sha256:e87bbe3eea86dd5d11623ea7e4be8dfc7defcd2cba7b3b294075524176da4e67",
+    "scope": "Exactly 11 originally technical-failed calls were replayed; no successful scientific call was rerun.",
+    "recovered": "11/11",
+    "final_technical": {
+      "gptoss120": "2048/2048 complete",
+      "gemini": "2048/2048 complete"
+    }
+  },
+  "statistical_correction": {
+    "issue": "Original P46 Holm implementation sorted (test_name,p) tuples lexicographically by test_name rather than by p-value, making adjusted p-values invalid.",
+    "repair": "Deterministic readjudication only: sort primary tests by raw p-value, then apply the precommitted Holm FWER=0.05 procedure. No statistic, threshold, cell, or outcome was changed.",
+    "corrected_rejections": {
+      "gemini:valid:wave_synchrony": {
+        "statistic": 0.018965721130371094,
+        "raw_p": 0.0001999600079984003,
+        "holm_adjusted_p": 0.0023995200959808036,
+        "reject": true
+      },
+      "gemini:null:wave_synchrony": {
+        "statistic": 0.030426025390625,
+        "raw_p": 0.0001999600079984003,
+        "holm_adjusted_p": 0.0023995200959808036,
+        "reject": true
+      }
+    },
+    "all_other_primary_tests": "not rejected after Holm correction"
+  },
+  "signals": {
+    "gptoss120": {"valid": [], "null": []},
+    "gemini": {"valid": ["wave_synchrony"], "null": ["wave_synchrony"]}
+  },
+  "model_general_structured_stochasticity": {
+    "gptoss120": false,
+    "gemini": true
+  },
+  "model_temporal_regime": {
+    "gptoss120": false,
+    "gemini": false
+  },
+  "constitutional_verdict": "MODEL_INDEXED_NONIID_STOCHASTICITY",
+  "interpretation": "Gemini exhibited corrected, multiplicity-controlled common wave-level residual synchronization in both semantic twins. GPT-OSS did not. Lag-1 persistence and split-half overdispersion were not established. The result is therefore model-arm-indexed non-IID common-mode behavior, not evidence for a persistent internal hidden state.",
+  "authority": "Observed black-box temporal/common-mode modulation under the fixed P46 execution design. Model and provider/runtime remain confounded; no neural-state, provider-cause, causal mechanism, or behavioral-SVEC claim is licensed."
+}
