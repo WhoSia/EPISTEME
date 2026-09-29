@@ -1,0 +1,49 @@
+{
+  "stage": "EPISTEME-P44",
+  "descriptor": "Stochastic Representation-Susceptibility Field, Replicate-Level Boundary Deconvolution, Walsh–Hadamard Effect Spectrum, Semantic-Twin Calibration & Cross-Family Transport of Failure Geometry",
+  "status": "SEALED",
+  "canonical_run": 36394059097,
+  "canonical_head": "75cf53f62582e9dbdcbab986bf333406cd4ea62d",
+  "artifact": {
+    "id": 10958456313,
+    "digest": "sha256:294dc6a2993a2f7044bd3a75d1e6e1d8681e31d4e2fa85b2f94835bc6925c5dc"
+  },
+  "technical": {
+    "gptoss120": "512/512 OK; shadow disagreement 0/512",
+    "gemini": "512/512 OK; shadow disagreement 0/512"
+  },
+  "diagnostic_majority_rows": {
+    "gptoss120": "00000100100000000000010001010000",
+    "gptoss120_p43_hamming": 10,
+    "gemini": "00100011110011110111111011001111",
+    "gemini_p43_hamming": 17
+  },
+  "primary_tests": {
+    "within:gptoss120:valid": {"cosine": -0.09898030839149453, "p": 0.6394721055788842},
+    "within:gptoss120:null": {"cosine": 0.02037424855426821, "p": 0.45990801839632073},
+    "within:gemini:valid": {"cosine": -0.1056205280727593, "p": 0.6496700659868027},
+    "within:gemini:null": {"cosine": 0.3319558153251398, "p": 0.11237752449510098},
+    "cross:valid": {"cosine": 0.572214729045243, "p": 0.010797840431913617},
+    "cross:null": {"cosine": 0.09997060120471526, "p": 0.3643271345730854}
+  },
+  "holm_adjusted_p": {
+    "within:gptoss120:valid": 1.0,
+    "within:gptoss120:null": 1.0,
+    "within:gemini:valid": 1.0,
+    "within:gemini:null": 0.5618876224755049,
+    "cross:valid": 0.0647870425914817,
+    "cross:null": 1.0
+  },
+  "anova_shares": {
+    "gptoss120": {
+      "valid": {"vertex": 0.1236121391561806, "alias": 0.0614359733530718, "replicate": 0.004029936672423719, "vertex_alias": 0.36228308249033636, "vertex_replicate": 0.10913726457767908, "alias_replicate": 0.010115963483839132, "residual_threeway": 0.32938564026646927},
+      "null": {"vertex": 0.13725490196078433, "alias": 0.023378582202111614, "replicate": 0.0, "vertex_alias": 0.40497737556561086, "vertex_replicate": 0.10256410256410256, "alias_replicate": 0.006787330316742082, "residual_threeway": 0.3250377073906486}
+    },
+    "gemini": {
+      "valid": {"vertex": 0.15033876579381067, "alias": 0.013855826161264725, "replicate": 0.08356222913996215, "vertex_alias": 0.4373435878654703, "vertex_replicate": 0.09808948300067143, "alias_replicate": 0.004577916132576451, "residual_threeway": 0.2122321919062443},
+      "null": {"vertex": 0.18796992481203006, "alias": 0.016290726817042606, "replicate": 0.10588972431077694, "vertex_alias": 0.2744360902255639, "vertex_replicate": 0.16478696741854637, "alias_replicate": 0.018170426065162906, "residual_threeway": 0.2324561403508772}
+    }
+  },
+  "constitutional_verdict": "POINTWISE_INSTABILITY_WITHOUT_STABLE_LOW_ORDER_FIELD",
+  "authority": "Prospective black-box behavioral susceptibility fields under P42-frozen provider-native response contracts. No Holm-corrected low-order within-model replication or cross-family transport test passed. The large observed vertex×alias shares motivate prospective fixed-alias replay but do not establish an alias mechanism."
+}
