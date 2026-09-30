@@ -1,0 +1,44 @@
+{
+  "stage": "EPISTEME-P49",
+  "descriptor": "Seed-Response Manifold Identifiability, Rank-Growth Scaling, Grassmann Subspace Stability, Held-Out Cell Transport & Finite-Seed Span Artifact Elimination",
+  "status": "SEALED_AFTER_EXACT_TECHNICAL_RECOVERY",
+  "canonical_scientific_run": 36654796963,
+  "canonical_head": "2669510594392286acae6a45d05214adb8d11f38",
+  "scientific_artifact": {
+    "id": 11072244656,
+    "digest": "sha256:c58b73775d3f07c9d85a41af8863f28640f97bf928e27ae30316f9dc7ddc011d"
+  },
+  "technical_recovery": {
+    "run": 36659051260,
+    "artifact_id": 11073656247,
+    "artifact_digest": "sha256:e478ed12cbe6ad0c907e88024bddb577a52807f936ba93d46073d7b8da369044",
+    "target": "seed 4932 / old namespace / R_F_L / alias C / valid",
+    "recovered": "1/1",
+    "final_technical": "4096/4096 complete"
+  },
+  "rank_growth": {
+    "old": {"4":3,"8":7,"16":15,"32":31},
+    "fresh": {"4":3,"8":7,"16":15,"32":29}
+  },
+  "primary_tests": {
+    "old_energy16": {"statistic":0.402385873998586,"holm_p":0.0023995200959808036,"reject":true},
+    "old_energy32": {"statistic":0.4108390731517899,"holm_p":0.0023995200959808036,"reject":true},
+    "old_grassmann_9_16": {"statistic":0.20901594966472806,"holm_p":0.07358528294341132,"reject":false},
+    "old_grassmann_17_32": {"statistic":0.3228472592930825,"holm_p":0.0023995200959808036,"reject":true},
+    "old_heldout16": {"statistic":0.01646126085574648,"holm_p":0.16576684663067387,"reject":false},
+    "old_heldout32": {"statistic":0.010164577147358744,"holm_p":0.07358528294341132,"reject":false},
+    "fresh_energy16": {"statistic":0.38422095589223876,"holm_p":0.0023995200959808036,"reject":true},
+    "fresh_energy32": {"statistic":0.47185388516647253,"holm_p":0.0023995200959808036,"reject":true},
+    "fresh_grassmann_9_16": {"statistic":0.27570502315256207,"holm_p":0.016996600679864027,"reject":true},
+    "fresh_grassmann_17_32": {"statistic":0.37363283301450734,"holm_p":0.0023995200959808036,"reject":true},
+    "fresh_heldout16": {"statistic":-0.0031053365335973193,"holm_p":0.11517696460707859,"reject":false},
+    "fresh_heldout32": {"statistic":0.009933871982635956,"holm_p":0.0023995200959808036,"reject":true}
+  },
+  "namespace_full_gate": {"old":false,"fresh":false},
+  "old_fresh_n8_basis_alignment": {
+    "mean_squared_canonical_correlation": 0.15544626600031114
+  },
+  "constitutional_verdict": "NO_IDENTIFIABLE_SEED_MANIFOLD",
+  "interpretation": "P48's apparent low-dimensional seed span did not survive the stronger P49 identifiability requirements. Rank grew essentially with the finite-seed ceiling, the old namespace failed early independent-block Grassmann stability, and held-out-cell transport was not robust across horizons/namespaces. Some repeatable low-rank energy concentration remains, but it does not license an identifiable seed-response manifold.",
+  "authority": "Behavioral hosted-inference geometry only. P49 defeats a stable manifold interpretation under the tested seed-growth and held-out-cell design; it does not imply pure randomness or identify provider internals."
+}
