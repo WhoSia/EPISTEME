@@ -13,28 +13,28 @@ Active execution surface for the EPISTEME research program.
 
 ## Active stage
 
-**EPISTEME-P48 — Seed-Conditioned Behavioral Fingerprints, Same-Seed Replay Determinism, Cross-Archive Signature Transport, Fresh-Seed Out-of-Sample Prediction & Hosted-Inference Randomness Decomposition**
+**EPISTEME-P49 — Seed-Response Manifold Identifiability, Rank-Growth Scaling, Grassmann Subspace Stability, Held-Out Cell Transport & Finite-Seed Span Artifact Elimination**
 
 **Status:** PRECOMMITTED / RUNNING
 
-The current lineage no longer treats representation failures as a fixed exceptional set. P44–P47 progressively localized the instability from representation geometry to stochastic hosted-inference structure.
+The current lineage has shifted from fixed representation exceptions to a hierarchy of stochastic hosted-inference structure.
 
-- **P44** — pointwise representation boundaries were unstable and no low-order cross-model susceptibility field survived multiplicity correction.
-- **P45** — exact alias replay produced only a partial model×semantic signal; no general alias-conditioned law was earned.
-- **P46** — an apparent Gemini wave-synchrony signal emerged, but temporal wave and explicit Gemini seed were initially confounded.
-- **P47** — prospectively orthogonalized explicit seed and temporal wave. Temporal common-mode structure did not replicate after correction, while explicit Gemini seed effects survived in both semantic twins and disjoint panels.
+- **P44–P46** — deterministic failure geometry dissolved into stochastic, model-indexed variation; an apparent temporal common-mode signal was later localized.
+- **P47** — explicit seed and temporal wave were orthogonalized; the temporal signal disappeared while Gemini seed effects survived across semantic twins and split panels.
+- **P48** — same-seed replay, cross-archive transport, and fresh-seed subspace tests all passed under the precommitted gates. However, the learned rank was 7 from 8 centered seeds, exactly the algebraic ceiling, so structural low dimensionality remains unearned.
+- **P49** — directly attacks that finite-seed rank ceiling.
 
-P48 asks a stronger question than whether different seeds produce different outputs:
+P49 asks:
 
-> When does a nominal API seed earn the status of a reproducible scientific intervention or transportable behavioral coordinate?
+> Does seed-conditioned behavioral geometry stabilize as the number of prospectively sampled nominal seeds grows and when representation cells are held out, or does apparent low dimensionality expand with the algebraic seed-count ceiling?
 
-The stage tests an authority ladder:
+The design uses 32 fresh nominal seeds, two archive-isomorphic namespaces, and a frozen 48-train / 16-held-out representation-cell split. It measures:
 
-1. **Seed parameter** — merely a user-supplied nominal value.
-2. **Reproducible intervention** — the same seed recreates a seed-specific behavioral fingerprint on exact replay.
-3. **Transportable coordinate** — seed identity remains recognizable after a semantically isomorphic archive renaming.
-4. **Randomization law** — entirely fresh seeds fall into a response subspace learned prospectively from old seeds.
+1. rank growth over 4, 8, 16, and 32 seed prefixes;
+2. energy captured by the frozen n=8 response core on later seeds;
+3. independent-block Grassmann/principal-angle stability;
+4. prospective held-out-cell prediction from seed scores learned only on train cells.
 
-Seed integers are treated as nominal labels; P48 does not assume a numerical geometry over seed values. Even the strongest possible result would describe a hosted black-box behavioral randomization structure, not a neural RNG state, batching mechanism, hardware effect, or provider-internal cause.
+A manifold claim is not allowed merely because rank is below the 64-cell ambient dimension. Seed values remain nominal labels, and any surviving subspace is a hosted behavioral response geometry rather than an identified neural latent space or provider mechanism.
 
 Canonical scientific receipts and literature custody remain in Notion / Drive; the repository retains the executable current-stage surface and compact sealed results needed for lineage continuity.
