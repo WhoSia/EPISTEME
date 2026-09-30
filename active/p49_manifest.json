@@ -11,8 +11,46 @@
   "theoretical_question": "Does the seed-conditioned response geometry exhibit a stable low-dimensional core that persists as the number of prospectively sampled nominal seeds increases and across held-out representation cells, or was P48's low-dimensionality only the finite-seed rank ceiling?",
   "model": "gemini-3.5-flash-lite",
   "seed_sets": {
-    "training_pool": [4901,4902,4903,4904,4905,4906,4907,4908,4909,4910,4911,4912,4913,4914,4915,4916,4917,4918,4919,4920,4921,4922,4923,4924,4925,4926,4927,4928,4929,4930,4931,4932],
-    "nested_prefixes": [4,8,16,32],
+    "training_pool": [
+      4901,
+      4902,
+      4903,
+      4904,
+      4905,
+      4906,
+      4907,
+      4908,
+      4909,
+      4910,
+      4911,
+      4912,
+      4913,
+      4914,
+      4915,
+      4916,
+      4917,
+      4918,
+      4919,
+      4920,
+      4921,
+      4922,
+      4923,
+      4924,
+      4925,
+      4926,
+      4927,
+      4928,
+      4929,
+      4930,
+      4931,
+      4932
+    ],
+    "nested_prefixes": [
+      4,
+      8,
+      16,
+      32
+    ],
     "authority": "Seed integers are nominal labels; only membership in prospectively frozen sets is used."
   },
   "cell_partition": {
@@ -41,31 +79,34 @@
       "comparison": "Observed rank trajectory versus algebraic ceiling n-1."
     },
     "energy_concentration": {
-      "object": "Fraction of Frobenius energy captured by the smallest k principal components, where k is frozen as the full rank learned at n=8 old-namespace training cells.",
-      "tests": "At n=16 and n=32, separately old/fresh namespace; null by 5000 common cell-coordinate permutations.",
-      "meaning": "Tests whether an early learned core continues to capture disproportionate response energy as seed count grows."
+      "object": "Freeze the n=8 training-cell PCA basis separately in each namespace. For future seeds 9..16 and 9..32, measure the fraction of centered train-cell energy captured by that frozen basis.",
+      "null": "5000 random common cell-coordinate permutations of the frozen n=8 basis relative to future rows; one-sided for larger captured-energy fraction.",
+      "tests": "old/fresh namespace × future prefix {16,32} = 4 tests.",
+      "meaning": "Tests whether the early seed-response core continues to align with newly sampled seeds rather than exploiting the n=8 rank ceiling."
     },
     "grassmann_stability": {
-      "object": "Principal-angle similarity between subspaces learned from nested n=8,16,32 seed prefixes on the same 48 train cells.",
-      "statistic": "Mean squared canonical correlation between equal-rank truncated bases using the frozen n=8 rank k.",
-      "null": "5000 common cell-coordinate permutations of the larger-seed matrix.",
-      "meaning": "Tests orientation stability rather than rank alone."
+      "object": "Compare the frozen n=8 basis against independently estimated top-k bases from disjoint seeds 9..16 and 17..32, where k=min(rank_n8,rank_block).",
+      "statistic": "Mean squared singular values of B8·Bblock^T (average squared canonical correlation).",
+      "null": "5000 random common cell-coordinate permutations of the independent block basis.",
+      "tests": "old/fresh namespace × block {9..16,17..32} = 4 tests.",
+      "meaning": "Tests orientation stability using independent seed blocks, avoiding nested-sample self-overlap."
     },
     "heldout_cell_transport": {
-      "object": "Project each seed's 16 held-out-cell centered fingerprint into the corresponding held-out representation induced by the seed scores learned on 48 train cells via least-squares seed-factor scores from the frozen n=8 basis.",
-      "statistic": "Explained variance on held-out cells at n=16 and n=32, old/fresh namespace.",
-      "null": "5000 seed-label permutations of learned seed scores relative to held-out outcomes.",
-      "meaning": "Separates seed generalization from representation-cell generalization."
+      "object": "Use seeds 1..8 and 48 train cells to learn an n=8 PCA score system and least-squares mapping from seed scores to the 16 held-out cells. Freeze both. Predict held-out outcomes for seeds 9..16 and 9..32 from train-cell scores alone.",
+      "statistic": "MSE improvement over the held-out-cell mean baseline learned only from seeds 1..8.",
+      "null": "5000 permutations of future seed-score rows relative to future held-out outcomes; one-sided for positive improvement.",
+      "tests": "old/fresh namespace × future prefix {16,32} = 4 tests.",
+      "meaning": "Prospective representation-cell generalization: held-out-cell outcomes are never used to fit the frozen score→cell map."
     },
-    "multiplicity": "All inferential P49 tests are placed in one Holm FWER=0.05 family."
+    "multiplicity": "12 inferential tests total (4 energy + 4 Grassmann + 4 held-out transport), one Holm FWER=0.05 family."
   },
   "primary_verdict_logic": {
-    "FINITE_SEED_SPAN_ARTIFACT": "Rank grows to the algebraic ceiling without stable n=8 energy concentration, without Grassmann stability, and without held-out cell transport.",
-    "STABLE_LOW_RANK_CORE_WITH_STOCHASTIC_TAIL": "Rank continues to grow, but n=8 core energy concentration and Grassmann stability survive and held-out transport survives.",
-    "SATURATING_SEED_RESPONSE_MANIFOLD": "Rank growth itself substantially saturates below ceiling by n=32, while Grassmann stability and held-out transport survive.",
-    "ARCHIVE_CONDITIONAL_MANIFOLD_ONLY": "Core/stability/transport survive in only one archive namespace.",
-    "NO_IDENTIFIABLE_SEED_MANIFOLD": "No coherent stable core or held-out transport survives.",
-    "TECHNICAL_HOLD": "Any required cell has fewer than one exact-schema result because each seed×cell×namespace is sampled once."
+    "FINITE_SEED_SPAN_ARTIFACT": "At n=32 rank reaches the centering ceiling in both namespaces and neither namespace passes all three test families at both horizons.",
+    "STABLE_LOW_RANK_CORE_WITH_STOCHASTIC_TAIL": "Rank continues to grow, but at least one namespace passes all energy, Grassmann, and held-out transport tests after Holm; both namespaces must pass for cross-archive authority.",
+    "SATURATING_SEED_RESPONSE_MANIFOLD": "Both namespaces have rank_32 < 31 and rank_32 == rank_16, and both namespaces pass all energy, Grassmann, and held-out transport tests.",
+    "ARCHIVE_CONDITIONAL_MANIFOLD_ONLY": "Exactly one namespace passes every inferential core/stability/held-out test.",
+    "NO_IDENTIFIABLE_SEED_MANIFOLD": "Neither namespace passes every inferential core/stability/held-out test and rank behavior does not meet the finite-seed-span-artifact branch.",
+    "TECHNICAL_HOLD": "Any of the 4096 required calls fails exact-schema evaluation."
   },
   "secondary_outputs": [
     "Full singular spectra for n=4,8,16,32.",
@@ -93,5 +134,10 @@
     "repository_writeback_from_actions": false,
     "github_actions_bot_contribution": "FORBIDDEN",
     "scientific_runs": 1
+  },
+  "novelty_kill_and_literature": {
+    "known": "Subspace comparison and principal-angle style representation analysis already exist in current LLM literature; P49 does not claim novelty for subspace metrics themselves.",
+    "missing_drive_candidate": "Kim & Lee (2026), Same Benchmark, Same Subspace: Task-Selective Convergence in LLM Representations, UAI 2026 / PMLR 337.",
+    "p49_surviving_question": "Whether an API-seed-conditioned behavioral response space remains stable under prospective seed-count growth and representation-cell holdout, after explicitly eliminating the centered-seed rank ceiling."
   }
 }
