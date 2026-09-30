@@ -13,28 +13,30 @@ Active execution surface for the EPISTEME research program.
 
 ## Active stage
 
-**EPISTEME-P49 — Seed-Response Manifold Identifiability, Rank-Growth Scaling, Grassmann Subspace Stability, Held-Out Cell Transport & Finite-Seed Span Artifact Elimination**
+**EPISTEME-P50 — Seed-Integrated Behavioral Estimands, Seed-Selection Bias, Monte-Carlo Measurement Convergence, Representation×Randomization Marginalization & Reproducible Hosted-Inference Measurement**
 
 **Status:** PRECOMMITTED / RUNNING
 
-The current lineage has shifted from fixed representation exceptions to a hierarchy of stochastic hosted-inference structure.
+The recent lineage separates realization-level stochastic geometry from distribution-level measurement authority.
 
-- **P44–P46** — deterministic failure geometry dissolved into stochastic, model-indexed variation; an apparent temporal common-mode signal was later localized.
-- **P47** — explicit seed and temporal wave were orthogonalized; the temporal signal disappeared while Gemini seed effects survived across semantic twins and split panels.
-- **P48** — same-seed replay, cross-archive transport, and fresh-seed subspace tests all passed under the precommitted gates. However, the learned rank was 7 from 8 centered seeds, exactly the algebraic ceiling, so structural low dimensionality remains unearned.
-- **P49** — directly attacks that finite-seed rank ceiling.
+- **P47** — explicit seed and temporal wave were orthogonalized; temporal common-mode structure disappeared while Gemini seed effects survived.
+- **P48** — same-seed replay and cross-archive seed identity were reproducible, but apparent low dimensionality was still vulnerable to the finite-seed rank ceiling.
+- **P49** — directly attacked that ceiling with 32 seeds and held-out cells. Rank grew essentially with seed count and held-out-cell transport was not robust, so no identifiable seed-response manifold was earned.
+- **P50** — asks whether the failure of realization-level geometry still permits a stable randomization-marginal measurement object.
 
-P49 asks:
+The central quantity is now a representation-indexed marginal estimand rather than any individual seed or draw realization. For each representation vertex, P50 integrates the joint valid/null success outcome over hosted randomization.
 
-> Does seed-conditioned behavioral geometry stabilize as the number of prospectively sampled nominal seeds grows and when representation cells are held out, or does apparent low dimensionality expand with the algebraic seed-count ceiling?
+Two distinct inference interfaces are tested in parallel:
 
-The design uses 32 fresh nominal seeds, two archive-isomorphic namespaces, and a frozen 48-train / 16-held-out representation-cell split. It measures:
+1. **Gemini explicit randomization** — 32 fresh nominal seeds.
+2. **Groq-hosted GPT-OSS implicit randomization** — 32 repeated hosted draws under the same frozen contract, with no exposed seed control.
 
-1. rank growth over 4, 8, 16, and 32 seed prefixes;
-2. energy captured by the frozen n=8 response core on later seeds;
-3. independent-block Grassmann/principal-angle stability;
-4. prospective held-out-cell prediction from seed scores learned only on train cells.
+P50 does not assume these two interfaces share a stochastic mechanism. Instead it asks whether each independently supports:
 
-A manifold claim is not allowed merely because rank is below the 64-cell ambient dimension. Seed values remain nominal labels, and any surviving subspace is a hosted behavioral response geometry rather than an identified neural latent space or provider mechanism.
+- reproducible estimator-half ↔ target-half marginal surfaces;
+- Monte-Carlo convergence as draws are accumulated;
+- measurable single-draw selection bias relative to the marginal estimand.
+
+A positive result would constitute an interface-relative hosted-inference measurement object. It would not revive a seed manifold, identify provider internals, or establish a neural latent state.
 
 Canonical scientific receipts and literature custody remain in Notion / Drive; the repository retains the executable current-stage surface and compact sealed results needed for lineage continuity.
