@@ -1,0 +1,134 @@
+{
+  "stage": "EPISTEME-P51",
+  "descriptor": "Randomization-Marginal Measurement Sufficiency, Sequential Stopping Boundaries, Representation-Specific Sample Complexity, Decision-Stable Estimation & Hosted-Inference Measurement Budget Constitution",
+  "status": "PRECOMMITTED",
+  "predecessor": {
+    "stage": "EPISTEME-P50",
+    "canonical_scientific_run": 36659547849,
+    "technical_recovery_run": 36669967725,
+    "verdict": "EXPLICIT_SEED_MARGINAL_ESTIMAND_ONLY",
+    "key_result": "Gemini explicit-seed randomization produced a highly reproducible 16-vs-16 marginal surface and strong Monte-Carlo convergence; Groq-hosted GPT-OSS showed convergence and single-draw bias but failed independent-half surface reproducibility at the P50 budget."
+  },
+  "theoretical_reframing": {
+    "problem": "P50 establishes that a marginal estimand can exist even when realization-level seed geometry fails. P51 asks when that estimand has been measured enough for a declared resolution and whether the required budget is itself representation-dependent and reproducible.",
+    "new_object": "For model/interface m, representation vertex v, and declared full-width resolution w, define tau_m(v,w) as the first draw count at which an anytime-valid confidence sequence for pi_m(v) has width <= w. The map v -> tau_m(v,w) is the representation-specific measurement-sufficiency field.",
+    "central_question": "Is measurement sufficiency a reproducible field over representation space rather than a single global attempt count, and can that field support stable representation-effect decisions under optional stopping?"
+  },
+  "authority_order": {
+    "gemini": "Primary constitutive interface because P50 established its randomization-marginal estimand.",
+    "gptoss120_groq": "Boundary/rescue interface. P51 may test whether a larger 32-vs-32 budget constitutes a stable marginal surface, but cannot assume one in advance."
+  },
+  "measurement_interfaces": {
+    "gemini": {
+      "model": "gemini-3.5-flash-lite",
+      "fresh_seeds": "5101..5164",
+      "randomization_semantics": "64 fresh nominal explicit seeds; seed numbers are labels, not a metric."
+    },
+    "gptoss120": {
+      "model": "openai/gpt-oss-120b via Groq",
+      "draws": 64,
+      "randomization_semantics": "64 repeated hosted draws under the exact frozen contract; draw index is not treated as an explicit RNG coordinate."
+    }
+  },
+  "surface": {
+    "vertices": "All 32 R/F/H/T/L Boolean-cube vertices.",
+    "semantic_twins": ["valid","null"],
+    "primary_vertex_outcome": "J(v,r)=1 iff both valid and null twins are adjudicated correct in randomization draw r.",
+    "archive_namespace": "P48/P50 fresh isomorphic namespace.",
+    "alias_rule": "ABCD[vertex_index mod 4]."
+  },
+  "design": {
+    "draws_per_model": 64,
+    "calls_per_draw_per_model": 64,
+    "calls_per_model": 4096,
+    "total_scientific_calls": 8192,
+    "block_A": "draws 1..32",
+    "block_B": "draws 33..64",
+    "resolution_ladder_full_width": [0.50,0.40,0.30]
+  },
+  "sequential_inference": {
+    "confidence_sequence": "Bernoulli Beta(1,1) mixture e-process inversion. For each vertex and each block, C_t(v)={p: mixture_likelihood/null_likelihood < 1/alpha}. This is time-uniform under the Bernoulli conditional-mean model.",
+    "individual_alpha": 0.05,
+    "simultaneous_alpha": "0.05/32 per vertex for a conservative 32-vertex simultaneous layer.",
+    "stopping_time": "tau(v,w)=first t<=32 with individual-CS full width <=w; tau=33 if unresolved by the block cap.",
+    "global_layer": "Separately report whether every vertex's simultaneous CS reaches each resolution by t=32; this is not required for the representation-specific field to exist."
+  },
+  "primary_tests": {
+    "block_surface_reproducibility": {
+      "tests": "Gemini and GPT-OSS separately: Pearson correlation of 32-draw marginal surfaces pi_A(v) versus pi_B(v).",
+      "null": "5000 target-block vertex-label permutations."
+    },
+    "stopping_field_reproducibility": {
+      "tests": "For each model and each w in {0.50,0.40,0.30}, Pearson correlation of censored stopping-time vectors tau_A(v,w) versus tau_B(v,w).",
+      "null": "5000 block-B vertex-label permutations.",
+      "meaning": "Tests whether the relative measurement difficulty of representations is itself reproducible."
+    },
+    "multiplicity": "Eight primary tests total: 2 surface + 6 stopping-field tests, one Holm FWER=0.05 family."
+  },
+  "decision_stability": {
+    "representation_operator_graph": "The 5-dimensional Boolean cube has 80 single-factor edges. For each factor, average the 16 paired on-minus-off marginal effects.",
+    "certification": "Use the conservative simultaneous per-vertex confidence sequences to derive an interval for each factor-average effect at each t. A sign is certified only when the derived interval excludes zero.",
+    "stable_decision": "A factor effect is decision-stable only if both independent blocks certify the same sign. No equivalence margin is introduced in P51."
+  },
+  "budget_outputs": {
+    "counterfactual_vertex_retirement": "For each block/model/resolution, sum min(tau(v,w),32) over vertices and multiply by two semantic calls. Compare with the fixed 32-draw budget.",
+    "sample_complexity_field": "Report tau(v,w) for all 32 vertices, plus factor/vertex summaries.",
+    "censoring": "Unresolved tau=33 is reported as right-censored; it is never imputed as a successful stop."
+  },
+  "constitutional_branches": [
+    "CROSS_INTERFACE_REPRODUCIBLE_SUFFICIENCY_FIELD",
+    "EXPLICIT_SEED_REPRODUCIBLE_SUFFICIENCY_FIELD_ONLY",
+    "GROQ_MARGINAL_SURFACE_RESCUED_WITHOUT_STABLE_SUFFICIENCY_FIELD",
+    "COARSE_RESOLUTION_SUFFICIENCY_ONLY",
+    "REPRODUCIBLE_MEAN_WITHOUT_REPRODUCIBLE_STOPPING_FIELD",
+    "NO_REPRODUCIBLE_MEASUREMENT_SUFFICIENCY_FIELD",
+    "EVALUATION_ARTIFACT_DOMINANT",
+    "TECHNICAL_HOLD"
+  ],
+  "verdict_gates": {
+    "technical": "All 8192 scientific calls must be exact-schema successful; otherwise TECHNICAL_HOLD and only failed calls may be replayed.",
+    "artifact": "Primary-vs-shadow disagreement >=10% in either interface triggers EVALUATION_ARTIFACT_DOMINANT.",
+    "surface": "An interface has a reproducible marginal surface only if its surface test is positive and Holm-rejected.",
+    "full_sufficiency_field": "An interface must have a reproducible marginal surface and positive Holm-rejected stopping-field correlations at all three resolutions.",
+    "coarse_sufficiency": "Surface gate plus only w=0.50 stopping-field test survives Holm.",
+    "cross_interface": "Both interfaces independently satisfy full_sufficiency_field."
+  },
+  "novelty_kill": {
+    "already_known": [
+      "Sequential testing and adaptive stopping for model evaluation already exist.",
+      "Confidence sequences / optional-stopping-safe inference are classical statistical machinery.",
+      "Stochastic LLM evaluation and resampling-count estimation already exist.",
+      "Repeated attempts under hosted nondeterminism are already known to have claim-dependent budgets."
+    ],
+    "surviving_candidate": "A representation-conditioned, resolution-indexed stopping-time field over a declared intervention cube, together with independent-block reproducibility of that field and a decision-stability layer for representation-operator effects after randomization marginalization."
+  },
+  "literature_pressure": {
+    "canonical_drive": [
+      "Lior et al. (2025), RELIABLEEVAL.",
+      "Atıl et al. (2025), hosted LLM nondeterminism."
+    ],
+    "acquisition_queue": [
+      "Arviv et al. (2026), Stop Guessing When to Stop Testing: Efficient Model Evaluation with Just Enough Data, Findings ACL 2026.",
+      "Certified Sequential Inference for Repeated-Sampling LLM Evaluation (2026 preprint/site; verify archival publication before using as authority).",
+      "Wu & Kawai (2025), Stopping Rules for Monte Carlo Methods: A Review."
+    ]
+  },
+  "independence_from_other_labs": {
+    "rule": "MQR/NOMOS/P&K may donate falsifiers or formal cautions, but P51's explanandum remains the measurement budget of hosted LLM response observables. No general philosophy-of-science, institutional-authority, or person-judgment claim is imported."
+  },
+  "frozen_rules": [
+    "No width target is selected after outcomes; the full resolution ladder is retained.",
+    "No numeric geometry is assigned to Gemini seed labels or Groq draw labels.",
+    "The individual-CS stopping field and the simultaneous global layer have different authority and must not be conflated.",
+    "Right-censored vertices remain unresolved.",
+    "Generic sequential-testing novelty is explicitly disclaimed.",
+    "A stable stopping field does not identify provider internals or neural states.",
+    "No threshold, alpha allocation, null model, or multiplicity rule changes after outcomes.",
+    "No behavioral SVEC promotion follows from P51 alone."
+  ],
+  "execution_governance": {
+    "repository_writeback_from_actions": false,
+    "github_actions_bot_contribution": "FORBIDDEN",
+    "scientific_runs": 1
+  }
+}
