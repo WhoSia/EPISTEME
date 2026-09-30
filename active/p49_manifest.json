@@ -1,0 +1,97 @@
+{
+  "stage": "EPISTEME-P49",
+  "descriptor": "Seed-Response Manifold Identifiability, Rank-Growth Scaling, Grassmann Subspace Stability, Held-Out Cell Transport & Finite-Seed Span Artifact Elimination",
+  "status": "PRECOMMITTED",
+  "predecessor": {
+    "stage": "EPISTEME-P48",
+    "canonical_run": 36646456304,
+    "verdict": "TRANSPORTABLE_LOW_DIMENSIONAL_SEED_RANDOMIZATION_LAW",
+    "key_result": "Same-seed fingerprint replay and cross-archive identity survived, and fresh-seed fingerprints projected significantly into the P47 old-seed span. However, the training effect rank was 7 with only 8 centered seeds, exactly the algebraic maximum under row-centering."
+  },
+  "theoretical_question": "Does the seed-conditioned response geometry exhibit a stable low-dimensional core that persists as the number of prospectively sampled nominal seeds increases and across held-out representation cells, or was P48's low-dimensionality only the finite-seed rank ceiling?",
+  "model": "gemini-3.5-flash-lite",
+  "seed_sets": {
+    "training_pool": [4901,4902,4903,4904,4905,4906,4907,4908,4909,4910,4911,4912,4913,4914,4915,4916,4917,4918,4919,4920,4921,4922,4923,4924,4925,4926,4927,4928,4929,4930,4931,4932],
+    "nested_prefixes": [4,8,16,32],
+    "authority": "Seed integers are nominal labels; only membership in prospectively frozen sets is used."
+  },
+  "cell_partition": {
+    "universe": "64 cells = 32 vertices × valid/null using deterministic alias=ABCD[vertex_index mod 4].",
+    "train_cells": "48 cells: canonical cell_index mod 4 != 3.",
+    "heldout_cells": "16 cells: canonical cell_index mod 4 == 3.",
+    "selection_authority": "Pure index rule frozen before P49 outcomes; no P48 effect-size selection."
+  },
+  "archive_lanes": {
+    "old_namespace": "Exact P47/P48 old archive surface.",
+    "fresh_namespace": "Exact P48 fresh isomorphic archive surface.",
+    "purpose": "Require any seed-response manifold claim to survive both seed growth and archive isomorphism."
+  },
+  "design": {
+    "seeds": 32,
+    "cells_per_seed_per_namespace": 64,
+    "namespaces": 2,
+    "total_scientific_calls": 4096,
+    "train_observations": "32 seeds × 48 train cells × 2 namespaces",
+    "heldout_observations": "32 seeds × 16 heldout cells × 2 namespaces"
+  },
+  "primary_estimands": {
+    "rank_growth": {
+      "object": "For nested seed prefixes n∈{4,8,16,32}, compute centered seed×train-cell matrices separately for old and fresh namespaces.",
+      "rank_rule": "Numerical rank from SVD tolerance max(shape)*eps*sigma_max; no post-hoc truncation.",
+      "comparison": "Observed rank trajectory versus algebraic ceiling n-1."
+    },
+    "energy_concentration": {
+      "object": "Fraction of Frobenius energy captured by the smallest k principal components, where k is frozen as the full rank learned at n=8 old-namespace training cells.",
+      "tests": "At n=16 and n=32, separately old/fresh namespace; null by 5000 common cell-coordinate permutations.",
+      "meaning": "Tests whether an early learned core continues to capture disproportionate response energy as seed count grows."
+    },
+    "grassmann_stability": {
+      "object": "Principal-angle similarity between subspaces learned from nested n=8,16,32 seed prefixes on the same 48 train cells.",
+      "statistic": "Mean squared canonical correlation between equal-rank truncated bases using the frozen n=8 rank k.",
+      "null": "5000 common cell-coordinate permutations of the larger-seed matrix.",
+      "meaning": "Tests orientation stability rather than rank alone."
+    },
+    "heldout_cell_transport": {
+      "object": "Project each seed's 16 held-out-cell centered fingerprint into the corresponding held-out representation induced by the seed scores learned on 48 train cells via least-squares seed-factor scores from the frozen n=8 basis.",
+      "statistic": "Explained variance on held-out cells at n=16 and n=32, old/fresh namespace.",
+      "null": "5000 seed-label permutations of learned seed scores relative to held-out outcomes.",
+      "meaning": "Separates seed generalization from representation-cell generalization."
+    },
+    "multiplicity": "All inferential P49 tests are placed in one Holm FWER=0.05 family."
+  },
+  "primary_verdict_logic": {
+    "FINITE_SEED_SPAN_ARTIFACT": "Rank grows to the algebraic ceiling without stable n=8 energy concentration, without Grassmann stability, and without held-out cell transport.",
+    "STABLE_LOW_RANK_CORE_WITH_STOCHASTIC_TAIL": "Rank continues to grow, but n=8 core energy concentration and Grassmann stability survive and held-out transport survives.",
+    "SATURATING_SEED_RESPONSE_MANIFOLD": "Rank growth itself substantially saturates below ceiling by n=32, while Grassmann stability and held-out transport survive.",
+    "ARCHIVE_CONDITIONAL_MANIFOLD_ONLY": "Core/stability/transport survive in only one archive namespace.",
+    "NO_IDENTIFIABLE_SEED_MANIFOLD": "No coherent stable core or held-out transport survives.",
+    "TECHNICAL_HOLD": "Any required cell has fewer than one exact-schema result because each seed×cell×namespace is sampled once."
+  },
+  "secondary_outputs": [
+    "Full singular spectra for n=4,8,16,32.",
+    "Effective participation rank and entropy rank, descriptive only.",
+    "Principal-angle vectors across nested prefixes.",
+    "Per-seed held-out prediction residuals.",
+    "Old↔fresh namespace basis alignment.",
+    "Cell loading maps over R/F/H/T/L representation vertices."
+  ],
+  "frozen_rules": [
+    "No claim of a manifold is allowed solely because matrix rank < 64.",
+    "The n=8 rank ceiling problem from P48 is explicitly treated as a falsifier, not evidence.",
+    "Seed numbers are nominal labels; no regression on numeric seed value, distance, parity, or ordering.",
+    "No cell partition or SVD rank rule changes after outcomes.",
+    "A stable subspace is a behavioral response geometry, not a neural latent space.",
+    "Hosted provider/runtime and model identity remain confounded.",
+    "No behavioral SVEC promotion follows from P49 alone."
+  ],
+  "harvest_linkage": [
+    "XLVII: uniqueness burden — low rank must survive seed-growth falsification.",
+    "XLIX: branch geometry before compression — retain full singular spectra before any scalar summary.",
+    "MQR/CUBE-REV donor: quotient and representation invariance require transport beyond the coordinate system in which the structure was discovered."
+  ],
+  "execution_governance": {
+    "repository_writeback_from_actions": false,
+    "github_actions_bot_contribution": "FORBIDDEN",
+    "scientific_runs": 1
+  }
+}
