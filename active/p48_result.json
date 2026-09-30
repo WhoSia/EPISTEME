@@ -1,0 +1,28 @@
+{
+  "stage": "EPISTEME-P48",
+  "descriptor": "Seed-Conditioned Behavioral Fingerprints, Same-Seed Replay Determinism, Cross-Archive Signature Transport, Fresh-Seed Out-of-Sample Prediction & Hosted-Inference Randomness Decomposition",
+  "status": "SEALED",
+  "canonical_run": 36646456304,
+  "canonical_head": "0f72a7940e830c27bb2e34da4cbcd8fbe0250a6a",
+  "artifact": {
+    "id": 11070060497,
+    "digest": "sha256:6cc46c53c0ec61b74a347743f11ed1ccd45da86ae2f5bcf73cb23d2e16ffab71"
+  },
+  "technical": "2048/2048 OK; primary-shadow disagreement 0",
+  "primary": {
+    "exact_replay_identity": {"statistic": 1.0, "holm_p": 0.0001240079365079365},
+    "old_seed_cross_archive_identity": {"statistic": 0.22946724588170925, "holm_p": 0.009424603174603174},
+    "fresh_seed_cross_archive_identity": {"statistic": 0.2396473679863596, "holm_p": 0.0019345238095238096},
+    "fresh_seed_old_archive_subspace": {"statistic": 0.4928685714657891, "holm_p": 0.0007998400319936012},
+    "fresh_seed_fresh_archive_subspace": {"statistic": 0.17277533210066814, "holm_p": 0.04799040191961608}
+  },
+  "gates": {
+    "reproducible_intervention": true,
+    "transportable_coordinate": true,
+    "fresh_seed_subspace": true
+  },
+  "training_effect_rank": 7,
+  "rank_ceiling_warning": "With 8 centered seed rows the algebraic maximum rank is 7, so P48 does not by itself establish intrinsic low dimensionality.",
+  "constitutional_verdict": "TRANSPORTABLE_LOW_DIMENSIONAL_SEED_RANDOMIZATION_LAW",
+  "authority": "The P48 precommitted gates were passed, but the low-dimensional wording is explicitly provisional because the rank equals the finite-seed centering ceiling. P49 is required before treating low dimensionality as structural rather than algebraic."
+}
