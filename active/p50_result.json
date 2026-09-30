@@ -1,0 +1,38 @@
+{
+  "stage": "EPISTEME-P50",
+  "descriptor": "Seed-Integrated Behavioral Estimands, Seed-Selection Bias, Monte-Carlo Measurement Convergence, Representation×Randomization Marginalization & Reproducible Hosted-Inference Measurement",
+  "status": "SEALED_AFTER_EXACT_TECHNICAL_RECOVERY",
+  "canonical_scientific_run": 36659547849,
+  "canonical_head": "81a59375dd99f3c3d976ed69113427ae81e98938",
+  "scientific_artifact": {
+    "id": 11075333990,
+    "digest": "sha256:003d65d1f3bd532d52a7756a0c0b9c6ef587081f3644a9dca702a907ad34e000"
+  },
+  "technical_recovery": {
+    "run": 36669967725,
+    "artifact_id": 11077058698,
+    "artifact_digest": "sha256:05866202bea89783672faf9de14a4d86a280d0d38f492c3f5ff777849ee5178f",
+    "scope": "Exactly 14 P50 technical failures were replayed; no successful scientific call was rerun.",
+    "recovered": "14/14",
+    "final_technical": {
+      "gemini": "2048/2048 complete",
+      "gptoss120": "2048/2048 complete"
+    }
+  },
+  "primary_tests": {
+    "gemini_half_surface": {"statistic": 0.9354461879131101, "raw_p": 0.0001999600079984003, "holm_p": 0.0011997600479904018, "reject": true},
+    "gemini_mc_convergence": {"statistic": 0.0869140625, "raw_p": 0.0001999600079984003, "holm_p": 0.0011997600479904018, "reject": true},
+    "gemini_selection_bias": {"statistic": 0.135986328125, "raw_p": 0.0001999600079984003, "holm_p": 0.0011997600479904018, "reject": true},
+    "gptoss120_half_surface": {"statistic": 0.2530325190216983, "raw_p": 0.08618276344731053, "holm_p": 0.08618276344731053, "reject": false},
+    "gptoss120_mc_convergence": {"statistic": 0.1995849609375, "raw_p": 0.0001999600079984003, "holm_p": 0.0011997600479904018, "reject": true},
+    "gptoss120_selection_bias": {"statistic": 0.2061767578125, "raw_p": 0.0001999600079984003, "holm_p": 0.0011997600479904018, "reject": true}
+  },
+  "convergence_mse": {
+    "gemini": {"n1":0.0987548828125,"n2":0.0635986328125,"n4":0.0450439453125,"n8":0.0191650390625,"n16":0.0118408203125},
+    "gptoss120": {"n1":0.2421875,"n2":0.12109375,"n4":0.0732421875,"n8":0.04443359375,"n16":0.0426025390625}
+  },
+  "interface_marginal_gate": {"gemini": true, "gptoss120": false},
+  "constitutional_verdict": "EXPLICIT_SEED_MARGINAL_ESTIMAND_ONLY",
+  "interpretation": "Gemini's explicit-seed interface supports a reproducible representation-indexed randomization-marginal surface, strong Monte-Carlo convergence, and measurable single-seed selection bias. Groq-hosted GPT-OSS benefits strongly from averaging and exhibits single-draw bias, but independent-half surface reproducibility did not survive the precommitted test; therefore no interface-level marginal estimand is constituted there at the P50 budget.",
+  "authority": "P50 establishes an explicit-seed randomization-marginal measurement object for the tested Gemini hosted interface only. It does not establish a universal hosted-inference estimand, provider mechanism, neural state, or behavioral-SVEC."
+}
