@@ -1,0 +1,122 @@
+{
+  "stage": "EPISTEME-P50",
+  "descriptor": "Seed-Integrated Behavioral Estimands, Seed-Selection Bias, Monte-Carlo Measurement Convergence, Representation×Randomization Marginalization & Reproducible Hosted-Inference Measurement",
+  "status": "PRECOMMITTED",
+  "predecessor": {
+    "stage": "EPISTEME-P49",
+    "canonical_scientific_run": 36654796963,
+    "technical_recovery_run": 36659051260,
+    "verdict": "NO_IDENTIFIABLE_SEED_MANIFOLD",
+    "key_result": "P48's seed-response span did not survive P49 manifold-identifiability requirements: rank grew essentially with the centered-seed ceiling and held-out-cell transport was not robust, even though some low-rank energy concentration remained."
+  },
+  "theoretical_reframing": {
+    "problem": "Failure of realization-level seed geometry does not imply failure of a distribution-level measurement object. The scientifically relevant quantity may be a randomization-marginal estimand rather than any individual seed fingerprint.",
+    "estimand": "For model/interface m and representation vertex v, define J_m(v,R)=1 iff both valid and null semantic twins are adjudicated correct under randomization draw R. The primary object is pi_m(v)=E_R[J_m(v,R)].",
+    "central_question": "Can hosted LLM behavior support a reproducible representation-indexed marginal measurement surface even when individual randomization realizations lack an identifiable manifold?"
+  },
+  "measurement_interfaces": {
+    "gemini_explicit_randomization": {
+      "model": "gemini-3.5-flash-lite",
+      "draws": 32,
+      "randomization_coordinate": "32 fresh nominal API seeds 5001..5032, each used once for every fixed cell."
+    },
+    "groq_implicit_randomization": {
+      "model": "openai/gpt-oss-120b via Groq",
+      "draws": 32,
+      "randomization_coordinate": "32 repeated hosted inference draws under the same frozen contract; the Groq adapter exposes no explicit seed control.",
+      "authority": "Draw index is an exchangeable repetition label, not a seed surrogate."
+    },
+    "comparability_rule": "The two interfaces are not assumed to share a stochastic mechanism or randomization measure. P50 asks whether marginal measurement is reproducible within each interface and whether the measurement principle transports across interfaces."
+  },
+  "frozen_surface": {
+    "cells": "64 calls per draw = 32 R/F/H/T/L vertices × valid/null twins.",
+    "alias_rule": "Exactly one alias per vertex: ABCD[vertex_index mod 4].",
+    "archive_namespace": "P48 fresh isomorphic namespace only, frozen for the entire stage.",
+    "response_contracts": "Exact P42-P49 provider-native strict contracts.",
+    "execution": "Within each draw, all 64 cells are frozen-PRNG shuffled; model call order alternates by draw-position parity."
+  },
+  "design": {
+    "draws_per_model": 32,
+    "calls_per_draw_per_model": 64,
+    "calls_per_model": 2048,
+    "total_scientific_calls": 4096,
+    "estimator_half": "draws 1..16",
+    "independent_target_half": "draws 17..32",
+    "nested_estimator_prefixes": [1,2,4,8,16]
+  },
+  "primary_estimands": {
+    "half_surface_reproducibility": {
+      "statistic": "Pearson correlation across 32 vertices between estimator-half pi_A(v) and independent target-half pi_B(v).",
+      "null": "5000 permutations of target-half vertex coordinates.",
+      "tests": "Gemini and GPT-OSS separately."
+    },
+    "monte_carlo_convergence": {
+      "curve": "For n∈{1,2,4,8,16}, estimate pi_n(v) from the first n estimator-half draws and compute MSE to pi_B(v).",
+      "primary_statistic": "Mean cellwise squared-error improvement MSE(n=1)-MSE(n=16).",
+      "null": "5000 paired sign-flips of the 32 vertex-level error improvements.",
+      "tests": "Gemini and GPT-OSS separately."
+    },
+    "seed_or_draw_selection_bias": {
+      "statistic": "Across each vertex, average squared error of the 16 arbitrary single-draw geometries to pi_B minus squared error of the 16-draw marginal estimator to pi_B.",
+      "null": "5000 paired sign-flips across the 32 vertex-level bias reductions.",
+      "tests": "Gemini and GPT-OSS separately.",
+      "meaning": "Quantifies the distortion introduced by reporting one arbitrary seed/draw instead of a randomization-integrated estimate."
+    },
+    "multiplicity": "Six primary tests in one Holm FWER=0.05 family."
+  },
+  "secondary_outputs": [
+    "Full pi_A and pi_B surfaces and nested n=1,2,4,8,16 convergence curves.",
+    "Maximum absolute and RMS marginal-surface error versus the independent target half.",
+    "Per-draw deviation from pi_B and distribution of single-draw selection error.",
+    "Valid-only and null-only marginal correctness surfaces.",
+    "Representation-vertex ranking stability across independent halves.",
+    "Cross-interface correlation between the full 32-draw Gemini and GPT-OSS marginal surfaces; descriptive only.",
+    "Approximate Monte-Carlo standard errors sqrt(p(1-p)/n) by vertex; descriptive only."
+  ],
+  "gates": {
+    "technical": "All 4096 calls must be exact-schema successful; otherwise TECHNICAL_HOLD and only failed calls may be recovered.",
+    "evaluation_artifact": "Primary-vs-shadow disagreement >=10% in either interface triggers EVALUATION_ARTIFACT_DOMINANT.",
+    "interface_marginal_estimand": "Within an interface, all three primary statistics must be positive and survive the six-test Holm correction.",
+    "cross_interface_measurement": "Both Gemini-explicit and Groq-implicit interfaces independently satisfy interface_marginal_estimand.",
+    "single_draw_bias": "No claim about a general single-draw bias is allowed unless the precommitted selection-bias test rejects after Holm correction."
+  },
+  "constitutional_branches": [
+    "CROSS_INTERFACE_RANDOMIZATION_MARGINAL_ESTIMAND_CONSTITUTED",
+    "EXPLICIT_SEED_MARGINAL_ESTIMAND_ONLY",
+    "IMPLICIT_HOSTED_DRAW_MARGINAL_ESTIMAND_ONLY",
+    "REPRODUCIBLE_MEAN_WITH_UNRESOLVED_MONTE_CARLO_AUTHORITY",
+    "NO_REPRODUCIBLE_RANDOMIZATION_MARGINAL_ESTIMAND",
+    "EVALUATION_ARTIFACT_DOMINANT",
+    "TECHNICAL_HOLD"
+  ],
+  "novelty_kill_and_literature": {
+    "canonical_drive_sources": [
+      "Atıl et al. (2025), Non-Determinism of Deterministic LLM System Settings in Hosted Environments, DOI 10.18653/v1/2025.eval4nlp-1.12.",
+      "Lior et al. (2025), RELIABLEEVAL: A Recipe for Stochastic LLM Evaluation via Method of Moments, DOI 10.18653/v1/2025.findings-emnlp.594.",
+      "Habba et al. (2025), DOVE: A Large-Scale Multi-Dimensional Predictions Dataset Towards Meaningful LLM Evaluation."
+    ],
+    "killed": [
+      "Hosted LLM nondeterminism is already established.",
+      "Stochastic/method-of-moments LLM evaluation is already established.",
+      "Repeated sampling alone is not a novel contribution."
+    ],
+    "surviving_candidate": "EPISTEME-specific transition from failed realization-level representation/seed geometry to a prospectively validated randomization-marginal representation estimand, with direct single-draw selection-bias quantification and transport across explicit-seed versus implicit hosted-randomness interfaces."
+  },
+  "independence_from_other_labs": {
+    "scope": "P50 remains an EPISTEME measurement problem about hosted LLM response observables. MQR/NOMOS/P&K may donate methodological cautions, but their general epistemic, governance, or philosophical objects are not imported as the explanandum."
+  },
+  "frozen_rules": [
+    "Gemini seed numbers are nominal labels; Groq draw numbers are repetition labels.",
+    "No realization-level manifold or latent-state claim is revived by successful marginal convergence.",
+    "The target half is independent of the estimator half and is never used to tune prefixes, thresholds, or statistics.",
+    "A reproducible marginal estimand is interface-relative unless independently constituted in both interfaces.",
+    "No provider-internal, neural RNG, batching, or hardware mechanism is identified.",
+    "No threshold, prefix, null model, multiplicity rule, or cell definition changes after outcomes.",
+    "No behavioral SVEC promotion follows from P50 alone."
+  ],
+  "execution_governance": {
+    "repository_writeback_from_actions": false,
+    "github_actions_bot_contribution": "FORBIDDEN",
+    "scientific_runs": 1
+  }
+}
