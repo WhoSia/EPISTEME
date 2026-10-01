@@ -1,0 +1,93 @@
+{
+  "stage":"EPISTEME-P52",
+  "descriptor":"Adaptive Measurement Allocation, Stopping-Field-Guided Vertex Retirement, Decision-Preserving Budget Reallocation, Prospective Regret Calibration & Hosted-Inference Measurement Efficiency Law",
+  "status":"PRECOMMITTED",
+  "predecessor":{
+    "stage":"EPISTEME-P51",
+    "canonical_scientific_run":36670782606,
+    "technical_recovery_run":36814505718,
+    "verdict":"EXPLICIT_SEED_REPRODUCIBLE_SUFFICIENCY_FIELD_ONLY",
+    "key_result":"Gemini has a reproducible representation-specific stopping-time field at w=0.50/0.40/0.30; Groq-hosted GPT-OSS has a reproducible 32-vs-32 marginal surface but no reproducible stopping-time field."
+  },
+  "theoretical_question":"Does a historically reproduced representation-specific measurement-sufficiency field have prospective operational value: can it guide allocation so that fresh randomization-marginal measurements approximate independent full-grid references better than fixed uniform sampling and generic uncertainty-only adaptivity at the same budget?",
+  "interfaces":{
+    "gemini":{"model":"gemini-3.5-flash-lite","draws":64,"fresh_nominal_seeds":"5201..5264","p51_field_authority":"AUTHORIZED"},
+    "gptoss120":{"model":"openai/gpt-oss-120b via Groq","draws":64,"randomization":"repeated hosted draws","p51_field_authority":"NEGATIVE_CONTROL_ONLY"}
+  },
+  "surface":{
+    "vertices":32,
+    "semantic_twins":["valid","null"],
+    "joint_outcome":"J(v,r)=1 iff valid and null twins are both correct.",
+    "archive_namespace":"P48/P50/P51 fresh isomorphic namespace.",
+    "alias_rule":"ABCD[vertex_index mod 4]."
+  },
+  "execution_design":{
+    "draws_per_model":64,
+    "calls_per_draw_per_model":64,
+    "calls_per_model":4096,
+    "total_scientific_calls":8192,
+    "block_A":"draws 1..32",
+    "block_B":"draws 33..64",
+    "full_outcome_oracle":"All cells are measured prospectively so every frozen allocation policy can be audited against complete counterfactual outcomes. Reported allocation savings are policy-counterfactual savings, not actual P52 API expenditure."
+  },
+  "historical_field":{
+    "source":"active/p51_sufficiency_baseline.json",
+    "primary_resolution":0.40,
+    "q_v":"mean of P51 block-A and block-B stopping times for the same model, vertex and resolution.",
+    "authority_rule":"Gemini q_v is an authorized prior. GPT-OSS q_v is deliberately retained as a non-authoritative negative-control prior."
+  },
+  "frozen_policies":{
+    "UNIFORM_FIXED":"At a budget B pair-measurements per 32-draw block, allocate equally by canonical vertex order; primary B=512 gives exactly 16 observations per vertex.",
+    "ONLINE_WIDTH":"Start with one observation per vertex. Retire a vertex when its individual alpha=.05 beta-mixture confidence-sequence full width <=w. Otherwise allocate the next pair-measurement to the unresolved vertex with maximal current CS width; ties by canonical vertex index.",
+    "FIELD_GUIDED_HYBRID":"Same retirement rule. Among unresolved vertices choose the vertex maximizing current_CS_width(v) * q_v / median(q). Use the next chronological unseen draw for that vertex; ties by canonical vertex index."
+  },
+  "primary_condition":{
+    "resolution_full_width":0.40,
+    "budget_pairs_per_block":512,
+    "budget_fraction_of_full_block":0.50,
+    "reference":"A-policy estimates are evaluated against the complete independent B-block 32-draw surface; B-policy estimates are evaluated against the complete independent A-block surface."
+  },
+  "primary_estimands":{
+    "estimation_regret":"Per-vertex squared error to the independent opposite-block full surface.",
+    "tests":"For each model × direction {A→B,B→A} × comparator {UNIFORM_FIXED,ONLINE_WIDTH}, test mean[(comparator error)-(FIELD_GUIDED_HYBRID error)] > 0 using 5000 paired sign flips across 32 vertices.",
+    "multiplicity":"8 tests in one Holm FWER=0.05 family.",
+    "gemini_field_value_gate":"All four Gemini comparisons must be positive and Holm-rejected.",
+    "gptoss_negative_control_gate":"The same four tests are computed, but positive results cannot retroactively authorize the P51 GPT-OSS stopping field."
+  },
+  "decision_preservation":{
+    "reference_decisions":"In the opposite complete block, a vertex decision is reference-certified only if its simultaneous alpha=.05/32 beta-mixture CS at t=32 excludes the threshold pi=0.5.",
+    "policy_decision":"A policy is correct-certified when its own simultaneous CS excludes 0.5 on the same side; false-certified on the opposite side; otherwise unresolved.",
+    "gate":"For Gemini in both directions, FIELD_GUIDED_HYBRID must make zero false-certified decisions and must not certify fewer correct reference decisions than both primary comparators whenever the reference contains at least four certified vertices.",
+    "sparse_reference_rule":"If fewer than four reference-certified vertices exist, decision preservation is reported descriptive-only and cannot support the strongest law branch."
+  },
+  "secondary_robustness":{
+    "resolutions":[0.50,0.40,0.30],
+    "budget_fractions":[0.25,0.50,0.75],
+    "outputs":["MSE regret surfaces","policy call counts after retirement","fraction of vertices retired","sample allocation vector","correlation between fresh allocation counts and P51 q_v","reference-certified decision preservation"],
+    "law_robustness":"The strongest law branch additionally requires FIELD_GUIDED_HYBRID MSE <= ONLINE_WIDTH and <= UNIFORM_FIXED in both Gemini directions at both 0.25 and 0.75 budgets under the primary w=0.40."
+  },
+  "constitutional_branches":[
+    "FIELD_GUIDED_MEASUREMENT_EFFICIENCY_LAW_ON_TESTED_GEMINI_INTERFACE",
+    "LOCAL_FIELD_GUIDED_ALLOCATION_GAIN",
+    "CROSS_INTERFACE_ADAPTIVE_GAIN_WITHOUT_FIELD_SPECIFICITY",
+    "RETIREMENT_GAIN_WITHOUT_HISTORICAL_FIELD_VALUE",
+    "FIELD_PREDICTS_DIFFICULTY_BUT_NOT_DECISION_EFFICIENCY",
+    "NO_PROSPECTIVE_ALLOCATION_GAIN",
+    "EVALUATION_ARTIFACT_DOMINANT",
+    "TECHNICAL_HOLD"
+  ],
+  "novelty_kill":{
+    "killed":["Adaptive sampling itself is prior art.","Sequential allocation/bandit-style resource allocation is prior art.","Confidence-sequence retirement is not claimed novel.","Lower cost from skipping already-resolved units is not by itself a contribution."],
+    "surviving_candidate":"A prospectively validated link from an independently reproduced representation-specific sufficiency field to decision-preserving hosted-LLM measurement allocation, with a non-reproducible-field interface retained as a negative-control prior."
+  },
+  "independence_from_other_labs":"The explanandum is EPISTEME's hosted-response measurement surface and its allocation efficiency. NOMOS/MQR/P&K may donate falsifiers but do not supply the object or authority.",
+  "frozen_rules":[
+    "No P52 outcome changes the primary w=0.40 or B=512 condition.",
+    "Full-grid P52 outcomes are collected only to audit frozen counterfactual policies; no policy is redesigned after seeing them.",
+    "GPT-OSS P51 q_v remains non-authoritative even if P52 happens to show allocation gain.",
+    "No numeric geometry is assigned to Gemini seed labels or Groq draw labels.",
+    "No provider-internal or neural mechanism is inferred from allocation efficiency.",
+    "No behavioral SVEC promotion follows from P52 alone."
+  ],
+  "execution_governance":{"repository_writeback_from_actions":false,"github_actions_bot_contribution":"FORBIDDEN","scientific_runs":1}
+}
