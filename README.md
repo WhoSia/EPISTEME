@@ -13,33 +13,27 @@ Active execution surface for the EPISTEME research program.
 
 ## Active stage
 
-**EPISTEME-P51 — Randomization-Marginal Measurement Sufficiency, Sequential Stopping Boundaries, Representation-Specific Sample Complexity, Decision-Stable Estimation & Hosted-Inference Measurement Budget Constitution**
+**EPISTEME-P52 — Adaptive Measurement Allocation, Stopping-Field-Guided Vertex Retirement, Decision-Preserving Budget Reallocation, Prospective Regret Calibration & Hosted-Inference Measurement Efficiency Law**
 
 **Status:** PRECOMMITTED / RUNNING
 
-The current lineage has moved from realization-level stochastic structure to distribution-level measurement authority.
+The current lineage has moved from stochastic realization geometry to randomization-marginal measurement and now to the operational value of measurement structure.
 
-- **P48** — explicit Gemini seed identity reproduced and transported across archive-isomorphic surfaces, but apparent low dimensionality remained vulnerable to a finite-seed rank ceiling.
-- **P49** — rank grew essentially with seed count and held-out-cell transport was not robust; no identifiable seed-response manifold was earned.
-- **P50** — randomization marginalization recovered a reproducible representation-indexed measurement surface for Gemini explicit seeds, while Groq-hosted GPT-OSS showed convergence and single-draw bias without independent-half surface reproducibility.
-- **P51** — asks when that marginal estimand has been measured enough for a declared resolution, and whether required sample budget is itself a reproducible property of representation space.
+- **P49** — no identifiable seed-response manifold survived seed-count growth and held-out-cell transport.
+- **P50** — Gemini explicit-seed randomization supported a reproducible marginal measurement surface; Groq GPT-OSS did not at the smaller budget.
+- **P51** — after exact technical recovery, Gemini exhibited a reproducible representation-specific stopping-time field at widths 0.50, 0.40, and 0.30. GPT-OSS gained a reproducible larger-budget marginal surface but no reproducible stopping field.
+- **P52** — tests whether the reproduced Gemini sufficiency field has prospective allocation value beyond fixed uniform sampling and generic uncertainty-only adaptivity.
 
-P51 introduces a resolution-indexed stopping-time field
+P52 uses fresh complete outcome matrices for two purposes at once: scientific calls remain fully observed for unbiased audit, while three allocation policies are replayed counterfactually over those frozen outcomes.
 
-`tau_m(v,w)`
+1. **UNIFORM_FIXED** — equal fixed-grid allocation.
+2. **ONLINE_WIDTH** — uncertainty-only confidence-sequence retirement/allocation.
+3. **FIELD_GUIDED_HYBRID** — the same online retirement rule, augmented by the historical P51 stopping-difficulty field.
 
-for interface `m`, representation vertex `v`, and declared full-width resolution `w`. It is the first draw count at which an anytime-valid confidence sequence for the randomization-marginal joint-success probability reaches the declared width.
+The primary condition is width 0.40 at a 50% block budget. Policy estimates from one fresh 32-draw block are evaluated against the complete independent opposite block, so allocation gains must survive out-of-block reference rather than self-fit.
 
-The prospective design uses:
+Gemini's historical field is scientifically authorized by P51. The GPT-OSS historical field is retained only as a deliberately non-authoritative negative-control prior. A strongest-result claim therefore requires field-guided Gemini allocation to beat both uniform and uncertainty-only comparators without degrading certified decisions, while robustness checks survive additional budgets.
 
-1. **Gemini explicit randomization** — 64 fresh nominal seeds, split into independent 32-draw blocks.
-2. **Groq-hosted GPT-OSS implicit randomization** — 64 repeated hosted draws, also split into independent blocks.
-3. **Resolution ladder** — full confidence-sequence widths 0.50, 0.40, and 0.30, frozen before outcomes.
-4. **Independent-block adjudication** — both the marginal surface and the representation-specific stopping field must reproduce.
-5. **Decision-stability layer** — conservative simultaneous confidence sequences certify representation-factor signs only when both blocks agree.
-
-Generic sequential-testing, confidence-sequence, and “how many LLM runs?” novelty claims are explicitly disclaimed. The surviving EPISTEME question is whether measurement sufficiency itself forms a reproducible field over a declared representation intervention cube.
-
-A positive result would constitute an interface-relative measurement-budget structure. It would not identify provider internals, neural states, or a universal sample-complexity law.
+Adaptive sampling, active allocation, bandit-style budgeting, and confidence-sequence retirement are explicitly treated as prior art. The surviving EPISTEME question is whether an independently reproduced representation-specific measurement-sufficiency field can prospectively improve fresh hosted-LLM measurement.
 
 Canonical scientific receipts and literature custody remain in Notion / Drive; the repository retains the executable current-stage surface and compact sealed results needed for lineage continuity.
