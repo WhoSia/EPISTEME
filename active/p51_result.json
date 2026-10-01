@@ -1,0 +1,25 @@
+{
+  "stage": "EPISTEME-P51",
+  "descriptor": "Randomization-Marginal Measurement Sufficiency, Sequential Stopping Boundaries, Representation-Specific Sample Complexity, Decision-Stable Estimation & Hosted-Inference Measurement Budget Constitution",
+  "status": "SEALED_AFTER_EXACT_TECHNICAL_RECOVERY",
+  "canonical_scientific_run": 36670782606,
+  "canonical_head": "e2fa965f726baab1b0641961680645508dfe9084",
+  "scientific_artifact": {"id":11083052278,"digest":"sha256:feebabbb5fe464c1d8c1670e0ba832263f599d405f0fdbe9fd32125ce6504851"},
+  "technical_recovery": {"run":36814505718,"artifact_id":11141280144,"artifact_digest":"sha256:94c8ac8773c9eb9bf357bd45ea7898f3a7a528c66aee6300af5ccb74c9eef169","recovered":"19/19","final_technical":{"gemini":"4096/4096 complete","gptoss120":"4096/4096 complete"}},
+  "primary_tests": {
+    "gemini:surface":{"statistic":0.9161202653885998,"p":0.0001999600079984003,"holm_p":0.0013997200559888023,"reject":true},
+    "gemini:tau:0.50":{"statistic":0.6414089695832499,"p":0.0001999600079984003,"holm_p":0.0013997200559888023,"reject":true},
+    "gemini:tau:0.40":{"statistic":0.686963359439678,"p":0.0001999600079984003,"holm_p":0.0013997200559888023,"reject":true},
+    "gemini:tau:0.30":{"statistic":0.8938903843512421,"p":0.0001999600079984003,"holm_p":0.0013997200559888023,"reject":true},
+    "gptoss120:surface":{"statistic":0.6969395189455889,"p":0.0001999600079984003,"holm_p":0.0013997200559888023,"reject":true},
+    "gptoss120:tau:0.50":{"statistic":0.29105161629770093,"p":0.0643871225754849,"holm_p":0.1287742451509698,"reject":false},
+    "gptoss120:tau:0.40":{"statistic":-0.05879863995894838,"p":1.0,"holm_p":1.0,"reject":false},
+    "gptoss120:tau:0.30":{"statistic":null,"p":null,"holm_p":null,"reject":false}
+  },
+  "surface_gate":{"gemini":true,"gptoss120":true},
+  "full_sufficiency_gate":{"gemini":true,"gptoss120":false},
+  "stable_factor_decisions":{"gemini":{"R":false,"F":false,"H":false,"T":false,"L":false},"gptoss120":{"R":false,"F":false,"H":false,"T":false,"L":false}},
+  "constitutional_verdict":"EXPLICIT_SEED_REPRODUCIBLE_SUFFICIENCY_FIELD_ONLY",
+  "interpretation":"Gemini exhibits a reproducible representation-specific stopping-time field at all three frozen resolutions. Groq-hosted GPT-OSS has a reproducible 32-vs-32 marginal surface at the larger P51 budget, but its stopping-time field does not reproduce. No R/F/H/T/L factor sign was independently certified in both blocks under the conservative simultaneous-CS layer.",
+  "authority":"P51 constitutes an explicit-seed representation-specific measurement-sufficiency field for the tested Gemini interface only. GPT-OSS surface reproducibility is rescued at 64 draws without a stable sufficiency field. No universal LLM sample-complexity law, provider mechanism, or neural state is identified."
+}
