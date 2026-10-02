@@ -1,0 +1,57 @@
+{
+  "stage":"EPISTEME-P55",
+  "descriptor":"Hosted-Inference Access-Regime Reconstitution, Frozen-Task Re-entry Constitution, Provider/Model Substitution Non-Equivalence, Missingness-Geometry Audit, Bounded Salvage Authority & Cross-Task Measurement-Law Reopening",
+  "status":"CLOSED",
+  "preflight_correction":{
+    "initial_run":37006832299,
+    "conclusion":"failure",
+    "provider_calls":0,
+    "scientific_cell_replays":0,
+    "failure":"invalid manifest JSON syntax; corrected without changing scientific design"
+  },
+  "canonical_run":37006966589,
+  "canonical_head":"9b64b69965382cfe94492949029ef3f33b47525f",
+  "artifact":{
+    "id":11226007661,
+    "digest":"sha256:5fb3ae30686e1853dfdee59b298bb6839a74e61af1ba0d824e792da3dd018439"
+  },
+  "scientific_cell_replays":0,
+  "access_canary":{
+    "gemini":{"ok":0,"total":3,"point_access":false,"observed_error":"402 RESOURCE_EXHAUSTED / prepayment credits depleted"},
+    "gptoss120":{"ok":3,"total":3,"point_access":true}
+  },
+  "missingness_geometry":{
+    "gemini_failures":415,
+    "gemini_first_draw":19,
+    "gemini_last_draw":32,
+    "gemini_last_8_draw_fraction":0.9951807228915662,
+    "gemini_last_16_draw_fraction":1.0,
+    "gemini_error_class":"RESOURCE_OR_QUOTA",
+    "gptoss_remaining_failures":1
+  },
+  "substitution_audit":{
+    "semantic_row_overlap":5728,
+    "semantic_row_disagreement_rate":0.46019553072625696,
+    "joint_overlap":2862,
+    "joint_disagreement_rate":0.350104821802935,
+    "literal_substitution_equivalent":false
+  },
+  "estimand_identifiability":{
+    "gemini_identified_tau":90,
+    "gemini_total_tau":96,
+    "unresolved_tau":[
+      {"task":"CALIBRATION_PATH","vertex":"R","possible":[31,32]},
+      {"task":"CALIBRATION_PATH","vertex":"R_F_L","possible":[31,32]},
+      {"task":"PROVENANCE_LINEAGE","vertex":"R_H","possible":[30,31]},
+      {"task":"PROVENANCE_LINEAGE","vertex":"H_T","possible":[31,32]},
+      {"task":"PROVENANCE_LINEAGE","vertex":"R_H_T","possible":[31,32]},
+      {"task":"PROVENANCE_LINEAGE","vertex":"F_T_L","possible":[31,32]}
+    ],
+    "admissible_primary_completion_worlds":64,
+    "critical_missing_rows_upper_bound_total":27,
+    "critical_missing_rows_upper_bound_gemini":26
+  },
+  "frozen_p53_primary_reopening":{"eligible":false,"reason":"6/96 Gemini stopping times remain interval-identified"},
+  "constitutional_verdict":"PARTIAL_ESTIMAND_IDENTIFICATION_WITHOUT_REENTRY_AUTHORITY",
+  "authority":"P55 shows that 90/96 Gemini stopping times are exactly identified despite 415 missing Gemini rows, rejects literal GPT-OSS substitution by direct matched disagreement, and reduces the unresolved Gemini evidence boundary to 26 estimand-critical rows. Gemini point access is currently unavailable, so no same-model replay authority is opened. The six unresolved stopping times define exactly 64 admissible primary-estimand completion worlds, enabling a future zero-call completion-invariance court without missingness assumptions."
+}
