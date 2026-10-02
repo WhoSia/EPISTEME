@@ -1,0 +1,91 @@
+{
+  "stage":"EPISTEME-P55",
+  "descriptor":"Hosted-Inference Access-Regime Reconstitution, Frozen-Task Re-entry Constitution, Provider/Model Substitution Non-Equivalence, Missingness-Geometry Audit, Bounded Salvage Authority & Cross-Task Measurement-Law Reopening",
+  "status":"PRECOMMITTED",
+  "predecessor":{
+    "stage":"EPISTEME-P54",
+    "canonical_run":37004809384,
+    "verdict":"TECHNICAL_HOLD",
+    "remaining_failed_rows":{"gemini":415,"gptoss120":1},
+    "scientific_analysis":"NOT_RUN_INCOMPLETE_TECHNICAL_RECEIPT"
+  },
+  "theoretical_reframing":{
+    "problem":"Raw-row completeness and estimand completeness are not the same scientific object. P53 was constitutionally blocked because 416 rows remained technically missing, but the primary P53 estimand is a stopping-time profile. Missing rows that occur after a stopping time, or whose paired semantic twin already forces joint failure, may be irrelevant to that estimand.",
+    "new_question":"Can the frozen P53 primary measurement-law estimand be exactly identified from the incomplete P54 receipt without imputing outcomes or changing the P53 tests, and if not, what is the smallest same-model evidence boundary that would be scientifically relevant for lawful re-entry?",
+    "access_question":"Has same-model hosted access reappeared sufficiently to justify a future bounded replay stage, without confusing a small access canary with proof of bulk capacity?"
+  },
+  "source":{
+    "p54_run":37004809384,
+    "artifact_id":11225591540,
+    "artifact_name":"p54-cross-task-technical-recovery-result",
+    "p53_schedule_rows":12288
+  },
+  "zero_call_audits":{
+    "missingness_geometry":[
+      "failure counts by model, task, draw, semantic, vertex, schedule position and error class",
+      "late-draw concentration and first/last observed failure",
+      "no MCAR/MAR assumption and no provider-internal causal claim"
+    ],
+    "estimand_identifiability":{
+      "For each task×vertex, reconstruct J(draw)=valid_correct AND null_correct as 0 whenever either observed twin is false, 1 when both observed twins are true, and unknown only when missingness can still change the conjunction.",
+      "Enumerate all reachable stopping times tau at width 0.50 under every completion of unknown J draws by finite-state dynamic programming.",
+      "A tau is exactly identified iff its reachable set is a singleton.",
+      "The original six P53 Gemini primary tests may be run unchanged only if all 96 Gemini task×vertex stopping times are exactly identified."
+    },
+    "bounded_critical_rows":{
+      "If the primary estimand is not fully identified, enumerate only missing semantic rows belonging to unresolved J draws at or before the latest reachable stopping time for their task×vertex.",
+      "This set is an upper bound on scientifically relevant same-model replay rows; no P55 scientific replay is authorized."
+    },
+    "substitution_non_equivalence":{
+      "Use already-observed matched P53 Gemini/GPT-OSS cells only.",
+      "Any matched correctness or joint-outcome discordance is sufficient to reject literal provider/model substitution as a lawful fill for missing Gemini rows.",
+      "A substitute model may at most support a future sensitivity bridge; it cannot inherit the original Gemini estimand."
+    }
+  },
+  "bounded_access_probe":{
+    "scientific_cells_replayed":0,
+    "calls":{
+      "gemini":3,
+      "gptoss120":3
+    },
+    "object":"response-contract canary only; never a P53 task cell",
+    "gemini_seeds":[5591,5592,5593],
+    "gate":"3/3 exact canary successes on an interface indicate current point-access only. It does not certify capacity for hundreds of scientific calls."
+  },
+  "reopening_authority":{
+    "primary_reopen":"If all 96 Gemini tau values are exactly identified, run the frozen P53 six-test family and Holm correction unchanged. Zero-shot policy transfer remains blocked because it requires complete response matrices.",
+    "future_reentry":"If primary tau is not fully identified but Gemini access canary is 3/3, P55 may authorize a NEW future stage to replay only the estimand-critical same-model Gemini rows. P55 itself performs no scientific replay.",
+    "no_substitution":"GPT-OSS or any other provider/model cannot replace missing Gemini rows in the primary P53 estimand."
+  },
+  "constitutional_branches":[
+    "FROZEN_PRIMARY_MEASUREMENT_LAW_REOPENED_BY_ESTIMAND_COMPLETENESS",
+    "FROZEN_PRIMARY_REOPENED_AND_NULL_ADJUDICATED",
+    "SAME_MODEL_REENTRY_ELIGIBLE_ON_ESTIMAND_CRITICAL_ROWS_ONLY",
+    "PARTIAL_ESTIMAND_IDENTIFICATION_WITHOUT_REENTRY_AUTHORITY",
+    "ACCESS_REGIME_UNRESOLVED_TECHNICAL_HOLD"
+  ],
+  "novelty_kill":{
+    "killed":[
+      "Missing-data partial identification is prior art.",
+      "MCAR/MAR/MNAR taxonomy is prior art.",
+      "Model substitution and domain adaptation are prior art.",
+      "API availability probing is engineering, not a scientific contribution."
+    ],
+    "surviving_candidate":"An estimand-specific recovery constitution for hosted-inference experiments: distinguish raw-row missingness from exact identifiability of a sequential stopping-time estimand, reject model substitution as literal completion, and reduce future replay authority to only estimand-critical missing rows."
+  },
+  "literature_pressure":[
+    "Manski (2005), Partial Identification with Missing Data.",
+    "Hosted-inference nondeterminism and evaluation literature already in EPISTEME Harvest.",
+    "Classical missing-data ignorability/coarsening concepts are background only; P55 makes no ignorability assumption."
+  ],
+  "frozen_rules":[
+    "No P53 task prompt, threshold, seed, test, Holm family or branch ordering changes.",
+    "No missing outcome is imputed probabilistically.",
+    "P55 may issue exactly six non-scientific access-canary calls and zero scientific-cell replays.",
+    "A successful canary does not itself authorize bulk replay.",
+    "Provider/model substitution cannot restore original-model authority.",
+    "No provider-internal cause is inferred from missingness timing or error strings.",
+    "No behavioral SVEC promotion follows from P55."
+  ],
+  "governance":{"repository_writeback_from_actions":false,"github_actions_bot_contribution":"FORBIDDEN","scientific_runs":1}
+}
