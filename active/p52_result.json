@@ -1,0 +1,13 @@
+{
+  "stage":"EPISTEME-P52",
+  "status":"SEALED_AFTER_TECHNICAL_RECOVERY",
+  "canonical_run":36815276159,
+  "artifact":{"id":11146726814,"digest":"sha256:9cba7fee16ef27ce71b99c3febd526e3f657b0a8a2089e1490be9d9633e13104"},
+  "recovery_runs":[36976266524,36976589563],
+  "final_technical":{"gemini":"4096/4096","gptoss120":"4096/4096"},
+  "primary_rejections":0,
+  "gemini_field_allocation_correlation":{"A_to_B":0.8405842332403679,"B_to_A":0.8527143184928683},
+  "gemini_reference_decisions":{"A_to_B":{"reference":14,"field":0,"uniform":8},"B_to_A":{"reference":9,"field":0,"uniform":8}},
+  "verdict":"FIELD_PREDICTS_DIFFICULTY_BUT_NOT_DECISION_EFFICIENCY",
+  "authority":"The historical stopping field predicts where adaptive allocation spends effort, but it does not improve independent-block regret or decision preservation at the frozen primary budget. P51 sufficiency-field authority remains descriptive rather than operational."
+}
