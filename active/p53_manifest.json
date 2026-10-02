@@ -1,0 +1,26 @@
+{
+  "stage":"EPISTEME-P53",
+  "descriptor":"Cross-Task Measurement-Sufficiency Transport, Representation×Task Difficulty Factorization, Zero-Shot Allocation-Policy Transfer, Shift-Robust Decision Preservation & Hosted-Inference Measurement-Law Externalization",
+  "status":"PRECOMMITTED",
+  "predecessor":{"stage":"EPISTEME-P52","run":36815276159,"verdict":"FIELD_PREDICTS_DIFFICULTY_BUT_NOT_DECISION_EFFICIENCY"},
+  "question":"Across independently schematized scientific tasks sharing the same R/F/H/T/L representation operators, does measurement difficulty retain a common representation-indexed component after task effects are removed?",
+  "models":{"gemini":"PRIMARY","gptoss120":"SECONDARY_BOUNDARY"},
+  "tasks":["CALIBRATION_PATH","PROVENANCE_LINEAGE","PROTOCOL_ORDER"],
+  "design":{"tasks":3,"models":2,"draws_per_task_model":32,"vertices":32,"semantic_twins":2,"total_calls":12288},
+  "primary_resolution":0.50,
+  "primary_gemini_tests":{
+    "historical_transport":"3 correlations: centered P51 Gemini q(v,0.50) vs each fresh-task tau(v)",
+    "loo_factorization":"3 correlations: each held-out task centered tau profile vs mean centered profile of the other two tasks",
+    "null":"5000 vertex-label permutations",
+    "multiplicity":"6 tests, one Holm FWER=0.05 family",
+    "full_gate":"all six positive and Holm-rejected"
+  },
+  "secondary_gptoss":"Mirror the 3 fresh-task leave-one-task-out tests in a separate Holm family. No historical-field authority.",
+  "factorization":"Report task, representation, and residual task×representation sums of squares on tau; interaction share descriptive only.",
+  "zero_shot_policy":"Secondary falsifier only. Reuse frozen P51 Gemini q in the P52 field-guided rule on first 16 task draws; score against independent final 16 draws versus uniform and online-width comparators.",
+  "branches":["CROSS_TASK_MEASUREMENT_DIFFICULTY_LAW_WITH_ZERO_SHOT_POLICY_TRANSFER","CROSS_TASK_MEASUREMENT_DIFFICULTY_LAW_WITHOUT_OPERATIONAL_TRANSFER","FRESH_TASK_COMMON_COMPONENT_WITHOUT_HISTORICAL_TRANSPORT","PARTIAL_TASK_TRANSPORT_ONLY","TASK_INTERACTION_DOMINATES_REPRESENTATION_DIFFICULTY","NO_CROSS_TASK_MEASUREMENT_LAW","EVALUATION_ARTIFACT_DOMINANT","TECHNICAL_HOLD"],
+  "novelty_kill":["cross-task prompt sensitivity","measurement invariance","prompt robustness","domain-shift uncertainty","adaptive allocation"],
+  "surviving_candidate":"Prospective externalization of a previously reproduced hosted-inference stopping-difficulty field across independently schematized task families, separating task×representation factorization from operational allocation utility.",
+  "rules":["tasks fixed before outcomes","Gemini seed labels nominal","cross-task transport != operational utility","no provider/neural mechanism claim","no behavioral SVEC promotion"],
+  "governance":{"repository_writeback_from_actions":false,"github_actions_bot_contribution":"FORBIDDEN","scientific_runs":1}
+}
