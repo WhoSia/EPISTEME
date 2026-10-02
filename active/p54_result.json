@@ -1,0 +1,48 @@
+{
+  "stage": "EPISTEME-P54",
+  "predecessor": {
+    "stage": "EPISTEME-P53",
+    "run_id": 36977540899,
+    "artifact_id": 11224132413,
+    "receipt_json_sha256": "3b5ad9e09476c8d4a3d0871f3ba3fb8d687e69d3c0ca825b241cf50bc2952e13"
+  },
+  "preflight_correction": {
+    "initial_run_id": 37004267415,
+    "conclusion": "failure",
+    "failure": "Fingerprint values had been measured from Windows checkout line endings, while the hosted runner evaluated the canonical Git checkout bytes.",
+    "provider_calls": 0,
+    "scientific_cell_replays": 0,
+    "correction_commit": "cce232a25ed1ce9a1f8f368b1a72da17075bb7af"
+  },
+  "execution": {
+    "run_id": 37004809384,
+    "run_attempt": 1,
+    "head_sha": "cce232a25ed1ce9a1f8f368b1a72da17075bb7af",
+    "workflow_conclusion": "success",
+    "artifact_id": 11225591540,
+    "artifact_name": "p54-cross-task-technical-recovery-result",
+    "artifact_zip_sha256": "34d88f68e8eee08cd86b2d5e9d83814ff21826832b1e7f338a5527dbfe435af0",
+    "artifact_expires_at": "2026-10-16T12:09:12Z"
+  },
+  "recovery": {
+    "planned_failed_rows": 441,
+    "replayed_rows": 441,
+    "one_attempt_per_failed_row": true,
+    "successful_p53_rows_replayed": 0,
+    "by_model_and_status": {
+      "gemini:TECHNICAL_FAIL": 415,
+      "gptoss120:OK": 25,
+      "gptoss120:TECHNICAL_FAIL": 1
+    },
+    "recovered_rows": {"gemini": 0, "gptoss120": 25},
+    "remaining_failed_rows": {"gemini": 415, "gptoss120": 1}
+  },
+  "technical": {
+    "gemini": {"ok": 5729, "total": 6144, "complete": false, "remaining_failed": 415},
+    "gptoss120": {"ok": 6143, "total": 6144, "complete": false, "remaining_failed": 1}
+  },
+  "constitutional_verdict": "TECHNICAL_HOLD",
+  "scientific_analysis": "NOT_RUN_INCOMPLETE_TECHNICAL_RECEIPT",
+  "authority": "P54 closes the frozen failed-cell recovery attempt but does not close P53's scientific question. No threshold, task, prompt, seed, successful prior row, adjudication rule, or branch ordering was changed. No further replay or model call is authorized by this result."
+}
+

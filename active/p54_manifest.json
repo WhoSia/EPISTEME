@@ -1,7 +1,7 @@
 {
   "stage": "EPISTEME-P54",
   "descriptor": "Cross-Task Technical-Hold Recovery, Failed-Cell-Only Replay & Frozen Measurement-Law Adjudication",
-  "status": "PRECOMMITTED",
+  "status": "CLOSED_TECHNICAL_HOLD",
   "predecessor": {
     "stage": "EPISTEME-P53",
     "canonical_run_id": 36977540899,
@@ -48,11 +48,30 @@
     "no_repair_by_relabeling": true
   },
   "workflow": {
-    "trigger": "One successful preflighted scientific recovery run; one reissued push is permitted only after a zero-provider-call infrastructure/preflight failure. GitHub rerun attempts and any repeat of a failed cell replay are prohibited.",
+    "trigger": "The sole scientific recovery is the second P54 workflow run, after the first run stopped before any provider call. GitHub rerun attempts and any later P54 run are prohibited.",
+    "permitted_scientific_run_number": 2,
     "zero_call_preflight_recovery": {"initial_run_id": 37004267415, "conclusion": "failure", "failure": "Source fingerprints were sealed from Windows checkout bytes instead of Linux Git object bytes.", "provider_calls": 0, "scientific_cell_replays": 0},
     "github_actions_bot_repository_write": false,
     "permissions": {"contents": "read", "actions": "read"},
     "artifact_only_output": true
+  },
+  "execution_receipt": {
+    "preflight_correction_commit": "cce232a25ed1ce9a1f8f368b1a72da17075bb7af",
+    "scientific_run_id": 37004809384,
+    "scientific_run_number": 2,
+    "scientific_run_attempt": 1,
+    "scientific_head_sha": "cce232a25ed1ce9a1f8f368b1a72da17075bb7af",
+    "workflow_conclusion": "success",
+    "artifact_id": 11225591540,
+    "artifact_name": "p54-cross-task-technical-recovery-result",
+    "artifact_zip_sha256": "34d88f68e8eee08cd86b2d5e9d83814ff21826832b1e7f338a5527dbfe435af0",
+    "remaining_verdict": "TECHNICAL_HOLD",
+    "replayed_failed_rows": 441,
+    "successful_p53_rows_replayed": 0,
+    "recovered_rows": {"gemini": 0, "gptoss120": 25},
+    "remaining_failed_rows": {"gemini": 415, "gptoss120": 1},
+    "technical_totals": {"gemini": {"ok": 5729, "total": 6144}, "gptoss120": {"ok": 6143, "total": 6144}},
+    "scientific_adjudication_run": false
   },
   "authority": "Close P53's technical HOLD through one failed-row-only replay and apply its frozen cross-task analysis. No new task family, threshold change, prompt change, new seed, P53 successful-row replay, provider-mechanism claim, or behavioral-SVEC promotion."
 }
