@@ -1,0 +1,2 @@
+EPISTEME-P54 failed-cell-only technical recovery trigger. Exactly one run. Failed P53 rows only, one replay per row, artifact-only result, Actions contents:read/actions:read; no repository writeback.
+

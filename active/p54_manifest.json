@@ -1,0 +1,58 @@
+{
+  "stage": "EPISTEME-P54",
+  "descriptor": "Cross-Task Technical-Hold Recovery, Failed-Cell-Only Replay & Frozen Measurement-Law Adjudication",
+  "status": "PRECOMMITTED",
+  "predecessor": {
+    "stage": "EPISTEME-P53",
+    "canonical_run_id": 36977540899,
+    "trigger_head_sha": "64ccb859298e9dff4b6fb309e505eb2221843cda",
+    "workflow_conclusion": "success",
+    "scientific_verdict": "TECHNICAL_HOLD",
+    "artifact_id": 11224132413,
+    "artifact_name": "p53-cross-task-measurement-law-result",
+    "artifact_zip_sha256": "5d016523802e3df075d2533457458b8be397c5fb56b3b7e30bcb08ca5288369e",
+    "receipt_json_sha256": "3b5ad9e09476c8d4a3d0871f3ba3fb8d687e69d3c0ca825b241cf50bc2952e13"
+  },
+  "source_fingerprints": {
+    "active/p53_manifest.json": "09a479187e3fe25eac4f21e659497c4db9b6e4c0ee3e819c0ef1906627050dc6",
+    "src/p53_cross_task.py": "134cc9beff3360f4fd67b27183da0720ac1de71b64f95c5d0e2287c9a1ed6484",
+    "src/p44_field.py": "48e3e69bebc67067e7446ec7b045e03007d837e271f776655728a5ed4d01b4a0",
+    "src/p42_reopen.py": "fd07258dd5b13cdd62e87f79ff62800d916fddc7b8fb51051b8171f2606ceb88",
+    "src/p48_seed_fingerprints.py": "d1cfb78ba1ec319b29d67284c700817340cc365db582c3210e08165e5d291381",
+    "src/p51_sufficiency.py": "2860c4396fa86145a471408944bd14721b647dcd4134b5bd625a43b24357eefb",
+    "src/p52_allocation.py": "e5d4c9605b78c2743fb27178f8a4e41ebf6827893c405657b3ac1b1cbd27ebe4",
+    "active/p51_sufficiency_baseline.json": "a9b937c278ef72e61616508dbb5f802c4423c69fc0c2b418d72496e2f199a387"
+  },
+  "recovery_design": {
+    "failed_cell_replays_maximum": 441,
+    "failed_rows_only": true,
+    "replay_each_failed_row_once": true,
+    "successful_p53_rows_replayed": 0,
+    "new_seeds": 0,
+    "source_packet": "Reconstructed by the byte-pinned P53 source from the frozen task, vertex, semantic twin, alias and draw fields in the canonical P53 result artifact.",
+    "P53_run_id": 36977540899,
+    "P53_failure_rows": 441,
+    "P53_failure_counts": {
+      "gemini": {"total": 415, "402_RESOURCE_EXHAUSTED": 413, "503_UNAVAILABLE": 2},
+      "gptoss120": {"total": 26, "400_FAILED_TO_GENERATE_JSON": 26}
+    },
+    "source_receipt_technical": {
+      "gemini": {"ok": 5729, "total": 6144},
+      "gptoss120": {"ok": 6118, "total": 6144}
+    }
+  },
+  "frozen_adjudication": {
+    "technical_completeness": "Each model must have 6144/6144 OK rows; otherwise final verdict remains TECHNICAL_HOLD and no scientific analysis is emitted.",
+    "request_contract": "Invoke the exact P53 packet constructor and P53 call wrapper once per failed row with its model, prompt, seed, task, vertex, alias, semantic twin, and draw. Any retries internal to the frozen P53 provider wrapper remain unchanged; 441 is a failed-cell replay bound, not a transport-level HTTP request bound.",
+    "analysis": "When and only when all rows are technically complete, apply the P53 source functions and unchanged frozen thresholds: width 0.50; 5000 vertex-label permutations; six-test Gemini Holm FWER 0.05 family; separate three-test GPT-OSS Holm family; original branch ordering and zero-shot secondary gate.",
+    "no_repair_by_relabeling": true
+  },
+  "workflow": {
+    "trigger": "One push changing active/p54_trigger.txt; no workflow_dispatch and no automatic retry attempt.",
+    "github_actions_bot_repository_write": false,
+    "permissions": {"contents": "read", "actions": "read"},
+    "artifact_only_output": true
+  },
+  "authority": "Close P53's technical HOLD through one failed-row-only replay and apply its frozen cross-task analysis. No new task family, threshold change, prompt change, new seed, P53 successful-row replay, provider-mechanism claim, or behavioral-SVEC promotion."
+}
+
