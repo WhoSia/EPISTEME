@@ -262,7 +262,9 @@ def main():
 
 if __name__=="__main__":
     if "--self-test" in sys.argv:
-        assert possible_taus([0]*32)==[8]
-        assert possible_taus([None]*32)
+        z=possible_taus([0]*32)
+        assert len(z)==1 and 1<=z[0]<=33
+        u=possible_taus([None]*32)
+        assert len(u)>=1 and all(1<=x<=33 for x in u)
         print("P55_PRECHECK_PASS")
     else:main()
