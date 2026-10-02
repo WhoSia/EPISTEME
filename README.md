@@ -13,38 +13,31 @@ Active execution surface for the EPISTEME research program.
 
 ## Active stage
 
-**EPISTEME-P54 — Cross-Task Technical-Hold Recovery, Failed-Cell-Only Replay & Frozen Measurement-Law Adjudication**
+**EPISTEME-P55 — Hosted-Inference Access-Regime Reconstitution, Frozen-Task Re-entry Constitution, Provider/Model Substitution Non-Equivalence, Missingness-Geometry Audit, Bounded Salvage Authority & Cross-Task Measurement-Law Reopening**
 
-**Status:** P53 CLOSED / TECHNICAL HOLD; P54 CLOSED / TECHNICAL HOLD
+**Status:** PRECOMMITTED / ACCESS COURT RUNNING
 
-The recent lineage now separates four authority levels:
+Recent lineage:
 
-- **P50** — Gemini explicit-seed randomization supported a reproducible randomization-marginal measurement surface.
-- **P51** — Gemini additionally supported a reproducible representation-specific stopping-time field.
-- **P52** — that historical field predicted where fresh adaptive measurement effort was spent, but did not improve independent-block regret or certified-decision preservation. Reproducibility therefore did not imply operational utility.
-- **P53** — the frozen cross-task measurement-law experiment completed once. Its GitHub Actions workflow succeeded, but the scientific receipt is `TECHNICAL_HOLD`: Gemini 5,729/6,144 calls and GPT-OSS 120B 6,118/6,144 calls were technically valid. The receipt has 441 failed rows: 415 Gemini failures (413 quota/resource exhausted, two 503 unavailable) and 26 GPT-OSS JSON-generation failures. No transport analysis was emitted.
-- **P54** — replayed only those exact 441 failed rows once from the P53 artifact and preserved all 11,847 successful P53 rows. The first P54 run (37004267415) stopped at a source-fingerprint gate before any model call; one corrected scientific run (37004809384) recovered 25 GPT-OSS rows and zero Gemini rows, leaving 416 failed rows. The frozen completeness gate therefore withheld all scientific adjudication and sealed `TECHNICAL_HOLD`.
+- **P51** — Gemini yielded a reproducible representation-specific stopping-time field.
+- **P52** — the field predicted fresh measurement difficulty but did not improve decision-efficient allocation.
+- **P53** — cross-task externalization was technically interrupted.
+- **P54** — replayed only the 441 failed P53 rows once, recovering 25 GPT-OSS rows but no Gemini rows; 416 failures remained and the frozen completeness gate preserved `TECHNICAL_HOLD`.
+- **P55** — asks whether raw-row incompleteness actually implies incompleteness of the P53 stopping-time estimand, and if not, whether the frozen primary law can be reopened without any scientific replay.
 
-P53 introduces three fresh scientific archive tasks:
+P55 makes a strict distinction between **row completeness** and **estimand completeness**. For each task × representation vertex it reconstructs the joint valid/null success sequence and enumerates every stopping time reachable under all completions of technically missing outcomes. A stopping time is scientifically identified only when that reachable set is a singleton.
 
-1. **CALIBRATION_PATH** — calibration-path-dependent versus path-invariant response.
-2. **PROVENANCE_LINEAGE** — lineage-dependent versus lineage-invariant audit response.
-3. **PROTOCOL_ORDER** — preparation-order-dependent versus order-invariant perturbation response.
+This allows two important cases to be separated:
 
-The tasks share the same R/F/H/T/L representation operators but differ in vocabulary, schema keys, claims, and decisive relation semantics.
+1. a missing semantic twin is irrelevant because the observed twin already forces joint failure;
+2. a missing row occurs only after every possible stopping point and therefore cannot affect the stopping-time estimand.
 
-The primary Gemini test uses 32 fresh nominal seeds matched across task families. For each task, P53 measures a stopping-time profile at full confidence-sequence width 0.50. It then tests both:
+The original six P53 Gemini primary tests may be rerun unchanged only if all 96 task × vertex stopping times are exactly identified. Otherwise P55 computes a conservative upper bound on **estimand-critical missing rows** and authorizes no scientific replay itself.
 
-- historical P51 field → fresh-task transport;
-- leave-one-fresh-task-out prediction from the other two task families.
+P55 also audits matched Gemini/GPT-OSS observations. Any observed behavioral disagreement defeats literal provider/model substitution as a lawful completion of the missing Gemini estimand.
 
-All six Gemini transport/factorization tests share one Holm FWER 0.05 family. GPT-OSS 120B via Groq mirrors the fresh-task factorization as a secondary boundary test, without historical stopping-field authority.
+Exactly six non-scientific response-contract canaries are permitted: three Gemini and three GPT-OSS/Groq calls. Canary success establishes only current point access; it does not certify capacity for bulk replay.
 
-P53 also reports a task × representation additive decomposition and retains zero-shot allocation transfer as a secondary falsifier only. P52 already established that descriptive difficulty prediction and operational allocation value are different authority layers.
-
-Cross-task prompt sensitivity, measurement invariance, domain-shift uncertainty, and adaptive allocation are treated as prior art. The surviving EPISTEME question is whether a previously reproduced hosted-inference measurement-sufficiency field externalizes across new task schemas.
-
-P53 canonical receipt: run [36977540899](https://github.com/WhoSia/EPISTEME/actions/runs/36977540899), artifact `p53-cross-task-measurement-law-result`. P54 canonical recovery run: [37004809384](https://github.com/WhoSia/EPISTEME/actions/runs/37004809384), artifact `p54-cross-task-technical-recovery-result` (ID `11225591540`, ZIP SHA-256 `34d88f68e8eee08cd86b2d5e9d83814ff21826832b1e7f338a5527dbfe435af0`). Compact receipt: `active/p54_result.json`. Workflow permissions are `contents: read` and `actions: read`; `github-actions[bot]` does not write repository history.
+Generic missing-data partial identification, MCAR/MAR/MNAR terminology, API probing, and model substitution are treated as prior art. The surviving EPISTEME contribution candidate is an estimand-specific re-entry constitution for interrupted hosted-inference experiments.
 
 Canonical scientific receipts and literature custody remain in Notion / Drive; the repository retains the executable current-stage surface and compact sealed results needed for lineage continuity.
-
