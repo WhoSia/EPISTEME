@@ -23,7 +23,7 @@ The recent lineage now separates four authority levels:
 - **P51** — Gemini additionally supported a reproducible representation-specific stopping-time field.
 - **P52** — that historical field predicted where fresh adaptive measurement effort was spent, but did not improve independent-block regret or certified-decision preservation. Reproducibility therefore did not imply operational utility.
 - **P53** — the frozen cross-task measurement-law experiment completed once. Its GitHub Actions workflow succeeded, but the scientific receipt is `TECHNICAL_HOLD`: Gemini 5,729/6,144 calls and GPT-OSS 120B 6,118/6,144 calls were technically valid. The receipt has 441 failed rows: 415 Gemini failures (413 quota/resource exhausted, two 503 unavailable) and 26 GPT-OSS JSON-generation failures. No transport analysis was emitted.
-- **P54** — replays only those exact 441 failed rows once from the P53 artifact, preserves all 11,847 successful P53 rows, and applies P53's original frozen thresholds and branch order only if both model arms become complete. A repeated technical failure remains a technical hold.
+- **P54** — replays only those exact 441 failed rows once from the P53 artifact, preserves all 11,847 successful P53 rows, and applies P53's original frozen thresholds and branch order only if both model arms become complete. The first P54 run (37004267415) stopped at a source-fingerprint gate before any model call because the sealed hashes used Windows checkout bytes rather than Linux Git-object bytes. That zero-call preflight failure is documented; one corrected scientific run is permitted. A repeated technical failure remains a technical hold.
 
 P53 introduces three fresh scientific archive tasks:
 

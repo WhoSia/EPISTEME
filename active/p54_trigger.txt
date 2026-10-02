@@ -1,2 +1,2 @@
-EPISTEME-P54 failed-cell-only technical recovery trigger. Exactly one run. Failed P53 rows only, one replay per row, artifact-only result, Actions contents:read/actions:read; no repository writeback.
+EPISTEME-P54 failed-cell-only technical recovery trigger reissued after run 37004267415 stopped at the zero-provider-call fingerprint gate. No scientific cells were replayed in that run. This trigger permits one actual P54 replay pass; all failed P53 cells once, successful P53 cells zero times, same frozen P53 wrapper/rules, artifact-only output; Actions contents:read/actions:read; no repository writeback.
 

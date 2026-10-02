@@ -14,14 +14,14 @@
     "receipt_json_sha256": "3b5ad9e09476c8d4a3d0871f3ba3fb8d687e69d3c0ca825b241cf50bc2952e13"
   },
   "source_fingerprints": {
-    "active/p53_manifest.json": "09a479187e3fe25eac4f21e659497c4db9b6e4c0ee3e819c0ef1906627050dc6",
-    "src/p53_cross_task.py": "134cc9beff3360f4fd67b27183da0720ac1de71b64f95c5d0e2287c9a1ed6484",
-    "src/p44_field.py": "48e3e69bebc67067e7446ec7b045e03007d837e271f776655728a5ed4d01b4a0",
-    "src/p42_reopen.py": "fd07258dd5b13cdd62e87f79ff62800d916fddc7b8fb51051b8171f2606ceb88",
-    "src/p48_seed_fingerprints.py": "d1cfb78ba1ec319b29d67284c700817340cc365db582c3210e08165e5d291381",
-    "src/p51_sufficiency.py": "2860c4396fa86145a471408944bd14721b647dcd4134b5bd625a43b24357eefb",
-    "src/p52_allocation.py": "e5d4c9605b78c2743fb27178f8a4e41ebf6827893c405657b3ac1b1cbd27ebe4",
-    "active/p51_sufficiency_baseline.json": "a9b937c278ef72e61616508dbb5f802c4423c69fc0c2b418d72496e2f199a387"
+    "active/p53_manifest.json": "d2cbd47ef4e6643b5faa6d48bcb8c8263462d76f788e8d54412bef26c269fbfc",
+    "src/p53_cross_task.py": "8fd10fe533b235ccfc8a1775cedbc69b0038010e9bc08112a212489dd0349363",
+    "src/p44_field.py": "4cbd295b57532fa43e1883626bbaa555cf59ebc47cc83041b8ffd70264dc0f31",
+    "src/p42_reopen.py": "745c42c5b571d761ba5ad3c56f8d6da8affcefd381cae97b9489361b884e76de",
+    "src/p48_seed_fingerprints.py": "43e80e74b7be749e60b529bdf1b0a10d757590f56842d9a46ddb9740b86c5926",
+    "src/p51_sufficiency.py": "bbaf2e159f884aae1d449e2a395782037558f92466672b668342db090c242c31",
+    "src/p52_allocation.py": "2dcf639631efb32d47366bf851f6a2afc3db168e7117b3468e67d2574fb6164f",
+    "active/p51_sufficiency_baseline.json": "1ab01edb1bd38fc20b1ac4fd7a90a21938ca785ec5ba3f34404718db6ca2dd28"
   },
   "recovery_design": {
     "failed_cell_replays_maximum": 441,
@@ -48,7 +48,8 @@
     "no_repair_by_relabeling": true
   },
   "workflow": {
-    "trigger": "One push changing active/p54_trigger.txt; no workflow_dispatch and no automatic retry attempt.",
+    "trigger": "One successful preflighted scientific recovery run; one reissued push is permitted only after a zero-provider-call infrastructure/preflight failure. GitHub rerun attempts and any repeat of a failed cell replay are prohibited.",
+    "zero_call_preflight_recovery": {"initial_run_id": 37004267415, "conclusion": "failure", "failure": "Source fingerprints were sealed from Windows checkout bytes instead of Linux Git object bytes.", "provider_calls": 0, "scientific_cell_replays": 0},
     "github_actions_bot_repository_write": false,
     "permissions": {"contents": "read", "actions": "read"},
     "artifact_only_output": true
