@@ -11,23 +11,23 @@ permissions:
 jobs:
   recover:
     runs-on: ubuntu-24.04
-    timeout-minutes: 45
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
       - run: pip install groq google-genai numpy
-      - name: Zero-call recovery preflight
+      - name: Zero-call final recovery preflight
         run: |
-          python -m py_compile src/p42_reopen.py src/p44_field.py src/p48_seed_fingerprints.py src/p52_recover.py
-          PYTHONPATH=src python - <<'PY'
-          from p52_recover import TARGETS
-          assert len(TARGETS)==19
-          assert all(t['model']=='gptoss120' for t in TARGETS)
-          print('P52_RECOVERY_PRECHECK_PASS')
+          python -m py_compile src/p52_recover.py
+          python - <<'PY'
+          import ast
+          src=open('src/p52_recover.py').read()
+          assert "'draw':26" in src and "'cell_index':27" in src
+          print('P52_FINAL_RECOVERY_PRECHECK_PASS')
           PY
-      - name: Replay only failed P52 calls
+      - name: Replay one remaining failed P52 call
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
