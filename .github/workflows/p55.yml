@@ -1,0 +1,61 @@
+name: EPISTEME P55 access-regime and estimand salvage court
+
+on:
+  push:
+    paths:
+      - "active/p55_trigger.txt"
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: episteme-p55-single-court
+  cancel-in-progress: false
+
+jobs:
+  p55:
+    if: github.run_attempt == 1
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - uses: actions/download-artifact@v7
+        with:
+          name: p54-cross-task-technical-recovery-result
+          repository: WhoSia/EPISTEME
+          run-id: 37004809384
+          github-token: ${{ github.token }}
+          path: receipts/p54_source
+      - run: pip install groq google-genai numpy
+      - name: Zero-call frozen preflight
+        run: |
+          python -m py_compile src/p55_access_regime.py src/p53_cross_task.py src/p51_sufficiency.py
+          python src/p55_access_regime.py --self-test
+          python - <<'PY'
+          import json, pathlib
+          m=json.load(open('active/p55_manifest.json'))
+          assert m['stage']=='EPISTEME-P55'
+          assert m['bounded_access_probe']['scientific_cells_replayed']==0
+          assert m['bounded_access_probe']['calls']=={'gemini':3,'gptoss120':3}
+          p=pathlib.Path('receipts/p54_source/p54_result.json')
+          d=json.load(open(p))
+          assert d['stage']=='EPISTEME-P54'
+          assert len(d['raw_rows'])==12288
+          assert d['constitutional_verdict']=='TECHNICAL_HOLD'
+          print('P55_SOURCE_PRECHECK_PASS')
+          PY
+      - name: Run zero-replay estimand audit and six bounded access canaries
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: python src/p55_access_regime.py receipts/p54_source/p54_result.json
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: p55-access-regime-estimand-salvage-result
+          path: receipts/p55_result.json
+          retention-days: 14
