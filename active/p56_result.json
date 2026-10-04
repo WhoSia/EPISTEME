@@ -1,0 +1,138 @@
+{
+  "stage": "EPISTEME-P56",
+  "descriptor": "Exact 64-World Completion-Lattice Adjudication, Missingness-Assumption-Free Holm Invariance, Frozen-Branch Robustness, Six-Tau Partial-Identification Closure & Zero-Call Cross-Task Measurement-Law Verdict",
+  "status": "CLOSED",
+  "canonical_run": 37196748146,
+  "canonical_head": "4a92ccd91a5f139afbf3c4d8a5c069fb34bd31d1",
+  "artifact": {
+    "id": 11301547011,
+    "digest": "sha256:610b8cb64b4f2a6b3520c774284330aaf15ea047e2b376ef8d614d9372af735e"
+  },
+  "provider_calls": 0,
+  "scientific_cell_replays": 0,
+  "admissible_worlds": 64,
+  "world_branch_counts": {
+    "TASK_INTERACTION_DOMINATES_PRIMARY_ONLY": 64
+  },
+  "holm_rejection_vector_counts": {
+    "000000": 64
+  },
+  "branch_identified": true,
+  "holm_rejection_vector_invariant": true,
+  "test_ranges": {
+    "historical:CALIBRATION_PATH": {
+      "statistic": [
+        -0.25766613290368534,
+        -0.2500224216865622
+      ],
+      "raw_p": [
+        0.9156168766246751,
+        0.9236152769446111
+      ],
+      "holm_p": [
+        1,
+        1
+      ],
+      "reject": false
+    },
+    "historical:PROVENANCE_LINEAGE": {
+      "statistic": [
+        -0.06257385459766561,
+        -0.05071740279690939
+      ],
+      "raw_p": [
+        0.617876424715057,
+        0.6406718656268746
+      ],
+      "holm_p": [
+        1,
+        1
+      ],
+      "reject": false
+    },
+    "historical:PROTOCOL_ORDER": {
+      "statistic": [
+        -0.07749027341469973,
+        -0.07749027341469973
+      ],
+      "raw_p": [
+        0.6692661467706459,
+        0.6692661467706459
+      ],
+      "holm_p": [
+        1,
+        1
+      ],
+      "reject": false
+    },
+    "loo:CALIBRATION_PATH": {
+      "statistic": [
+        -0.06652269936948467,
+        -0.05381208122659436
+      ],
+      "raw_p": [
+        0.6062787442511498,
+        0.6326734653069386
+      ],
+      "holm_p": [
+        1,
+        1
+      ],
+      "reject": false
+    },
+    "loo:PROVENANCE_LINEAGE": {
+      "statistic": [
+        0.021882743976197005,
+        0.04002415511777946
+      ],
+      "raw_p": [
+        0.41311737652469505,
+        0.45710857828434315
+      ],
+      "holm_p": [
+        1,
+        1
+      ],
+      "reject": false
+    },
+    "loo:PROTOCOL_ORDER": {
+      "statistic": [
+        0.03127160388793926,
+        0.04208319707712729
+      ],
+      "raw_p": [
+        0.4023195360927814,
+        0.4287142571485703
+      ],
+      "holm_p": [
+        1,
+        1
+      ],
+      "reject": false
+    }
+  },
+  "factorization_share_ranges": {
+    "task": [
+      0.03723700435062467,
+      0.03847611913711913
+    ],
+    "representation": [
+      0.31851351125036725,
+      0.3238927665510794
+    ],
+    "interaction": [
+      0.6383146005543353,
+      0.6436077486283313
+    ]
+  },
+  "coordinate_influence": {
+    "ambiguous_coordinates": 6,
+    "branch_influential": 0,
+    "holm_influential": 0,
+    "matched_background_pairs_per_coordinate": 32
+  },
+  "constitutional_verdict": "MISSINGNESS_ASSUMPTION_FREE_PRIMARY_NULL_IDENTIFIED",
+  "primary_branch": "TASK_INTERACTION_DOMINATES_PRIMARY_ONLY",
+  "interpretation": "Across every P55-admissible completion, none of the six frozen P53 primary tests survives Holm correction and the task×representation interaction share exceeds the representation share. The six unresolved stopping times are irrelevant to both Holm decisions and final primary branch. Thus the cross-task common measurement-difficulty law is rejected on the frozen P53 primary layer without any missingness assumption or additional model call.",
+  "authority": "P56 closes only the frozen P53 primary Gemini measurement-law layer. It does not recover zero-shot allocation-policy authority, GPT-OSS historical-field authority, or any provider-internal/neural mechanism claim. P53/P54 historical TECHNICAL_HOLD receipts remain unchanged."
+}
