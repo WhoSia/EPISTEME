@@ -1,0 +1,128 @@
+{
+  "stage": "EPISTEME-P56",
+  "descriptor": "Exact 64-World Completion-Lattice Adjudication, Missingness-Assumption-Free Holm Invariance, Frozen-Branch Robustness, Six-Tau Partial-Identification Closure & Zero-Call Cross-Task Measurement-Law Verdict",
+  "status": "PRECOMMITTED",
+  "predecessor": {
+    "stage": "EPISTEME-P55",
+    "canonical_run": 37006966589,
+    "verdict": "PARTIAL_ESTIMAND_IDENTIFICATION_WITHOUT_REENTRY_AUTHORITY",
+    "identified_tau": "90/96",
+    "unresolved_tau": 6,
+    "admissible_primary_worlds": 64,
+    "scientific_cell_replays": 0
+  },
+  "central_question": "Do all 64 P55-admissible completions of the six unresolved Gemini stopping times produce the same frozen P53 primary Holm decisions and the same primary cross-task measurement-law branch?",
+  "scope": {
+    "provider_calls": 0,
+    "scientific_cell_replays": 0,
+    "source": "P55 canonical artifact plus frozen P53/P51 code and baseline",
+    "authority": "Primary Gemini stopping-time transport/factorization layer only. Zero-shot allocation-policy transfer is not reopened because its complete response matrices remain unavailable."
+  },
+  "completion_lattice": {
+    "unresolved": [
+      {
+        "task": "CALIBRATION_PATH",
+        "vertex": "R",
+        "possible": [
+          31,
+          32
+        ]
+      },
+      {
+        "task": "CALIBRATION_PATH",
+        "vertex": "R_F_L",
+        "possible": [
+          31,
+          32
+        ]
+      },
+      {
+        "task": "PROVENANCE_LINEAGE",
+        "vertex": "R_H",
+        "possible": [
+          30,
+          31
+        ]
+      },
+      {
+        "task": "PROVENANCE_LINEAGE",
+        "vertex": "H_T",
+        "possible": [
+          31,
+          32
+        ]
+      },
+      {
+        "task": "PROVENANCE_LINEAGE",
+        "vertex": "R_H_T",
+        "possible": [
+          31,
+          32
+        ]
+      },
+      {
+        "task": "PROVENANCE_LINEAGE",
+        "vertex": "F_T_L",
+        "possible": [
+          31,
+          32
+        ]
+      }
+    ],
+    "worlds": 64,
+    "rule": "Enumerate the Cartesian product exactly; no probability, weighting, missingness model or ignorability assumption is assigned to worlds."
+  },
+  "frozen_analysis": {
+    "tests": "Exactly the six P53 Gemini primary tests: 3 historical P51→fresh-task correlations + 3 leave-one-task-out fresh-task correlations.",
+    "permutation_null": "Reuse P53 fixed 5000 vertex-label permutations and seeds through src/p53_cross_task.py.",
+    "multiplicity": "Reuse the original six-test Holm FWER=0.05 procedure unchanged.",
+    "factorization": "Reuse P53 task + representation + task×representation sums-of-squares decomposition unchanged.",
+    "branch_order": [
+      "CROSS_TASK_MEASUREMENT_DIFFICULTY_LAW_PRIMARY_ONLY",
+      "FRESH_TASK_COMMON_COMPONENT_PRIMARY_ONLY",
+      "PARTIAL_TASK_TRANSPORT_PRIMARY_ONLY",
+      "TASK_INTERACTION_DOMINATES_PRIMARY_ONLY",
+      "NO_CROSS_TASK_MEASUREMENT_LAW_PRIMARY_ONLY"
+    ]
+  },
+  "invariance_courts": {
+    "holm": "For each of six tests report raw-p, Holm-p and rejection ranges across 64 worlds; call Holm-invariant only if the rejection vector is identical in all worlds.",
+    "branch": "Count exact branch frequencies across all 64 worlds; call branch-identified only if exactly one branch occurs.",
+    "coordinate_influence": "For each unresolved tau coordinate compare branch/rejection supports under its low versus high value; a coordinate is branch-influential only if changing that bit can alter the branch in at least one matched background world.",
+    "factorization": "Report exact ranges of task, representation and interaction shares over all worlds."
+  },
+  "constitutional_branches": [
+    "MISSINGNESS_ASSUMPTION_FREE_PRIMARY_LAW_IDENTIFIED",
+    "MISSINGNESS_ASSUMPTION_FREE_PRIMARY_NULL_IDENTIFIED",
+    "HOLM_INVARIANT_BUT_BRANCH_FACTOR_AMBIGUOUS",
+    "COMPLETION_SENSITIVE_PRIMARY_BRANCH_REMAINS_PARTIALLY_IDENTIFIED"
+  ],
+  "verdict_logic": {
+    "law": "One branch occurs in all 64 worlds and it is CROSS_TASK_MEASUREMENT_DIFFICULTY_LAW_PRIMARY_ONLY.",
+    "null": "One branch occurs in all 64 worlds and it is NO_CROSS_TASK_MEASUREMENT_LAW_PRIMARY_ONLY or TASK_INTERACTION_DOMINATES_PRIMARY_ONLY.",
+    "holm_only": "All six Holm rejection decisions are invariant but branch differs because factorization branch conditions differ.",
+    "sensitive": "More than one primary branch or more than one Holm rejection vector occurs."
+  },
+  "novelty_kill": {
+    "killed": [
+      "Worst/best-case missing-data sensitivity analysis is prior art.",
+      "Finite completion enumeration is not itself novel.",
+      "Holm robustness under perturbations is not itself novel."
+    ],
+    "surviving_candidate": "A fully prospective hosted-inference recovery chain in which raw technical incompleteness is reduced to a finite stopping-time completion lattice and the original scientific branch is adjudicated exactly over every admissible world without missingness assumptions or additional model calls."
+  },
+  "frozen_rules": [
+    "No provider calls.",
+    "No scientific-cell replay.",
+    "No world weighting or missingness probability.",
+    "No P53 statistic, permutation seed, alpha, Holm rule, factorization or branch ordering changes.",
+    "Operational policy-transfer authority remains closed.",
+    "P53 and P54 historical TECHNICAL_HOLD receipts are not rewritten; P56 is a new primary-estimand closure stage.",
+    "No provider-internal or neural mechanism claim."
+  ],
+  "governance": {
+    "repository_writeback_from_actions": false,
+    "github_actions_bot_contribution": "FORBIDDEN",
+    "scientific_runs": 1
+  }
+}
