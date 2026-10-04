@@ -11,42 +11,30 @@ Active execution surface for the EPISTEME research program.
 - Argument comes first; literature and code are pressure, falsification, or execution instruments rather than sources of authority.
 - GitHub Actions may compute, test, validate, and upload artifacts, but `github-actions[bot]` must not write repository history. Workflows default to `contents: read`.
 
-## Active stage
+## Current state
 
 **EPISTEME-P56 — Exact 64-World Completion-Lattice Adjudication, Missingness-Assumption-Free Holm Invariance, Frozen-Branch Robustness, Six-Tau Partial-Identification Closure & Zero-Call Cross-Task Measurement-Law Verdict**
 
-**Status:** PRECOMMITTED / ZERO-CALL COMPLETION COURT
+**Status:** CLOSED / `MISSINGNESS_ASSUMPTION_FREE_PRIMARY_NULL_IDENTIFIED`
 
-Recent lineage:
+P56 performed no provider calls and no scientific-cell replay. It exhaustively evaluated the frozen P53 primary Gemini test family over all 64 stopping-time completion worlds left admissible by P55.
 
-- **P53** — cross-task measurement-law externalization was interrupted by hosted-inference failures and closed `TECHNICAL_HOLD`.
-- **P54** — replayed only failed cells once and still left 416 failures.
-- **P55** — showed that raw-row incompleteness and primary-estimand incompleteness are different. Despite 415 missing Gemini rows, 90/96 Gemini stopping times were already exactly identified; only six binary-ambiguous stopping times remained, yielding exactly 64 admissible primary-estimand worlds.
-- **P56** — exhaustively evaluates the unchanged P53 primary test family across those 64 worlds with no provider calls, no replay and no missingness model.
+The result is exact:
 
-The unresolved coordinates are:
+- **64/64 worlds** yield `TASK_INTERACTION_DOMINATES_PRIMARY_ONLY`.
+- The six-test Holm rejection vector is **`000000` in all 64 worlds**.
+- None of the six ambiguous stopping-time coordinates can flip either a Holm decision or the final primary branch under any of its 32 matched-background comparisons.
+- Factorization share ranges over all worlds:
+  - task: **3.72%–3.85%**
+  - representation: **31.85%–32.39%**
+  - task×representation interaction: **63.83%–64.36%**
 
-- CALIBRATION_PATH: `R ∈ {31,32}`, `R_F_L ∈ {31,32}`
-- PROVENANCE_LINEAGE: `R_H ∈ {30,31}`, `H_T ∈ {31,32}`, `R_H_T ∈ {31,32}`, `F_T_L ∈ {31,32}`
+Thus the six unresolved stopping times from P55 are scientifically irrelevant to the frozen P53 primary branch. The common cross-task representation-indexed measurement-difficulty law is not supported; the surviving object is **task×representation interaction**.
 
-For every completion world P56 reuses:
+This closes the P53 primary Gemini measurement-law layer without a missingness model, imputation, provider substitution or additional model calls. Historical P53/P54 `TECHNICAL_HOLD` receipts remain unchanged because P56 is a new estimand-level closure stage.
 
-1. the exact three P51→fresh historical-transport tests;
-2. the exact three fresh-task leave-one-out tests;
-3. the original 5000-permutation nulls and seeds;
-4. the original six-test Holm FWER 0.05 correction;
-5. the original task / representation / interaction factorization.
+Operational zero-shot allocation-policy authority remains closed because complete response matrices were never recovered.
 
-P56 reports:
-
-- exact branch frequencies over all 64 worlds;
-- raw-p, Holm-p and statistic ranges for all six tests;
-- whether the Holm rejection vector is completion-invariant;
-- exact factorization-share ranges;
-- matched-background influence of each ambiguous tau coordinate on the final branch.
-
-No completion world is assigned a probability. Generic missing-data sensitivity analysis and finite-completion enumeration are treated as prior art. The EPISTEME question is whether a precommitted hosted-inference measurement-law branch can be closed exactly after technical interruption by reducing the missing data to the estimand-relevant completion lattice.
-
-Operational zero-shot policy-transfer authority remains closed because complete response matrices were never recovered.
+The scientifically preferred continuation is not another recovery stage and not another attempt to rescue a universal representation field. Any P57 should prospectively ask whether the surviving task×representation interaction has stable, compressible, or predictive structure across new tasks.
 
 Canonical scientific receipts and literature custody remain in Notion / Drive; the repository retains the executable current-stage surface and compact sealed results needed for lineage continuity.
