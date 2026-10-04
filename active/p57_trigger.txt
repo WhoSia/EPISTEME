@@ -1,0 +1,1 @@
+EPISTEME-P57 frozen GPT-OSS same-model interaction-basis transport run. Exactly one scientific run; Actions read-only and artifact-only.
