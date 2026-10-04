@@ -1,0 +1,181 @@
+{
+  "stage": "EPISTEME-P57",
+  "descriptor": "Task×Representation Interaction Tensor Reconstruction, Operator-Specific Difficulty Reversal, Low-Rank Interaction Basis, Fresh-Task Predictive Transport & Hosted-Inference Measurement-Law Locality",
+  "status": "PRECOMMITTED",
+  "predecessor": {
+    "stage": "EPISTEME-P56",
+    "canonical_run": 37196748146,
+    "verdict": "MISSINGNESS_ASSUMPTION_FREE_PRIMARY_NULL_IDENTIFIED",
+    "surviving_object": "task×representation interaction",
+    "interaction_share_range": [
+      0.6383146005543353,
+      0.6436077486283313
+    ],
+    "representation_share_range": [
+      0.31851351125036725,
+      0.3238927665510794
+    ]
+  },
+  "theoretical_reframing": {
+    "rejected": "A task-independent representation-difficulty field externalizes across task families.",
+    "promoted": "Measurement difficulty is primarily relational, D(task,representation), but P56 does not tell us whether that interaction is structured or idiosyncratic.",
+    "central_question": "Does the surviving task×representation interaction lie near a reusable low-dimensional representation basis that predicts unseen representation vertices in fresh tasks, or is it genuinely task-local?"
+  },
+  "interface": {
+    "model": "openai/gpt-oss-120b via Groq",
+    "role": "PRIMARY SAME-MODEL STRUCTURE LANE",
+    "rationale": "P55 established current GPT-OSS point access. P53 already supplies a nearly complete three-task GPT-OSS interaction tensor; P57 can therefore test same-model fresh-task transport without substituting for the unavailable Gemini estimand.",
+    "gemini": "DORMANT; no Gemini calls and no cross-model inheritance."
+  },
+  "historical_training_tensor": {
+    "source": "P55 canonical artifact / original P53 GPT-OSS rows",
+    "tasks": [
+      "CALIBRATION_PATH",
+      "PROVENANCE_LINEAGE",
+      "PROTOCOL_ORDER"
+    ],
+    "stopping_resolution": 0.5,
+    "identified_tau": "95/96",
+    "ambiguity": {
+      "task": "PROTOCOL_ORDER",
+      "vertex": "F_T",
+      "possible": [
+        27,
+        31
+      ]
+    },
+    "training_worlds": 2,
+    "rule": "Every historical-basis claim must survive both admissible training worlds. No probability is assigned to either world."
+  },
+  "fresh_task_families": {
+    "FAULT_DIAGNOSIS_HISTORY": {
+      "object": "Two diagnostic traces end in the same terminal code; the admissible u1 challenge may depend on fault history or be history-invariant.",
+      "schema": "diagnostic_records + fault_rules"
+    },
+    "NORMALIZATION_PIPELINE": {
+      "object": "Two data products end in the same normalized summary; the admissible u1 challenge may depend on normalization pipeline or be pipeline-invariant.",
+      "schema": "normalization_records + pipeline_rules"
+    },
+    "MATERIAL_PRECONDITIONING": {
+      "object": "Two material samples end in the same terminal measured state; the admissible u1 challenge may depend on preconditioning history or be history-invariant.",
+      "schema": "conditioning_records + material_rules"
+    }
+  },
+  "design": {
+    "models": 1,
+    "tasks": 3,
+    "draws_per_task": 64,
+    "independent_blocks": "A=1..32, B=33..64",
+    "vertices": 32,
+    "semantic_twins": 2,
+    "calls_per_task": 4096,
+    "total_scientific_calls": 12288,
+    "representation_operators": [
+      "R",
+      "F",
+      "H",
+      "T",
+      "L"
+    ],
+    "alias_rule": "ABCD[vertex_index mod 4]"
+  },
+  "tensor_definition": {
+    "tau": "For each fresh task/block/vertex, tau is the first t<=32 at which the individual alpha=.05 beta-mixture confidence-sequence width for joint valid∧null success reaches 0.50; tau=33 if unresolved.",
+    "interaction": "For a task×vertex tau matrix T, Gamma_tv = T_tv - task_mean_t - vertex_mean_v + grand_mean.",
+    "historical_basis": "For each of the two historical training worlds, compute the nonzero right-singular subspace of Gamma_old. With three historical tasks its dimension is at most two.",
+    "fresh_residual": "For each fresh task/block, x(v)=tau(v)-mean_v(tau)-beta_old(v), where beta_old is the historical representation main-effect profile in the corresponding training world."
+  },
+  "frozen_vertex_split": {
+    "anchors": "8 vertices with canonical vertex_index mod 4 == 0",
+    "holdout": "remaining 24 vertices",
+    "purpose": "Estimate fresh-task basis coefficients only on anchors, then predict unseen representation vertices."
+  },
+  "primary_tests": {
+    "fresh_block_reproducibility": {
+      "count": 3,
+      "statistic": "Pearson correlation between fresh task A and B residual interaction profiles after subtracting their block means.",
+      "null": "5000 vertex-label permutations of block B."
+    },
+    "historical_subspace_transport": {
+      "count": 6,
+      "statistic": "Projection-energy fraction of each fresh task×block residual onto the frozen historical interaction basis.",
+      "training_ambiguity": "Compute in both historical worlds; primary statistic is the minimum and primary p is the maximum across worlds.",
+      "null": "5000 vertex-label permutations of the fresh residual profile."
+    },
+    "anchor_to_holdout_prediction": {
+      "count": 6,
+      "statistic": "Fit historical-basis coefficients using only 8 frozen anchor vertices, then measure MSE improvement over zero-interaction baseline on 24 holdout vertices.",
+      "training_ambiguity": "Compute in both historical worlds; primary statistic is the minimum and primary p is the maximum across worlds.",
+      "null": "5000 common permutations of historical basis columns before anchor fit and holdout prediction."
+    },
+    "multiplicity": "15 primary tests total in one Holm FWER=0.05 family.",
+    "full_gate": "All 15 primary statistics positive and Holm-rejected."
+  },
+  "operator_reversal": {
+    "definition": "For each task/block and each operator R/F/H/T/L, average tau(on)-tau(off) across the 16 Boolean-cube edges for that operator.",
+    "reversal": "A strict sign change between tasks/blocks; zero effects are not counted as reversals.",
+    "authority": "Descriptive mechanistic readout only; no post-hoc magnitude threshold."
+  },
+  "expanded_tensor_outputs": {
+    "object": "Historical 3-task tensor plus each fresh A/B block separately.",
+    "outputs": [
+      "singular spectrum",
+      "exact numerical rank under standard SVD tolerance",
+      "participation rank",
+      "top-2 interaction-energy fraction",
+      "task×operator edge-effect matrix",
+      "reversal graph"
+    ],
+    "caution": "Low exact rank alone is not evidence; predictive holdout transport is the constitutive test."
+  },
+  "constitutional_branches": [
+    "LOW_RANK_INTERACTION_BASIS_TRANSPORTS_WITH_FRESH_TASK_PREDICTION",
+    "LOW_RANK_INTERACTION_SUBSPACE_TRANSPORT_WITHOUT_VERTEX_PREDICTION",
+    "ANCHOR_PREDICTION_WITHOUT_GLOBAL_SUBSPACE",
+    "PARTIAL_INTERACTION_STRUCTURE_TRANSPORT",
+    "OPERATOR_REVERSAL_WITH_NONTRANSPORTABLE_INTERACTION",
+    "TASK_LOCAL_INTERACTION_UNSTRUCTURED_AT_TESTED_RESOLUTION",
+    "EVALUATION_ARTIFACT_DOMINANT",
+    "TECHNICAL_HOLD"
+  ],
+  "verdict_logic": {
+    "technical": "All 12288 exact-schema calls required; otherwise TECHNICAL_HOLD and only failed calls may be replayed.",
+    "artifact": "Primary-vs-shadow disagreement >=10% triggers EVALUATION_ARTIFACT_DOMINANT.",
+    "strongest": "All 15 primary tests pass Holm.",
+    "subspace_only": "All 3 block-reproducibility and all 6 subspace tests pass, but at least one anchor→holdout prediction test fails.",
+    "prediction_only": "All 3 block-reproducibility and all 6 prediction tests pass, but at least one subspace test fails.",
+    "partial": "At least one test in each of block-reproducibility, subspace, and prediction families passes after Holm, but no stronger branch applies.",
+    "reversal_locality": "No transport branch applies and at least one strict operator-effect sign reversal occurs across fresh tasks.",
+    "unstructured": "No stronger branch and no strict reversal."
+  },
+  "novelty_kill": {
+    "killed": [
+      "Low-rank matrix/tensor factorization is prior art.",
+      "Multi-task low-rank representation learning is prior art.",
+      "ANOVA/generalizability decomposition of task×method interactions is prior art.",
+      "Prompt-interaction analysis is prior art, including recent interaction-based prompt-sensitivity work.",
+      "Holdout prediction from a learned basis is not itself novel."
+    ],
+    "surviving_candidate": "A prospective measurement-science test in which a task×representation interaction object, promoted only after a universal field failed, must reproduce across independent randomization blocks and predict unseen representation vertices of fresh tasks from a basis frozen on prior tasks."
+  },
+  "literature_pressure": [
+    "Generalizability-theory task×method interaction literature.",
+    "Low-rank multi-task factorization and matrix/tensor decomposition literature.",
+    "Qin et al. (2026), Evaluating and Explaining Prompt Sensitivity of LLMs Using Interactions.",
+    "P51–P56 EPISTEME lineage as the prospectively generated explanandum."
+  ],
+  "frozen_rules": [
+    "No Gemini calls.",
+    "No historical GPT-OSS tau imputation: both training worlds are retained.",
+    "No basis dimension tuning after fresh outcomes.",
+    "Anchor/holdout split is fixed by canonical vertex index before outcomes.",
+    "Cross-task interaction transport and universal representation-field claims remain distinct.",
+    "No provider-internal or neural mechanism inference.",
+    "No behavioral SVEC promotion follows from P57."
+  ],
+  "governance": {
+    "repository_writeback_from_actions": false,
+    "github_actions_bot_contribution": "FORBIDDEN",
+    "scientific_runs": 1
+  }
+}
