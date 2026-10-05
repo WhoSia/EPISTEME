@@ -1,1 +1,1 @@
-EPISTEME-P57 frozen GPT-OSS same-model interaction-basis transport run. Exactly one scientific run; Actions read-only and artifact-only.
+EPISTEME-P57 canonical sharded relaunch after hosted-runner 6h cancellation. Same frozen design; three task shards; Actions read-only/artifact-only; no repository writeback.
