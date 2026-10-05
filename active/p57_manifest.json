@@ -177,5 +177,19 @@
     "repository_writeback_from_actions": false,
     "github_actions_bot_contribution": "FORBIDDEN",
     "scientific_runs": 1
+  },
+  "execution_correction": {
+    "initial_run": 37206253842,
+    "conclusion": "cancelled_at_GitHub_hosted_runner_6h_limit",
+    "preflight": "PASS",
+    "scientific_result": "UNAVAILABLE",
+    "artifact": "NONE",
+    "authority": "No P57 scientific adjudication. The frozen design is unchanged. Canonical relaunch is sharded by task solely to respect the hosted-runner time limit; shards are combined before one frozen analysis.",
+    "duplicate_call_rule": "Any provider calls made in the cancelled run are excluded from P57 scientific data because no result ledger was materialized. The canonical relaunch is a fresh complete realization under the unchanged prospective design."
+  },
+  "execution_governance": {
+    "repository_writeback_from_actions": false,
+    "github_actions_bot_contribution": "FORBIDDEN",
+    "canonical_relaunch": "one workflow run with three read-only task shards plus one zero-provider-call analysis job"
   }
 }
