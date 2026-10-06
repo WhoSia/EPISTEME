@@ -46,8 +46,11 @@ def main():
 
     p58 = json.loads(p58_path.read_text(encoding="utf-8"))
     src = json.loads(p57_path.read_text(encoding="utf-8"))
-    if p58.get("stage") != "EPISTEME-P58" or p58.get("constitutional_verdict") != "TECHNICAL_HOLD":
+    if p58.get("stage") != "EPISTEME-P58" or p58.get("p57_constitutional_verdict") != "TECHNICAL_HOLD":
         raise RuntimeError("P58_AUTHORITY_MISMATCH")
+    rec = p58.get("recovery", {})
+    if rec.get("attempted_cells") != 38 or rec.get("remaining_failed_cells") != 1 or rec.get("successful_source_rows_replayed") != 0:
+        raise RuntimeError("P58_RECOVERY_RECEIPT_MISMATCH")
     rows = src.get("raw_rows", [])
     if len(rows) != 12288:
         raise RuntimeError(f"P57_ROW_COUNT_MISMATCH:{len(rows)}")
