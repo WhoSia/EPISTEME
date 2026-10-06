@@ -1,0 +1,63 @@
+{
+  "stage": "EPISTEME-P59",
+  "descriptor": "Single-Cell Completion-Lattice Closure, Stopping-Time Invariance, Missingness-Free Frozen-Family Adjudication, Operator-Reversal Robustness & Zero-Provider-Call P57 Closure",
+  "status": "CLOSED",
+  "canonical_run": 37408572606,
+  "canonical_head": "9d093e0a1b220da4ddb40618601ce2f2c6adf2df",
+  "workflow_conclusion": "success",
+  "provider_calls": 0,
+  "completion_worlds": 4,
+  "invariance": {
+    "stopping_time_invariant": true,
+    "affected_vertex_index": 28,
+    "affected_vertex": "R_F_T_L",
+    "affected_vertex_tau": 8.0,
+    "holm_rejection_vector_invariant": true,
+    "constitutional_branch_invariant": true
+  },
+  "family_pass_counts": {
+    "repro_pass": 0,
+    "subspace_pass": 0,
+    "predict_pass": 0
+  },
+  "holm_rejections_per_world": 0,
+  "strict_operator_reversals_per_world": 16,
+  "identified_p57_verdict": "OPERATOR_REVERSAL_WITH_NONTRANSPORTABLE_INTERACTION",
+  "p59_verdict": "MISSINGNESS_FREE_OPERATOR_REVERSAL_WITH_NONTRANSPORTABLE_INTERACTION",
+  "closure_authorized": true,
+  "source": {
+    "p58_run": 37403764914,
+    "p58_artifact_id": 11386482094,
+    "p58_result_sha256": "37c44c75b846f93eb23b71fe8bf61801bcd58347c8ad86485f1067119dabe78f",
+    "p57_recovered_result_sha256": "381cd8376a6ccad23fb240e3f9d46342a9d1025e7463753ade3f1bd56bbec475"
+  },
+  "artifact": {
+    "name": "p59-completion-lattice-result",
+    "id": 11388141834,
+    "digest": "sha256:45ef1c435ac462781370ab92ab583dc2e817285486d543b97bbbde01df3013b8",
+    "p59_result_sha256": "72ad930b375a57b83ae4e88b1936c7a12810a3b52583c758384dade508ee3947"
+  },
+  "non_authoritative_zero_call_repairs": [
+    {
+      "run": 37408416269,
+      "reason": "P58 result-schema authority-gate mismatch",
+      "provider_calls": 0,
+      "scientific_worlds_adjudicated": 0
+    },
+    {
+      "run": 37408520730,
+      "reason": "Frozen analyzer import dependency missing",
+      "provider_calls": 0,
+      "scientific_worlds_adjudicated": 0
+    }
+  ],
+  "governance": {
+    "actions_permissions": ["contents: read", "actions: read"],
+    "repository_writeback_from_actions": false,
+    "github_actions_bot_contribution": "FORBIDDEN",
+    "trigger_actor": "WhoSia",
+    "trigger_commit_author": "WhoSia",
+    "trigger_commit_committer": "WhoSia"
+  },
+  "authority": "Exhaustive four-world zero-provider-call completion-lattice closure. No missingness probability model or completion weighting was used. The frozen P57 analyzer was executed unchanged in every admissible world."
+}
