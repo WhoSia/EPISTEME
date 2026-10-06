@@ -1,0 +1,86 @@
+name: EPISTEME P58 failed-cell-only recovery
+
+on:
+  push:
+    paths:
+      - "active/p58_trigger.txt"
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: episteme-p58-single-run
+  cancel-in-progress: false
+
+jobs:
+  p58:
+    if: github.run_attempt == 1
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - uses: actions/download-artifact@v7
+        with:
+          name: p57-interaction-basis-transport-result
+          repository: WhoSia/EPISTEME
+          run-id: 37390830384
+          github-token: ${{ github.token }}
+          path: receipts/p57_source
+      - uses: actions/download-artifact@v7
+        with:
+          name: p55-access-regime-estimand-salvage-result
+          repository: WhoSia/EPISTEME
+          run-id: 37006966589
+          github-token: ${{ github.token }}
+          path: receipts/p55_source
+      - run: pip install groq google-genai numpy
+      - name: Zero-call P58 constitutional preflight
+        run: |
+          python -m py_compile src/p58_recover_failed.py src/p58_finalize.py src/p57_analyze_shards.py src/p57_interaction_tensor.py
+          python - <<'PY'
+          import hashlib,json
+          p='receipts/p57_source/p57_result.json'
+          m=json.load(open('active/p58_manifest.json'))
+          d=json.load(open(p))
+          assert m['stage']=='EPISTEME-P58'
+          assert m['predecessor']['canonical_run']==37390830384
+          assert hashlib.sha256(open(p,'rb').read()).hexdigest()==m['predecessor']['p57_result_sha256']
+          assert d['stage']=='EPISTEME-P57' and d['constitutional_verdict']=='TECHNICAL_HOLD'
+          assert d['technical']['ok']==12250 and d['technical']['total']==12288
+          assert sum(r['status']!='OK' for r in d['raw_rows'])==38
+          assert m['replay_constitution']['calls_authorized']==38
+          assert m['governance']['repository_writeback_from_actions'] is False
+          assert m['governance']['github_actions_bot_contribution']=='FORBIDDEN'
+          print('P58_PRECHECK_PASS')
+          PY
+      - name: Replay exactly the 38 failed P57 cells
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: |
+          python src/p58_recover_failed.py \
+            --source receipts/p57_source/p57_result.json \
+            --rows-out receipts/p58_rows \
+            --receipt receipts/p58_recovery.json
+      - name: Resume unchanged frozen P57 adjudication
+        run: |
+          python src/p57_analyze_shards.py \
+            --rows-root receipts/p58_rows \
+            --p55 receipts/p55_source/p55_result.json \
+            --out receipts/p57_recovered_result.json
+          python src/p58_finalize.py \
+            --recovery receipts/p58_recovery.json \
+            --p57 receipts/p57_recovered_result.json \
+            --out receipts/p58_result.json
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: p58-failed-cell-recovery-result
+          path: |
+            receipts/p58_recovery.json
+            receipts/p57_recovered_result.json
+            receipts/p58_result.json
+          retention-days: 14
