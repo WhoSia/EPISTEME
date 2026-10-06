@@ -59,6 +59,7 @@ def main():
         if target.get(k) != v:
             raise RuntimeError(f"TARGET_MISMATCH:{k}:{target.get(k)}:{v}")
 
+    target_vi = int(target["vertex_index"])
     worlds = []
     with tempfile.TemporaryDirectory(prefix="p59_") as td:
         root = Path(td)
@@ -101,7 +102,8 @@ def main():
                 "primary_correct": pc,
                 "shadow_correct": sc,
                 "affected_tau_vector": tau,
-                "affected_vertex_tau": tau[27],
+                "affected_vertex_index": target_vi,
+                "affected_vertex_tau": tau[target_vi],
                 "constitutional_verdict": res["constitutional_verdict"],
                 "rejection_vector": rejection_vector(res),
                 "family_pass_counts": res["family_pass_counts"],
