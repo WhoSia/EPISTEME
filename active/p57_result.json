@@ -1,0 +1,29 @@
+{
+  "stage": "EPISTEME-P57",
+  "descriptor": "Task×Representation Interaction Tensor Reconstruction, Operator-Specific Difficulty Reversal, Low-Rank Interaction Basis, Fresh-Task Predictive Transport & Hosted-Inference Measurement-Law Locality",
+  "canonical_run": 37390830384,
+  "canonical_head": "f6c9156b1b0820bbb72eaa6afb148487e70d2e5d",
+  "artifact": {
+    "name": "p57-interaction-basis-transport-result",
+    "id": 11385198980,
+    "digest": "sha256:c485c2b1e713c1af3fb9a642c410f729697c27872f0ca6713ef12d8f267f5bad",
+    "p57_result_sha256": "4b3b8d1222e47639846f7c7c701c4f7709fc746e9daaed01416c3caf1b95d60d"
+  },
+  "technical": {
+    "ok": 12250,
+    "total": 12288,
+    "failed": 38,
+    "primary_shadow_disagreements": 0,
+    "failure_class": "provider structured-output JSON generation/validation"
+  },
+  "failure_distribution": {
+    "FAULT_DIAGNOSIS_HISTORY": 8,
+    "NORMALIZATION_PIPELINE": 8,
+    "MATERIAL_PRECONDITIONING": 22,
+    "null": 36,
+    "valid": 2
+  },
+  "constitutional_verdict": "TECHNICAL_HOLD",
+  "scientific_authority": "No P57 15-test adjudication is authorized until exact technical completeness is restored. Only the 38 failed cells may be replayed.",
+  "successor": "EPISTEME-P58"
+}
