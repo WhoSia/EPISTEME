@@ -73,8 +73,8 @@ def context_tests(analyses,endpoint):
     carrier={};role={}
     for op in PRIMARY_OPS:
         vals={t:analyses[t][f'task_{endpoint}_effects'][op] for t in TASKS}
-        carrier[op]=stratified_factor_test(vals,'carrier','role',positive=(op=='T'))
-        role[op]=stratified_factor_test(vals,'role','carrier',positive=True)
+        carrier[op]=stratified_factor_test(vals,'carrier','role','positive' if op=='T' else 'negative')
+        role[op]=stratified_factor_test(vals,'role','carrier','two-sided')
     return carrier,role
 
 def main():
@@ -118,8 +118,8 @@ def main():
         for op in OPS:
             vals={t:analyses[t]['task_tau_effects'][op] for t in TASKS}
             secondary[op]={
-              'carrier':stratified_factor_test(vals,'carrier','role',positive=(op in ('T',))),
-              'role':stratified_factor_test(vals,'role','carrier',positive=True)
+              'carrier':stratified_factor_test(vals,'carrier','role','two-sided'),
+              'role':stratified_factor_test(vals,'role','carrier','two-sided')
             }
         out={
           'stage':STAGE,
