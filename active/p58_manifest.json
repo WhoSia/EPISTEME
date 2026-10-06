@@ -1,0 +1,84 @@
+{
+  "stage": "EPISTEME-P58",
+  "descriptor": "Failed-Cell-Only Hosted-Inference Recovery, Provider-Structured-Output Failure Separation, Exact Fresh-Task Tensor Completion, Frozen 15-Test Family Resumption & P57 Measurement-Law Adjudication",
+  "status": "PRECOMMITTED",
+  "predecessor": {
+    "stage": "EPISTEME-P57",
+    "canonical_run": 37390830384,
+    "canonical_head": "f6c9156b1b0820bbb72eaa6afb148487e70d2e5d",
+    "artifact_name": "p57-interaction-basis-transport-result",
+    "artifact_id": 11385198980,
+    "artifact_digest": "sha256:c485c2b1e713c1af3fb9a642c410f729697c27872f0ca6713ef12d8f267f5bad",
+    "p57_result_sha256": "4b3b8d1222e47639846f7c7c701c4f7709fc746e9daaed01416c3caf1b95d60d",
+    "constitutional_verdict": "TECHNICAL_HOLD",
+    "technical": {"ok": 12250, "total": 12288, "failed": 38, "primary_shadow_disagreements": 0},
+    "failure_distribution": {
+      "FAULT_DIAGNOSIS_HISTORY": 8,
+      "NORMALIZATION_PIPELINE": 8,
+      "MATERIAL_PRECONDITIONING": 22,
+      "semantic_null": 36,
+      "semantic_valid": 2
+    }
+  },
+  "purpose": "Recover only the 38 P57 cells that failed for provider-side structured-output/JSON validation reasons, reconstruct the exact 12,288-row tensor without changing successful observations, and resume the already-frozen P57 15-test Holm family only if technical completeness is restored.",
+  "scientific_authority": {
+    "new_hypothesis": false,
+    "new_primary_test": false,
+    "new_threshold": false,
+    "new_task": false,
+    "new_model_or_provider": false,
+    "new_prompt_or_schema": false,
+    "new_randomization_policy": false,
+    "role": "TECHNICAL RECOVERY + FROZEN P57 ADJUDICATION ONLY"
+  },
+  "replay_constitution": {
+    "eligible_rows": "status == TECHNICAL_FAIL in the exact canonical P57 result artifact",
+    "expected_failed_rows": 38,
+    "identity": ["task", "draw", "cell_index"],
+    "success_rows_immutable": 12250,
+    "calls_authorized": 38,
+    "scientific_replay_attempts_per_failed_row": 1,
+    "sdk_transport_retries": "unchanged from P57 call() contract (Groq client max_retries=4)",
+    "seed": "exact P57 seed 5700 + draw",
+    "packet": "exact P57 packet(task, vertex, semantic, alias)",
+    "model": "openai/gpt-oss-120b via Groq",
+    "output_contract": "unchanged provider-native structured schema contract",
+    "fallback": "FORBIDDEN",
+    "successful_row_replay": "FORBIDDEN",
+    "post_hoc_cell_selection": "FORBIDDEN"
+  },
+  "failure_separation": {
+    "observed_p57_class": "provider structured-output JSON validation/generation failures",
+    "rule": "Provider/transport/schema errors remain TECHNICAL_FAIL and never count as scientific incorrectness.",
+    "remaining_failure_rule": "If any of the 38 authorized cells remains technical after its single P58 replay, P57 stays TECHNICAL_HOLD and the 15-test family is not evaluated.",
+    "completion_rule": "Only 12,288/12,288 OK permits the unchanged P57 analyzer to run."
+  },
+  "frozen_adjudication": {
+    "analyzer": "src/p57_analyze_shards.py unchanged",
+    "historical_source": "P55 canonical artifact run 37006966589",
+    "primary_family": "exact original 15-test Holm FWER=0.05 family",
+    "branches": [
+      "LOW_RANK_INTERACTION_BASIS_TRANSPORTS_WITH_FRESH_TASK_PREDICTION",
+      "LOW_RANK_INTERACTION_SUBSPACE_TRANSPORT_WITHOUT_VERTEX_PREDICTION",
+      "ANCHOR_PREDICTION_WITHOUT_GLOBAL_SUBSPACE",
+      "PARTIAL_INTERACTION_STRUCTURE_TRANSPORT",
+      "OPERATOR_REVERSAL_WITH_NONTRANSPORTABLE_INTERACTION",
+      "TASK_LOCAL_INTERACTION_UNSTRUCTURED_AT_TESTED_RESOLUTION",
+      "EVALUATION_ARTIFACT_DOMINANT",
+      "TECHNICAL_HOLD"
+    ]
+  },
+  "historical_method_donors": [
+    "EPISTEME-P54 failed-cell-only recovery: technical failures did not become scientific failures; incomplete recovery preserved TECHNICAL_HOLD.",
+    "EPISTEME-P20/P21: provider/API failures were separated from behavioral adjudication through evaluability gates.",
+    "Research OS rule: CHAT ARCHIVE RECOVERS HISTORY; CANONICAL STATE DECIDES CURRENT TRUTH."
+  ],
+  "governance": {
+    "branch": "main",
+    "actions_permissions": ["contents: read", "actions: read"],
+    "repository_writeback_from_actions": false,
+    "github_actions_bot_contribution": "FORBIDDEN",
+    "runs_on": "ubuntu-24.04",
+    "single_run": true
+  }
+}
