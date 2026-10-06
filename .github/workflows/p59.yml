@@ -37,7 +37,7 @@ jobs:
           run-id: 37006966589
           github-token: ${{ github.token }}
           path: receipts/p55_source
-      - run: pip install numpy
+      - run: pip install groq google-genai numpy
       - name: Zero-call P59 constitutional preflight
         run: |
           python -m py_compile src/p59_completion_lattice.py src/p57_analyze_shards.py src/p57_interaction_tensor.py
