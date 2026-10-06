@@ -1,0 +1,2 @@
+EPISTEME-P60 canonical launch receipt.
+Use the frozen P60 manifest and workflow on main.
