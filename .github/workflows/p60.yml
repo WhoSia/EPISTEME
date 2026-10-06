@@ -1,0 +1,83 @@
+name: EPISTEME P60 prospective operator-context interaction
+
+on:
+  push:
+    paths:
+      - "active/p60_trigger.txt"
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: episteme-p60-single-run
+  cancel-in-progress: false
+
+jobs:
+  task:
+    if: github.run_attempt == 1
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        task: [RD1,RD2,RD3,RP1,RP2,RP3,SD1,SD2,SD3,SP1,SP2,SP3]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: pip install groq google-genai numpy
+      - name: Zero-call P60 shard preflight
+        run: |
+          python -m py_compile src/p60_context_interaction.py src/p60_task_worker.py src/p60_analyze_shards.py
+          python src/p60_context_interaction.py --self-test
+          python - <<'PY'
+          import json
+          m=json.load(open('active/p60_manifest.json'))
+          assert m['stage']=='EPISTEME-P60'
+          assert m['primary_operators']==['R','T']
+          assert m['design']['total_calls']==49152
+          assert m['primary_family']['exact_assignments']==400
+          assert m['execution_governance']['repository_writeback_from_actions'] is False
+          assert m['execution_governance']['github_actions_bot_contribution']=='FORBIDDEN'
+          print('P60_SHARD_PRECHECK_PASS')
+          PY
+      - name: Run one frozen task shard
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: python src/p60_task_worker.py --task "${{ matrix.task }}" --out "receipts/p60_shards/${{ matrix.task }}.json"
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: p60-task-${{ matrix.task }}
+          path: receipts/p60_shards/${{ matrix.task }}.json
+          retention-days: 30
+
+  analyze:
+    if: always() && github.run_attempt == 1
+    needs: task
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - uses: actions/download-artifact@v7
+        with:
+          pattern: p60-task-*
+          path: receipts/p60_shards
+          merge-multiple: true
+      - run: pip install groq google-genai numpy
+      - name: Zero-provider-call P60 adjudication
+        run: |
+          python -m py_compile src/p60_analyze_shards.py
+          python src/p60_analyze_shards.py --rows-root receipts/p60_shards --out receipts/p60_result.json
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: p60-operator-context-result
+          path: receipts/p60_result.json
+          retention-days: 30
