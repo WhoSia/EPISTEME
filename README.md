@@ -11,34 +11,50 @@ Active execution surface for the EPISTEME research program.
 - Argument comes first; literature and code are pressure, falsification, or execution instruments rather than sources of authority.
 - GitHub Actions may compute, test, validate, and upload artifacts, but `github-actions[bot]` must not write repository history. Workflows default to `contents: read`.
 
-## Active stage
+## Latest closed stage
 
 **EPISTEME-P59 — Single-Cell Completion-Lattice Closure, Stopping-Time Invariance, Missingness-Free Frozen-Family Adjudication, Operator-Reversal Robustness & Zero-Provider-Call P57 Closure**
 
-**Status:** PRECOMMITTED / ZERO-PROVIDER-CALL COMPLETION-LATTICE CLOSURE
+**Status:** CLOSED / MISSINGNESS-FREE P57 BRANCH IDENTIFIED
 
-P58 closed `TECHNICAL_HOLD` after recovering 37 of the 38 failed P57 cells. The only unresolved observation is:
+P58 left exactly one provider structured-output failure in the fresh-task P57 tensor:
 
 - task: `MATERIAL_PRECONDITIONING`
 - draw: `55`
 - cell index: `57`
-- vertex: `R_F_T_L`
+- representation vertex: `R_F_T_L`
 - semantic twin: `null`
 - alias: `A`
-- failure class: Groq `json_validate_failed`
 
-P59 makes **zero provider calls**. It enumerates all four logical completions of the remaining row's two Boolean scientific readouts `primary_correct` and `shadow_correct`. No missingness probability model, imputation distribution, or completion weighting is introduced.
+P59 made **zero provider calls**. It exhaustively enumerated all four logical completions of the remaining row's two Boolean scientific readouts `primary_correct` and `shadow_correct`, assigned no probabilities or weights to those worlds, reconstructed the exact 12,288-row ledger in each world, and executed the frozen `src/p57_analyze_shards.py` unchanged.
 
-For each of the four completion worlds, P59 reconstructs the exact 12,288-row task ledger and runs the frozen `src/p57_analyze_shards.py` unchanged. The original P57 15-test Holm FWER=0.05 family, historical two-world robustness rule, anchor/holdout split, 5,000-permutation tests, operator-reversal readout and constitutional branch ordering are preserved exactly.
+Canonical P59 run `37408572606` at head `9d093e0a1b220da4ddb40618601ce2f2c6adf2df` established:
 
-P57 earns missingness-free closure only if all four admissible completion worlds return the same Holm rejection vector and the same constitutional branch. Stopping-time invariance of the affected block and vertex is also reported explicitly.
+- completion worlds: **4 / 4**
+- provider calls: **0**
+- affected vertex index: **28**
+- affected `R_F_T_L` block-B stopping time: **τ = 8 in all 4 worlds**
+- Holm rejection vector: **identical across all 4 worlds**
+- P57 primary Holm rejections: **0 / 15 in every world**
+- family pass counts in every world: **repro 0/3, subspace 0/6, prediction 0/6**
+- strict operator reversals: **16 in every world**
+- P57 constitutional branch: **`OPERATOR_REVERSAL_WITH_NONTRANSPORTABLE_INTERACTION` in all 4 worlds**
 
-Canonical source authority:
+Therefore P57 is now closed without a missingness model:
 
-- P58 run: `37403764914`
-- P58 head: `9cc8efa24fb72d0a587c1501726701c99e558406`
-- P58 artifact ID: `11386482094`
-- `p58_result.json` SHA-256: `37c44c75b846f93eb23b71fe8bf61801bcd58347c8ad86485f1067119dabe78f`
-- recovered P57 result SHA-256: `381cd8376a6ccad23fb240e3f9d46342a9d1025e7463753ade3f1bd56bbec475`
+**`MISSINGNESS_FREE_OPERATOR_REVERSAL_WITH_NONTRANSPORTABLE_INTERACTION`**
 
-GitHub Actions is computation-only and artifact-only. P59 requires no provider secret and may not commit, push, merge, tag, move refs, or create any `github-actions[bot]` repository contribution.
+This does **not** establish a universal representation field, transferable low-rank interaction basis, or held-out vertex prediction law. It establishes that under the frozen P57 family the surviving evidence is robust operator-sign reversal / interaction locality rather than transportable interaction structure.
+
+Canonical P59 artifact:
+
+- artifact: `p59-completion-lattice-result`
+- artifact ID: `11388141834`
+- artifact digest: `sha256:45ef1c435ac462781370ab92ab583dc2e817285486d543b97bbbde01df3013b8`
+- `p59_result.json` SHA-256: `72ad930b375a57b83ae4e88b1936c7a12810a3b52583c758384dade508ee3947`
+
+Two earlier P59 execution attempts were zero-provider-call technical repairs only: run `37408416269` stopped at a P58 result-schema authority gate, and run `37408520730` stopped on a missing import dependency before any completion-world adjudication. Neither has scientific authority.
+
+Compact sealed result: `active/p59_result.json`.
+
+GitHub Actions remains computation-only and artifact-only. Repository history is human-authored; `github-actions[bot]` repository contribution is forbidden.
