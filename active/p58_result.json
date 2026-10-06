@@ -1,0 +1,44 @@
+{
+  "stage": "EPISTEME-P58",
+  "descriptor": "Failed-Cell-Only Hosted-Inference Recovery, Provider-Structured-Output Failure Separation, Exact Fresh-Task Tensor Completion, Frozen 15-Test Family Resumption & P57 Measurement-Law Adjudication",
+  "status": "CLOSED",
+  "canonical_run": 37403764914,
+  "canonical_head": "9cc8efa24fb72d0a587c1501726701c99e558406",
+  "workflow_conclusion": "success",
+  "scientific_verdict": "TECHNICAL_HOLD",
+  "recovery": {
+    "authorized_failed_cells": 38,
+    "attempted_cells": 38,
+    "recovered_cells": 37,
+    "remaining_failed_cells": 1,
+    "successful_source_rows_replayed": 0,
+    "p57_adjudication_resumed": false,
+    "remaining_cell": {
+      "task": "MATERIAL_PRECONDITIONING",
+      "draw": 55,
+      "cell_index": 57,
+      "vertex": "R_F_T_L",
+      "semantic": "null",
+      "alias": "A",
+      "failure_class": "Groq json_validate_failed"
+    }
+  },
+  "authority": "P58 adds no new scientific test. Because exact 12,288/12,288 technical completion was not restored, the frozen P57 15-test Holm family remains unopened and P57 remains TECHNICAL_HOLD.",
+  "artifact": {
+    "name": "p58-failed-cell-recovery-result",
+    "id": 11386482094,
+    "digest": "sha256:2bc5681606a872954f1f41605ffe12ba61b70578db1d540939e60b39ca648664",
+    "p58_result_sha256": "37c44c75b846f93eb23b71fe8bf61801bcd58347c8ad86485f1067119dabe78f",
+    "p58_recovery_sha256": "910c065c23cf4e5b81e2bf41c88b42d11b5b2fc01eb51109f7e54969ff32d139",
+    "p57_recovered_result_sha256": "381cd8376a6ccad23fb240e3f9d46342a9d1025e7463753ade3f1bd56bbec475"
+  },
+  "governance": {
+    "actions_permissions": ["contents: read", "actions: read"],
+    "repository_writeback_from_actions": false,
+    "github_actions_bot_contribution": "FORBIDDEN",
+    "trigger_actor": "WhoSia",
+    "trigger_commit_author": "WhoSia",
+    "trigger_commit_committer": "WhoSia"
+  },
+  "next_authority": "No additional replay is authorized by P58. Any further provider call requires a separately constituted successor P-stage."
+}
