@@ -113,7 +113,7 @@ def holm(tests,alpha=.05):
         else: stop=True
     return {'alpha':alpha,'adjusted_p':adj,'rejected':rej}
 
-def stratified_factor_test(values,factor,stratify,positive):
+def stratified_factor_test(values,factor,stratify,direction):
     tasks=list(TASKS)
     def delta(assign):
         a=[values[t] for t in tasks if assign[t]==1]
@@ -140,11 +140,15 @@ def stratified_factor_test(values,factor,stratify,positive):
         for ms,ones in (x,y):
             for t in ms: assign[t]=int(t in ones)
         vals.append(delta(assign))
-    if positive:
+    if direction=='positive':
         p=sum(v>=obs-1e-15 for v in vals)/len(vals)
-    else:
+    elif direction=='negative':
         p=sum(v<=obs+1e-15 for v in vals)/len(vals)
-    return {'statistic':obs,'p':p,'exact_assignments':len(vals),'direction':'positive' if positive else 'negative'}
+    elif direction=='two-sided':
+        p=sum(abs(v)>=abs(obs)-1e-15 for v in vals)/len(vals)
+    else:
+        raise ValueError(direction)
+    return {'statistic':obs,'p':p,'exact_assignments':len(vals),'direction':direction}
 
 def self_test():
     assert len(TASKS)==12
@@ -161,7 +165,7 @@ def self_test():
         keys.append(len(p))
     assert len(set(keys))==1
     fake={t:(1 if TASK_SPECS[t]['carrier']=='state' else -1) for t in TASKS}
-    z=stratified_factor_test(fake,'carrier','role',True)
+    z=stratified_factor_test(fake,'carrier','role','positive')
     assert z['exact_assignments']==400 and z['p']<=.01
     print('P60_PRECHECK_PASS')
 
