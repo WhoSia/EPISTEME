@@ -1,0 +1,69 @@
+{
+  "stage": "EPISTEME-P60",
+  "descriptor": "Prospective Operator×Context Qualitative-Interaction Replication, Record–State Evidence-Carrier vs Diagnostic–Procedural Role Discrimination, Dual-Endpoint Stopping-Time/Behavioral Sign Transport, Held-Out Task-Skin Validation & Evaluation-Artifact Court",
+  "status": "PRECOMMITTED",
+  "predecessor": {
+    "stage": "EPISTEME-P59",
+    "canonical_run": 37408572606,
+    "canonical_head": "9d093e0a1b220da4ddb40618601ce2f2c6adf2df",
+    "verdict": "MISSINGNESS_FREE_OPERATOR_REVERSAL_WITH_NONTRANSPORTABLE_INTERACTION"
+  },
+  "primary_operators": ["R", "T"],
+  "primary_predictions": {
+    "R": {"record": "positive", "state": "negative", "carrier_contrast": "state_minus_record_negative"},
+    "T": {"record": "negative", "state": "positive", "carrier_contrast": "state_minus_record_positive"}
+  },
+  "secondary_operators": ["F", "H", "L"],
+  "context_axes": {
+    "carrier": ["record", "state"],
+    "role": ["diagnostic", "procedural"],
+    "skins_per_quadrant": 3,
+    "tasks": 12
+  },
+  "design": {
+    "model": "gptoss120",
+    "draws_per_task": 64,
+    "blocks": ["A", "B"],
+    "block_size": 32,
+    "vertices": 32,
+    "semantic_twins": 2,
+    "calls_per_task": 4096,
+    "total_calls": 49152,
+    "stopping_width": 0.5,
+    "fixed_horizon_per_block": 32
+  },
+  "primary_family": {
+    "tests": ["tau_carrier_R", "tau_carrier_T"],
+    "contrast": "mean(state)-mean(record)",
+    "permutation": "carrier labels permuted within diagnostic/procedural strata, 3-vs-3 balance preserved in each role",
+    "exact_assignments": 400,
+    "multiplicity": "Holm FWER 0.05",
+    "strict_sign_gate": "all 12 task-level signs and both blocks per task must match the frozen carrier prediction for the strongest branch"
+  },
+  "behavioral_artifact_family": {
+    "endpoint": "fixed-horizon joint-error operator effect",
+    "tests": ["error_carrier_R", "error_carrier_T"],
+    "multiplicity": "separate Holm FWER 0.05",
+    "purpose": "distinguish behavioral qualitative interaction from stopping-time-only measurement interaction"
+  },
+  "critical_quadrant": {
+    "carrier": "state",
+    "role": "diagnostic",
+    "tasks": ["SD1", "SD2", "SD3"],
+    "carrier_prediction": {"R": "negative", "T": "positive"}
+  },
+  "technical_gate": {
+    "all_calls_required": true,
+    "provider_failure_is_scientific_incorrectness": false,
+    "failed_cell_replay_inside_p60": "FORBIDDEN",
+    "primary_shadow_disagreement_threshold": 0.10
+  },
+  "execution_governance": {
+    "branch": "main",
+    "runner": "ubuntu-24.04",
+    "actions_permissions": ["contents: read", "actions: read"],
+    "repository_writeback_from_actions": false,
+    "github_actions_bot_contribution": "FORBIDDEN",
+    "scientific_criteria_freeze_before_first_provider_call": true
+  }
+}
