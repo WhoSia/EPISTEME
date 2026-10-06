@@ -11,50 +11,43 @@ Active execution surface for the EPISTEME research program.
 - Argument comes first; literature and code are pressure, falsification, or execution instruments rather than sources of authority.
 - GitHub Actions may compute, test, validate, and upload artifacts, but `github-actions[bot]` must not write repository history. Workflows default to `contents: read`.
 
-## Latest closed stage
+## Active stage
 
-**EPISTEME-P59 — Single-Cell Completion-Lattice Closure, Stopping-Time Invariance, Missingness-Free Frozen-Family Adjudication, Operator-Reversal Robustness & Zero-Provider-Call P57 Closure**
+**EPISTEME-P60 — Prospective Operator×Context Qualitative-Interaction Replication, Record–State Evidence-Carrier vs Diagnostic–Procedural Role Discrimination, Dual-Endpoint Stopping-Time/Behavioral Sign Transport, Held-Out Task-Skin Validation & Evaluation-Artifact Court**
 
-**Status:** CLOSED / MISSINGNESS-FREE P57 BRANCH IDENTIFIED
+**Status:** PRECOMMITTED / PAPER-GRADE PROSPECTIVE CONTEXT DISCRIMINATION
 
-P58 left exactly one provider structured-output failure in the fresh-task P57 tensor:
+P59 closed P57 missingness-free with:
 
-- task: `MATERIAL_PRECONDITIONING`
-- draw: `55`
-- cell index: `57`
-- representation vertex: `R_F_T_L`
-- semantic twin: `null`
-- alias: `A`
+`MISSINGNESS_FREE_OPERATOR_REVERSAL_WITH_NONTRANSPORTABLE_INTERACTION`
 
-P59 made **zero provider calls**. It exhaustively enumerated all four logical completions of the remaining row's two Boolean scientific readouts `primary_correct` and `shadow_correct`, assigned no probabilities or weights to those worlds, reconstructed the exact 12,288-row ledger in each world, and executed the frozen `src/p57_analyze_shards.py` unchanged.
+P60 does not reopen the rejected universal representation field. It tests whether the surviving operator-sign reversals are prospectively predictable from a predeclared context ontology.
 
-Canonical P59 run `37408572606` at head `9d093e0a1b220da4ddb40618601ce2f2c6adf2df` established:
+Primary operators are frozen to **R** and **T** only.
 
-- completion worlds: **4 / 4**
-- provider calls: **0**
-- affected vertex index: **28**
-- affected `R_F_T_L` block-B stopping time: **τ = 8 in all 4 worlds**
-- Holm rejection vector: **identical across all 4 worlds**
-- P57 primary Holm rejections: **0 / 15 in every world**
-- family pass counts in every world: **repro 0/3, subspace 0/6, prediction 0/6**
-- strict operator reversals: **16 in every world**
-- P57 constitutional branch: **`OPERATOR_REVERSAL_WITH_NONTRANSPORTABLE_INTERACTION` in all 4 worlds**
+- R stopping-difficulty prediction: record-mediated positive, state-mediated negative.
+- T stopping-difficulty prediction: record-mediated negative, state-mediated positive.
+- F/H/L are secondary falsifiers and cannot rescue a failed primary court.
 
-Therefore P57 is now closed without a missingness model:
+The prospective context design crosses:
 
-**`MISSINGNESS_FREE_OPERATOR_REVERSAL_WITH_NONTRANSPORTABLE_INTERACTION`**
+- evidence carrier: record vs state
+- epistemic role: diagnostic vs procedural
+- three fresh lexical task skins per quadrant
+- 12 total fresh tasks
 
-This does **not** establish a universal representation field, transferable low-rank interaction basis, or held-out vertex prediction law. It establishes that under the frozen P57 family the surviving evidence is robust operator-sign reversal / interaction locality rather than transportable interaction structure.
+The state × diagnostic quadrant is the decisive missing quadrant. Carrier theory predicts R− / T+ there.
 
-Canonical P59 artifact:
+Each task uses the inherited 32-vertex R/F/H/T/L representation cube, valid/null semantic twins, 64 hosted draws, and independent 32-draw A/B blocks. Total prospective calls: **49,152**, implemented as 12 independent read-only task shards.
 
-- artifact: `p59-completion-lattice-result`
-- artifact ID: `11388141834`
-- artifact digest: `sha256:45ef1c435ac462781370ab92ab583dc2e817285486d543b97bbbde01df3013b8`
-- `p59_result.json` SHA-256: `72ad930b375a57b83ae4e88b1936c7a12810a3b52583c758384dade508ee3947`
+Primary endpoint: width-0.50 beta-mixture stopping-time difficulty.
 
-Two earlier P59 execution attempts were zero-provider-call technical repairs only: run `37408416269` stopped at a P58 result-schema authority gate, and run `37408520730` stopped on a missing import dependency before any completion-world adjudication. Neither has scientific authority.
+Artifact discriminator: fixed-horizon 32-draw joint-error difficulty.
 
-Compact sealed result: `active/p59_result.json`.
+R/T carrier contrasts form a two-test Holm FWER=0.05 family using exact carrier-label permutations within diagnostic/procedural strata. Each operator has 400 exact assignments. The strongest branch additionally requires all task-level and block-level signs to match the frozen direction.
 
-GitHub Actions remains computation-only and artifact-only. Repository history is human-authored; `github-actions[bot]` repository contribution is forbidden.
+Any incomplete shard yields `TECHNICAL_HOLD`. Provider/schema failure is not scientific incorrectness. No failed-cell replay is authorized inside P60.
+
+Canonical precommit: `active/p60_manifest.json`.
+
+GitHub Actions is computation-only and artifact-only. Repository writeback from Actions and `github-actions[bot]` authored/committer contributions are forbidden.
