@@ -1,0 +1,5 @@
+EPISTEME-P58 frozen failed-cell-only recovery.
+Exactly 38 canonical P57 TECHNICAL_FAIL cells are authorized for one scientific replay each.
+The 12,250 successful P57 rows are immutable.
+Resume the unchanged frozen P57 15-test adjudication only if exact 12,288/12,288 technical completeness is restored.
+GitHub Actions is read-only/artifact-only; repository writeback and github-actions[bot] contribution are forbidden.
