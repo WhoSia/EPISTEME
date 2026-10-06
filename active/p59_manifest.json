@@ -1,0 +1,60 @@
+{
+  "stage": "EPISTEME-P59",
+  "descriptor": "Single-Cell Completion-Lattice Closure, Stopping-Time Invariance, Missingness-Free Frozen-Family Adjudication, Operator-Reversal Robustness & Zero-Provider-Call P57 Closure",
+  "status": "PRECOMMITTED",
+  "predecessor": {
+    "stage": "EPISTEME-P58",
+    "canonical_run": 37403764914,
+    "canonical_head": "9cc8efa24fb72d0a587c1501726701c99e558406",
+    "artifact_name": "p58-failed-cell-recovery-result",
+    "artifact_id": 11386482094,
+    "artifact_digest": "sha256:2bc5681606a872954f1f41605ffe12ba61b70578db1d540939e60b39ca648664",
+    "p58_result_sha256": "37c44c75b846f93eb23b71fe8bf61801bcd58347c8ad86485f1067119dabe78f",
+    "p57_recovered_result_sha256": "381cd8376a6ccad23fb240e3f9d46342a9d1025e7463753ade3f1bd56bbec475",
+    "remaining_failed_cells": 1,
+    "remaining_cell": {
+      "task": "MATERIAL_PRECONDITIONING",
+      "draw": 55,
+      "cell_index": 57,
+      "vertex": "R_F_T_L",
+      "semantic": "null",
+      "alias": "A"
+    }
+  },
+  "purpose": "Exhaustively enumerate every admissible behavioral completion of the single remaining P58 technical-failure cell and rerun the unchanged frozen P57 analyzer in each world. Close P57 without a missingness model iff all completion worlds yield the same stopping-time state, Holm decisions and constitutional branch.",
+  "provider_calls_authorized": 0,
+  "completion_lattice": {
+    "coordinates": ["primary_correct", "shadow_correct"],
+    "admissible_values": [false, true],
+    "worlds": 4,
+    "missingness_probability_model": "NONE",
+    "completion_weights": "NONE",
+    "rule": "Every admissible completion has equal logical standing; no probabilistic interpretation is permitted."
+  },
+  "frozen_adjudication": {
+    "analyzer": "src/p57_analyze_shards.py",
+    "analyzer_mutation": "FORBIDDEN",
+    "historical_source": "P55 canonical artifact run 37006966589",
+    "primary_family": "exact original P57 15-test Holm FWER=0.05 family",
+    "permutations": 5000,
+    "historical_ambiguity": "exact original two-world min-statistic/max-p rule",
+    "closure_rule": "P57 may be closed missingness-free only if all four completion worlds return the same constitutional verdict and the same Holm rejection vector. Stopping-time invariance for the affected task/block/vertex is reported separately.",
+    "nonclosure_rule": "Any branch or Holm-decision heterogeneity preserves partial identification and forbids branch selection."
+  },
+  "expected_preseal_observation": {
+    "affected_task": "MATERIAL_PRECONDITIONING",
+    "affected_block": "B",
+    "affected_vertex": "R_F_T_L",
+    "candidate_stopping_time": 8,
+    "status": "HYPOTHESIS TO VERIFY, NOT AUTHORITY"
+  },
+  "governance": {
+    "branch": "main",
+    "runs_on": "ubuntu-24.04",
+    "actions_permissions": ["contents: read", "actions: read"],
+    "repository_writeback_from_actions": false,
+    "github_actions_bot_contribution": "FORBIDDEN",
+    "provider_secrets_required": false,
+    "single_run": true
+  }
+}
