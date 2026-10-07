@@ -1,1 +1,1 @@
-EPISTEME-P62 zero-provider-call completion-lattice retry 2
+EPISTEME-P62 canonical zero-provider-call completion-lattice run
