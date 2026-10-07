@@ -1,1 +1,1 @@
-EPISTEME-P62 canonical zero-provider-call completion-lattice run
+EPISTEME-P62 compact canonical zero-provider-call completion-lattice run
