@@ -1,0 +1,80 @@
+{
+  "stage": "EPISTEME-P63",
+  "descriptor": "Lexically Matched Structural Evidence-Location Intervention, History-Externalized vs Terminal-State-Embedded Information, R/T Operator-Sign Causal Discrimination, Framing×Structure Factorial Separation, Isomorphic Task-Skin Transport & Post-P62 Context-Mechanism Court",
+  "status": "PRECOMMITTED",
+  "ancestry": {
+    "p62_verdict": "MISSINGNESS_FREE_P60_TASK_LOCALITY_IDENTIFIED",
+    "p60_missingness_free_branch": "P57_OPERATOR_REVERSAL_TASK_LOCAL_AT_TESTED_CONTEXT_RESOLUTION",
+    "construct_gap": "P60 varied record-like versus state-like semantic/schema framing within a common archive skeleton and therefore did not intervene on physical information location."
+  },
+  "model": "gptoss120",
+  "provider": "groq",
+  "primary_operators": ["R", "T"],
+  "nuisance_operators": ["F", "H", "L"],
+  "design": {
+    "framing_levels": ["record", "state"],
+    "structural_location_levels": ["history_externalized", "terminal_embedded"],
+    "skins_per_factorial_cell": 3,
+    "tasks": ["RH1", "RH2", "RH3", "RT1", "RT2", "RT3", "SH1", "SH2", "SH3", "ST1", "ST2", "ST3"],
+    "vertices": 32,
+    "semantic_twins": 2,
+    "draws_per_task": 64,
+    "blocks": ["A", "B"],
+    "calls_per_task": 4096,
+    "total_calls": 49152,
+    "stopping_width": 0.50
+  },
+  "intervention_lock": {
+    "common_packet_keys": ["archive_id", "claim", "frame_note", "surface_domain", "available_interventions", "instructions", "terminal_panel", "history_panel", "relation_rules"],
+    "location_intervention": "Within each framing×skin×vertex×semantic cell, the decisive evidence code and an UNINFORMATIVE code are swapped between the target entry in history_panel and the target entry in terminal_panel. The global evidence-code token multiset is therefore identical across structural-location twins.",
+    "framing_intervention": "A record-like versus state-like frame_note changes only interpretive framing; data keys, target identity, evidence codes, rules, interventions, and structural-location manipulation remain otherwise matched.",
+    "R": "Rename the target identity globally and consistently across both panels and rules.",
+    "T": "Reverse target position within the matched trace sequence in both panels; the same T operation is applied regardless of which panel carries the decisive evidence code.",
+    "semantic_valid": "The single decisive evidence code licenses intervention u1 with predicted_direction=different.",
+    "semantic_null": "The single decisive evidence code says the target is challenge-invariant and licenses abstention/NONE.",
+    "post_outcome_relabeling": "FORBIDDEN"
+  },
+  "endpoints": {
+    "primary": "beta-mixture stopping-time operator effect with width 0.50, identical construction to P60",
+    "behavioral": "fixed-horizon joint-error operator effect over valid/null semantic twins",
+    "evaluation_artifact_gate": "primary-shadow disagreement rate >= 0.10"
+  },
+  "factorial_test": {
+    "unit": "matched lexical skin",
+    "assignment_space": "Within each of the three skins, independently permute the four observed factorial-cell task effects over the four framing×location labels; 24^3 = 13,824 assignments per operator and endpoint.",
+    "location_statistic": "mean(terminal_embedded - history_externalized), averaging framing and skin",
+    "framing_statistic": "mean(state_frame - record_frame), averaging structural location and skin",
+    "interaction_statistic": "mean[(state_terminal-state_history) - (record_terminal-record_history)] over skins",
+    "directions": "two-sided",
+    "primary_family": "R and T structural-location tests; Holm FWER 0.05",
+    "framing_rival_family": "R and T framing tests; Holm FWER 0.05",
+    "interaction_rival_family": "R and T frame×structure interaction tests; Holm FWER 0.05"
+  },
+  "transport_gates": {
+    "task_sign_reversal": "For each primary operator, framing level, and skin, history-externalized and terminal-embedded task-level operator effects must be nonzero and have opposite signs.",
+    "block_sign_reversal": "The same opposite-sign requirement must hold separately in A and B draw blocks for every matched framing×skin pair.",
+    "orientation_transport": "For each operator, the history→terminal sign orientation must be identical across all six framing×skin matched pairs; orientation is not chosen in advance, only cross-pair consistency is required.",
+    "behavioral_concordance": "The fixed-horizon endpoint must independently satisfy its structural-location Holm family and the same task/block/orientation gates for the strongest branch."
+  },
+  "constitutional_branches": [
+    "STRUCTURAL_LOCATION_INDEXED_R_T_SIGN_REVERSAL_WITH_BEHAVIORAL_CONCORDANCE",
+    "STRUCTURAL_LOCATION_INDEXED_R_T_STOPPING_INTERACTION_ONLY",
+    "STRUCTURAL_LOCATION_MODERATION_WITHOUT_STRICT_SIGN_TRANSPORT",
+    "FRAMING_OR_FRAME_STRUCTURE_INTERACTION_DOMINANT",
+    "POST_P62_R_T_EFFECTS_REMAIN_TASK_LOCAL_UNDER_STRUCTURAL_INTERVENTION",
+    "EVALUATION_ARTIFACT_DOMINANT",
+    "TECHNICAL_HOLD"
+  ],
+  "technical_gate": {
+    "required_ok_calls": 49152,
+    "rule": "Any provider/schema failure closes P63 as TECHNICAL_HOLD. No failed-cell replay occurs inside P63; any bounded recovery requires a new P-number."
+  },
+  "claim_ceiling": "Even the strongest P63 branch identifies a black-box causal effect of evidence location under the tested matched synthetic archive grammar and hosted model/provider contract. It does not establish a neural mechanism or a universal representation law.",
+  "execution_governance": {
+    "main_only": true,
+    "repository_writeback_from_actions": false,
+    "github_actions_bot_contribution": "FORBIDDEN",
+    "actions_permissions": ["contents: read", "actions: read"],
+    "scientific_criteria_frozen_before_provider_calls": true
+  }
+}
