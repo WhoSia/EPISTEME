@@ -13,37 +13,39 @@ Active execution surface for the EPISTEME research program.
 
 ## Latest closed stage
 
-**EPISTEME-P61 — Failed-Cell-Only Prospective Context Recovery, Cross-Task Structured-Output Failure Localization, Exact 49,152-Cell Dual-Endpoint Tensor Completion, Frozen R/T Carrier-Interaction Court Resumption & P60 Scientific Adjudication**
+**EPISTEME-P62 — Four-Cell Completion-Lattice Closure, Frozen R/T Carrier-Interaction Invariance, Dual-Endpoint Missingness-Free Adjudication, Critical-Quadrant Robustness & P60 Task-Locality Identification**
 
-**Status:** CLOSED / TECHNICAL_HOLD
+**Status:** CLOSED / `MISSINGNESS_FREE_P60_TASK_LOCALITY_IDENTIFIED`
 
-P60's prospective 49,152-call operator×context court ended with **48,898 technically valid rows and 254 provider structured-output failures**, so no P60 scientific branch opened.
+P60 prospectively tested whether the R/T operator-sign reversals surviving P59 could be predicted by the predeclared record/state × diagnostic/procedural context ontology. P61 recovered 250 of P60's 254 technical failures, leaving four unresolved cells.
 
-P61 replayed exactly those 254 failed cells under the frozen P60 packet, model, provider, schema and seed rule. The 48,898 successful P60 rows were immutable and were not replayed.
+P62 made **zero provider calls**. It enumerated all four logical `(primary_correct, shadow_correct)` states for each remaining cell: **16 primary equivalence classes × 16 shadow completions = 256 worlds**. No missingness probability model, weighting, or world exclusion was used.
 
-Canonical P61 recovery:
-- run: `37552065323`
-- launch head: `ec8209010f2081e77784bb6b415c5b1d974e7cdb`
-- recovery artifact: `11453203187`
-- artifact digest: `sha256:34a6921cec11e247327daf9d19ec3aa76b8c231dddc02d022d20ff7291884bf8`
-- exact recovery JSON SHA-256: `54dfa59424c81cc141fe034664c629d8f5ae30f609b8b05bef2306dbdc847a47`
+Canonical P62:
+- run: `37557274582`
+- head: `a09439339a483f56cb810e2e2f55b5bd67f59f89`
+- artifact: `11455476585`
+- artifact digest: `sha256:24bd6e6f1847b2d116d0c715801210adabea5e4ca2c3c1770a61b8634b12ef3f`
+- exact result JSON SHA-256: `55ca70c53d58efb752f6ac6e20dcfe793248b7b6b85c201f76ce9e41d28cc203`
 
-Recovery outcome:
-- authorized / attempted: **254 / 254**
-- recovered: **250**
-- remaining technical failures: **4**
-- successful source rows replayed: **0**
+All **256 / 256** completion worlds produced the same frozen P60 branch:
 
-The four unresolved cells are:
-- SP2 / draw 3 / cell 53 / `R_F_H_T` / null / alias C
-- SP2 / draw 35 / cell 53 / `R_F_H_T` / null / alias C
-- SP2 / draw 43 / cell 13 / `R_F` / null / alias C
-- SP3 / draw 9 / cell 23 / `F_T` / null / alias D
+`P57_OPERATOR_REVERSAL_TASK_LOCAL_AT_TESTED_CONTEXT_RESOLUTION`
 
-All four again failed with Groq structured-output `json_validate_failed`. Therefore the frozen P60 scientific court remains closed and P60 retains `TECHNICAL_HOLD`.
+No completion entered the evaluation-artifact branch. Maximum possible primary↔shadow disagreement was 4 / 49,152 = 0.00814%, far below the frozen 10% artifact threshold.
 
-Canonical seal: `active/p61_result.json`.
+The prospective carrier prediction failed robustly across the lattice:
+- R stopping-time carrier contrast (state − record): **+1.6198 to +1.6458**, opposite the frozen negative prediction; p = **0.9025–0.9050**.
+- T stopping-time carrier contrast: **−2.3802 to −2.3542**, opposite the frozen positive prediction; p = **1.0**.
+- stopping-time Holm pattern: `00` in every primary completion.
+- stopping-time strict-sign and critical-quadrant gates: **0 / 256 worlds pass**.
+- behavioral Holm pattern: `01`; T fixed-horizon carrier contrast is positive and individually small-p, but behavioral strict and critical gates are also **0 / 256**, so it cannot rescue the frozen primary court.
+- role-rival Holm pattern: `00`.
 
-The pre-existing P52 recovery workflow was used only as a credential-bearing execution carrier because the connector could not create a new workflow file. It carried no P52 scientific authority over P61. The legacy P52 script was restored and the temporary trigger was retired after execution.
+Therefore P60 is now scientifically closed missingness-free: the tested coarse context ontology does **not** compress the surviving R/T operator reversal into a transportable carrier-indexed sign law. At the tested resolution, the reversal remains task-local.
+
+This is a falsification of the proposed record/state × diagnostic/procedural context law, not evidence for a structural record-versus-state carrier mechanism. The earlier construct-validity ceiling remains in force: P60 manipulated record-like versus state-like semantic/schema framing within a common archive skeleton.
+
+Canonical seal: `active/p62_result.json`.
 
 Repository writeback from Actions and `github-actions[bot]` authored/committer contributions remain forbidden.
