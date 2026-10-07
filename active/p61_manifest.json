@@ -1,0 +1,87 @@
+{
+  "stage": "EPISTEME-P61",
+  "descriptor": "Failed-Cell-Only Prospective Context Recovery, Cross-Task Structured-Output Failure Localization, Exact 49,152-Cell Dual-Endpoint Tensor Completion, Frozen R/T Carrier-Interaction Court Resumption & P60 Scientific Adjudication",
+  "status": "PRECOMMITTED",
+  "predecessor": {
+    "stage": "EPISTEME-P60",
+    "canonical_run": 37415678622,
+    "canonical_head": "928bbf25d8a685a0f5cf4e6214ee82cde6c38830",
+    "result_artifact_id": 11407937798,
+    "result_artifact_digest": "sha256:330d6c4e84086ccfb61c763dae5446d30f6ac17a18d2e95c7b0f738fd0c4aeb6",
+    "p60_result_sha256": "0b36881b4d503c95e1826c5018897ba75ad63fd21de636a97cf2ff46dd28c58d",
+    "constitutional_verdict": "TECHNICAL_HOLD",
+    "technical": {
+      "ok": 48898,
+      "total": 49152,
+      "failed": 254,
+      "primary_shadow_disagreements": 0
+    }
+  },
+  "replay_constitution": {
+    "calls_authorized": 254,
+    "identity": [
+      "task",
+      "draw",
+      "cell_index"
+    ],
+    "successful_source_rows_replayed": 0,
+    "successful_source_rows_immutable": true,
+    "same_model": "gptoss120",
+    "same_provider": "Groq",
+    "same_packet_constructor": "src/p60_context_interaction.py::packet",
+    "same_seed_rule": "6000 + draw",
+    "same_schema": true,
+    "same_prompt": true,
+    "schema_relaxation": "FORBIDDEN",
+    "free_text_fallback": "FORBIDDEN",
+    "model_substitution": "FORBIDDEN",
+    "provider_substitution": "FORBIDDEN",
+    "success_row_replay": "FORBIDDEN"
+  },
+  "adjudication": {
+    "required_total_ok": 49152,
+    "analyzer": "src/p60_analyze_shards.py",
+    "analyzer_modification": "FORBIDDEN",
+    "p60_primary_operators": [
+      "R",
+      "T"
+    ],
+    "p60_context_axes_frozen": true,
+    "p60_endpoints_frozen": true,
+    "p60_permutation_family_frozen": true,
+    "p60_holm_threshold_frozen": true,
+    "p60_strict_sign_gate_frozen": true,
+    "p60_critical_quadrant_frozen": true,
+    "rule": "Resume frozen P60 scientific adjudication only if all 49,152 cells are technically valid; otherwise preserve TECHNICAL_HOLD."
+  },
+  "failure_localization": {
+    "error_class": "BadRequestError",
+    "provider_code": "json_validate_failed",
+    "cross_task": true,
+    "task_counts": {
+      "RD1": 13,
+      "RD2": 57,
+      "RD3": 36,
+      "RP1": 21,
+      "RP2": 11,
+      "RP3": 9,
+      "SD1": 15,
+      "SD2": 19,
+      "SD3": 13,
+      "SP1": 19,
+      "SP2": 23,
+      "SP3": 18
+    }
+  },
+  "governance": {
+    "branch": "main",
+    "runner": "ubuntu-24.04",
+    "actions_permissions": [
+      "contents: read",
+      "actions: read"
+    ],
+    "repository_writeback_from_actions": false,
+    "github_actions_bot_contribution": "FORBIDDEN",
+    "technical_repair_requires_new_stage_if_incomplete": true
+  }
+}
