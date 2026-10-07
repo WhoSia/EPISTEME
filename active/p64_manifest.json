@@ -1,0 +1,35 @@
+{
+  "stage": "EPISTEME-P64",
+  "status": "PRECOMMITTED",
+  "p63_run": 37563565663,
+  "p63_head": "7c86f0daa879c9f65e76afee75eab099f64082b5",
+  "p63_result_artifact": 11471953755,
+  "p63_result_sha256": "3124c5c50693e3fafd7862ca06a1a9d26d05cc7c673a44e523ae9b8956fe2f87",
+  "p63_technical": {
+    "ok": 48849,
+    "total": 49152,
+    "failed": 303,
+    "verdict": "TECHNICAL_HOLD"
+  },
+  "phases": [
+    "Zero-call failure localization",
+    "Exactly one P63-contract recovery call per failed identity, at most 303",
+    "Unchanged P63 scientific analyzer only when fully complete",
+    "Otherwise sound zero-call completion bounds without imputation"
+  ],
+  "lock": {
+    "success_rows_immutable": 48849,
+    "failed_cell_identity": [
+      "task",
+      "draw",
+      "cell_index"
+    ],
+    "model": "gptoss120",
+    "provider": "Groq",
+    "packet": "p63_structural_location.packet",
+    "seed_rule": "6300+draw",
+    "statistical_family": "P63 unchanged",
+    "full_completion_required_for_original_P63_verdict": true,
+    "bot_authored_commits_forbidden": true
+  }
+}
