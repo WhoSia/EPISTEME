@@ -1,0 +1,69 @@
+{
+  "stage": "EPISTEME-P61",
+  "descriptor": "Failed-Cell-Only Prospective Context Recovery, Cross-Task Structured-Output Failure Localization, Exact 49,152-Cell Dual-Endpoint Tensor Completion, Frozen R/T Carrier-Interaction Court Resumption & P60 Scientific Adjudication",
+  "status": "CLOSED",
+  "verdict": "TECHNICAL_HOLD",
+  "p60_source": {
+    "canonical_run": 37415678622,
+    "canonical_head": "928bbf25d8a685a0f5cf4e6214ee82cde6c38830",
+    "result_artifact_id": 11407937798,
+    "p60_result_sha256": "0b36881b4d503c95e1826c5018897ba75ad63fd21de636a97cf2ff46dd28c58d"
+  },
+  "recovery": {
+    "run": 37552065323,
+    "launch_head": "ec8209010f2081e77784bb6b415c5b1d974e7cdb",
+    "execution_carrier": "pre-existing P52 technical-recovery workflow only; no P52 scientific authority",
+    "artifact_id": 11453203187,
+    "artifact_digest": "sha256:34a6921cec11e247327daf9d19ec3aa76b8c231dddc02d022d20ff7291884bf8",
+    "recovery_json_sha256": "54dfa59424c81cc141fe034664c629d8f5ae30f609b8b05bef2306dbdc847a47",
+    "authorized_failed_cells": 254,
+    "attempted_cells": 254,
+    "recovered_cells": 250,
+    "remaining_failed_cells": 4,
+    "successful_source_rows_replayed": 0,
+    "remaining": [
+      {
+        "task": "SP2",
+        "draw": 3,
+        "cell_index": 53,
+        "vertex": "R_F_H_T",
+        "semantic": "null",
+        "alias": "C"
+      },
+      {
+        "task": "SP2",
+        "draw": 35,
+        "cell_index": 53,
+        "vertex": "R_F_H_T",
+        "semantic": "null",
+        "alias": "C"
+      },
+      {
+        "task": "SP2",
+        "draw": 43,
+        "cell_index": 13,
+        "vertex": "R_F",
+        "semantic": "null",
+        "alias": "C"
+      },
+      {
+        "task": "SP3",
+        "draw": 9,
+        "cell_index": 23,
+        "vertex": "F_T",
+        "semantic": "null",
+        "alias": "D"
+      }
+    ],
+    "remaining_error_class": "BadRequestError / json_validate_failed"
+  },
+  "p60_adjudication_resumed": false,
+  "p60_constitutional_verdict": "TECHNICAL_HOLD",
+  "governance": {
+    "legacy_harness_restored_commit": "353bba2908c9a02eebabb9a636ce35a08c4e800f",
+    "temporary_trigger_retired_commit": "443b369b3a6b66e66c5966464fd703ed5c2fcbe9",
+    "repository_writeback_from_actions": false,
+    "github_actions_bot_contribution": "FORBIDDEN"
+  },
+  "authority": "P61 adds no new scientific test. Because four P60 cells remain technically unresolved, the frozen P60 scientific court remains closed. Provider structured-output failure is not scientific incorrectness."
+}
