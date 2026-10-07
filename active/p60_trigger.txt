@@ -1,2 +1,2 @@
-EPISTEME-P63 canonical launch via the frozen read-only P60 12-shard carrier.
-Scientific authority is active/p63_manifest.json; the carrier confers no P60 scientific authority.
+EPISTEME-P60 canonical launch receipt.
+Use the frozen P60 manifest and workflow on main.
