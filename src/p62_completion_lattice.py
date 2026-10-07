@@ -8,14 +8,16 @@ from p60_context_interaction import TASKS,TASK_SPECS,PRIMARY_OPS,OPS
 
 STAGE='EPISTEME-P62'
 EXPECTED_INPUT_SHA='427c6686b7eb11fe1f11ecbc2a1baf11844206b054e28a34d017075c0ef531a4'
-EXPECTED_ANALYZER_SHA='c13e654e6e549e35e729f5d0f16f1815815501f6'
-EXPECTED_CONTEXT_SHA='ed5b2ef50840d41aaf641a4e5e5cb96789d1bc37'
+EXPECTED_ANALYZER_BLOB='c13e654e6e549e35e729f5d0f16f1815815501f6'
+EXPECTED_CONTEXT_BLOB='ed5b2ef50840d41aaf641a4e5e5cb96789d1bc37'
 TOTAL_ROWS=49152
 
-def sha(path): return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+def sha256(path): return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+def git_blob(path):
+    b=Path(path).read_bytes();return hashlib.sha1(f'blob {len(b)}\0'.encode()+b).hexdigest()
 
 def decode_input(path):
-    if sha(path)!=EXPECTED_INPUT_SHA: raise RuntimeError('P62_INPUT_FINGERPRINT_MISMATCH')
+    if sha256(path)!=EXPECTED_INPUT_SHA: raise RuntimeError('P62_INPUT_FINGERPRINT_MISMATCH')
     d=json.loads(Path(path).read_text())
     if d.get('stage')!='EPISTEME-P62-INPUT' or len(d.get('missing',[]))!=4: raise RuntimeError('P62_INPUT_AUTHORITY')
     tasks={}
@@ -81,8 +83,8 @@ def adjudicate(Js,disagreements):
 
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--input',default='active/p62_completion_input.json');ap.add_argument('--out',default='receipts/p62_result.json');a=ap.parse_args()
-    if sha('src/p60_analyze_shards.py')!=EXPECTED_ANALYZER_SHA: raise RuntimeError('FROZEN_P60_ANALYZER_DRIFT')
-    if sha('src/p60_context_interaction.py')!=EXPECTED_CONTEXT_SHA: raise RuntimeError('FROZEN_P60_CONTEXT_DRIFT')
+    if git_blob('src/p60_analyze_shards.py')!=EXPECTED_ANALYZER_BLOB: raise RuntimeError('FROZEN_P60_ANALYZER_DRIFT')
+    if git_blob('src/p60_context_interaction.py')!=EXPECTED_CONTEXT_BLOB: raise RuntimeError('FROZEN_P60_CONTEXT_DRIFT')
     raw,tasks=decode_input(a.input);missing=raw['missing']
     known_dis=0
     for t in TASKS:
@@ -132,7 +134,7 @@ def main():
       'descriptor':'Four-Cell Completion-Lattice Closure, Frozen R/T Carrier-Interaction Invariance, Dual-Endpoint Missingness-Free Adjudication, Critical-Quadrant Robustness & P60 Task-Locality Identification',
       'provider_calls':0,
       'input_sha256':EXPECTED_INPUT_SHA,
-      'frozen_source':{'p60_analyzer_sha':EXPECTED_ANALYZER_SHA,'p60_context_sha':EXPECTED_CONTEXT_SHA},
+      'frozen_source':{'p60_analyzer_git_blob_sha1':EXPECTED_ANALYZER_BLOB,'p60_context_git_blob_sha1':EXPECTED_CONTEXT_BLOB},
       'completion_lattice':{'missing_cells':missing,'primary_equivalence_classes':16,'shadow_completions_per_primary':16,'total_worlds':256,'missingness_probability_model_used':False},
       'known_primary_shadow_disagreements':known_dis,
       'primary_results':primary_results,
