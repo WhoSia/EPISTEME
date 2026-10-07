@@ -1,0 +1,57 @@
+{
+  "stage": "EPISTEME-P62",
+  "descriptor": "Four-Cell Completion-Lattice Closure, Frozen R/T Carrier-Interaction Invariance, Dual-Endpoint Missingness-Free Adjudication, Critical-Quadrant Robustness & P60 Task-Locality Identification",
+  "status": "PRECOMMITTED",
+  "provider_calls_authorized": 0,
+  "predecessor": {
+    "stage": "EPISTEME-P61",
+    "status": "CLOSED",
+    "verdict": "TECHNICAL_HOLD",
+    "p61_result_path": "active/p61_result.json",
+    "p61_seal_commit": "db94a21d4e7889976fc39130509850e3133c70da",
+    "p60_source_run": 37415678622,
+    "p60_result_sha256": "0b36881b4d503c95e1826c5018897ba75ad63fd21de636a97cf2ff46dd28c58d",
+    "p61_recovery_run": 37552065323,
+    "p61_recovery_artifact_id": 11453203187,
+    "p61_recovery_json_sha256": "54dfa59424c81cc141fe034664c629d8f5ae30f609b8b05bef2306dbdc847a47",
+    "recovered_cells": 250,
+    "remaining_failed_cells": 4
+  },
+  "missing_cells": [
+    {"task":"SP2","draw":3,"cell_index":53,"vertex":"R_F_H_T","semantic":"null","alias":"C"},
+    {"task":"SP2","draw":35,"cell_index":53,"vertex":"R_F_H_T","semantic":"null","alias":"C"},
+    {"task":"SP2","draw":43,"cell_index":13,"vertex":"R_F","semantic":"null","alias":"C"},
+    {"task":"SP3","draw":9,"cell_index":23,"vertex":"F_T","semantic":"null","alias":"D"}
+  ],
+  "completion_constitution": {
+    "state_per_cell": ["primary_false_shadow_false", "primary_false_shadow_true", "primary_true_shadow_false", "primary_true_shadow_true"],
+    "worlds": 256,
+    "missingness_probability_model": "FORBIDDEN",
+    "weighting_of_worlds": "FORBIDDEN",
+    "world_exclusion": "FORBIDDEN",
+    "provider_replay": "FORBIDDEN"
+  },
+  "frozen_court": {
+    "analyzer": "src/p60_analyze_shards.py",
+    "analyzer_sha": "c13e654e6e549e35e729f5d0f16f1815815501f6",
+    "context_module": "src/p60_context_interaction.py",
+    "context_module_sha": "ed5b2ef50840d41aaf641a4e5e5cb96789d1bc37",
+    "modification": "FORBIDDEN",
+    "require_same_constitutional_verdict_all_worlds": true,
+    "require_no_evaluation_artifact_world": true,
+    "audit_primary_tau_holm": true,
+    "audit_behavioral_error_holm": true,
+    "audit_tau_strict_sign_gate": true,
+    "audit_behavioral_strict_sign_gate": true,
+    "audit_tau_critical_quadrant_gate": true,
+    "audit_behavioral_critical_quadrant_gate": true,
+    "audit_role_rival_holm": true
+  },
+  "closure_rule": "P60 may be closed missingness-free only if all 256 admissible completions produce the same frozen P60 constitutional verdict and no completion enters EVALUATION_ARTIFACT_DOMINANT. Otherwise P60 remains unresolved at the tested missing cells.",
+  "governance": {
+    "branch": "main",
+    "repository_writeback_from_actions": false,
+    "github_actions_bot_contribution": "FORBIDDEN",
+    "no_post_outcome_criterion_change": true
+  }
+}
