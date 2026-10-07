@@ -1,0 +1,61 @@
+{
+  "stage": "EPISTEME-P62",
+  "descriptor": "Four-Cell Completion-Lattice Closure, Frozen R/T Carrier-Interaction Invariance, Dual-Endpoint Missingness-Free Adjudication, Critical-Quadrant Robustness & P60 Task-Locality Identification",
+  "status": "CLOSED",
+  "constitutional_verdict": "MISSINGNESS_FREE_P60_TASK_LOCALITY_IDENTIFIED",
+  "provider_calls": 0,
+  "canonical_run": 37557274582,
+  "canonical_head": "a09439339a483f56cb810e2e2f55b5bd67f59f89",
+  "artifact_id": 11455476585,
+  "artifact_digest": "sha256:24bd6e6f1847b2d116d0c715801210adabea5e4ca2c3c1770a61b8634b12ef3f",
+  "exact_result_json_sha256": "55ca70c53d58efb752f6ac6e20dcfe793248b7b6b85c201f76ce9e41d28cc203",
+  "input_git_blob_sha1": "8421767f91d1c401eb4708c2447a66e4ece2535e",
+  "frozen_source": {
+    "p60_analyzer_git_blob_sha1": "c13e654e6e549e35e729f5d0f16f1815815501f6",
+    "p60_context_git_blob_sha1": "ed5b2ef50840d41aaf641a4e5e5cb96789d1bc37"
+  },
+  "completion_lattice": {
+    "missing_cells": 4,
+    "primary_equivalence_classes": 16,
+    "shadow_completions_per_primary": 16,
+    "total_worlds": 256,
+    "missingness_probability_model_used": false,
+    "completion_invariant": true,
+    "artifact_worlds": 0
+  },
+  "p60_missingness_free_constitutional_verdict": "P57_OPERATOR_REVERSAL_TASK_LOCAL_AT_TESTED_CONTEXT_RESOLUTION",
+  "world_verdict_counts": {
+    "P57_OPERATOR_REVERSAL_TASK_LOCAL_AT_TESTED_CONTEXT_RESOLUTION": 256
+  },
+  "summary": {
+    "tau_carrier_R_statistic_range": [1.6197916666666667, 1.6458333333333333],
+    "tau_carrier_T_statistic_range": [-2.3802083333333335, -2.3541666666666665],
+    "tau_carrier_R_p_range": [0.9025, 0.905],
+    "tau_carrier_T_p_range": [1.0, 1.0],
+    "error_carrier_R_statistic_range": [-0.010742187499999998, -0.010416666666666666],
+    "error_carrier_T_statistic_range": [0.04541015625, 0.04573567708333333],
+    "error_carrier_R_p_range": [0.315, 0.325],
+    "error_carrier_T_p_range": [0.015, 0.015],
+    "max_shadow_disagreements": 4,
+    "max_shadow_disagreement_rate": 0.00008138020833333333,
+    "tau_strict_gate_pass_worlds": 0,
+    "behavioral_strict_gate_pass_worlds": 0,
+    "tau_critical_gate_pass_worlds": 0,
+    "behavioral_critical_gate_pass_worlds": 0,
+    "tau_holm_rejection_patterns": ["00"],
+    "behavioral_holm_rejection_patterns": ["01"],
+    "role_holm_rejection_patterns": ["00"]
+  },
+  "implementation_note": {
+    "pre_result_failed_runs": [37556674104, 37556792051, 37557043099],
+    "failure_scope": "fingerprint/input-custody implementation guards only; all failed before any completion result was produced",
+    "scientific_criteria_changed": false
+  },
+  "governance": {
+    "legacy_harness_restored_commit": "1ec9abd5d0bb718b591845dc9f307e9ce7748291",
+    "temporary_trigger_retired_commit": "2e380f26e6f215a0a3f8109b21c85b31e7e970fa",
+    "repository_writeback_from_actions": false,
+    "github_actions_bot_contribution": "FORBIDDEN"
+  },
+  "authority": "P62 assumes no probability distribution over the four unresolved technical cells and assigns no weights to completion worlds. The P60 task-locality branch is licensed because all 256 logical primary/shadow completions yield the same frozen P60 constitutional verdict and none enters the evaluation-artifact branch."
+}
