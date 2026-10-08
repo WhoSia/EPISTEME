@@ -17,6 +17,7 @@ jobs:
           python-version: '3.12'
       - name: Audit independent packet factory and evidence-based scorer
         run: |
-          python -m py_compile src/p69_task_factory.py src/p69_independent_scorer.py src/p69_offline_audit.py
+          python -m py_compile src/p69_task_factory.py src/p69_independent_scorer.py src/p69_offline_audit.py src/p69_predictive_analysis.py
           python src/p69_offline_audit.py
+          python src/p69_predictive_analysis.py
 # No GitHub writeback, secrets, provider calls, or bot-authored commits.
