@@ -1,0 +1,30 @@
+name: EPISTEME Source Archive
+on:
+  push:
+    paths:
+      - "active/p64_archive_trigger.txt"
+permissions:
+  contents: read
+jobs:
+  archive:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Package versioned full source and workflow history
+        run: |
+          mkdir -p archive
+          git rev-parse HEAD > archive/SNAPSHOT_HEAD.txt
+          git ls-tree -r --long HEAD src .github/workflows > archive/GIT_TREE_MANIFEST.txt
+          python - <<'PY'
+          import json,subprocess
+          from pathlib import Path
+          paths=subprocess.check_output(['git','ls-tree','-r','--name-only','HEAD','src','.github/workflows'],text=True).splitlines()
+          Path('archive/MANIFEST.json').write_text(json.dumps({'commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'paths':paths},indent=2))
+          PY
+          tar -czf archive/episteme-source-and-workflows.tar.gz src .github/workflows README.md active/p64_manifest.json active/p64_zero_call_bounds.md archive/MANIFEST.json archive/GIT_TREE_MANIFEST.txt
+          sha256sum archive/episteme-source-and-workflows.tar.gz > archive/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: episteme-p64-pre-retirement-source-snapshot
+          path: archive/
+          retention-days: 30
