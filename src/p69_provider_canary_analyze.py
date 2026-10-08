@@ -54,6 +54,14 @@ def self_test():
             doc["mode"]="ACTUAL_PROVIDER" # Only a regression fixture; NOT a live receipt.
             Path(root,name+".json").write_text(json.dumps(doc))
         assert inspect(root)["verdict"]=="MEASUREMENT_CONTRACT_READY"
+        # Exercise the REAL command-line exit gate as well as the pure classifier.
+        # These are synthetic fixtures, not actual provider outcomes.
+        import subprocess,sys
+        ready_path=Path(root,"ready_summary.json")
+        ready=subprocess.run([sys.executable,__file__,"--root",root,"--out",str(ready_path)],
+                             capture_output=True,text=True,check=False)
+        assert ready.returncode==0,(ready.returncode,ready.stderr)
+        assert json.loads(ready_path.read_text())["verdict"]=="MEASUREMENT_CONTRACT_READY"
         x=json.loads(Path(root,"gemini.json").read_text())
         x["observations"][0]["schema_and_canary_valid"]=False
         x["observations"][0]["error_type"]="ClientError"
@@ -62,7 +70,13 @@ def self_test():
         verdict=inspect(root)
         assert verdict["verdict"]=="TECHNICAL_CONTRACT_HOLD"
         assert verdict["bundles"]["gemini"]["errors"][0]["redacted_diagnostic"]["http_status"]==403
-    print("P69_CANARY_ANALYZER_PASS success_case=PASS hold_case=PASS provider_calls=0")
+        hold_path=Path(root,"hold_summary.json")
+        hold=subprocess.run([sys.executable,__file__,"--root",root,"--out",str(hold_path)],
+                            capture_output=True,text=True,check=False)
+        assert hold.returncode==2,(hold.returncode,hold.stderr)
+        assert json.loads(hold_path.read_text())["verdict"]=="TECHNICAL_CONTRACT_HOLD"
+        assert "P69_TECHNICAL_CONTRACT_HOLD" in hold.stdout
+    print("P69_CANARY_ANALYZER_PASS success_exit=0 hold_exit=2 receipts_preserved=PASS provider_calls=0")
 
 def main():
     p=argparse.ArgumentParser()
