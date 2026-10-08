@@ -89,7 +89,7 @@
   "paper_novelty_ceiling": "A prospectively falsified transport proposal with robust task-specific sign reversal under semantically invariant interventions, independent scoring and replicated distinct task/mechanism/model families; no novelty in prompt sensitivity, ANOVA interactions, failure to generalize alone.",
   "experiment": {
     "phase_0": "Zero-call protocol and existing artifact custody/replay. Before paper result: verify historical condition labels, estimator compatibility, scorer parser, hosted seed semantics, missingness identity, and model version.",
-    "phase_1": "Provider canary plus small precommitted 96-call instrumentation pilot, requiring successful P67 format-calibration prior to larger experiment. Do not use pilot for scientific p-values or model selection.",
+    "phase_1": "Provider canary plus small precommitted 192-call instrumentation pilot, requiring successful P67 format-calibration prior to larger experiment. Do not use pilot for scientific p-values or model selection.",
     "phase_2": "Prospective 8192-call maximum main replication only after fixed go/no-go gate; no provider calls automatically and no partial adaptive scale-up.",
     "models": [
       {
@@ -128,8 +128,8 @@
       "B: draws 5–8"
     ],
     "maximum_calls": 8192,
-    "pilot_max_calls": 96,
-    "pilot_identity": "2 models × 2 held-out independent task instances × 4 R/T vertices × 2 semantic twins × 2 response policies × 3 repeats",
+    "pilot_max_calls": 192,
+    "pilot_identity": "2 models × 2 distinct task mechanisms × 4 R/T vertices × 2 semantic twins × 2 response contracts × 3 invocations = 192 calls",
     "task_order_randomized": true,
     "provider_seeds": "A numeric local draw label is not a model API seed unless request payload proves it. Log service response metadata and versions.",
     "controls": [
