@@ -1,0 +1,119 @@
+name: EPISTEME P69 Instrumentation Pilot
+on:
+  workflow_dispatch:
+    inputs:
+      canary_run_id:
+        description: "Successful P69 Provider Contract Canary workflow_dispatch run ID, SAME HEAD SHA"
+        required: true
+        type: string
+  push:
+    paths:
+      - active/p69_instrument_trigger.txt
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  preflight:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install groq google-genai
+      - name: Provider-free full measurement fixture
+        run: |
+          python -m py_compile src/p69_provider_canary.py src/p69_instrument_pilot.py src/p69_instrument_pilot_analyze.py
+          PYTHONPATH=src python src/p69_instrument_pilot.py --self-test
+          PYTHONPATH=src python src/p69_instrument_pilot_analyze.py --self-test
+          echo "P69_PILOT_PREFLIGHT_PASS calls=0"
+      - name: Verify actual four-contract canary and identical frozen HEAD
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CANARY_RUN: ${{ inputs.canary_run_id }}
+        run: |
+          set -euo pipefail
+          test "$CANARY_RUN" != "" && [[ "$CANARY_RUN" =~ ^[0-9]+$ ]]
+          got_event="$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${CANARY_RUN}" --jq '.event')"
+          got_sha="$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${CANARY_RUN}" --jq '.head_sha')"
+          got_name="$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${CANARY_RUN}" --jq '.name')"
+          test "$got_event" = "workflow_dispatch"
+          test "$got_sha" = "$GITHUB_SHA"
+          test "$got_name" = "EPISTEME P69 Provider Contract Canary"
+          mkdir -p receipts/canary_proof
+          gh run download "$CANARY_RUN" --repo "$GITHUB_REPOSITORY" \
+             --name p69-contract-canary-verdict --dir receipts/canary_proof
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          f=list(Path("receipts/canary_proof").rglob("p69_contract_verdict.json"))
+          assert len(f)==1, f
+          x=json.loads(f[0].read_text())
+          assert x["stage"]=="EPISTEME-P69"
+          assert x["kind"]=="PROVIDER_CONTRACT_CANARY_SUMMARY"
+          assert x["verdict"]=="MEASUREMENT_CONTRACT_READY"
+          assert x["logical_invocation_slots"]==4
+          print("P69_REAL_CANARY_GATE_PASS")
+          PY
+
+  pilot:
+    if: github.event_name == 'workflow_dispatch'
+    needs: preflight
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        model: [gptoss120, gemini]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install groq google-genai
+      - name: Bounded 96-slot model-only instrumentation batch
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          PYTHONPATH=src python src/p69_instrument_pilot.py --model ${{ matrix.model }} \
+            --out receipts/p69_pilot/${{ matrix.model }}.json
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p69-instrument-pilot-${{ matrix.model }}
+          path: receipts/p69_pilot/
+          retention-days: 30
+
+  analyze:
+    if: github.event_name == 'workflow_dispatch' && always()
+    needs: [preflight,pilot]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install groq google-genai
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: p69-instrument-pilot-*
+          path: receipts/pilot_shards
+          merge-multiple: true
+      - name: Verify identities, prompt invariance and predeclared pilot thresholds
+        run: |
+          PYTHONPATH=src python src/p69_instrument_pilot_analyze.py \
+            --root receipts/pilot_shards --out receipts/p69_pilot_result.json
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p69-instrument-pilot-verdict
+          path: receipts/p69_pilot_result.json
+          retention-days: 30
+
+# push: ZERO provider calls. workflow_dispatch: 192 logical slots only after
+# an actual ready 4-slot provider canary for IDENTICAL SHA. No commits/pushes.
