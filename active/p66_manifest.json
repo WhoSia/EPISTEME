@@ -1,0 +1,48 @@
+{
+  "stage": "EPISTEME-P66",
+  "title": "Relational Evidence Binding Intervention, Explicit Target-Link vs Decoy-Link Control, History/Terminal Location Factorial Separation, Semantic-Twin Joint Accuracy, R/T Operator Interaction and Cross-Skin Transport Court",
+  "status": "PROSPECTIVE_PRECOMMIT",
+  "ancestry": {
+    "p65": "POST_P62_R_T_EFFECTS_REMAIN_TASK_LOCAL_UNDER_STRUCTURAL_INTERVENTION",
+    "gap": "P63 manipulated evidence location, not explicit target-to-evidence relational binding."
+  },
+  "design": {
+    "factor1": "binding:target_linked versus decoy_linked",
+    "factor2": "location:history_externalized versus terminal_embedded",
+    "skins": 3,
+    "task_count": 12,
+    "draws": 16,
+    "vertices": 32,
+    "semantic_twins": 2,
+    "total_calls": 12288,
+    "model": "gptoss120",
+    "provider": "groq",
+    "seed_rule": "6600+draw",
+    "alias_assignment": "P63 panel_cells frozen",
+    "logic": "In both conditions decisive code remains the same; a target-reference relation link switches which evidence record is adjudicatively reachable. Primary synthetic ground truth is recomputed per condition and semantically audited; no claim of token-exact intervention across the binding arm."
+  },
+  "estimands": {
+    "primary": "Difference in joint valid/null accuracy across target-linked versus decoy-linked, separately by physical location and lexical skin",
+    "secondary": "Binding-by-location difference-in-differences; R/T operator-sign moderation is exploratory unless confirmed by preregistered sign gate",
+    "error_control": "Within-skin 4-label 24^3 permutation, two-sided; Holm R/T only for operator-specific family; alpha .05",
+    "missingness": "Any failed technical call yields TECHNICAL_HOLD; missingness-completion is a separate next-stage court; never treat technical failure as incorrectness",
+    "prior_art_ceiling": "Black-box relational-binding sensitivity under tested synthetic archive grammar, not discovery of general relational reasoning or neural mechanism"
+  },
+  "evaluation": {
+    "joint_semantics": "valid requires u1,different; null requires NONE",
+    "blinding": "Original criterion frozen before any provider invocation",
+    "strict_branch": "Binding-dependent R and T opposite signs across all six matched location-skin pairs in two independent draw blocks AND Holm reject binding effects",
+    "weaker_branch": "Binding effect Holm detected without strict transport",
+    "null_branch": "No precommitted Holm effects detected",
+    "artifact_gate": "primary-shadow >=10% of valid provider responses"
+  },
+  "governance": {
+    "actions_permissions": [
+      "contents:read",
+      "actions:read"
+    ],
+    "repo_writeback": false,
+    "bot_authored_commits": false,
+    "manual_human_commits_only": true
+  }
+}
