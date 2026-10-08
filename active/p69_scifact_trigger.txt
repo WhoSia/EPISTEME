@@ -1,0 +1,1 @@
+P69 provider-free original SciFact data source and rationale-schema integrity audit. Public archive downloaded inside ephemeral read-only GitHub runner; upload only statistics/hashes, no dataset text and no model calls.
