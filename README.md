@@ -12,7 +12,20 @@ Active execution surface for the EPISTEME research program.
 - Argument comes first; literature and code are pressure, falsification, or execution instruments rather than sources of authority.
 - GitHub Actions may compute, test, validate, and upload artifacts, but `github-actions[bot]` must not write repository history. Workflows default to `contents: read`.
 
-## Current stage — EPISTEME-P67
+## Current stage — EPISTEME-P68
+
+**EPISTEME-P68 — Cross-Channel Falsification-Route Restoration, Independent Criticism Generation–Acceptance Separation, Retained-Evidence Sufficiency Controls, Held-Out Relational Grammar Transport, Output-Interface Causal Mediation & Scientific Identifiability of Epistemic Access Loss**
+
+- **State:** R2 OFFLINE CONSTRUCT PASS; independent model behavior UNTESTED; no P68 provider calls. P67 384-call pilot has passed preflight only and remains a prerequisite for P68 behavioral execution.
+- **Scientific object:** retention-induced loss of *admissible* criticism plus the downstream keep-versus-restore decision, not a general JSON format-quality penalty.
+- **P68 constitution:** `active/p68_constitution.json`; **R2 correction/court:** `active/p68_r2_identification_court.md`. Initial one-mechanism compiler is a historical R1 prototype, not paper-grade evidence.
+- **R2 instrument:** 12 synthetic worlds across direct, two-hop and guarded relations; 3 retention projections and 2 alternative encodings; 72 blinded generation packets and 72 observation-transfer packets. Coarse is an actual subset of Rich; sham richness uses true but irrelevant facts, with normalized row counts 10/9/10.
+- **Formal identification witness:** per mechanism, a critical and null world have alpha-equivalent Coarse observations yet distinct Rich observations; a downstream information-restoration decision has nonzero minimax regret under the coarse state. This synthetic construction and value-of-information bound are standard formal arguments, not new empirical evidence.
+- **Execution boundary:** R2 code and tests are available in a separately reviewed download package but are not asserted to be installed in the GitHub source tree; GitHub connector blocked prior Python/workflow uploads. No Actions run for P68 is claimed.
+- **Governance:** read-only Actions, no repository push/commit in workflows, and **never allow `github-actions[bot]` to author or commit**.
+
+## Historical P67 (prerequisite)
+
 
 **EPISTEME-P67 — Output-Contract-Induced Selective Observability and the Causal Identifiability of Falsification Behavior**
 
