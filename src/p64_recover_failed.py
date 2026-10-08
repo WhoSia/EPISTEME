@@ -9,6 +9,7 @@ def ident(r): return (r['task'],int(r['draw']),int(r['cell_index']))
 def main():
  p=argparse.ArgumentParser()
  for name in ('p63-result','source-shards','out-root','receipt'): p.add_argument('--'+name,required=True)
+ p.add_argument('--preflight-only',action='store_true')
  x=p.parse_args()
  z=json.loads(Path(x.p63_result).read_text());g=z['technical']
  assert z['stage']=='EPISTEME-P63' and z['constitutional_verdict']=='TECHNICAL_HOLD'
@@ -22,6 +23,9 @@ def main():
  assert len(wanted)==303 and len(allrows)==49152
  assert len({ident(r) for r in allrows})==49152
  assert wanted=={ident(r) for r in allrows if r['status']!='OK'}
+ if x.preflight_only:
+  print('P64_PREFLIGHT_PASS: 49152 canonical rows; 303 failed identities; 0 provider calls')
+  return
  output=[];attempts=[]
  for orig in allrows:
   r=dict(orig)
