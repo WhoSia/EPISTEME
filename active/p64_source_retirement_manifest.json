@@ -1,0 +1,508 @@
+{
+  "stage": "EPISTEME-P64",
+  "action": "PRE_RETIREMENT_MANIFEST",
+  "snapshot_head": "070e94802519c3c38f93cf1c7c4a20a0917f006e",
+  "source_archive_drive_id": "1E1ba6lmkLUUHJV3pY7AtQOBcsQlKuCz3",
+  "github_artifact_id": 11520760658,
+  "archive_zip_sha256": "5346a38cbb928360a0714799d84bf605fd77a5a4467d26dfca6e30bc5f16375e",
+  "tarball_checksum_verified": true,
+  "python_static_import_closure": [
+    "src/p42_reopen.py",
+    "src/p44_field.py",
+    "src/p48_seed_fingerprints.py",
+    "src/p51_sufficiency.py",
+    "src/p60_context_interaction.py",
+    "src/p63_analyze_shards.py",
+    "src/p63_structural_location.py",
+    "src/p64_recover_failed.py"
+  ],
+  "retire_source": [
+    {
+      "path": "src/p16_packets.py",
+      "blob_sha": "949e5e6580e94d3740fe63151da06be07b9e371c",
+      "size": 6333
+    },
+    {
+      "path": "src/p16_score.py",
+      "blob_sha": "cb95e8234a0b89d31b7f350494fd8c14c1e4c904",
+      "size": 3062
+    },
+    {
+      "path": "src/p17_external_run.py",
+      "blob_sha": "95c993b6e6aa9b3e11897aa35eb1b357423d50ca",
+      "size": 15242
+    },
+    {
+      "path": "src/p18_adjudicate.py",
+      "blob_sha": "1cc4c5296d7877c4c529c1b4ebc9378e251286bc",
+      "size": 4103
+    },
+    {
+      "path": "src/p19_adjudicate.py",
+      "blob_sha": "d582761da04428f9e22aeb808bd74198731577cd",
+      "size": 4157
+    },
+    {
+      "path": "src/p19_packets.py",
+      "blob_sha": "5d594783870e76b1becc594c9938199982e9eb63",
+      "size": 3566
+    },
+    {
+      "path": "src/p19_run.py",
+      "blob_sha": "282a66f6d69648e7a51dc25c7946e90ad25b6ad7",
+      "size": 2693
+    },
+    {
+      "path": "src/p20_adjudicate.py",
+      "blob_sha": "9dca50838c76911edcdc713a494fdd7f2b01c297",
+      "size": 4295
+    },
+    {
+      "path": "src/p20_packets.py",
+      "blob_sha": "5b016a0a07109514b71044de0daa594e0e98bcb0",
+      "size": 3081
+    },
+    {
+      "path": "src/p20_run.py",
+      "blob_sha": "55b1483ba7afd22f1b2af9cebc790f9dfa716b3f",
+      "size": 2693
+    },
+    {
+      "path": "src/p21_adjudicate.py",
+      "blob_sha": "980b123431ee042ddf5cb8af8e00137c600edb4c",
+      "size": 5293
+    },
+    {
+      "path": "src/p21_packets.py",
+      "blob_sha": "60c8dba3561d15401bdbb79099596f464d2fcd2b",
+      "size": 3180
+    },
+    {
+      "path": "src/p21_run.py",
+      "blob_sha": "dd98b6459978046b6c0cd3cf4a2e7090d9754400",
+      "size": 2795
+    },
+    {
+      "path": "src/p22_adjudicate.py",
+      "blob_sha": "4cf7b05f94675d8d16e932cb1b7ef249adc179eb",
+      "size": 6856
+    },
+    {
+      "path": "src/p22_packets.py",
+      "blob_sha": "e74864b8dcd3f1d89a4153422ccd7923c0d40110",
+      "size": 6222
+    },
+    {
+      "path": "src/p22_run.py",
+      "blob_sha": "5bd1ca6a6ee9f6eead0c35ed02586b6ebbf01423",
+      "size": 2695
+    },
+    {
+      "path": "src/p23_adjudicate.py",
+      "blob_sha": "ebe5a565f846ede8f82cf2f8e2c2634d1b2aafe4",
+      "size": 6743
+    },
+    {
+      "path": "src/p23_packets.py",
+      "blob_sha": "18d350682857aa8f32b4d2e6bec05f47d017195c",
+      "size": 9265
+    },
+    {
+      "path": "src/p23_run.py",
+      "blob_sha": "793f3d36e0abb30378f70b65878820a6451d9364",
+      "size": 2694
+    },
+    {
+      "path": "src/p24_adjudicate.py",
+      "blob_sha": "206c66721a2ea948bacacfa890f4d8abda4b51a4",
+      "size": 2727
+    },
+    {
+      "path": "src/p24_packets.py",
+      "blob_sha": "287027480086453d62af918432b9b5e4e5c5e774",
+      "size": 2886
+    },
+    {
+      "path": "src/p24_run.py",
+      "blob_sha": "13f73d397573e6f2993e752bb7b50713644f912d",
+      "size": 1916
+    },
+    {
+      "path": "src/p25_adjudicate.py",
+      "blob_sha": "8ce97bda8908a31115f773c21ff786d7a7215f7f",
+      "size": 5444
+    },
+    {
+      "path": "src/p25_packets.py",
+      "blob_sha": "d4e49f65a73b3e4caf1644ab240d28cf8b460e7f",
+      "size": 4335
+    },
+    {
+      "path": "src/p25_run.py",
+      "blob_sha": "b3f71ff46d0e74a105944ed7f17eded3ef860d53",
+      "size": 2501
+    },
+    {
+      "path": "src/p26_adjudicate.py",
+      "blob_sha": "8ffd96dc5d5afb46a3a7d0637e103439ac997d47",
+      "size": 6207
+    },
+    {
+      "path": "src/p26_packets.py",
+      "blob_sha": "dc80d290d21ffc68ea370782b420ef5ccd240e41",
+      "size": 2572
+    },
+    {
+      "path": "src/p26_run.py",
+      "blob_sha": "98dbcaba4288393bbc20a0a3ae975981c7cadc5d",
+      "size": 2481
+    },
+    {
+      "path": "src/p27_adjudicate.py",
+      "blob_sha": "8e752cf8f73ffc925abaf025afe6b2259f103c43",
+      "size": 6687
+    },
+    {
+      "path": "src/p27_packets.py",
+      "blob_sha": "831f7e923d6cb88c286c8a1f0a6d633049528bd2",
+      "size": 2452
+    },
+    {
+      "path": "src/p27_run.py",
+      "blob_sha": "09d5ce76de0b841bd6cb490545f9984319621b9d",
+      "size": 2481
+    },
+    {
+      "path": "src/p28_analyze.py",
+      "blob_sha": "2ac0a4b1a88628622823f70c352d412544e6f465",
+      "size": 5240
+    },
+    {
+      "path": "src/p29_analyze.py",
+      "blob_sha": "207bac488fbcfc56ad32a435d8c34b28f8b28a42",
+      "size": 1183
+    },
+    {
+      "path": "src/p29_reconstruct.py",
+      "blob_sha": "aa003ee3fc6af2dbe2d0c8baaeadc7bf44653916",
+      "size": 1444
+    },
+    {
+      "path": "src/p30_adjudicate.py",
+      "blob_sha": "b32afe498ca8756498f770d5e9778dd2eda22c21",
+      "size": 3429
+    },
+    {
+      "path": "src/p30_design.py",
+      "blob_sha": "e2d9016f7443e783bf3ad7709bcfc14b364ff779",
+      "size": 5507
+    },
+    {
+      "path": "src/p30_run.py",
+      "blob_sha": "6a1e86a2b0f58afe0c3df85096adc5da476b3c50",
+      "size": 1884
+    },
+    {
+      "path": "src/p31_analyze.py",
+      "blob_sha": "e8544e7dfd25e9faaca58ebc01f7afc1d998faf5",
+      "size": 5929
+    },
+    {
+      "path": "src/p32_adjudicate.py",
+      "blob_sha": "1d316778d121324199fe104236c83c38e4e587ae",
+      "size": 5619
+    },
+    {
+      "path": "src/p32_design.py",
+      "blob_sha": "d2b3c1d93283650622c420ea874979aba55b851f",
+      "size": 5691
+    },
+    {
+      "path": "src/p32_run.py",
+      "blob_sha": "154b049960eddb71fc01aad412091e99cf2e78a0",
+      "size": 1884
+    },
+    {
+      "path": "src/p33_analyze.py",
+      "blob_sha": "0abdf05e289b4d65e6b02d35061a0673a6735766",
+      "size": 6552
+    },
+    {
+      "path": "src/p34_adjudicate.py",
+      "blob_sha": "87f866b25f637f7e2d9a5ff3d52b05f560f72b31",
+      "size": 6066
+    },
+    {
+      "path": "src/p34_design.py",
+      "blob_sha": "9338e7f212e0c74a027e8f910e0a03d1cbc000b9",
+      "size": 6773
+    },
+    {
+      "path": "src/p34_run.py",
+      "blob_sha": "57e0c3946960740c5bac9dc9e709cfd95c00784b",
+      "size": 1974
+    },
+    {
+      "path": "src/p35_adjudicate.py",
+      "blob_sha": "de178aca86c0fbc61d5771afad8c9bed3c18c94e",
+      "size": 5183
+    },
+    {
+      "path": "src/p35_design.py",
+      "blob_sha": "2599f47b79c106be1681cd1a06c35633e6991865",
+      "size": 5109
+    },
+    {
+      "path": "src/p35_run.py",
+      "blob_sha": "0a7f52c4f061615383ec58bf400f6233d9723fb0",
+      "size": 5493
+    },
+    {
+      "path": "src/p36_analyze.py",
+      "blob_sha": "36f288b5969ad1c8e0e4fc7b513ff33e15d2dfac",
+      "size": 7138
+    },
+    {
+      "path": "src/p37_adjudicate.py",
+      "blob_sha": "fc1d2863f10e494c8b290697ef7e784d4d666688",
+      "size": 6828
+    },
+    {
+      "path": "src/p37_design.py",
+      "blob_sha": "a82d0d0d06e473503b34ded96aff0fd93b186467",
+      "size": 6238
+    },
+    {
+      "path": "src/p37_run.py",
+      "blob_sha": "f4668498209143da56e86bae8778d087795fa980",
+      "size": 5483
+    },
+    {
+      "path": "src/p38_analyze.py",
+      "blob_sha": "5a358e8d51f0902289ca2c82228ade75fa4a81fc",
+      "size": 7688
+    },
+    {
+      "path": "src/p39_common.py",
+      "blob_sha": "20cb1f2a3d7c883bae87af1e3f63bd36286c0c5c",
+      "size": 3897
+    },
+    {
+      "path": "src/p39_cpu_screen.py",
+      "blob_sha": "20f9b28ac043ec5993633bfc0287ce5c51aa7064",
+      "size": 2636
+    },
+    {
+      "path": "src/p39_groq_screen.py",
+      "blob_sha": "f34416627b159025d4c9cff2bc08261421204824",
+      "size": 2190
+    },
+    {
+      "path": "src/p39_hf_multi_screen.py",
+      "blob_sha": "014d3b6352ab8a90c87359acda1a0ff236affc50",
+      "size": 5449
+    },
+    {
+      "path": "src/p39_hf_screen.py",
+      "blob_sha": "f3dc2b2bf745a64136f9b4caf7334e9d582c9dfc",
+      "size": 2281
+    },
+    {
+      "path": "src/p40_cross_family.py",
+      "blob_sha": "4dfb39abd79971749ba945b9ae974c22f83f86f2",
+      "size": 8431
+    },
+    {
+      "path": "src/p40_provider_census.py",
+      "blob_sha": "61ec5a6a4df8a05f653206e8cd3963159aa2742e",
+      "size": 566
+    },
+    {
+      "path": "src/p41_analyze.py",
+      "blob_sha": "17bda5ac357ed291d264595956f2980540d0d733",
+      "size": 4997
+    },
+    {
+      "path": "src/p43_replicate.py",
+      "blob_sha": "383cc00c30857292b7e7a4364968f8d7f4626212",
+      "size": 9676
+    },
+    {
+      "path": "src/p45_replay.py",
+      "blob_sha": "b02e811887c7e16b0f8ddb4a90ad3d233121e10e",
+      "size": 8727
+    },
+    {
+      "path": "src/p46_recover.py",
+      "blob_sha": "bbd93e61fd6caad036c1dd82d11c19468448a4ad",
+      "size": 1369
+    },
+    {
+      "path": "src/p46_regimes.py",
+      "blob_sha": "a1eaa59c836300742b9714ff4cc0f16e485617cc",
+      "size": 7904
+    },
+    {
+      "path": "src/p47_seed_time.py",
+      "blob_sha": "c6a7561d7eb11411d2c13458e04f387d79a12fff",
+      "size": 10355
+    },
+    {
+      "path": "src/p49_manifold.py",
+      "blob_sha": "ebd1647028be80749cf5374616f8fde9083184aa",
+      "size": 9996
+    },
+    {
+      "path": "src/p49_recover.py",
+      "blob_sha": "4f6d1c44aec30cebd3921d45a0450a12183ee47f",
+      "size": 1087
+    },
+    {
+      "path": "src/p50_marginal_measurement.py",
+      "blob_sha": "8ab632e2283f61a5ce1cfb2bf63af74b59951ef1",
+      "size": 8991
+    },
+    {
+      "path": "src/p50_recover.py",
+      "blob_sha": "70b99a076782399580b932d06aa1a8eb9b6331ff",
+      "size": 2693
+    },
+    {
+      "path": "src/p51_recover.py",
+      "blob_sha": "96b2548a448ca97d61c4eda91e3c0c32b6ba8a27",
+      "size": 3285
+    },
+    {
+      "path": "src/p52_allocation.py",
+      "blob_sha": "91ea63a562fb7fbead4a494593e4631c92658a48",
+      "size": 14168
+    },
+    {
+      "path": "src/p52_recover.py",
+      "blob_sha": "f6334ea7a50c4b8e73b98b3f9d640ea5a82e3a68",
+      "size": 920
+    },
+    {
+      "path": "src/p52_recover2.py",
+      "blob_sha": "41208b12f5ffcc7c6c2a69138b396ab85c6ac4b8",
+      "size": 917
+    },
+    {
+      "path": "src/p53_cross_task.py",
+      "blob_sha": "001bc275a1a159ef0375bbc8573ece480c2ba6b2",
+      "size": 12687
+    },
+    {
+      "path": "src/p54_recover.py",
+      "blob_sha": "71152a9927065789423dd9c3645d16a607c6eb82",
+      "size": 15425
+    },
+    {
+      "path": "src/p55_access_regime.py",
+      "blob_sha": "eeda2f45b5944f8eb3dbfbb6851236994d7eb4aa",
+      "size": 11853
+    },
+    {
+      "path": "src/p56_completion_lattice.py",
+      "blob_sha": "dae50ebdffc4ee4eb2cb19265f091c2912d2484b",
+      "size": 9951
+    },
+    {
+      "path": "src/p57_analyze_shards.py",
+      "blob_sha": "a458d8ed01a25f1139a20facf39be47161acd46c",
+      "size": 5254
+    },
+    {
+      "path": "src/p57_interaction_tensor.py",
+      "blob_sha": "150d8afaf40d33939333c915ece01097e2853eb3",
+      "size": 16558
+    },
+    {
+      "path": "src/p57_task_worker.py",
+      "blob_sha": "9011acd2e80ff08e33ca4e64c69d53bc9007e15a",
+      "size": 1423
+    },
+    {
+      "path": "src/p58_finalize.py",
+      "blob_sha": "2567dc13f844a754a46a61d9f35617bbc241015f",
+      "size": 1502
+    },
+    {
+      "path": "src/p58_recover_failed.py",
+      "blob_sha": "d052bdac7c6efadef427229bc935159f5feb58ba",
+      "size": 4133
+    },
+    {
+      "path": "src/p59_completion_lattice.py",
+      "blob_sha": "0b54bc136f62fc4f2289052b4ce62e1136d261de",
+      "size": 7146
+    },
+    {
+      "path": "src/p60_analyze_shards.py",
+      "blob_sha": "c13e654e6e549e35e729f5d0f16f1815815501f6",
+      "size": 7453
+    },
+    {
+      "path": "src/p60_task_worker.py",
+      "blob_sha": "90d76a11bc39acf88a78d2a13c98523487c222cf",
+      "size": 1577
+    },
+    {
+      "path": "src/p61_finalize.py",
+      "blob_sha": "352ffc68e9e2690e42991ab2ce1e06425ac0d9c9",
+      "size": 1451
+    },
+    {
+      "path": "src/p61_recover_failed.py",
+      "blob_sha": "7fbb6255785dd1bb00e4ed011b0084d1187b592f",
+      "size": 3338
+    },
+    {
+      "path": "src/p62_completion_lattice.py",
+      "blob_sha": "2e20e9c608187844ae3e8cd466896af6f528b73b",
+      "size": 9805
+    },
+    {
+      "path": "src/p63_task_worker.py",
+      "blob_sha": "c37aad16e13ed6eefc2b32e489f97cbd5961e816",
+      "size": 1615
+    },
+    {
+      "path": "src/p64_source_audit.py",
+      "blob_sha": "4279c03c236e904149c210596908d1fa85955987",
+      "size": 352
+    }
+  ],
+  "retire_workflows": [
+    {
+      "path": ".github/workflows/p19.yml",
+      "blob_sha": "3eac716debd7920da862299ec6d52cff24a874d0",
+      "size": 1856
+    },
+    {
+      "path": ".github/workflows/p40_census.yml",
+      "blob_sha": "afe5f4133d676dcc3ca8e08361d3b4f99a5ab90d",
+      "size": 744
+    },
+    {
+      "path": ".github/workflows/p52_recovery2.yml",
+      "blob_sha": "a1eb12be3c7a21ad4eb4d3c25a2f3551b437be31",
+      "size": 840
+    },
+    {
+      "path": ".github/workflows/p53.yml",
+      "blob_sha": "68b0e10a2194ff2b732ee7c19469f8de2722dae5",
+      "size": 947
+    },
+    {
+      "path": ".github/workflows/p60.yml",
+      "blob_sha": "9f540835d10a3528cb06c02766f9797e45870c19",
+      "size": 2743
+    }
+  ],
+  "retained_workflows": [
+    ".github/workflows/p64_archive.yml",
+    ".github/workflows/p64_recover.yml"
+  ],
+  "policy": "Git history is not archival custody. Every retired blob is contained in the Drive-custodied, SHA-verified GitHub Actions source snapshot; workflow references retired together. No bot authored commits; no GitHub Actions writeback."
+}
