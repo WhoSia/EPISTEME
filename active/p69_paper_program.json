@@ -1,7 +1,7 @@
 {
   "stage": "EPISTEME-P69",
   "formal_name": "Manuscript-Directed Representation-Effect Transport, Evaluation-Artifact Disentanglement, Independent Model-Family Replication, Held-Out Task-Ecology Validation & Publication-Readiness Court",
-  "state": "OPEN / PAPER_CONSTRUCT_HOLD / PROVIDER_MEASUREMENT_WORKFLOWS_PRECOMMITTED_NOT_EXECUTED / NO_PROVIDER_CALLS",
+  "state": "OPEN / TECHNICAL_DIAGNOSTIC_REPAIR_COMMITTED / LIVE_GEMINI_VALIDATION_PENDING / PAPER_CONSTRUCT_HOLD",
   "mission": "Turn P53-P65's task-local representation-operator effects and failed cross-task transfer into a rigorous paper claim through strong counter-explanations, independently generated task ecologies, model-family replication and scorer/format disentanglement, not by adding arbitrary P-number stages.",
   "primary_paper": "Task-Conditional Representation-Operator Effects and the Failure of Cross-Task Transport in Hosted LLM Falsification Tasks",
   "locked_history": {
@@ -219,7 +219,9 @@
     "independent_mechanism_sample_size": "4 mechanism families. Exact sign-symmetry two-sided attainable p >= 0.125; larger call counts alone cannot yield 0.05 resolution. Mechanism-family sample expansion requires genuine independent authorship/datasets and new frozen allocation; never relabel current variants as independent families.",
     "scifact_null": "HOLD: Withholding annotated SciFact contradiction does not prove non-contradiction; same-document alternate evidence requires actual human review. Never score semantic None as known ground truth.",
     "human_scores": "HOLD: Cohen-kappa calculations tested on synthetic fixture only. Secret HMAC pseudonyms are available locally but no independent annotator evaluations have occurred.",
-    "precommit_status": "Measurement-only 4-slot canary and conditional 192-slot instrumentation pilot are prospective and manual; external ecology, independent annotations, effect estimands and mechanism-level inference remain REQUIRED before any confirmatory 8192-call main run. P69 code preflight already PASS at both provider-free workflows; no actual provider calls."
+    "precommit_status": "Measurement-only 4-slot canary and conditional 192-slot instrumentation pilot are prospective and manual; external ecology, independent annotations, effect estimands and mechanism-level inference remain REQUIRED before any confirmatory 8192-call main run. P69 code preflight already PASS at both provider-free workflows; no actual provider calls.",
+    "gemini_provider_contract": "LIVE_TECHNICAL_HOLD: Gemini 0/2 in run 37793112647; remediation now records safe diagnostics but no actual valid rerun. Model stable per Google developer documentation; account-specific access and precise request rejection unresolved.",
+    "scoped_closure_condition": "P69 can close with empirical paper promotion only after independently judged realistic tasks, genuine additional mechanism families and distinct-model results. If model API does not recover, only a formal TECHNICAL_HOLD / nonpromotion scoped closure is allowed; no empirical performance claim."
   },
   "future_papers": {
     "instrumentation": "P66-P67 selective observability and score validity as possible separate method study only after P67 actual experiment",
@@ -351,6 +353,43 @@
     "scientific_use": "CANARY AND PILOT ARE NONINFERENTIAL: do not compute publication hypothesis p-values or select a favorable model from them.",
     "main_study_status": "HOLD, NOT LAUNCHED, NOT YET FULLY VALID DESIGN. 8192 is ceiling, not authorization.",
     "provider_sdk_caveat": "Logical slots are bounded; Groq SDK retry 0, Google SDK internal automatic request retry behavior not independently verified. Record service error class and model version.",
-    "governance": "Read-only, artifact-only, no bot commits."
+    "governance": "Read-only, artifact-only, no bot commits.",
+    "actual_canary_run": {
+      "run_id": 37793112647,
+      "sha": "930330ed8dda517d674c81b45e2b04af83597201",
+      "event": "workflow_dispatch",
+      "job_status": "success",
+      "scientific_gate": "TECHNICAL_CONTRACT_HOLD",
+      "groq_contracts_valid": 2,
+      "gemini_contracts_valid": 0,
+      "gemini_failure_type": "ClientError",
+      "cause_known": false,
+      "reason": "Original canary logged only exception class; both Gemini channels returned no response. Do not infer invalid model ID or quota from this.",
+      "artifacts": {
+        "summary": 11558120027,
+        "gemini": 11557361464,
+        "groq": 11556579699
+      }
+    },
+    "after_run_repair": {
+      "state": "SOURCE_REMEDIATION / NO LIVE GEMINI SUCCESS RECEIPT",
+      "changes": [
+        "Only redacted HTTP error category and numeric status are recorded.",
+        "Non-generative Gemini model metadata access diagnostic on failed Gemini canary.",
+        "Explicit HttpRetryOptions(attempts=1) in both Gemini canary and pilot clients.",
+        "Final canary analysis exits nonzero if verdict TECHNICAL_CONTRACT_HOLD while preserving artifact.",
+        "Provider-free synthetic success/hold regression.",
+        "Documented no silent model substitution."
+      ],
+      "code": [
+        "src/p69_safe_error.py",
+        "src/p69_provider_canary.py",
+        "src/p69_provider_canary_analyze.py",
+        "src/p69_instrument_pilot.py",
+        "src/p69_gemini_metadata.py"
+      ],
+      "canonical_court": "active/p69_gemini_repair_court.md",
+      "scientific_gate": "Neither 192 pilot nor 8192 main authorized. Gemini rerun required at new HEAD SHA; old canary cannot be reused."
+    }
   }
 }
