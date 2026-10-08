@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse,hashlib,json
 from pathlib import Path
 from p69_external_scifact import ingest,prepare,SOURCE_SCHEMA
+from p69_scifact_matched import compile_cases
 
 def census(claim_path,corpus_path,archive_path,max_claims=16):
     claims=list(ingest(claim_path))
@@ -10,6 +11,12 @@ def census(claim_path,corpus_path,archive_path,max_claims=16):
     corpus={str(v["doc_id"]):v for v in corpus_rows if "doc_id" in v}
     packets,private=prepare(claims,corpus,max_claims)
     assert len(packets)==len(private)==8*max_claims, "SCIFACT_INSUFFICIENT_MATCHED_EXAMPLES"
+    count_matched_public,count_matched_key=compile_cases(claims,corpus,max_claims)
+    assert len(count_matched_public)==len(count_matched_key)==8*max_claims
+    assert not any(x["semantic_abstention_certified"] for x in count_matched_key)
+    for k in range(0,len(count_matched_public),8):
+        assert len({len(x["evidence"]) for x in count_matched_public[k:k+8]})==1
+
     assert len({z["case_id"] for z in packets})==len(packets)
     assert all(z["needs_independent_annotation"] and z["claim_of_semantic_null"]=="NOT_AUTHORIZED" for z in private)
     assert all(z["annotation_label"] is None for z in packets)
@@ -31,7 +38,9 @@ def census(claim_path,corpus_path,archive_path,max_claims=16):
             "corpus_entries":len(corpus),"dev_claim_rows":len(claims),
             "externally_annotated_claims_selected":len(chosen),
             "source_claim_ids_sha256":hashlib.sha256(",".join(map(str,chosen)).encode()).hexdigest(),
-            "generated_packet_rows":len(packets),"mode":"SCHEMA_ONLY / NOT BEHAVIORALLY VALIDATED",
+            "generated_packet_rows":len(packets),
+            "count_matched_external_packet_rows":len(count_matched_public),
+            "count_matched_semantic_null_certified":False,"mode":"SCHEMA_ONLY / NOT BEHAVIORALLY VALIDATED",
             "null_claims_are": "WITHHELD_ANNOTATED_RATIONALE, NOT CERTIFIED NO-CONTRADICTION",
             "human_evidence_annotation_required":True,
             "provider_calls":0,
