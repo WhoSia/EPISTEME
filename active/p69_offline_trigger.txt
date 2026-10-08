@@ -1,1 +1,1 @@
-P69 third zero-provider-call audit: minimal-witness grader, shotgun defense, 1152 retention controls, 1152 independent reference verdicts; no provider secrets, no GitHub Actions commits.
+P69 fourth zero-call audit: dual endpoint scorer v2, 1152 retention controls, 72-case anonymized annotation export and public-only artifact. No provider or repository writeback.
