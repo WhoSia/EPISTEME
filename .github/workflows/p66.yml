@@ -1,0 +1,65 @@
+name: EPISTEME P66 Relational Binding Court
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  preflight:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install groq google-genai numpy
+      - run: PYTHONPATH=src python src/p66_relational_binding.py
+      - run: PYTHONPATH=src python -m py_compile src/p66_relational_binding.py src/p66_task_worker.py src/p66_analyze.py
+  task:
+    needs: preflight
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        task: [BH1, BH2, BH3, BT1, BT2, BT3, DH1, DH2, DH3, DT1, DT2, DT3]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install groq google-genai numpy
+      - name: Run prospectively frozen shard
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: PYTHONPATH=src python src/p66_task_worker.py --task ${{ matrix.task }} --out receipts/p66/${{ matrix.task }}.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: p66-task-${{ matrix.task }}
+          path: receipts/p66/
+          retention-days: 30
+  analyze:
+    if: always()
+    needs: [preflight, task]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install groq google-genai numpy
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: p66-task-*
+          path: receipts/p66_shards
+          merge-multiple: true
+      - name: Frozen factorial adjudication
+        run: PYTHONPATH=src python src/p66_analyze.py --root receipts/p66_shards --out receipts/p66_result.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: p66-factorial-court-result
+          path: receipts/p66_result.json
+          retention-days: 30
