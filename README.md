@@ -58,3 +58,10 @@ This is a falsification of the proposed record/state × diagnostic/procedural co
 Canonical seal: `active/p62_result.json`.
 
 Repository writeback from Actions and `github-actions[bot]` authored/committer contributions remain forbidden.
+
+## P64 source-retirement custody receipt
+
+- Verified pre-retirement snapshot was uploaded to [Google Drive EPISTEME archive](https://drive.google.com/file/d/10zC0eDpejpfJvfyC82DevMLlSusnBGYk/view). It was captured by GitHub Actions run `37706177499`; artifact ID `11520240159`, GitHub artifact ZIP SHA-256 `974a2c8de66636e1eaf8540211743cc8810d3c1634aaae0ad26edbb46040d3e7`.
+- A newer snapshot run `37707694891` was triggered after P64 preflight improvements; verify its completion and custody before deleting any files newer than the first snapshot.
+- `src` currently contains 99 Python files. Historical modules must be classified using both their transitive imports and workflow invocations, not stage numbers. **No retirement deletion is authorized until complete reference auditing and byte-identical Drive readback are complete.**
+- The P64 recovery worker and `p64_recover.yml` are already on `main`; ZIP-based manual creation is not needed. The live worker now includes a zero-provider-call `--preflight-only` gate.
