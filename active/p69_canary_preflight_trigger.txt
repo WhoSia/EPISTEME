@@ -1,1 +1,1 @@
-P69 provider-free canary harness preflight only. Manual workflow_dispatch is required for up to four real API contract calls (Groq two, Gemini two). No paid/model calls on push. All workflow permissions read-only; bot commits forbidden.
+P69 Gemini failure diagnostic source preflight: redacted error classifier, metadata GET fallback (manual canary only), no SDK retries, red HOLD verdict; zero text-generation calls on push. No github-actions[bot] commits.
