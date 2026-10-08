@@ -18,6 +18,9 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: gh run download 37563565663 --repo WhoSia/EPISTEME --dir receipts/p64_source
+      - name: P64 zero-call source preflight
+        run: |
+          PYTHONPATH=src python src/p64_recover_failed.py --p63-result receipts/p64_source/p60-operator-context-result/p60_result.json --source-shards receipts/p64_source --out-root receipts/p64_merged --receipt receipts/p64/p64_recovery.json --preflight-only
       - name: Recovery
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
