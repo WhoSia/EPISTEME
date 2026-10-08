@@ -29,3 +29,11 @@
 **Verdict today:** `TECHNICAL_DIAGNOSTIC_REPAIR_COMMITTED / LIVE_GEMINI_VALIDATION_PENDING / PAPER_CONSTRUCT_HOLD`.
 
 **Repository governance:** manual WhoSia GitHub-account commits only. Never allow `github-actions[bot]` to author or commit. Read-only workflow permissions with no writeback.
+
+## Non-generative model access result (2026-10-09 KST)
+
+[Hosted metadata read #37799756708](https://github.com/WhoSia/EPISTEME/actions/runs/37799756708) **PASS**, artifact `11560062648`. Its redacted model registry response is `models/gemini-3.5-flash-lite`, meaning the configured API key can access the model metadata endpoint. This is NOT a successful text-generation or JSON-schema contract response; account ability to generate and validity of request configuration remain unverified.
+
+[Repaired canary push-preflight #37799840344](https://github.com/WhoSia/EPISTEME/actions/runs/37799840344) **PASS**, provider-call jobs SKIPPED. Until a NEW manual workflow_dispatch produces Gemini replies or redacted HTTP diagnostics, the original `TECHNICAL_CONTRACT_HOLD` remains in effect.
+
+No automatic fallback model, no imputed answer, no pilot launch. Model metadata observation and generating a semantically grounded criticism are logically different endpoints.
