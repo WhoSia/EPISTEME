@@ -20,4 +20,12 @@ jobs:
           python -m py_compile src/p69_task_factory.py src/p69_independent_scorer.py src/p69_offline_audit.py src/p69_predictive_analysis.py
           python src/p69_offline_audit.py
           python src/p69_predictive_analysis.py
+      - name: Export blinded cases without private answer key
+        run: python src/p69_blind_adjudication.py --public receipts/p69_blind_public.jsonl
+      - name: Upload public human-adjudication pack only
+        uses: actions/upload-artifact@v4
+        with:
+          name: p69-public-blind-adjudication
+          path: receipts/p69_blind_public.jsonl
+          retention-days: 30
 # No GitHub writeback, secrets, provider calls, or bot-authored commits.
