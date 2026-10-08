@@ -1,6 +1,9 @@
 name: EPISTEME P64 Recovery
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - 'active/p64_run_trigger.txt'
 permissions:
   contents: read
   actions: read
