@@ -12,7 +12,23 @@ Active execution surface for the EPISTEME research program.
 - Argument comes first; literature and code are pressure, falsification, or execution instruments rather than sources of authority.
 - GitHub Actions may compute, test, validate, and upload artifacts, but `github-actions[bot]` must not write repository history. Workflows default to `contents: read`.
 
-## Current stage — EPISTEME-P64
+## Current stage — EPISTEME-P66
+
+**EPISTEME-P66 — Relational Evidence Binding Intervention, Target–Evidence Linkage, Evidence-Location Factorial Separation & Operator Transport Court**
+
+- An explicitly target-linked decisive evidence record versus a cross-linked neutral record; history/terminal evidence placement crossed independently, with 3 lexical skins, 32 operator vertices, valid/null semantic twins, and 16 draws.
+- P66 design is **precommitted before provider calls**; 12,288 calls are a budget/ceiling, not yet executed.
+- Code: `src/p66_relational_binding.py`, `src/p66_task_worker.py`, `src/p66_analyze.py`; constitution: `active/p66_manifest.json`; manual Actions: `.github/workflows/p66.yml`.
+- Preflight-only trigger is `active/p66_preflight_trigger.txt`. This push event never executes model-call shards; the model experiment is `workflow_dispatch` only.
+- Analysis: conditional-oracle joint semantic accuracy, within-skin exact 13,824-label permutation tests, R/T Holm and strict A/B sign transport. P66 does **not** include an independent shadow scorer. Causal claims limited to this synthetic archive grammar.
+- Research page: [Notion P66](https://www.notion.so/3f3ef561cf9281babe6ed0d4aea455a8).
+- GitHub Actions remains read-only, creates artifacts only, and must **never** author or commit repository changes as `github-actions[bot]`.
+
+## Historical closed P65
+
+P64 recovered 289/303 failed P63 provider rows; 14 unresolved responses reduce to two unresolved joint-correctness bits and four admissible scientific worlds. All four worlds select `POST_P62_R_T_EFFECTS_REMAIN_TASK_LOCAL_UNDER_STRUCTURAL_INTERVENTION`. P65 scientifically CLOSED missingness-free; original P63 technical `TECHNICAL_HOLD` retained. Canonical `active/p65_result.json`.
+
+## Historical P64
 
 **EPISTEME-P64 — Structure-Conditioned Provider-Failure Localization, Failed-Cell-Only Recovery, Dual-Endpoint Completion Bounds, Frozen P63 Factorial-Court Reconstitution & Scientific Identifiability Adjudication**
 
