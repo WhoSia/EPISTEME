@@ -22,6 +22,7 @@ jobs:
         run: |
           python -m py_compile src/p69_provider_canary.py src/p69_provider_canary_analyze.py src/p69_paper_preflight.py
           PYTHONPATH=src python src/p69_provider_canary.py --self-test
+          PYTHONPATH=src python src/p69_provider_canary_analyze.py --self-test
           PYTHONPATH=src python src/p69_paper_preflight.py
           echo 'P69_NO_PROVIDER_CALLS_ON_PUSH=PASS'
 
