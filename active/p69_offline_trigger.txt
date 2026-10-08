@@ -1,1 +1,1 @@
-P69 fifth zero-provider-call audit: HMAC blind release gate, public preview explicitly NONBLIND, 1152 truth-preserving control views and semantic-vs-grounded scoring. No private secrets or model calls.
+P69 sixth provider-free run: scoped four-cluster sign-symmetry sensitivity, A/B operator half-block checks, SciFact external-schema intake fixture, old scorer/retention/blind preview regression. No provider calls or GitHub Actions repository writeback.
