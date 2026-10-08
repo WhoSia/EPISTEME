@@ -37,7 +37,7 @@ def main():
  missing=[{k:r.get(k) for k in ('task','draw','cell_index','error')} for r in rows if r['status']!='OK']
  out={'stage':'EPISTEME-P66','technical':{'ok':len(rows)-len(missing),'total':len(rows),'failures':len(missing),'failed_rows':missing},'constitutional_verdict':'TECHNICAL_HOLD'}
  if not missing:
-  effects={};means={}
+  effects={};means={};block_effects={}
   for task in TASKS:
    rr=[r for r in rows if r['task']==task]
    joint=np.zeros((16,32),float)
@@ -48,16 +48,31 @@ def main():
      joint[draw-1,vertex]=float(all(r['primary_correct'] for r in cell))
    means[task]=float(joint.mean())
    effects[task]={'R':operator_effect(1-joint.mean(axis=0))['R'],'T':operator_effect(1-joint.mean(axis=0))['T']}
+   block_effects[task]={b:operator_effect(1-joint[start:end].mean(axis=0)) for b,start,end in [('A',0,8),('B',8,16)]}
   binding_test=signed_stats(means)
   op_tests={op:signed_stats({t:effects[t][op] for t in TASKS})['binding'] for op in ('R','T')}
   op_holm=holm({op:op_tests[op] for op in ('R','T')})
   # Operator-specific tests are secondary; avoid substituting them for joint-accuracy primary.
   primary=binding_test['binding']['p']<=.05
   op_primary=all(op_holm['rejected'].values())
-  if primary and op_primary:verdict='RELATIONAL_BINDING_EFFECT_WITH_R_T_OPERATOR_MODERATION'
+  def sgn(v):return 1 if v>0 else (-1 if v<0 else 0)
+  strict=True;sign_proof={}
+  for op in ('R','T'):
+   orientations=[]
+   for loc in ('history_externalized','terminal_embedded'):
+    for skin in (1,2,3):
+     t=('BH' if loc=='history_externalized' else 'BT')+str(skin)
+     d=('DH' if loc=='history_externalized' else 'DT')+str(skin)
+     orient=(sgn(effects[t][op]),sgn(effects[d][op]));orientations.append(orient)
+     pair=orient[0]*orient[1]==-1 and all(sgn(block_effects[t][b][op])*sgn(block_effects[d][b][op])==-1 for b in ('A','B'))
+     sign_proof[f'{op}:{loc}:{skin}']={'orientation':orient,'pass':pair}
+     strict=strict and pair
+   strict=strict and len(set(orientations))==1
+  if primary and op_primary and strict:verdict='RELATIONAL_BINDING_EFFECT_WITH_R_T_STRICT_SIGN_TRANSPORT'
+  elif primary and op_primary:verdict='RELATIONAL_BINDING_EFFECT_WITH_R_T_MODERATION_NO_STRICT_TRANSPORT'
   elif primary:verdict='RELATIONAL_BINDING_EFFECT_WITHOUT_JOINT_R_T_MODERATION'
   elif op_primary:verdict='R_T_MODERATION_WITHOUT_PRIMARY_JOINT_ACCURACY_EFFECT'
   else:verdict='NO_PRECOMMITTED_BINDING_EFFECT_DETECTED'
-  out.update(task_joint_accuracy=means,task_operator_effects=effects,binding_factorial=binding_test,operator_binding_tests=op_tests,operator_binding_holm=op_holm,constitutional_verdict=verdict)
+  out.update(task_joint_accuracy=means,task_operator_effects=effects,binding_factorial=binding_test,operator_binding_tests=op_tests,operator_binding_holm=op_holm,strict_sign_transport={'pass':strict,'detail':sign_proof},constitutional_verdict=verdict)
  Path(x.out).parent.mkdir(parents=True,exist_ok=True);Path(x.out).write_text(json.dumps(out,indent=2))
 if __name__=='__main__':main()
