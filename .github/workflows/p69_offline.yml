@@ -23,6 +23,8 @@ jobs:
           python src/p69_inference_sensitivity.py
           python src/p69_disjoint_prediction.py
           python src/p69_external_scifact.py --self-test
+          python src/p69_scifact_matched.py --self-test
+          python src/p69_human_agreement.py --self-test
       - name: Export deterministic label-hidden PREVIEW, not a blinded trial
         run: python src/p69_blind_adjudication.py --preview --public receipts/p69_annotation_preview.jsonl
       - name: Upload preview only; no ground truth or secret used
