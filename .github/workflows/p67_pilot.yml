@@ -20,8 +20,9 @@ jobs:
       - run: python -m pip install groq google-genai numpy
       - name: Validate frozen pilot and parser
         run: |
-          PYTHONPATH=src python -m py_compile src/p67_channels.py src/p67_pilot_worker.py src/p67_pilot_analyze.py
+          PYTHONPATH=src python -m py_compile src/p67_channels.py src/p67_pilot_worker.py src/p67_pilot_analyze.py src/p67_selftest.py
           PYTHONPATH=src python src/p67_channels.py
+          PYTHONPATH=src python src/p67_selftest.py
           PYTHONPATH=src python - <<'PY'
           import json
           from p67_channels import N_CALLS
