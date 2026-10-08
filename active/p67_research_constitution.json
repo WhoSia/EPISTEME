@@ -1,0 +1,49 @@
+{
+  "stage": "EPISTEME-P67",
+  "state": "FOUNDATIONAL_COURT_OPEN / MODEL_CALLS_NOT_AUTHORIZED",
+  "source_run": 37712504043,
+  "source_total": 12288,
+  "source_technical_failures": 835,
+  "source_json_failures": 834,
+  "founding_link": "P5 selective observation -> P10 self-validating compression -> P16 external criticism generation -> P19 provenance link+relation -> P66 output contract",
+  "explanandum": "Does output-channel selection change which model-generated falsifying criticisms are scientifically observable, beyond underlying semantic competence?",
+  "interventions": [
+    "existing JSON schema structured channel",
+    "free text channel with equivalent semantic response options"
+  ],
+  "primary_endpoint": "P(valid response and semantically correct falsifying answer | randomized channel, packet)",
+  "secondary_endpoints": [
+    "validity rate",
+    "semantic answer among observed responses",
+    "partial-identification intervals for latent correctness of missing outputs",
+    "binding by location by channel interactions"
+  ],
+  "design_controls": [
+    "valid witness",
+    "null twin",
+    "recoverable-coarse",
+    "sham-rich decoy"
+  ],
+  "fatal_controls": [
+    "No intact semantic-equivalence between channels",
+    "Format effect fails held-out task transfer",
+    "Channel result entirely parser-induced",
+    "Selection bias cannot be bounded usefully"
+  ],
+  "assumptions": [
+    "Potential semantic response is channel-dependent; never assert latent answer consistency.",
+    "Output technical failure is not observed wrong answer.",
+    "Exact schema/provider/seed and API version are components of treatment."
+  ],
+  "prior_art": [
+    "Geng et al. 2025 JSONSchemaBench arxiv:2501.10868",
+    "Ray 2026 The Constraint Tax arxiv:2605.26128",
+    "Lakkaraju et al. 2017 Selective Labels",
+    "Perdomo et al. 2020 Performative Prediction",
+    "Manski 2005 Partial Identification"
+  ],
+  "paper_claim_ceiling": "Selective observability can cause differential access to admissible falsifying criticisms; causal channel effects and sharp partial identification, NOT the already-known structured-output tradeoff.",
+  "next_gate": "Offline failure audit and parser/packet validation, followed by randomized low-budget pilot prospectively frozen before full call batch.",
+  "github_actions": "Not authorized for model calls yet; read-only artifact workflows only.",
+  "bot_commits": "forbidden"
+}
