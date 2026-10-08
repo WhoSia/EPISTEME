@@ -1,0 +1,53 @@
+{
+  "stage": "EPISTEME-P65",
+  "source_run": 37708993897,
+  "source_artifact_id": 11521686137,
+  "source_recovery": {
+    "attempted": 303,
+    "recovered": 289,
+    "remaining": 14
+  },
+  "logical_joint_unknowns": [
+    {
+      "task": "ST1",
+      "draw": 21,
+      "vertex": "F_H",
+      "semantic": "valid"
+    },
+    {
+      "task": "ST1",
+      "draw": 44,
+      "vertex": "R",
+      "semantic": "valid"
+    }
+  ],
+  "worlds": [
+    "00",
+    "01",
+    "10",
+    "11"
+  ],
+  "world_count": 4,
+  "unique_constitutional_verdict": "POST_P62_R_T_EFFECTS_REMAIN_TASK_LOCAL_UNDER_STRUCTURAL_INTERVENTION",
+  "world_verdicts": [
+    "POST_P62_R_T_EFFECTS_REMAIN_TASK_LOCAL_UNDER_STRUCTURAL_INTERVENTION",
+    "POST_P62_R_T_EFFECTS_REMAIN_TASK_LOCAL_UNDER_STRUCTURAL_INTERVENTION",
+    "POST_P62_R_T_EFFECTS_REMAIN_TASK_LOCAL_UNDER_STRUCTURAL_INTERVENTION",
+    "POST_P62_R_T_EFFECTS_REMAIN_TASK_LOCAL_UNDER_STRUCTURAL_INTERVENTION"
+  ],
+  "stopping_location_holm_adjusted_p": {
+    "R": 0.6944444444444444,
+    "T": 0.6481481481481481
+  },
+  "stopping_framing_holm_adjusted_p": {
+    "R": 1,
+    "T": 1
+  },
+  "stopping_interaction_holm_adjusted_p": {
+    "R": 0.5555555555555556,
+    "T": 0.5370370370370371
+  },
+  "method": "Four admissible primary joint-correctness completions over two remaining uncertain valid/null pairs, frozen P63 task beta-mixture and 13824 permutation court re-evaluated separately in each completion; no model calls.",
+  "authority": "P65 missingness-free branch identification. Original P63 TECHNICAL_HOLD not overwritten. Conditional inference under frozen exchangeability permutation scheme; does not prove universal absence of effects.",
+  "closure": "CLOSED"
+}
