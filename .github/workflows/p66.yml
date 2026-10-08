@@ -1,6 +1,9 @@
 name: EPISTEME P66 Relational Binding Court
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - 'active/p66_preflight_trigger.txt'
 permissions:
   contents: read
   actions: read
@@ -16,6 +19,7 @@ jobs:
       - run: PYTHONPATH=src python src/p66_relational_binding.py
       - run: PYTHONPATH=src python -m py_compile src/p66_relational_binding.py src/p66_task_worker.py src/p66_analyze.py
   task:
+    if: github.event_name == 'workflow_dispatch'
     needs: preflight
     runs-on: ubuntu-24.04
     timeout-minutes: 120
@@ -41,7 +45,7 @@ jobs:
           path: receipts/p66/
           retention-days: 30
   analyze:
-    if: always()
+    if: github.event_name == 'workflow_dispatch' && always()
     needs: [preflight, task]
     runs-on: ubuntu-24.04
     steps:
