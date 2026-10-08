@@ -1,0 +1,68 @@
+{
+  "stage": "EPISTEME-P68",
+  "title": "Cross-Channel Falsification-Route Restoration, Independent Criticism Generation–Acceptance Separation, Retained-Evidence Sufficiency Controls, Held-Out Relational Grammar Transport, Output-Interface Causal Mediation & the Scientific Identifiability of Epistemic Access Loss",
+  "verdict": "CLOSED_SCOPED_FORMAL_CONSTRUCT_ONLY_BEHAVIORAL_NONPROMOTION",
+  "closure_date": "2026-10-08",
+  "precommit_continuity": {
+    "original": "active/p68_constitution.json",
+    "r2": "active/p68_r2_identification_court.md",
+    "p67_prerequisite": "384-call P67 experiment unexecuted; preflight-only runs 37724086135 and 37724227380",
+    "p66": "TECHNICAL_HOLD retained"
+  },
+  "proof_scope": {
+    "latent_worlds": 12,
+    "mechanisms": [
+      "direct",
+      "two_hop",
+      "guarded"
+    ],
+    "public_generation_packets": 72,
+    "public_observation_transfer_packets": 72,
+    "critical": 6,
+    "recoverable": 3,
+    "null": 3,
+    "observation_nonidentification": "For each mechanism: exists critical/null world pair with alpha-equivalent Coarse and distinct Rich under opaque-ID invariance.",
+    "regret": "For 0<c<L: deterministic minimax regret min(c,L-c); randomized minimax regret c(L-c)/L at restore probability (L-c)/L. Standard finite decision theory, no novelty claim."
+  },
+  "verification": {
+    "independent_reference_oracle_graphs": 36,
+    "single_edge_deletions": 348,
+    "single_true_edge_additions": 636,
+    "edge_permutations": 360,
+    "transfer_cases": 72,
+    "decision_cost_settings": 6,
+    "synthetic_defined_feedback": {
+      "critical_coarse_self_seal": 6,
+      "critical_with_external_certificate_reopens": 6,
+      "recoverable_coarse_challenge": 3,
+      "null_coarse_keep": 3
+    },
+    "tests": "PASS",
+    "model_calls": 0
+  },
+  "source_custody": {
+    "drive_zip": "https://drive.google.com/file/d/1iCekBvSjCpBqDPXoIAthuS1RJuCvsAVr/view",
+    "sha256": "5f960eada983fa96c7b8f9fdb7bc481d317ef3c56815641047b7fe97e78a2012",
+    "verified_drive_readback": true,
+    "public_source_and_tests": "in ZIP, not installed in repository src",
+    "private_scoring_key": "excluded from public ZIP; remains separate; never include in public GitHub or provider prompts"
+  },
+  "epistemic_boundaries": [
+    "No independently observed LLM criticism generation",
+    "No independent reviewer acceptance observation",
+    "No tested held-out GUARDED behavior",
+    "No naturalistic transport",
+    "No identified natural indirect mediation effect",
+    "Toy KEEP/RESTORE feedback defined by researcher, not learned or observed",
+    "Packet reasoning_rule discloses graph semantics; success would partly be instruction following"
+  ],
+  "promotion": "NO_PAPER_LEVEL_BEHAVIORAL_OR_INFRASTRUCTURE_CLAIM",
+  "successor_authorization": "New stage and separate precommit only after actual P67 feasibility pilot + independent multi-family blinded generate/review + cost-sensitive retention + held-out grammar. No retrofit of old R2 labels.",
+  "governance": {
+    "git_author": "WhoSia",
+    "git_committer": "WhoSia",
+    "github_actions_bot_may_commit": false,
+    "actions_if_any_read_only": true,
+    "p68_actions_created": false
+  }
+}
