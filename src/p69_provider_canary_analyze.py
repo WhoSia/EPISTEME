@@ -32,8 +32,10 @@ def inspect(directory):
                 raise ValueError("P69_CANARY_MODEL_SUBSTITUTION")
         results[rec["model_bundle"]]={
             "n_contracts":2,"valid":sum(x["schema_and_canary_valid"] for x in rec["observations"]),
-            "errors":[{"channel":x["channel"],"error_type":x["error_type"]}
+            "errors":[{"channel":x["channel"],"error_type":x["error_type"],
+                        "redacted_diagnostic":x.get("error_diagnostic")}
                       for x in rec["observations"] if not x["schema_and_canary_valid"]],
+            "model_metadata_diagnostic":rec.get("model_metadata_diagnostic"),
             "requested":MODEL_IDS[rec["model_bundle"]],
             "observed_versions":sorted(set(str(x["returned_model_version"]) for x in rec["observations"]))}
     ok=all(z["valid"]==2 for z in results.values())
