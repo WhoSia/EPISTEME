@@ -1,0 +1,88 @@
+{
+  "stage": "EPISTEME-P67",
+  "part": "PILOT_PROSPECTIVE_PRECOMMIT",
+  "status": "FROZEN_BEFORE_PROVIDER_CALLS",
+  "parent_constitution": "active/p67_research_constitution.json",
+  "source_court": "active/p67_p66_offline_court.json",
+  "source_run": 37712504043,
+  "design": {
+    "task_ids": [
+      "BH1",
+      "BT1",
+      "DH1",
+      "DT1"
+    ],
+    "semantic_classes": [
+      "valid",
+      "null"
+    ],
+    "vertices": [
+      "I",
+      "R",
+      "T",
+      "R_T",
+      "F_H",
+      "R_F_H",
+      "F_T_L",
+      "R_F_H_T_L"
+    ],
+    "replicate_invocations": [
+      1,
+      2
+    ],
+    "channels": [
+      "schema",
+      "json_object",
+      "plain"
+    ],
+    "maximum_model_calls": 384,
+    "provider": "Groq",
+    "model": "openai/gpt-oss-120b",
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_completion_tokens": 1536,
+    "reasoning_effort": "medium",
+    "reasoning_format": "hidden",
+    "max_sdk_retries": 0,
+    "api_seed_sent": false,
+    "order": "Within each task, deterministically shuffle the full 96-cell plan with local RNG 6700+task_index; repeat index does not claim provider seed determinism.",
+    "packet_invariance": "The canonical p66 packet JSON SHA256 is exactly identical across channel arms at each task/draw/vertex/semantic/alias. schema/json_object have byte-identical textual prompt; plain changes response envelope only."
+  },
+  "treatment_definition": {
+    "schema": "P42 exact strict JSON schema response_format; P42 original JSON prompt.",
+    "json_object": "Provider json_object response_format; the exact same P42 original JSON prompt.",
+    "plain": "Unconstrained response_format; same underlying P66 packet and semantic task, but plain-text NONE or CHALLENGE|u1|different envelope instruction. Compound formatting+prompt treatment; cannot attribute this pairwise contrast solely to provider decoder."
+  },
+  "estimands": {
+    "primary_pilot": "Executable correctness among ALL invocations, where provider failure or format invalidity is 0 for executable correctness but NOT imputed as semantic error.",
+    "secondary": [
+      "Provider-response rate",
+      "Format-valid response rate",
+      "Semantic correctness given format-observable response, flagged as selected",
+      "Paired packet-hash equality and raw error token class"
+    ],
+    "no_confirmatory_inference": "384-call pilot is feasibility only. No p-value, novelty promotion, or published causal effect from pilot; full later preregistration requires held-out grammatical generalization."
+  },
+  "pilot_measurement_gate": "All 384 unique identities and 128/channel; each of the three channels must have >=96 provider responses (75%) to mark MEASUREMENT_FEASIBLE. Otherwise TECHNICAL_MEASUREMENT_HOLD, no adaptive reruns.",
+  "pre_frozen_risks": [
+    "Groq can reject JSON schema with failed_generation NONE; represent technical failure separately.",
+    "Malformed JSON text and provider request rejection are distinct states.",
+    "p42_reopen.groq_raw does not send nominal seed, so P66 draws were stochastic invocation labels.",
+    "Validity and correctness tradeoff already in JSONSchemaBench and The Constraint Tax; no novelty on general format penalty.",
+    "P66 BH–BT missingness-free performance gap of at least 1105/1536 persists even if all missing truth assignments are favorable, so output formatting errors alone cannot explain that gap."
+  ],
+  "prohibitions": [
+    "Do not change P66 frozen scientific result.",
+    "Do not alter pilot gate post execution.",
+    "No GitHub Actions bot commits or push rights.",
+    "No blanket causal conclusion from non-randomized historical P66 source."
+  ],
+  "execution": {
+    "pilot_workflow": ".github/workflows/p67_pilot.yml",
+    "requires_manual_workflow_dispatch": true,
+    "preflight_push_only": true,
+    "contents_permission": "read",
+    "actions_permission": "read",
+    "git_push": false
+  }
+}
