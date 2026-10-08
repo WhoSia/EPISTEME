@@ -62,7 +62,9 @@ def run():
                     extras=sorted(all_visible_ids(packet)-set(reply["rationale_ids"]))
                     assert extras
                     reply["rationale_ids"].append(extras[0])
-                    assert score(packet,json.dumps(reply))["semantic_correct"] is False
+                    audit=score(packet,json.dumps(reply))
+                    assert audit["semantic_correct"] is False
+                    assert audit["answer_correct"] is True and audit["rationale_minimal"] is False
                     shotguns+=1
                     reply=json.loads(oracle)
                     reply["rationale_ids"].append(reply["rationale_ids"][0])
