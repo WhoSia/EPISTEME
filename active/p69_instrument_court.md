@@ -41,3 +41,15 @@ Commit author and committer must both be WhoSia. No GitHub Actions bot commits, 
 **Paper gate still locked:** only independent evidence-grounded external adjudication, truly different task-world authorship and externally verified realistic artifacts can remove the publication construct hold. Separate model/provider format calibration (P67) and a preregistered cluster-level statistical inference decision are also necessary. A 1,152-cell offline pass does not establish LLM behavior, and the 72-case public pack is an annotation instrument, not annotation evidence.
 
 **Human-only repository history:** GitHub Actions permissions `contents:read`, `actions:read`, upload artifact only. Zero github-actions[bot] authored or committed changes.
+
+
+## P69 post-audit blinding correction — public preview versus genuine blind evaluation
+
+**Critical correction after the successful 72-case artifact run:** the original `case_id` was a SHA-256 digest of one of only 8×3×3 publicly enumerable task/class/view combinations. An evaluator with access to the open compiler could recover the hidden pairing by trying all 72 combinations. Hiding label columns alone was NOT sufficient cryptographic blinding.
+
+- Existing [run 37783527335](https://github.com/WhoSia/EPISTEME/actions/runs/37783527335) artifact `11553141646` is henceforth **PUBLIC LABEL-OMITTED PREVIEW, NOT SECURE BLIND ANNOTATION**. Its historical successful code integration is retained, but its public case identifiers have no genuine independent-blind authority.
+- `src/p69_blind_adjudication.py` now has a two-mode contract: `--preview` explicitly produces nonblind deterministic examples; production external scoring requires `--secret-file` containing at least 32 privately held random bytes, using HMAC-SHA256 for case identifiers, identifier remapping and secret-dependent case ordering. Its optional `--private-key` matching oracle is allowed only in local secret-key mode.
+- `.github/workflows/p69_offline.yml` explicitly uses `--preview`, marks any artifact `p69-annotation-preview-NOT-BLIND`, and never accesses the private key or uploads a sealed oracle. The secret is not in this repository.
+- A meaningful independent third-party score requires a new private-salt production export, separate private answer-key custody, annotators who were not exposed to the condition mapping, and a frozen annotation rubric. **No such completed third-party adjudication exists.** All paper-level claims retain `PAPER_CONSTRUCT_HOLD`.
+
+This safety correction does not change the old P56/P59/P62/P65 scientific verdicts or the P69 main experiment budget.
