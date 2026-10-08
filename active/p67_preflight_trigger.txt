@@ -1,0 +1,1 @@
+P67 provider-free preflight only. No model-call pilot runs on this push trigger. P67 prospective pilot requires manual workflow_dispatch.
