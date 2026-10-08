@@ -63,7 +63,7 @@ def run(model,offline=False):
             error=type(exc).__name__
         rows.append({"model_bundle":model,"requested_model_id":MODEL_IDS[model],
                      "returned_model_version":seen_model,"channel":channel,
-                     "api_request_sent":not offline,
+                     "api_invocation_attempted":not offline and bool(os.environ.get("GROQ_API_KEY" if model=="gptoss120" else "GEMINI_API_KEY")),
                      "response_received":raw is not None,
                      "schema_and_canary_valid":valid,"error_type":error,
                      "raw_response_sha256":hashlib.sha256(raw.encode()).hexdigest() if raw is not None else None,
@@ -73,13 +73,13 @@ def run(model,offline=False):
     return {"stage":"EPISTEME-P69","kind":"PROVIDER_CONTRACT_CANARY",
             "mode":"PROVIDER_FREE_FIXTURE" if offline else "ACTUAL_PROVIDER",
             "model_bundle":model,"calls_ceiling":2,"observations":rows,
-            "provider_call_count":0 if offline else 2,
+            "provider_invocation_slots":0 if offline else 2,
             "contract_pass":all(x["schema_and_canary_valid"] for x in rows),
             "authority":"API contract feasibility only; no scientific task, no causal or behavioral claims."}
 
 def self_test():
     z={k:run(k,offline=True) for k in MODEL_IDS}
-    assert sum(v["provider_call_count"] for v in z.values())==0
+    assert sum(v["provider_invocation_slots"] for v in z.values())==0
     assert all(v["contract_pass"] for v in z.values())
     assert all(v["observations"][0]["prompt_sha256"]==v["observations"][1]["prompt_sha256"] for v in z.values())
     assert len({x["channel"] for v in z.values() for x in v["observations"]})==2
@@ -99,4 +99,4 @@ if __name__=="__main__":
         target=Path(a.out);target.parent.mkdir(parents=True,exist_ok=True)
         target.write_text(json.dumps(report,indent=2,ensure_ascii=False)+"\n")
         print("P69_PROVIDER_CANARY_"+("PASS" if report["contract_pass"] else "TECHNICAL_HOLD")
-              +" model="+a.model+" requests="+str(report["provider_call_count"]))
+              +" model="+a.model+" requests="+str(report["provider_invocation_slots"]))
