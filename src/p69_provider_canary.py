@@ -20,7 +20,7 @@ def source_receipt():
             "schema_sha256":hashlib.sha256(json.dumps(P69_CANARY_SCHEMA,sort_keys=True).encode()).hexdigest(),
             "prompt_identical_across_channel":True}
 
-def groq_call(channel,prompt):
+def groq_call(channel,prompt,client=None):
     from groq import Groq
     kwargs={"model":MODEL_IDS["gptoss120"],"messages":[{"role":"user","content":prompt}],
             "temperature":0.2,"top_p":0.95,"max_completion_tokens":1536,"stream":False,
@@ -29,16 +29,18 @@ def groq_call(channel,prompt):
         kwargs["response_format"]={"type":"json_schema","json_schema":{
             "name":"episteme_p69_canary","strict":True,"schema":P69_CANARY_SCHEMA}}
     else:kwargs["response_format"]={"type":"json_object"}
-    response=Groq(api_key=os.environ["GROQ_API_KEY"],max_retries=0).chat.completions.create(**kwargs)
+    client=client or Groq(api_key=os.environ["GROQ_API_KEY"],max_retries=0)
+    response=client.chat.completions.create(**kwargs)
     return response.choices[0].message.content or "",getattr(response,"model",MODEL_IDS["gptoss120"])
 
-def gemini_call(channel,prompt):
+def gemini_call(channel,prompt,client=None):
     from google import genai
     from google.genai import types
     config={"temperature":0.2,"top_p":0.95,"max_output_tokens":1536,
             "response_mime_type":"application/json"}
     if channel=="strict_schema":config["response_json_schema"]=P69_CANARY_SCHEMA
-    result=genai.Client(api_key=os.environ["GEMINI_API_KEY"]).models.generate_content(
+    client=client or genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+    result=client.models.generate_content(
         model=MODEL_IDS["gemini"],contents=prompt,config=types.GenerateContentConfig(**config))
     return result.text or "",getattr(result,"model_version",MODEL_IDS["gemini"])
 
