@@ -1,7 +1,7 @@
 {
   "stage": "EPISTEME-P69",
   "formal_name": "Manuscript-Directed Representation-Effect Transport, Evaluation-Artifact Disentanglement, Independent Model-Family Replication, Held-Out Task-Ecology Validation & Publication-Readiness Court",
-  "state": "OPEN / RESULTS_LOCKED / PROSPECTIVE_PROVIDER_EXECUTION_NOT_AUTHORIZED",
+  "state": "OPEN / PACKET_AND_ANALYZER_PREFLIGHT_PASS / PAPER_CONSTRUCT_HOLD / PROVIDER_EXECUTION_NOT_AUTHORIZED",
   "mission": "Turn P53-P65's task-local representation-operator effects and failed cross-task transfer into a rigorous paper claim through strong counter-explanations, independently generated task ecologies, model-family replication and scorer/format disentanglement, not by adding arbitrary P-number stages.",
   "primary_paper": "Task-Conditional Representation-Operator Effects and the Failure of Cross-Task Transport in Hosted LLM Falsification Tasks",
   "locked_history": {
@@ -107,7 +107,6 @@
     ],
     "tasks": 8,
     "mechanism_families": 4,
-    "independently_generated_instances_per_mechanism": 2,
     "mechanism_examples": [
       "provenance witness matching",
       "two-hop causally relevant relational composition",
@@ -129,21 +128,33 @@
     ],
     "maximum_calls": 8192,
     "pilot_max_calls": 192,
-    "pilot_identity": "2 models × 2 distinct task mechanisms × 4 R/T vertices × 2 semantic twins × 2 response contracts × 3 invocations = 192 calls",
+    "pilot_identity": "2 hosted model bundles × 2 canary-only instances (provenance_0 and transformation_0, excluded from main 8 tasks) × 4 R/T vertices × 2 semantic twins × 2 response contracts × 3 repeats = 192 calls",
     "task_order_randomized": true,
     "provider_seeds": "A numeric local draw label is not a model API seed unless request payload proves it. Log service response metadata and versions.",
     "controls": [
       "positive valid witness",
       "null no-justification twin",
-      "coarse recoverable positive",
-      "sham-rich negative",
-      "target-vs-decoy distinction",
-      "format contract canary"
+      "focus-vs-decoy confounding check",
+      "irrelevant factual filler",
+      "response contract canary"
     ],
-    "score": "Executable joint-twin correctness across all attempted calls; separately report format-validity and semantic correctness among observable outputs with selection warning. Semantic oracle independent of response parser, plus blind human review of ambiguous outputs.",
+    "score": "Independent source-module deterministic scorer reconstructs witness from model-visible records without checking hidden valid/null labels. This is NOT independent annotator validation; require blinded external adjudication. Null abstentions must have coherent null intervention/direction and empty rationale_ids. Never impute invalid JSON as semantic wrong.",
     "paper_primary_1": "R/T operator marginal contrasts in matched nuisance contexts, task mechanism and model; evaluate sign reversal and transport under pre-frozen task-held-out predictions, with correction for within-task dependence.",
-    "paper_primary_2": "Leave-one-mechanism-family-out out-of-task prediction of representation difficulty compared to task-only baseline, using Brier loss and paired mechanism-level uncertainty. Predeclare practically relevant improvement margin before calls.",
-    "secondary": "Stopping-time replication only when calibrated sequential design is equivalent across response policies and provider models; otherwise stopping outcomes are historical only, not silently pooled."
+    "paper_primary_2": "LOFO Brier: For each held-out mechanism family, exclude both its task variants. Train representation deviations on the 6 remaining tasks; calibrate target-task intercept on FHL=000 anchors I,R,T,RT; predict 12 unseen vertices. Report per mechanism/model/channel paired Brier improvement over task-only anchor baseline. Four mechanism clusters are insufficient for strong universal inference.",
+    "secondary": "Stopping-time replication only when calibrated sequential design is equivalent across response policies and provider models; otherwise stopping outcomes are historical only, not silently pooled.",
+    "parameterized_instances_per_mechanism": 2,
+    "pilot_task_ids": [
+      "provenance_0",
+      "transformation_0"
+    ],
+    "planned_unimplemented_controls": [
+      "recoverable coarse positive controls",
+      "sham-rich true-evidence negative controls",
+      "externally constructed real-world provenance cases",
+      "independent blind human/second-family grading"
+    ],
+    "factory_instrument_definition": "Current P69 source implements four hand-coded mechanism grammars with two parameterized variants each, NOT externally independently generated task ecologies. R consistently renames all identifiers, F adds unlinked filler, H reorders retained record rows, T reverses within-trace token positions, L reorders relation/rule rows. Full 5-way interaction not estimable on 16 vertices.",
+    "predictive_margin_prespecified": 0.02
   },
   "interpretation_gates": {
     "do_not_claim": "No universal no-transport theorem or absence of causal effects from nonsignificant tests; no accuracy semantics from provider failure; no external generalization from eight synthetic instances alone.",
@@ -153,7 +164,9 @@
     "equivalence_kill": "If any R/T edit changes the hidden task solution or target witness, discard that cell and mark protocol CONSTRUCT_HOLD; do not posthoc retarget oracle.",
     "quality_gate": "No main calls if canary/format pilot fails, and no per-model substitution selected by trial outcomes.",
     "success": "Evidence supports narrow replicated task-local representation-operator behavior even after scorer/format correction and out-of-family evaluation. Still no claim of general epistemic-infrastructure foreclosure.",
-    "inconclusive": "Declare underpowered/inconsistent if confidence intervals and prediction differences do not resolve practical threshold."
+    "inconclusive": "Declare underpowered/inconsistent if confidence intervals and prediction differences do not resolve practical threshold.",
+    "construct_hold": "Main is NOT publication-grade until truly independently constructed task instances, recoverable/sham controls, provider contract equivalence audit, and independent human or model-evaluator controls are materialized. The present 8 task variants share the same authored compiler and do not qualify as external ecology replication.",
+    "no_transport_caution": "Nonsignificant or nonpositive Brier improvements do NOT prove an impossibility of transport. Four clusters limit uncertainty estimation. To claim practical non-transport require a separately justified equivalence/noninferiority or predictive-loss margin test with external families."
   },
   "future_papers": {
     "instrumentation": "P66-P67 selective observability and score validity as possible separate method study only after P67 actual experiment",
@@ -165,5 +178,33 @@
     "github_actions_bot_commits": "ABSOLUTELY_FORBIDDEN",
     "actions": "read-only; provider run must require manual dispatch and pilot gate",
     "source_retirement": "No deletion before SHA inventory and verified Drive archiving"
+  },
+  "instrumentation_receipt": {
+    "stage": "EPISTEME-P69",
+    "hosted_results": [
+      {
+        "run": 37779096105,
+        "conclusion": "success",
+        "scope": "independent scorer and generator offline court"
+      },
+      {
+        "run": 37779477761,
+        "conclusion": "success",
+        "scope": "plus synthetic held-out prediction estimator test"
+      }
+    ],
+    "main_packets": 256,
+    "pilot_packets": 64,
+    "adversarial_deletions": 128,
+    "spurious_rationale_controls": 128,
+    "call_ledger": 8192,
+    "provider_calls": 0,
+    "source_files": [
+      "src/p69_task_factory.py",
+      "src/p69_independent_scorer.py",
+      "src/p69_offline_audit.py",
+      "src/p69_predictive_analysis.py"
+    ],
+    "workflow": ".github/workflows/p69_offline.yml"
   }
 }
