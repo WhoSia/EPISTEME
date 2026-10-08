@@ -57,4 +57,8 @@ def run():
     print("main=256 packet oracles; pilot=64 separate packet oracles")
     print("oracle tamper controls=128; fake evidence controls=128")
     print("R_pairs=8 T_pairs=8 planned_hosted_requests=8192 provider_calls=0")
-if __name__=="__main__":run()
+if __name__=="__main__":
+    run()
+    from p69_retention_selftest import run as run_retention_court
+    run_retention_court()
+
