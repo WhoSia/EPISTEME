@@ -1,0 +1,4 @@
+EPISTEME-P64 authorized recovery run
+Source P63 run: 37563565663
+Maximum 303 failed-cell-only calls, one each; immutable successes: 48849.
+P63 science analyzer remains frozen.
