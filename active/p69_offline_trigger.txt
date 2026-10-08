@@ -1,1 +1,1 @@
-P69: run only provider-free packet/oracle validation; no model/API calls; no git writes in Actions.
+P69 second provider-free audit: scorer, packet factory, and synthetic out-of-mechanism prediction; no model calls or bot commits.
