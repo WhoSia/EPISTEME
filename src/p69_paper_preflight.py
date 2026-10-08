@@ -51,7 +51,13 @@ def self_test():
     assert len(ids)==8192==d["maximum_calls"]
     assert d["pilot_max_calls"]==192
     assert m["commit_governance"]["github_actions_bot_commits"]=="ABSOLUTELY_FORBIDDEN"
-    assert m["state"].startswith("OPEN /") and "NO_PROVIDER_CALLS" in m["state"]
+    # Audit the prospective design without erasing the historical hosted canary.
+    # Provider-free describes THIS script, not the entire P69 experimental history.
+    state=m["state"]
+    assert state.startswith("OPEN /")
+    assert "CONTRACT_TECHNICAL_HOLD" in state
+    assert "GENERATECONTENT_RETEST_PENDING" in state
+    assert "PAPER_CONSTRUCT_HOLD" in state
     print("P69_PROVIDER_FREE_DESIGN_PASS")
     print("full_unique_calls=8192 pilot_ceiling=192")
     print("R_paired_edges=8 T_paired_edges=8 FHL_contexts=4")
