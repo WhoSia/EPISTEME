@@ -1,7 +1,7 @@
 {
   "stage": "EPISTEME-P69",
   "formal_name": "Manuscript-Directed Representation-Effect Transport, Evaluation-Artifact Disentanglement, Independent Model-Family Replication, Held-Out Task-Ecology Validation & Publication-Readiness Court",
-  "state": "OPEN / OFFLINE_SCORE_AND_RETENTION_PASS / REAL_SCIFACT_SOURCE_AND_MATCHED_CONTRAST_PASS / FOUR_FAMILY_INFERENCE_LIMIT_CERTIFIED / PAPER_CONSTRUCT_HOLD / NO_PROVIDER_CALLS",
+  "state": "OPEN / PAPER_CONSTRUCT_HOLD / PROVIDER_MEASUREMENT_WORKFLOWS_PRECOMMITTED_NOT_EXECUTED / NO_PROVIDER_CALLS",
   "mission": "Turn P53-P65's task-local representation-operator effects and failed cross-task transfer into a rigorous paper claim through strong counter-explanations, independently generated task ecologies, model-family replication and scorer/format disentanglement, not by adding arbitrary P-number stages.",
   "primary_paper": "Task-Conditional Representation-Operator Effects and the Failure of Cross-Task Transport in Hosted LLM Falsification Tasks",
   "locked_history": {
@@ -219,7 +219,7 @@
     "independent_mechanism_sample_size": "4 mechanism families. Exact sign-symmetry two-sided attainable p >= 0.125; larger call counts alone cannot yield 0.05 resolution. Mechanism-family sample expansion requires genuine independent authorship/datasets and new frozen allocation; never relabel current variants as independent families.",
     "scifact_null": "HOLD: Withholding annotated SciFact contradiction does not prove non-contradiction; same-document alternate evidence requires actual human review. Never score semantic None as known ground truth.",
     "human_scores": "HOLD: Cohen-kappa calculations tested on synthetic fixture only. Secret HMAC pseudonyms are available locally but no independent annotator evaluations have occurred.",
-    "precommit_status": "The existing 192-call and 8192-call ceilings are not executable provider authorization. Before any calls fix API contract/version, task ecology, human source panel and mechanism-level inferential sample size/protocol, and preserve original P69 historical pre-execution revisions."
+    "precommit_status": "Measurement-only 4-slot canary and conditional 192-slot instrumentation pilot are prospective and manual; external ecology, independent annotations, effect estimands and mechanism-level inference remain REQUIRED before any confirmatory 8192-call main run. P69 code preflight already PASS at both provider-free workflows; no actual provider calls."
   },
   "future_papers": {
     "instrumentation": "P66-P67 selective observability and score validity as possible separate method study only after P67 actual experiment",
@@ -308,5 +308,49 @@
         "result": "success"
       }
     ]
+  },
+  "measurement_workflow_amendment": {
+    "version": "P69_PRECALL_MEASUREMENT_AMENDMENT_V1",
+    "time": "2026-10-08",
+    "reason": "The full 8192-call scientific paper experiment remains invalid without external ecologies/annotation and adequate cluster-level inference. A strict 4-slot API contract canary followed by a separate 192-slot TECHNICAL PILOT can be run earlier for instrumentation only. Neither may contribute observations to confirmatory scientific analysis.",
+    "evidence_prior_to_execution": "Both workgroups registered on GitHub, provider-free preflight PASS on workflows; no actual model/provider calls have yet been initiated.",
+    "canary": {
+      "workflow": ".github/workflows/p69_canary.yml",
+      "provider_slots": {
+        "gptoss120": 2,
+        "gemini": 2
+      },
+      "logical_ceiling": 4,
+      "manual_only": true,
+      "preflight_run": 37791683578,
+      "preflight_status": "success",
+      "gating": "Both channel canaries must exactly match the frozen sentinel, no model substitution or prompt drift."
+    },
+    "pilot": {
+      "workflow": ".github/workflows/p69_instrument.yml",
+      "manifest": "active/p69_instrument_pilot_manifest.json",
+      "task_ids": [
+        "provenance_0",
+        "transformation_0"
+      ],
+      "model_bundles": [
+        "gptoss120",
+        "gemini"
+      ],
+      "channels": [
+        "strict_schema",
+        "json_object"
+      ],
+      "maximum_logical_calls": 192,
+      "provider_free_preflight_run": 37792215371,
+      "provider_free_preflight_status": "success",
+      "manual_only": true,
+      "source_gate": "Actual success MEASUREMENT_CONTRACT_READY from separate manual canary workflow_dispatch, same head SHA as pilot.",
+      "per_arm_precommitted_gate": "Each of 4 model×contract arms: >=36/48 provider responses and valid formats; >=1 grounded valid witness and >=1 correct null abstention. No data-dependent retest."
+    },
+    "scientific_use": "CANARY AND PILOT ARE NONINFERENTIAL: do not compute publication hypothesis p-values or select a favorable model from them.",
+    "main_study_status": "HOLD, NOT LAUNCHED, NOT YET FULLY VALID DESIGN. 8192 is ceiling, not authorization.",
+    "provider_sdk_caveat": "Logical slots are bounded; Groq SDK retry 0, Google SDK internal automatic request retry behavior not independently verified. Record service error class and model version.",
+    "governance": "Read-only, artifact-only, no bot commits."
   }
 }
