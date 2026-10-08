@@ -1,1 +1,1 @@
-P67 provider-free preflight only. No model-call pilot runs on this push trigger. P67 prospective pilot requires manual workflow_dispatch.
+P67 second zero-call preflight: assert full 384-cell synthetic end-to-end pipeline; never run pilot on push.
