@@ -16,3 +16,13 @@ Publication requires independent black-box generators of at least two families, 
 
 ## Execution boundary
 P67's 384-call hosted pilot still has not run. Therefore the P68 prospective model-execution gate remains closed. Source and tests pass locally, but earlier direct Python/workflow publication was blocked by GitHub connector pre-transmission screening. No P68 hosted workflow run or behavioral result is claimed. Private scoring keys must remain out of public GitHub and model prompts. No github-actions[bot] authored commits; Actions must be read-only.
+
+## P68 final scoped closure (2026-10-08)
+
+**Verdict:** `CLOSED_SCOPED_FORMAL_CONSTRUCT_ONLY_BEHAVIORAL_NONPROMOTION`. This closes P68's finite constructive/instrument audit; it does **not** claim that external models generated, accepted, or acted on any criticism. The original P68 constitution and P67 prerequisite remain intact.
+
+Independent reference-implementation audit: 36 graphs, 348 single-edge deletions, 636 lawful latent true-edge additions, 360 edge order permutations, 72 external-observation transfer cases and six restoration cost regimes — all PASS. A separately defined four-round feedback actor yields 6/6 critical self-sealing coarse loops; a valid external target certificate reopens all six. This is a synthetic **defined policy**, not empirically observed LLM or institutional behavior.
+
+Finite indistinguishability and decision regret are established under alpha-equivalent opaque IDs, with standard minimax decision theory. The guarded mechanism has **not** been tested as a genuinely held-out behavior class. The R2 public packet explicitly states its graph reasoning rule; a future model's success would not by itself prove discovery of unknown relations. Generic critique-generation, constrained decoding, and value-of-information claims are prior art; the paper-level EPISTEME mechanism remains unpromoted.
+
+Canonical closure manifest: `active/p68_closure_verdict.json`. Independently audited public code, tests, packet ledgers, closure report and checksums: [P68 scoped closure ZIP](https://drive.google.com/file/d/1iCekBvSjCpBqDPXoIAthuS1RJuCvsAVr/view), SHA-256 `5f960eada983fa96c7b8f9fdb7bc481d317ef3c56815641047b7fe97e78a2012` (Drive upload/download readback verified). Private oracle remains separate and excluded. No GitHub Actions workflow, model calls or bot-authored commits were created for this stage.
