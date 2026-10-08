@@ -1,0 +1,1 @@
+P69 instrument worker+analysis synthetic 192-slot regression only. PUSH MUST NOT call providers. Real pilot workflow_dispatch requires actual P69 provider canary verdict and identical source SHA. No bot commits, no secrets used on push.
