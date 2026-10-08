@@ -23,6 +23,11 @@ Active execution surface for the EPISTEME research program.
 - Prospective court: randomized structured/plain response channels with explicitly channel-dependent correctness, independent semantic scoring, positive/recoverable/null/sham controls and sharp missing-data bounds; construct-equivalence audit before any paid/provider execution.
 - Fatal prior art: JSONSchemaBench, The Constraint Tax, selective labels, performative prediction and partial identification. **Do not promote novelty on validity/correctness tradeoffs alone.**
 - Read-only GitHub Actions and exclusively human-authored commits. The `github-actions[bot]` contributor restriction is mandatory.
+- **P67 zero-call court:** 827/835 P66 failures exposed bare `NONE` generation. Finite-ledger joint-correctness bounds: BH [0,256]/1536, BT [1361,1472]/1536. The BT–BH gap is **at least 1105/1536 (71.94 percentage points)** under every possible semantic completion; technical missingness alone cannot explain it. Do not overwrite P66's frozen `TECHNICAL_HOLD`.
+- **P67 pilot frozen:** `active/p67_pilot_manifest.json`; `src/p67_channels.py`, `src/p67_pilot_worker.py`, `src/p67_pilot_analyze.py`, `src/p67_selftest.py`; workflow `.github/workflows/p67_pilot.yml`. Four tasks × eight vertices × two twins × two draws × three channels = **384-call maximum**. `schema` vs `json_object` share byte-identical prompt; `plain` has a different response-envelope instruction. The pilot only tests feasibility and has no independent scorer or inferential authority.
+- **Zero-call Actions preflights:** [initial](https://github.com/WhoSia/EPISTEME/actions/runs/37724086135) and [full synthetic integration](https://github.com/WhoSia/EPISTEME/actions/runs/37724227380), both successful. Pilot calls are `workflow_dispatch` only; push can run preflight but no paid/model calls.
+- **Source/court:** `active/p67_p66_offline_court.json`; `active/p67_identification_dossier.md`. Original Groq `seed` argument was not passed through `p42_reopen.groq_raw`; do not claim server-seeded repetition.
+
 
 ## Historical P66
 
