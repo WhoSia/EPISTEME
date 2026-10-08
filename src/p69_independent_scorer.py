@@ -31,19 +31,31 @@ def all_evidence_ids(obj):
     return refs
 
 def score(packet,raw):
+    """Separate answer-direction validity from minimal evidence grounding.
+
+    'semantic_correct' retains the historical API name but represents the
+    STRICT grounded endpoint. 'answer_correct' is the direction/abstention
+    endpoint and MUST be reported separately in future P69 model experiments.
+    """
     obj=parse(raw)
     if obj is None:
-        return {"format_valid":False,"semantic_correct":None,"executable_correct":False,"reason":"FORMAT_UNOBSERVED"}
-    expected=proof(packet)
+        return {"format_valid":False,"answer_correct":None,"rationale_minimal":None,
+                "semantic_correct":None,"executable_correct":False,
+                "reason":"FORMAT_UNOBSERVED","scorer_version":"P69_SCORER_V2"}
+    proofs=minimal_witnesses(packet)
     abstain=obj["challenge"] is None or obj["challenge"].strip().upper()=="NONE"
-    if expected is None:
-        ok=(abstain and obj["intervention"] is None and obj["predicted_direction"] is None and not obj["rationale_ids"])
+    if not proofs:
+        answer=(abstain and obj["intervention"] is None and obj["predicted_direction"] is None)
+        grounded=(len(obj["rationale_ids"])==0)
     else:
-        ids=set(obj["rationale_ids"])
-        ok=(not abstain and obj["intervention"]=="u1" and obj["predicted_direction"]=="different" and
-            len(obj["rationale_ids"])==len(ids) and frozenset(ids) in minimal_witnesses(packet))
-    return {"format_valid":True,"semantic_correct":bool(ok),"executable_correct":bool(ok),
-            "reason":"SUPPORTED_OR_CORRECT_ABSTENTION" if ok else "UNSUPPORTED_OR_INCONSISTENT"}
+        answer=(not abstain and obj["intervention"]=="u1" and obj["predicted_direction"]=="different")
+        claimed=obj["rationale_ids"]
+        grounded=(len(claimed)==len(set(claimed)) and frozenset(claimed) in proofs)
+    ok=bool(answer and grounded)
+    return {"format_valid":True,"answer_correct":bool(answer),"rationale_minimal":bool(grounded),
+            "semantic_correct":ok,"executable_correct":ok,
+            "reason":"MINIMAL_GROUNDED" if ok else "ANSWER_WRONG" if not answer else "NONMINIMAL_OR_WRONG_WITNESS",
+            "scorer_version":"P69_SCORER_V2"}
 
 def oracle_response(packet):
     evidence=proof(packet)
