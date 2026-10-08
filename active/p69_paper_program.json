@@ -1,7 +1,7 @@
 {
   "stage": "EPISTEME-P69",
   "formal_name": "Manuscript-Directed Representation-Effect Transport, Evaluation-Artifact Disentanglement, Independent Model-Family Replication, Held-Out Task-Ecology Validation & Publication-Readiness Court",
-  "state": "OPEN / SOURCE_COURT_PASS / MINIMAL_PROOF_V2 / RETENTION_PROJECTIONS_PASS / PAPER_CONSTRUCT_HOLD / NO_PROVIDER_CALLS",
+  "state": "OPEN / OFFLINE_SCORE_AND_RETENTION_PASS / REAL_SCIFACT_SOURCE_AND_MATCHED_CONTRAST_PASS / FOUR_FAMILY_INFERENCE_LIMIT_CERTIFIED / PAPER_CONSTRUCT_HOLD / NO_PROVIDER_CALLS",
   "mission": "Turn P53-P65's task-local representation-operator effects and failed cross-task transfer into a rigorous paper claim through strong counter-explanations, independently generated task ecologies, model-family replication and scorer/format disentanglement, not by adding arbitrary P-number stages.",
   "primary_paper": "Task-Conditional Representation-Operator Effects and the Failure of Cross-Task Transport in Hosted LLM Falsification Tasks",
   "locked_history": {
@@ -160,7 +160,50 @@
     "factory_instrument_definition": "Current P69 source implements four hand-coded mechanism grammars with two parameterized variants each, NOT externally independently generated task ecologies. R consistently renames all identifiers, F adds unlinked filler, H reorders retained record rows, T reverses within-trace token positions, L reorders relation/rule rows. Full 5-way interaction not estimable on 16 vertices.",
     "predictive_margin_prespecified": 0.02,
     "offline_retention_scope": "384 latent task×vertex×class cells with three public projections = 1152 model-visible packets; critical Rich/Coarse/Sham=1/0/0, recoverable 1/1/0, null 0/0/0. True latent decoy reserve, no false filler, equal rich/sham fact counts.",
-    "blind_external_scoring": "Existing 72-case artifact in run 37783527335 is LABEL-OMITTED PREVIEW ONLY: public deterministic hashes are brute-force reversible because task×class×view candidates and source are public. For a real blinded third-party release, src/p69_blind_adjudication.py now requires an OFF-REPOSITORY >=32-byte secret-key HMAC supplied locally via --secret-file. The matching ground-truth key must remain in private custody; neither private key nor real secret is loaded into public GitHub Actions. No independent human annotation has yet occurred."
+    "blind_external_scoring": "Existing 72-case artifact in run 37783527335 is LABEL-OMITTED PREVIEW ONLY: public deterministic hashes are brute-force reversible because task×class×view candidates and source are public. For a real blinded third-party release, src/p69_blind_adjudication.py now requires an OFF-REPOSITORY >=32-byte secret-key HMAC supplied locally via --secret-file. The matching ground-truth key must remain in private custody; neither private key nor real secret is loaded into public GitHub Actions. No independent human annotation has yet occurred.",
+    "inference_sensitivity": {
+      "independent_mechanism_clusters_in_current_main": 4,
+      "sign_symmetry_reference_one_sided_minimum": 0.0625,
+      "sign_symmetry_reference_two_sided_minimum": 0.125,
+      "procedure_authority": "Sensitivity reference only, symmetry/exchangeability not established by randomized assignment; cannot claim design-based test p-values",
+      "note": "Eight task instances share four authored mechanism families; 8192 repeated requests never equal 8192 independent research cases.",
+      "resolution_lower_bound_for_two_sided_0_05_in_idealized_all_signs_agree": 6,
+      "disjoint_analysis": "Held-out task intercept calibrated on 4 A-draw attempts at I/R/T/RT anchors; candidate and task-only baseline evaluated on 4 B-draw attempts at 12 nonanchors, per model/channel/task; additional pre-execution sensitivity not retrofit of old code results.",
+      "software": [
+        "src/p69_inference_sensitivity.py",
+        "src/p69_disjoint_prediction.py"
+      ],
+      "hosted_no_provider_run": 37786022394
+    },
+    "external_ecology": {
+      "source": "SciFact (Wadden et al. 2020), official allenai/scifact release/latest",
+      "official_schema": "https://github.com/allenai/scifact/blob/master/doc/data.md",
+      "corpus_entries": 5183,
+      "dev_claim_rows": 300,
+      "selected_contradiction_claims": 16,
+      "original_projected_packet_rows": 128,
+      "matched_evidence_count_packet_rows": 128,
+      "source_archive_sha256": "11c621288d41ac144d29b13b0f8503b3820b7d6e8b1f6ff24dff335c196d76be",
+      "selected_claim_id_sha256": "707a87cd12480ecfce2232af292e638e5caf2500093953157c436179d0b75c08",
+      "hosted_origin_run": 37785745463,
+      "hosted_matched_run": 37786579297,
+      "scripts": [
+        "src/p69_external_scifact.py",
+        "src/p69_scifact_matched.py",
+        "src/p69_scifact_receipt.py"
+      ],
+      "human_review_status": "UNSTARTED / SOURCE ANNOTATION NOT ENOUGH TO CERTIFY A NEGATIVE OR CLINICALLY ABSENT CONTRADICTION",
+      "validity_ceiling": "Original CONTRADICT rationale is source-labeled, but dropping/replacing gold rationale does not establish semantic NONE. Same-document decoys are evidence-count matched, not independently certified semantically neutral. Public source-text rows are not uploaded. External order variant is not automatically historical T operator.",
+      "publication_use": "Independent-source construct and annotation panel input only; cannot pool with the main 8192-call synthetic family analysis without separate frozen cross-ecology alignment and scoring."
+    },
+    "human_review": {
+      "status": "NOT_PERFORMED",
+      "algorithm": "src/p69_human_agreement.py",
+      "exact_label": "challenge_exists + rationale_ids; Cohen kappa for two independently masked evaluators, evidence rationale exact-agreement and unresolved-case HOLD",
+      "protocol_gate": "No publication human-rating PASS without two actually independent annotators, private-key release, sealed key comparison, third-party resolution of disputed cases; fixtures only do not count.",
+      "agreement_threshold": "kappa>=0.70 only when nondegenerate; disagreements/unknown require third adjudication; software selftests are not actual scores",
+      "demo_script_run": 37786485235
+    }
   },
   "interpretation_gates": {
     "do_not_claim": "No universal no-transport theorem or absence of causal effects from nonsignificant tests; no accuracy semantics from provider failure; no external generalization from eight synthetic instances alone.",
@@ -172,7 +215,11 @@
     "success": "Evidence supports narrow replicated task-local representation-operator behavior even after scorer/format correction and out-of-family evaluation. Still no claim of general epistemic-infrastructure foreclosure.",
     "inconclusive": "Declare underpowered/inconsistent if confidence intervals and prediction differences do not resolve practical threshold.",
     "construct_hold": "P69 v2 offline scoring and retention-control tests pass but publication remains blocked by uncollected blinded external annotations, insufficiently independent hand-authored task worlds, uncalibrated provider response contracts and incomplete prospective clustered inference. Old 72-case public artifact is preview, not legitimate blinded trial.",
-    "no_transport_caution": "Nonsignificant or nonpositive Brier improvements do NOT prove an impossibility of transport. Four clusters limit uncertainty estimation. To claim practical non-transport require a separately justified equivalence/noninferiority or predictive-loss margin test with external families."
+    "no_transport_caution": "Nonsignificant or nonpositive Brier improvements do NOT prove an impossibility of transport. Four clusters limit uncertainty estimation. To claim practical non-transport require a separately justified equivalence/noninferiority or predictive-loss margin test with external families.",
+    "independent_mechanism_sample_size": "4 mechanism families. Exact sign-symmetry two-sided attainable p >= 0.125; larger call counts alone cannot yield 0.05 resolution. Mechanism-family sample expansion requires genuine independent authorship/datasets and new frozen allocation; never relabel current variants as independent families.",
+    "scifact_null": "HOLD: Withholding annotated SciFact contradiction does not prove non-contradiction; same-document alternate evidence requires actual human review. Never score semantic None as known ground truth.",
+    "human_scores": "HOLD: Cohen-kappa calculations tested on synthetic fixture only. Secret HMAC pseudonyms are available locally but no independent annotator evaluations have occurred.",
+    "precommit_status": "The existing 192-call and 8192-call ceilings are not executable provider authorization. Before any calls fix API contract/version, task ecology, human source panel and mechanism-level inferential sample size/protocol, and preserve original P69 historical pre-execution revisions."
   },
   "future_papers": {
     "instrumentation": "P66-P67 selective observability and score validity as possible separate method study only after P67 actual experiment",
@@ -233,6 +280,33 @@
       "publication_status": "NONBLIND_PREVIEW_ONLY_SUPERSEDED_FOR_EXTERNAL_ADJUDICATION",
       "leakage": "Case IDs generated by hashes of 8×3×3 publicly enumerable conditions. Their labels are omitted but invertible by exhaustive dictionary matching. This is not a secure blinded evaluation.",
       "secure_protocol": "HMAC-SHA256 case-ID and packet-ID pseudonymization with independently held >=32-byte local secret; the GitHub workflow exports only --preview and never supplies secret/private truth."
-    }
+    },
+    "latest_provider_free_verifications": [
+      {
+        "run": 37785405626,
+        "scope": "cluster signed-symmetry resolution / SciFact schema smoke / regression",
+        "result": "success"
+      },
+      {
+        "run": 37785745463,
+        "scope": "real original SciFact corpus and selected claim receipt",
+        "result": "success"
+      },
+      {
+        "run": 37786022394,
+        "scope": "disjoint A/B held-out task prediction source fixture",
+        "result": "success"
+      },
+      {
+        "run": 37786485235,
+        "scope": "count-matched evidence and human agreement algorithm fixtures",
+        "result": "success"
+      },
+      {
+        "run": 37786579297,
+        "scope": "real source-matched SciFact contrast and custody",
+        "result": "success"
+      }
+    ]
   }
 }
