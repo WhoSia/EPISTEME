@@ -62,9 +62,12 @@ if __name__=="__main__":
     from p69_retention_selftest import run as run_retention_court
     run_retention_court()
     from p69_blind_adjudication import build as build_blind_cases
-    blinded,private_key=build_blind_cases()
+    blinded,private_key=build_blind_cases(preview=True)
+    blinded_secure,key_secure=build_blind_cases(key=bytes.fromhex('ab'*32))
+    assert {r['case_id'] for r in blinded}.isdisjoint({r['case_id'] for r in blinded_secure})
+    assert len(blinded_secure)==len(key_secure)==72
     assert len(blinded)==len(private_key)==72
     assert {r["case_id"] for r in blinded}=={r["case_id"] for r in private_key}
     assert all("expected_challenge" not in r for r in blinded)
-    print("P69_BLIND_EXTERNAL_ANNOTATION_PREFLIGHT_PASS 72_CASES ZERO_KEY_EXPOSURE")
+    print("P69_ANNOTATION_SECURITY_PREFLIGHT_PASS preview=72 secret_hmac_test=72 no_groundtruth_artifact")
 
