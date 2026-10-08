@@ -54,4 +54,6 @@ def main():
     path=Path(args.out);path.parent.mkdir(parents=True,exist_ok=True)
     path.write_text(json.dumps(summary,indent=2)+"\n")
     print("P69_"+summary["verdict"])
+    if summary["verdict"]!="MEASUREMENT_CONTRACT_READY":
+        raise SystemExit(2) # Verdict artifact uploaded by workflow if:always(); FAIL is real failure.
 if __name__=="__main__":main()
