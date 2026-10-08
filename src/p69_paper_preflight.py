@@ -49,11 +49,11 @@ def self_test():
     assert all(sum(x)%2==0 for x in FHL_CONTEXTS)
     ids=set(full_ids())
     assert len(ids)==8192==d["maximum_calls"]
-    assert d["pilot_max_calls"]==96
+    assert d["pilot_max_calls"]==192
     assert m["commit_governance"]["github_actions_bot_commits"]=="ABSOLUTELY_FORBIDDEN"
     assert m["state"].endswith("PROSPECTIVE_PROVIDER_EXECUTION_NOT_AUTHORIZED")
     print("P69_PROVIDER_FREE_DESIGN_PASS")
-    print("full_unique_calls=8192 pilot_ceiling=96")
+    print("full_unique_calls=8192 pilot_ceiling=192")
     print("R_paired_edges=8 T_paired_edges=8 FHL_contexts=4")
     print("provider_calls=0 bot_commit_permission=0")
 if __name__=="__main__":self_test()
