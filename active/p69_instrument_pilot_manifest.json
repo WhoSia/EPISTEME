@@ -1,0 +1,60 @@
+{
+  "stage": "EPISTEME-P69",
+  "kind": "PROSPECTIVE_INSTRUMENTATION_PILOT_PRECOMMIT",
+  "status": "CODE_READY_NOT_EXECUTED",
+  "version": "P69_PILOT_V1",
+  "model_bundles": {
+    "gptoss120": "openai/gpt-oss-120b",
+    "gemini": "gemini-3.5-flash-lite"
+  },
+  "channel_policies": [
+    "strict_schema",
+    "json_object"
+  ],
+  "channel_comparability": "Same packet and exact text prompt across both contracts within provider. Groq strict JSON schema vs JSON object; Gemini response_json_schema vs JSON MIME. Cross-provider formats are not identical interventions.",
+  "task_ids": [
+    "provenance_0",
+    "transformation_0"
+  ],
+  "note": "These two pilot task IDs are disjoint from main tasks; merely authored siblings, not independent ecologies.",
+  "vertices": [
+    "I",
+    "R",
+    "T",
+    "RT"
+  ],
+  "semantic_twins": [
+    "valid",
+    "null"
+  ],
+  "invocations_per_cell": 3,
+  "logical_call_ceiling": 192,
+  "provider_slots_per_bundle": 96,
+  "calls_per_bundle_per_channel": 48,
+  "order": "Fixed local Random seed 690069+model_index; all cells shuffle; no server seed claimed.",
+  "provider_auto_retry": "Groq SDK max_retries=0; Gemini SDK retry behavior not established and separately logged as unknown.",
+  "primary_readiness_gate": "Every model×channel needs >=36/48 provider responses, >=36/48 format-valid, >=1 grounded valid witness and >=1 correct null abstention. No adaptive retest.",
+  "outcomes": [
+    "provider_response",
+    "format_valid",
+    "answer_correct",
+    "rationale_minimal",
+    "grounded_correct",
+    "all_call_executable"
+  ],
+  "sample_excluded_from_paper": "All pilot outputs are instrumentation-only; no p-value or scientific effect promotion.",
+  "manual_execution_rule": "Pilot workflow_dispatch requires P69 canary workflow actual provider run_id, event workflow_dispatch, successful MEASUREMENT_CONTRACT_READY artifact and identical HEAD SHA. PUSH triggers only zero-call preflight.",
+  "scientific_main_gate": "Separate paper construct gates: independent human source adjudication, independent genuinely new mechanism ecologies, prespecified clustered inference, external source task semantics, and distinct model provider results. Do not automatically launch main.",
+  "secrets": [
+    "GROQ_API_KEY",
+    "GEMINI_API_KEY"
+  ],
+  "security": "Never upload secrets or private annotation key; provider output here synthetic task packets. Read-only workflow, no git push, bot commits forbidden.",
+  "source": [
+    "src/p69_provider_canary.py",
+    "src/p69_provider_canary_analyze.py",
+    "src/p69_instrument_pilot.py",
+    "src/p69_instrument_pilot_analyze.py"
+  ],
+  "approval": "workflow_dispatch requires user explicit action; no GitHub Actions bot authorship."
+}
