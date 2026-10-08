@@ -1,0 +1,62 @@
+name: EPISTEME P69 Real SciFact Source Audit
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - active/p69_scifact_trigger.txt
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Obtain public SciFact data from the original project
+        run: |
+          curl --fail --location --silent --show-error --max-time 120 --retry 1 --max-filesize 50000000 \
+            https://scifact.s3-us-west-2.amazonaws.com/release/latest/data.tar.gz \
+            --output scifact_dataset.tar.gz
+      - name: Extract original archive with path-safe Python filter
+        run: |
+          python - <<'PY'
+          import tarfile
+          from pathlib import Path
+          with tarfile.open('scifact_dataset.tar.gz','r:gz') as archive:
+              archive.extractall('external_source',filter='data')
+          dev=list(Path('external_source').rglob('claims_dev.jsonl'))
+          corpus=list(Path('external_source').rglob('corpus.jsonl'))
+          assert len(dev)==len(corpus)==1, (dev,corpus)
+          print('P69_SCIFACT_ORIGIN_ARTIFACTS_PRESENT; no raw text published')
+          PY
+      - name: Audit raw SciFact citation/rationale schema, pairs and source hashes
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from p69_scifact_receipt import census
+          import json
+          root=Path('external_source')
+          claim=next(root.rglob('claims_dev.jsonl'))
+          corpus=next(root.rglob('corpus.jsonl'))
+          receipt=census(claim,corpus,'scifact_dataset.tar.gz',max_claims=16)
+          Path('receipts').mkdir(exist_ok=True)
+          Path('receipts/p69_scifact_source_receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
+          print('P69_REAL_SCIFACT_CUSTODY_PASS selected_claims='+str(receipt['externally_annotated_claims_selected']))
+          print('P69_SCIFACT_SEMANTIC_NULL_UNCERTIFIED; raw dataset kept on ephemeral runner only')
+          PY
+        env:
+          PYTHONPATH: src
+      - name: Upload receipt only, never dataset text
+        uses: actions/upload-artifact@v4
+        with:
+          name: p69-scifact-source-audit-receipt-only
+          path: receipts/p69_scifact_source_receipt.json
+          retention-days: 30
+
+# No provider keys/calls, no source data mirrored to repo, no git writeback.
