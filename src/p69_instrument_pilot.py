@@ -39,7 +39,9 @@ def run(model,offline=False):
             client=Groq(api_key=os.environ["GROQ_API_KEY"],max_retries=0)
         else:
             from google import genai
-            client=genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+            from google.genai import types
+            client=genai.Client(api_key=os.environ["GEMINI_API_KEY"],
+                http_options=types.HttpOptions(retry_options=types.HttpRetryOptions(attempts=1)))
     out=[]
     for task,vertex,semantic,channel,draw in identity_grid(model):
         packet=build(task,vertex,semantic)
@@ -68,7 +70,7 @@ def run(model,offline=False):
             "provider_status":provider_status,"error_type":error_type,
             "raw_response":raw,"latency_ms":(time.monotonic_ns()-start)/1e6,
             **evaluation,
-            "server_seed_sent":False,"client_request_retry_policy":"groq_zero; gemini_sdk_default_unverified",
+            "server_seed_sent":False,"client_request_retry_policy":"Groq max_retries=0; Gemini HttpRetryOptions(attempts=1) explicit",
             "pilot_only":True
         })
     assert len(out)==96
