@@ -4,18 +4,27 @@ Active execution surface for the EPISTEME research program.
 
 ## Repository doctrine
 
-- `main` is the working line. Do not create routine per-stage branches.
-- Keep only material needed for the current executable stage.
+- `main` is the working line; do not create routine per-stage branches.
+- Keep only code needed by the **active executable stage and its transitive imports**. Do not delete an older module merely because its P-number is lower: resolve backreferences first.
+- Before retiring code: generate exact Git blob/commit SHA manifest, dependency and workflow reference matrix, upload a byte-identical archive with checksum to Google Drive, verify readback, and only then remove the retired source files from `main`.
 - Research receipts, historical packets, large result ledgers, literature custody, and superseded artifacts belong in Google Drive / Notion, not this repository.
 - Git history is not the scientific archive.
 - Argument comes first; literature and code are pressure, falsification, or execution instruments rather than sources of authority.
 - GitHub Actions may compute, test, validate, and upload artifacts, but `github-actions[bot]` must not write repository history. Workflows default to `contents: read`.
 
-## Latest closed stage
+## Current stage — EPISTEME-P64
 
-**EPISTEME-P62 — Four-Cell Completion-Lattice Closure, Frozen R/T Carrier-Interaction Invariance, Dual-Endpoint Missingness-Free Adjudication, Critical-Quadrant Robustness & P60 Task-Locality Identification**
+**EPISTEME-P64 — Structure-Conditioned Provider-Failure Localization, Failed-Cell-Only Recovery, Dual-Endpoint Completion Bounds, Frozen P63 Factorial-Court Reconstitution & Scientific Identifiability Adjudication**
 
-**Status:** CLOSED / `MISSINGNESS_FREE_P60_TASK_LOCALITY_IDENTIFIED`
+- Source: P63 run `37563565663` at `7c86f0daa879c9f65e76afee75eab099f64082b5`.
+- P63 execution: 48,849 technically successful rows / 49,152 total; 303 `json_validate_failed`; original scientific result `TECHNICAL_HOLD`.
+- Correct failure localization: terminal-embedded **301**, history-externalized **2**; valid **302**, null **1**.
+- P64 missingness-free theorem: strict R/T sign-transport is impossible for all admissible completions (RH2/RT2 R stopping effects both negative), so the two strongest P63 branches are excluded. Lower constitutional branch remains unresolved.
+- Recovery specification: at most one unchanged-contract replay of each **303 failed identities**, no replay of the 48,849 successful rows; unchanged P63 scientific analyzer.
+- Canonical: `active/p64_manifest.json`, `active/p64_failure_localization.md`, `active/p64_zero_call_bounds.md`; [Notion P64](https://www.notion.so/3f2ef561cf928116950bf0e8c280abdb).
+- **Do not claim P64 recovery completed merely because recovery source code or workflow exists.**
+
+## Historical closed P62
 
 P60 prospectively tested whether the R/T operator-sign reversals surviving P59 could be predicted by the predeclared record/state × diagnostic/procedural context ontology. P61 recovered 250 of P60's 254 technical failures, leaving four unresolved cells.
 
