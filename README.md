@@ -12,6 +12,18 @@ Active execution surface for the EPISTEME research program.
 - Argument comes first; literature and code are pressure, falsification, or execution instruments rather than sources of authority.
 - GitHub Actions may compute, test, validate, and upload artifacts, but `github-actions[bot]` must not write repository history. Workflows default to `contents: read`.
 
+## Current stage — EPISTEME-P69
+
+**EPISTEME-P69 — Manuscript-Directed Representation-Effect Transport, Evaluation-Artifact Disentanglement, Independent Model-Family Replication, Held-Out Task-Ecology Validation & Publication-Readiness Court**
+
+- **Priority:** strengthen the P53–P65 task-local representation effect into a publishable, carefully bounded result. Theoretical P5–P16–P68 and measurement P66–P67 are separate research tracks.
+- **Historical evidence frozen:** P56 64/64 missingness completions (0/6 primary rejections); P59 4/4 completions (0/15 prospective transport tests and 16 observed operator reversals); P62 256/256 task-locality completions; P65 4/4 structural-location test completions.
+- **Instrument:** `src/p69_task_factory.py` (4 mechanisms × 2 task variants × 16 R/T-controlled vertices × valid/null) and `src/p69_independent_scorer.py` (evidence-grounded oracle, format vs semantic correctness), audited by `src/p69_offline_audit.py`.
+- **Hosted zero-call verification:** [P69 Actions #37779096105](https://github.com/WhoSia/EPISTEME/actions/runs/37779096105) PASS. Main 256 task packets, separate canary 64 packets, 128 witness-deletion and 128 fabricated-rationale challenges; **no provider calls**.
+- **Study authority:** `active/p69_paper_program.json` and `active/p69_manuscript_gate.md`; [P69 Notion](https://www.notion.so/3f3ef561cf92815a9b04fac128aeb28b).
+- **Next:** freeze out-of-mechanism predictive scoring and meaningful margin; verify provider contracts and an externally independent semantic evaluator; then separately authorize a 192-call instrumentation pilot. The 8,192-call main design is only a budget ceiling, not a launched experiment.
+- **Governance:** all code commits on `main` attributed to WhoSia; Actions have `contents: read`, `actions: read` and do not commit. `github-actions[bot]` author/committer prohibited.
+
 ## Latest closed stage — EPISTEME-P68
 
 **EPISTEME-P68 — Cross-Channel Falsification-Route Restoration, Independent Criticism Generation–Acceptance Separation, Retained-Evidence Sufficiency Controls, Held-Out Relational Grammar Transport, Output-Interface Causal Mediation & Scientific Identifiability of Epistemic Access Loss**
