@@ -1,0 +1,1 @@
+P66 provider-free design/compilation preflight only. No model calls authorized by this event.
