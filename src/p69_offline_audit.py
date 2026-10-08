@@ -61,4 +61,10 @@ if __name__=="__main__":
     run()
     from p69_retention_selftest import run as run_retention_court
     run_retention_court()
+    from p69_blind_adjudication import build as build_blind_cases
+    blinded,private_key=build_blind_cases()
+    assert len(blinded)==len(private_key)==72
+    assert {r["case_id"] for r in blinded}=={r["case_id"] for r in private_key}
+    assert all("expected_challenge" not in r for r in blinded)
+    print("P69_BLIND_EXTERNAL_ANNOTATION_PREFLIGHT_PASS 72_CASES ZERO_KEY_EXPOSURE")
 
