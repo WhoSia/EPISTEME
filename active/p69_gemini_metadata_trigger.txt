@@ -1,0 +1,1 @@
+P69 single non-generative Gemini models.get availability and credential metadata check only. No model text generation, no paid model invocation, no repository writeback, no bot-authored commits.
