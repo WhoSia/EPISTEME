@@ -6,6 +6,7 @@ import argparse,hashlib,json,os,time
 from pathlib import Path
 
 from p42_reopen import SCHEMA,CANARY,CANARY_PROMPT
+from p69_safe_error import classify
 
 MODEL_IDS={"gptoss120":"openai/gpt-oss-120b","gemini":"gemini-3.5-flash-lite"}
 CHANNELS=("strict_schema","json_object")
@@ -54,7 +55,7 @@ def run(model,offline=False):
     rows=[]
     for channel in CHANNELS:
         start=time.monotonic_ns()
-        error=None;raw=None;seen_model=None;valid=False
+        error=None;details=None;raw=None;seen_model=None;valid=False
         try:
             raw,seen_model=(offline_fake(model,channel,prompt) if offline
                             else groq_call(channel,prompt) if model=="gptoss120"
@@ -62,12 +63,14 @@ def run(model,offline=False):
             parsed=json.loads(raw)
             valid=(parsed==CANARY)
         except Exception as exc:
-            error=type(exc).__name__
+            details=classify(exc)
+            error=details['exception_type']
         rows.append({"model_bundle":model,"requested_model_id":MODEL_IDS[model],
                      "returned_model_version":seen_model,"channel":channel,
                      "api_invocation_attempted":not offline and bool(os.environ.get("GROQ_API_KEY" if model=="gptoss120" else "GEMINI_API_KEY")),
                      "response_received":raw is not None,
                      "schema_and_canary_valid":valid,"error_type":error,
+                     "error_diagnostic":details,
                      "raw_response_sha256":hashlib.sha256(raw.encode()).hexdigest() if raw is not None else None,
                      "elapsed_ms":(time.monotonic_ns()-start)/1e6,
                      **source_receipt()})
@@ -80,6 +83,8 @@ def run(model,offline=False):
             "authority":"API contract feasibility only; no scientific task, no causal or behavioral claims."}
 
 def self_test():
+    from p69_safe_error import self_test as check_error_classifier
+    check_error_classifier()
     z={k:run(k,offline=True) for k in MODEL_IDS}
     assert sum(v["provider_invocation_slots"] for v in z.values())==0
     assert all(v["contract_pass"] for v in z.values())
