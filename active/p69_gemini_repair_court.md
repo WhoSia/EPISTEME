@@ -37,3 +37,13 @@
 [Repaired canary push-preflight #37799840344](https://github.com/WhoSia/EPISTEME/actions/runs/37799840344) **PASS**, provider-call jobs SKIPPED. Until a NEW manual workflow_dispatch produces Gemini replies or redacted HTTP diagnostics, the original `TECHNICAL_CONTRACT_HOLD` remains in effect.
 
 No automatic fallback model, no imputed answer, no pilot launch. Model metadata observation and generating a semantically grounded criticism are logically different endpoints.
+
+## Reopened fail-closed regression and historical-state repair (2026-10-09 KST)
+
+- The actual Canary #37793112647 remains a frozen 2/2 Groq PASS, 0/2 Gemini FAIL. Gemini model metadata #37799756708 supports a model-registry lookup only. No second live `generate_content` receipt has been produced.
+- `src/p69_provider_canary_analyze.py --self-test` now executes the *actual command-line entrypoint* against synthetic green/red complete canary bundles, checks green exit 0, HOLD exit 2, and verifies JSON verdict files are written in both cases. The fixture is explicitly not live-provider evidence.
+- Read-only `.github/workflows/p69_canary.yml` now runs this exit-code regression on its provider-free push preflight.
+- First post-change CI [#37801300137](https://github.com/WhoSia/EPISTEME/actions/runs/37801300137) reported `P69_CANARY_ANALYZER_PASS success_exit=0 hold_exit=2 receipts_preserved=PASS provider_calls=0` before **failing an unrelated stale historical assertion** in `src/p69_paper_preflight.py`: `"NO_PROVIDER_CALLS" in m["state"]`. That predicate had become false after the earlier hosted canary; the failure must not be called a live Gemini failure.
+- The preflight now tests `OPEN`, `CONTRACT_TECHNICAL_HOLD`, `GENERATECONTENT_RETEST_PENDING`, and `PAPER_CONSTRUCT_HOLD`, preserving both actual past invocation history and current scientific limits. CI must be rerun at the new source HEAD before crediting the correction with PASS.
+- **Closure separation:** technical error-reporting and fail-closed infrastructure can be closed when zero-call CI passes. The Gemini provider-contract branch remains `LIVE_GENERATION_RETEST_PENDING` until a new manual `workflow_dispatch` generates an actual two-channel artifact. The P69 manuscript claim remains `PAPER_CONSTRUCT_HOLD` independently of a future green canary; external adjudication, independent mechanism ecologies and hosted replicated experiments are not completed. No 192- or 8192-call run is authorized by this source fix.
+- Repo author governance: workflow `contents: read` only, all changes committed under the connected WhoSia user; no workflow commits, pushes or ref updates.
