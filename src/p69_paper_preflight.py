@@ -3,10 +3,9 @@ from __future__ import annotations
 
 import itertools,json
 from pathlib import Path
+from p69_task_factory import TASKS, VERTICES as PACKET_VERTICES, FHL_CONTEXTS
 
 OPS=("R","F","H","T","L")
-TASKS=tuple(f"M{i}{j}" for i in range(1,5) for j in ("A","B"))
-FHL_CONTEXTS=((0,0,0),(0,1,1),(1,0,1),(1,1,0))
 MODELS=("gptoss120","gemini")
 CHANNELS=("contract_a","contract_b")
 SEMANTICS=("valid","null")
@@ -18,6 +17,7 @@ def vertices():
             v=frozenset(k for k,x in zip(OPS,(r,f,h,t,l)) if x)
             out.append(v)
     assert len(out)==len(set(out))==16
+    assert set(out)=={frozenset(v) for v in PACKET_VERTICES}
     return tuple(out)
 
 def operator_pairs(op):
@@ -51,7 +51,7 @@ def self_test():
     assert len(ids)==8192==d["maximum_calls"]
     assert d["pilot_max_calls"]==192
     assert m["commit_governance"]["github_actions_bot_commits"]=="ABSOLUTELY_FORBIDDEN"
-    assert m["state"].endswith("PROSPECTIVE_PROVIDER_EXECUTION_NOT_AUTHORIZED")
+    assert m["state"].startswith("OPEN /") and "NO_PROVIDER_CALLS" in m["state"]
     print("P69_PROVIDER_FREE_DESIGN_PASS")
     print("full_unique_calls=8192 pilot_ceiling=192")
     print("R_paired_edges=8 T_paired_edges=8 FHL_contexts=4")
