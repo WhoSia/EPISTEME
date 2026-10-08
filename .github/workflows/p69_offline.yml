@@ -21,6 +21,7 @@ jobs:
           python src/p69_offline_audit.py
           python src/p69_predictive_analysis.py
           python src/p69_inference_sensitivity.py
+          python src/p69_disjoint_prediction.py
           python src/p69_external_scifact.py --self-test
       - name: Export deterministic label-hidden PREVIEW, not a blinded trial
         run: python src/p69_blind_adjudication.py --preview --public receipts/p69_annotation_preview.jsonl
