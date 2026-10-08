@@ -45,6 +45,18 @@ def gemini_call(channel,prompt,client=None):
         model=MODEL_IDS["gemini"],contents=prompt,config=types.GenerateContentConfig(**config))
     return result.text or "",getattr(result,"model_version",MODEL_IDS["gemini"])
 
+def gemini_metadata_probe(offline=False):
+    """Non-generative model metadata GET, never a substitute for a real response."""
+    if offline:
+        return {"status":"MOCK_AVAILABLE","model_id":MODEL_IDS["gemini"]}
+    try:
+        from google import genai
+        client=genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+        meta=client.models.get(model=MODEL_IDS["gemini"])
+        return {"status":"MODEL_GET_SUCCESS","model_id":getattr(meta,"name",MODEL_IDS["gemini"])}
+    except Exception as exc:
+        return {"status":"MODEL_GET_FAILED",**classify(exc)}
+
 def offline_fake(model,channel,prompt):
     assert model in MODEL_IDS and channel in CHANNELS
     return json.dumps(CANARY),MODEL_IDS[model]
@@ -75,9 +87,12 @@ def run(model,offline=False):
                      "elapsed_ms":(time.monotonic_ns()-start)/1e6,
                      **source_receipt()})
     assert len(rows)==2
+    model_metadata=(gemini_metadata_probe(offline=offline) if model=="gemini"
+                    and not all(r["schema_and_canary_valid"] for r in rows) else None)
     return {"stage":"EPISTEME-P69","kind":"PROVIDER_CONTRACT_CANARY",
             "mode":"PROVIDER_FREE_FIXTURE" if offline else "ACTUAL_PROVIDER",
             "model_bundle":model,"calls_ceiling":2,"observations":rows,
+            "model_metadata_diagnostic":model_metadata,
             "provider_invocation_slots":0 if offline else 2,
             "contract_pass":all(x["schema_and_canary_valid"] for x in rows),
             "authority":"API contract feasibility only; no scientific task, no causal or behavioral claims."}
