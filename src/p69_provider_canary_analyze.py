@@ -45,11 +45,33 @@ def inspect(directory):
             "permissions":"Read-only artifact; no repository writeback",
             "paper_science_authority":"NONE, API canary only. Does not authorize 192-call pilot or 8192-call main."}
 
+def self_test():
+    import tempfile
+    from p69_provider_canary import run as canary_run
+    with tempfile.TemporaryDirectory() as root:
+        for name in MODEL_IDS:
+            doc=canary_run(name,offline=True)
+            doc["mode"]="ACTUAL_PROVIDER" # Only a regression fixture; NOT a live receipt.
+            Path(root,name+".json").write_text(json.dumps(doc))
+        assert inspect(root)["verdict"]=="MEASUREMENT_CONTRACT_READY"
+        x=json.loads(Path(root,"gemini.json").read_text())
+        x["observations"][0]["schema_and_canary_valid"]=False
+        x["observations"][0]["error_type"]="ClientError"
+        x["observations"][0]["error_diagnostic"]={"exception_type":"ClientError","http_status":403,"failure_category":"AUTH_OR_PERMISSION"}
+        Path(root,"gemini.json").write_text(json.dumps(x))
+        verdict=inspect(root)
+        assert verdict["verdict"]=="TECHNICAL_CONTRACT_HOLD"
+        assert verdict["bundles"]["gemini"]["errors"][0]["redacted_diagnostic"]["http_status"]==403
+    print("P69_CANARY_ANALYZER_PASS success_case=PASS hold_case=PASS provider_calls=0")
+
 def main():
     p=argparse.ArgumentParser()
-    p.add_argument("--root",required=True)
-    p.add_argument("--out",required=True)
+    p.add_argument("--root")
+    p.add_argument("--out")
+    p.add_argument("--self-test",action="store_true")
     args=p.parse_args()
+    if args.self_test:return self_test()
+    if not args.root or not args.out:p.error("--root and --out required")
     summary=inspect(args.root)
     path=Path(args.out);path.parent.mkdir(parents=True,exist_ok=True)
     path.write_text(json.dumps(summary,indent=2)+"\n")
