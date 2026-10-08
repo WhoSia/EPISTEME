@@ -1,1 +1,1 @@
-P69 second provider-free audit: scorer, packet factory, and synthetic out-of-mechanism prediction; no model calls or bot commits.
+P69 third zero-provider-call audit: minimal-witness grader, shotgun defense, 1152 retention controls, 1152 independent reference verdicts; no provider secrets, no GitHub Actions commits.
