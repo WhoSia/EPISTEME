@@ -40,7 +40,8 @@ def gemini_call(channel,prompt,client=None):
     config={"temperature":0.2,"top_p":0.95,"max_output_tokens":1536,
             "response_mime_type":"application/json"}
     if channel=="strict_schema":config["response_json_schema"]=P69_CANARY_SCHEMA
-    client=client or genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+    client=client or genai.Client(api_key=os.environ["GEMINI_API_KEY"],
+        http_options=types.HttpOptions(retry_options=types.HttpRetryOptions(attempts=1)))
     result=client.models.generate_content(
         model=MODEL_IDS["gemini"],contents=prompt,config=types.GenerateContentConfig(**config))
     return result.text or "",getattr(result,"model_version",MODEL_IDS["gemini"])
@@ -51,7 +52,9 @@ def gemini_metadata_probe(offline=False):
         return {"status":"MOCK_AVAILABLE","model_id":MODEL_IDS["gemini"]}
     try:
         from google import genai
-        client=genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+        from google.genai import types
+        client=genai.Client(api_key=os.environ["GEMINI_API_KEY"],
+            http_options=types.HttpOptions(retry_options=types.HttpRetryOptions(attempts=1)))
         meta=client.models.get(model=MODEL_IDS["gemini"])
         return {"status":"MODEL_GET_SUCCESS","model_id":getattr(meta,"name",MODEL_IDS["gemini"])}
     except Exception as exc:
