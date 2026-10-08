@@ -19,11 +19,11 @@
     "provider": "groq",
     "seed_rule": "6600+draw",
     "alias_assignment": "P63 panel_cells frozen",
-    "logic": "In both conditions decisive code remains the same; a target-reference relation link switches which evidence record is adjudicatively reachable. Primary synthetic ground truth is recomputed per condition and semantically audited; no claim of token-exact intervention across the binding arm."
+    "logic": "The decisive evidence code remains at the same panel slot; binding_register.target_link and binding_register.decoy_link exchange slot references (skin-specific first/second slot) while preserving the register value multiset. For valid target-linked, oracle requires u1/different; valid decoy-linked, oracle requires NONE. All null twins require NONE. The treatment changes the meaning and admissible correct response; contrast estimates fidelity to the treatment-dependent oracle, not an unchanged-label accuracy difference."
   },
   "estimands": {
-    "primary": "Difference in joint valid/null accuracy across target-linked versus decoy-linked, separately by physical location and lexical skin",
-    "secondary": "Binding-by-location difference-in-differences; R/T operator-sign moderation is exploratory unless confirmed by preregistered sign gate",
+    "primary": "Difference in task-level joint semantic-twin accuracy by binding (target_linked - decoy_linked), averaged over matched history/terminal location and 3 skins. Exact 24^3 two-sided exchangeability permutation p<0.05; task-level outcomes aggregated over 16 draws and 32 vertices.",
+    "secondary": "Operator R/T error-effect binding contrasts, two-sided Holm FWER=0.05 over R/T only. Strict sign-transport additionally requires opposite task-level and independent A/B half-draw R/T signs in each of 6 matched location×skin pairs and common orientation.",
     "error_control": "Within-skin 4-label 24^3 permutation, two-sided; Holm R/T only for operator-specific family; alpha .05",
     "missingness": "Any failed technical call yields TECHNICAL_HOLD; missingness-completion is a separate next-stage court; never treat technical failure as incorrectness",
     "prior_art_ceiling": "Black-box relational-binding sensitivity under tested synthetic archive grammar, not discovery of general relational reasoning or neural mechanism"
@@ -33,8 +33,12 @@
     "blinding": "Original criterion frozen before any provider invocation",
     "strict_branch": "Binding-dependent R and T opposite signs across all six matched location-skin pairs in two independent draw blocks AND Holm reject binding effects",
     "weaker_branch": "Binding effect Holm detected without strict transport",
-    "null_branch": "No precommitted Holm effects detected",
-    "artifact_gate": "primary-shadow >=10% of valid provider responses"
+    "null_branch": "NO_PRECOMMITTED_BINDING_EFFECT_DETECTED otherwise",
+    "artifact_gate": "Shadow scoring in P66 is identical to primary oracle (not an independent scorer), so evaluation-disagreement artifact branch is NOT separately identifiable; require independent scoring in a successor stage.",
+    "strong_branch": "RELATIONAL_BINDING_EFFECT_WITH_R_T_STRICT_SIGN_TRANSPORT iff joint primary permutation significant AND R/T binding Holm both reject AND complete strict sign transport",
+    "moderate_branch": "RELATIONAL_BINDING_EFFECT_WITH_R_T_MODERATION_NO_STRICT_TRANSPORT iff primary and both secondary tests reject but strict transport fails",
+    "weak_branch": "RELATIONAL_BINDING_EFFECT_WITHOUT_JOINT_R_T_MODERATION iff primary significant without both secondary Holm rejections",
+    "secondary_only_branch": "R_T_MODERATION_WITHOUT_PRIMARY_JOINT_ACCURACY_EFFECT iff both secondary tests reject without primary"
   },
   "governance": {
     "actions_permissions": [
@@ -44,5 +48,24 @@
     "repo_writeback": false,
     "bot_authored_commits": false,
     "manual_human_commits_only": true
-  }
+  },
+  "prior_art": [
+    {
+      "title": "Evaluating Relational Reasoning in LLMs with REL",
+      "venue": "ICML 2026",
+      "url": "https://proceedings.mlr.press/v306/fesser26a.html",
+      "significance": "Relational binding difficulty and lexical/length controls already established"
+    },
+    {
+      "title": "Benchmarking and Understanding Compositional Relational Reasoning of LLMs",
+      "doi": "10.1609/aaai.v39i18.34170",
+      "significance": "Generalized associative recall and relational composition prior art"
+    }
+  ],
+  "limitations": [
+    "Not a pure location experiment: oracle changes with binding and valid/null answer balance becomes condition-dependent.",
+    "No independently validated scorer in this P66 design; P66 shadow equals primary.",
+    "Permutation p-values are exact over the mathematical reassignment scheme but require exchangeability; task labels were not physically randomized.",
+    "No neural mechanism or universal model family claim."
+  ]
 }
