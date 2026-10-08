@@ -1,0 +1,34 @@
+name: EPISTEME P64 Recovery
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  recover:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install groq google-genai numpy
+      - name: Download P63 original artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download 37563565663 --repo WhoSia/EPISTEME --dir receipts/p64_source
+      - name: Recovery
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: |
+          mkdir -p receipts/p64
+          PYTHONPATH=src python src/p64_recover_failed.py --p63-result receipts/p64_source/p60-operator-context-result/p60_result.json --source-shards receipts/p64_source --out-root receipts/p64_merged --receipt receipts/p64/p64_recovery.json
+          PYTHONPATH=src python src/p63_analyze_shards.py --rows-root receipts/p64_merged --out receipts/p64/p63_frozen_adjudication.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: p64-recovery-results
+          path: |
+            receipts/p64/
+            receipts/p64_merged/
