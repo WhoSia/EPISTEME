@@ -1,1 +1,1 @@
-P69 provider-free original SciFact data source and rationale-schema integrity audit. Public archive downloaded inside ephemeral read-only GitHub runner; upload only statistics/hashes, no dataset text and no model calls.
+P69 second SciFact original data audit: verify paired external claim cases and SAME-count non-rationale evidence controls using real corpus under semantic-null HUMAN_HOLD. Retain only numerical provenance hash receipt; read-only workflow, no paid calls.
