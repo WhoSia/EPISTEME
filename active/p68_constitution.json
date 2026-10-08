@@ -1,0 +1,94 @@
+{
+  "stage": "EPISTEME-P68",
+  "title": "Cross-Channel Falsification-Route Restoration, Independent Criticism Generation–Acceptance Separation, Retained-Evidence Sufficiency Controls, Held-Out Relational Grammar Transport, Output-Interface Causal Mediation & the Scientific Identifiability of Epistemic Access Loss",
+  "status": "THEORETICAL_CONSTITUTION_AND_NO_CALL_PACKET_COURT",
+  "source": {
+    "p67_pilot_status": "PRECOMMITTED_NOT_EXECUTED",
+    "p67_preflight_run": 37724227380,
+    "p66_status": "TECHNICAL_HOLD",
+    "p16_history": "Independent blind generators and R/C/S critical/recoverable/null controls",
+    "p19_history": "Equalize provenance linkage AND history-sensitive relations in recoverable/null controls"
+  },
+  "explanandum": "When a criticism cannot be observed or generated under one retained representation and response interface, can an independently valid externally supplied criticism still be recognized and used to revise the claim?",
+  "design": {
+    "worlds": 12,
+    "classes": {
+      "critical": 6,
+      "recoverable": 3,
+      "null": 3
+    },
+    "representations": [
+      "rich",
+      "coarse",
+      "sham_rich"
+    ],
+    "grammar": [
+      "edge_path_training",
+      "rule_table_heldout"
+    ],
+    "channels": [
+      "schema",
+      "plain"
+    ],
+    "invocation_replicates": 2,
+    "generator_family_requirement": "For scientific promotion at least two genuinely independent model families as blinded generators; single-family pilot can only qualify instrumentation.",
+    "evaluator_family_requirement": "Evaluator must be a different model family than generator for transfer claim; deterministic offline oracle never substitutes for model acceptance.",
+    "blinding": "No audit class, retention label, valid witness, paired-world identity, or grammar family labels in the public packet. Opaque hashed archive IDs, fixed target claim, same terminal outcomes, matched trace/edge count per arm.",
+    "packet_count": 72,
+    "prospective_generator_calls_per_model": 288,
+    "acceptance_design": "On coarse representations, randomize externally attested target-linked valid criticism versus matched decoy-only sham versus no transfer, with independent evaluator assignment; make sham/none controls balanced and report each per grammar.",
+    "baseline": "P67 384-call pilot must complete its precommitted feasibility gate before any new P68 provider call is authorized."
+  },
+  "formal": {
+    "G": "Observable machine-evaluable admissible criticism from model m given world w, representation q, grammar g, and output channel c; separate S (format-valid) and Y (semantic correctness).",
+    "A": "Correct independent evaluator ACCEPT_REVISE / REJECT_MAINTAIN under experimentally supplied criticism W; never automatically infer acceptance from oracle status.",
+    "controlled_transfer": "E[A | do(W=oracle_valid), C=coarse, class=critical] - E[A | do(W=none), C=coarse, class=critical], with sham controls separately.",
+    "nonidentification": "No natural direct or indirect effects; cross-world mediation requires additional unverified assumptions. Mechanism labels describe separate interventions, not mediation decomposition.",
+    "missingness": "Failed or malformed response is 'not executable', not known semantic incorrect. All-call executable success is observed; latent correctness bounded under possible completions."
+  },
+  "gates": {
+    "positive": "Rich critical generation > coarse and sham, with correct positive recoverable C and null false-positive controls; classify thresholds before calling any model.",
+    "acceptance": "Independent evaluator distinguishes independently verified target criticism from sham in held-out grammar; no post-hoc oracle fallback promoted to generated criticism.",
+    "grammar": "Hold out rule_table grammar entirely from generator selection and all pilot tuning; report separately by grammar.",
+    "fatal": [
+      "recoverable C fails to reconstruct its explicitly sufficient witness",
+      "null or sham falsely triggers criticism",
+      "cross-grammar performance collapses",
+      "provider contract artifacts dominate, and no valid outputs make scientific comparison impossible",
+      "oracle critique acceptance fails in a different model family",
+      "only one provider/model family participates"
+    ],
+    "paper_ceiling": "Potential contribution is interface-mediated effective loss/restoration of defeat-route access under independent generator/acceptance discrimination—not generic JSON parsing, constrained decoding or an identified natural mediation effect.",
+    "runner": "No model execution authorized until P67 feasibility gate. Offline packet audit and zero-provider-call Actions permitted."
+  },
+  "prior_art": [
+    {
+      "work": "Geng et al., JSONSchemaBench (2025)",
+      "url": "https://arxiv.org/abs/2501.10868",
+      "role": "structured validity and downstream task quality already studied"
+    },
+    {
+      "work": "Banerjee et al., CRANE (ICML 2025)",
+      "url": "https://proceedings.mlr.press/v267/banerjee25a.html",
+      "role": "reasoning loss and recovery under constrained decoding are prior art"
+    },
+    {
+      "work": "Celli, Causal Mediation Analysis in Economics (2022)",
+      "url": "https://doi.org/10.1111/joes.12452",
+      "role": "natural mediation identification assumptions"
+    },
+    {
+      "work": "Lakkaraju et al., The Selective Labels Problem (2017)",
+      "role": "selective observation prior art"
+    }
+  ],
+  "governance": {
+    "main_only": true,
+    "bot_author_committer_prohibited": true,
+    "actions_permissions": [
+      "contents:read",
+      "actions:read"
+    ],
+    "workflow_repository_writeback": false
+  }
+}
