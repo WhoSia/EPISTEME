@@ -1,1 +1,1 @@
-P69 fourth zero-call audit: dual endpoint scorer v2, 1152 retention controls, 72-case anonymized annotation export and public-only artifact. No provider or repository writeback.
+P69 fifth zero-provider-call audit: HMAC blind release gate, public preview explicitly NONBLIND, 1152 truth-preserving control views and semantic-vs-grounded scoring. No private secrets or model calls.
