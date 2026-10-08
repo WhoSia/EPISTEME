@@ -17,8 +17,9 @@ def packet(task,label,semantic,alias):
  p=p63_packet(source,label,semantic,alias)
  p['archive_id']='p66-'+task+'-'+label+'-'+semantic+'-'+alias
  p['frame_note']='Only an explicitly bound target-to-evidence link is admissible for a falsifying challenge. An unlinked evidence code cannot justify an experiment.'
- p['binding_register']={'target_link':'target-evidence' if sp['binding']=='target_linked' else 'decoy-evidence','decoy_link':'decoy-evidence' if sp['binding']=='target_linked' else 'target-evidence'}
- p['instructions']='Use the binding_register to resolve the target evidence. Propose a single justified experiment that could falsify the claim, or answer NONE if the target binding is not licensed. Do not infer a missing link.'
+ target_slot,decoy_slot=SKIN_WORDS[s][0],SKIN_WORDS[s][1]
+ p['binding_register']={'target_link':target_slot if sp['binding']=='target_linked' else decoy_slot,'decoy_link':decoy_slot if sp['binding']=='target_linked' else target_slot}
+ p['instructions']='Use only the evidence_code in the panel entry whose slot equals binding_register.target_link. Propose one justified experiment to falsify the claim, or answer NONE if that target-linked code is UNINFORMATIVE or CHALLENGE_INVARIANT. Evidence bound to decoy_link must not be used for target inference.'
  return p
 def expected_valid(task,semantic):
  return semantic=='valid' and SPECS[task]['binding']=='target_linked'
@@ -37,5 +38,6 @@ def self_test():
      p=packet(task,label,sem,alias)
      assert len(p['history_panel'])==len(p['terminal_panel'])==2
      assert len(p['binding_register'])==2
+     assert set(p['binding_register'].values())==set(SKIN_WORDS[SPECS[task]['skin']][:2])
  print('P66_PRECHECK_PASS 12 tasks, 64 cells each')
 if __name__=='__main__':self_test()
