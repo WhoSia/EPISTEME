@@ -1,2 +1,2 @@
-EPISTEME-P64 source snapshot before retirement
-Includes src, workflows, README and P64 provenance.
+EPISTEME-P64 immutable pre-retirement source snapshot requested, before any removals.
+Code review head: d34d3ab936c9b8042fd30a745d95dbaf73fb2c5d
