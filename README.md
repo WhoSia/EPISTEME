@@ -12,7 +12,19 @@ Active execution surface for the EPISTEME research program.
 - Argument comes first; literature and code are pressure, falsification, or execution instruments rather than sources of authority.
 - GitHub Actions may compute, test, validate, and upload artifacts, but `github-actions[bot]` must not write repository history. Workflows default to `contents: read`.
 
-## Current stage — EPISTEME-P66
+## Current stage — EPISTEME-P67
+
+**EPISTEME-P67 — Output-Contract-Induced Selective Observability and the Causal Identifiability of Falsification Behavior**
+
+- **Status:** FOUNDATION COURT OPEN / NO NEW MODEL CALLS AUTHORIZED. Prior-art and design reconstitution first.
+- P66 run `37712504043`: 12,288 calls, 835 technical failures, 834 JSON validation; frozen verdict `TECHNICAL_HOLD`. Technical failure is not semantic error.
+- Reconnect to founding EPISTEME: P5 selective-observation identifiability, P10 endogenous criticism-space compression, P16 independent criticism generation, P19 provenance linkage+relation. The intended object is **which defeasible criticism remains expressible and machine-observable under response-channel constraints**, not generic JSON quality.
+- Canonical: `active/p67_research_constitution.json`; [Notion P67](https://www.notion.so/3f3ef561cf92816d8f40c498ad156333).
+- Prospective court: randomized structured/plain response channels with explicitly channel-dependent correctness, independent semantic scoring, positive/recoverable/null/sham controls and sharp missing-data bounds; construct-equivalence audit before any paid/provider execution.
+- Fatal prior art: JSONSchemaBench, The Constraint Tax, selective labels, performative prediction and partial identification. **Do not promote novelty on validity/correctness tradeoffs alone.**
+- Read-only GitHub Actions and exclusively human-authored commits. The `github-actions[bot]` contributor restriction is mandatory.
+
+## Historical P66
 
 **EPISTEME-P66 — Relational Evidence Binding Intervention, Target–Evidence Linkage, Evidence-Location Factorial Separation & Operator Transport Court**
 
