@@ -1,0 +1,22 @@
+name: EPISTEME P69 Offline Instrument Court
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - active/p69_offline_trigger.txt
+permissions:
+  contents: read
+  actions: read
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Audit independent packet factory and evidence-based scorer
+        run: |
+          python -m py_compile src/p69_task_factory.py src/p69_independent_scorer.py src/p69_offline_audit.py
+          python src/p69_offline_audit.py
+# No GitHub writeback, secrets, provider calls, or bot-authored commits.
