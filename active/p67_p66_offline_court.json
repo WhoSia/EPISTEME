@@ -1,0 +1,71 @@
+{
+  "stage": "EPISTEME-P67",
+  "kind": "POSTHOC_OFFLINE_P66_CENSUS",
+  "source": {
+    "run_id": 37712504043,
+    "model": "openai/gpt-oss-120b",
+    "shards": 12,
+    "total_calls": 12288,
+    "provider_errors": 835,
+    "failed_generation": {
+      "bare_NONE": 827,
+      "other_json_validate_failed": 7,
+      "schema_violation_or_other": 1
+    }
+  },
+  "logical_joint_correctness": {
+    "BH": {
+      "n": 1536,
+      "lower": 0,
+      "upper": 256,
+      "interval": [
+        0,
+        0.16666666666666666
+      ],
+      "failed_calls": 378,
+      "observed_valid_correct": 0
+    },
+    "BT": {
+      "n": 1536,
+      "lower": 1361,
+      "upper": 1472,
+      "interval": [
+        0.8860677083333334,
+        0.9583333333333334
+      ],
+      "failed_calls": 117,
+      "observed_valid_correct": 1476
+    },
+    "DH": {
+      "n": 1536,
+      "lower": 1379,
+      "upper": 1536,
+      "interval": [
+        0.8977864583333334,
+        1
+      ],
+      "failed_calls": 171
+    },
+    "DT": {
+      "n": 1536,
+      "lower": 1369,
+      "upper": 1536,
+      "interval": [
+        0.8912760416666666,
+        1
+      ],
+      "failed_calls": 169
+    }
+  },
+  "BT_minus_BH_sharp_interval": [
+    0.7194010416666666,
+    0.9583333333333334
+  ],
+  "conclusions": [
+    "Even if all BH missing paired bits succeed and all BT missing bits fail, BT joint correctness exceeds BH by at least 1105/1536 ≈ 71.94 percentage points.",
+    "Schema error strings explicitly include the isolated token NONE in 827 failures; not a recoverable structured scientific response and not sufficient to establish what the model would answer under another channel.",
+    "In P66's Groq route, p44_field.call passes seed to signature but p42_reopen.groq_raw ignores seed, so draw labels are invocation replicates and not server-seeded draws."
+  ],
+  "authority": "Post hoc descriptive missingness-free census and sharp finite-record completion intervals; never overwrite P66 TECHNICAL_HOLD and do not claim an unchanged-prompt causal output-contract effect.",
+  "next": "Frozen paired-channel randomized 384-call feasibility pilot with schema/json_object/plain arms and matched packet hashes."
+}
