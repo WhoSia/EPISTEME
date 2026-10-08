@@ -1,0 +1,169 @@
+{
+  "stage": "EPISTEME-P69",
+  "formal_name": "Manuscript-Directed Representation-Effect Transport, Evaluation-Artifact Disentanglement, Independent Model-Family Replication, Held-Out Task-Ecology Validation & Publication-Readiness Court",
+  "state": "OPEN / RESULTS_LOCKED / PROSPECTIVE_PROVIDER_EXECUTION_NOT_AUTHORIZED",
+  "mission": "Turn P53-P65's task-local representation-operator effects and failed cross-task transfer into a rigorous paper claim through strong counter-explanations, independently generated task ecologies, model-family replication and scorer/format disentanglement, not by adding arbitrary P-number stages.",
+  "primary_paper": "Task-Conditional Representation-Operator Effects and the Failure of Cross-Task Transport in Hosted LLM Falsification Tasks",
+  "locked_history": {
+    "P56": {
+      "completion_worlds": "64/64",
+      "branch": "TASK_INTERACTION_DOMINATES_PRIMARY_ONLY",
+      "primary_holm_rejections": "0/6",
+      "variance_percent": {
+        "task": "3.72–3.85",
+        "representation": "31.85–32.39",
+        "interaction": "63.83–64.36"
+      },
+      "scope": "three-task Gemini stopping-time surface"
+    },
+    "P59": {
+      "completion_worlds": "4/4",
+      "branch": "MISSINGNESS_FREE_OPERATOR_REVERSAL_WITH_NONTRANSPORTABLE_INTERACTION",
+      "primary_holm_rejections": "0/15",
+      "operator_reversals": 16,
+      "scope": "tested GPT-OSS hosted synthetic task family"
+    },
+    "P62": {
+      "completion_worlds": "256/256",
+      "branch": "MISSINGNESS_FREE_P60_TASK_LOCALITY_IDENTIFIED",
+      "scope": "predeclared record/state framing ontology only"
+    },
+    "P65": {
+      "completion_worlds": "4/4",
+      "branch": "POST_P62_R_T_EFFECTS_REMAIN_TASK_LOCAL_UNDER_STRUCTURAL_INTERVENTION",
+      "scope": "P63 lexically matched location test; P63 original TECHNICAL_HOLD preserved"
+    },
+    "P66": {
+      "status": "TECHNICAL_HOLD",
+      "technical_failures": 835,
+      "total": 12288,
+      "lower_bound_BT_minus_BH": 0.7194010416666666,
+      "scope": "retrospective finite-ledger completion; not causal explanation"
+    },
+    "P67": {
+      "state": "384-call three-channel pilot PRECOMMITTED BUT NOT RUN",
+      "successes": "provider-free preflights only"
+    },
+    "P68": {
+      "state": "CLOSED_SCOPED_FORMAL_CONSTRUCT_ONLY_BEHAVIORAL_NONPROMOTION"
+    }
+  },
+  "fatal_prior_art": [
+    {
+      "id": "hua_2025",
+      "title": "Flaw or Artifact? Rethinking Prompt Sensitivity in Evaluating LLMs",
+      "url": "https://aclanthology.org/2025.emnlp-main.1006/",
+      "threat": "Semantic scorers collapse apparent variability from rigid matching"
+    },
+    {
+      "id": "lior_2025",
+      "title": "ReliableEval",
+      "url": "https://aclanthology.org/2025.findings-emnlp.594/",
+      "threat": "Prompt-perturbation Monte Carlo and stochastic evaluation standard"
+    },
+    {
+      "id": "seleznyov_2025",
+      "title": "When Punctuation Matters",
+      "url": "https://aclanthology.org/2025.findings-emnlp.1109/",
+      "threat": "Task-distributed format perturbation robustness already investigated"
+    },
+    {
+      "id": "qin_2026",
+      "title": "Evaluating and Explaining Prompt Sensitivity of LLMs Using Interactions",
+      "url": "https://proceedings.mlr.press/v306/qin26i.html",
+      "threat": "Interaction-based explanation of prompt sensitivity already present"
+    },
+    {
+      "id": "yang_2026",
+      "title": "Shared Lexical Task Representations Explain Behavioral Variability In LLMs",
+      "url": "https://proceedings.mlr.press/v306/yang26al.html",
+      "threat": "Task-representation mechanistic explanations already known; no neural mechanism claim"
+    },
+    {
+      "id": "lin_2026",
+      "title": "Can Large Language Models Generalize Procedures Across Representations?",
+      "url": "https://proceedings.mlr.press/v306/lin26k.html",
+      "threat": "Failure of cross-representation generalization and its remedy already studied"
+    }
+  ],
+  "paper_novelty_ceiling": "A prospectively falsified transport proposal with robust task-specific sign reversal under semantically invariant interventions, independent scoring and replicated distinct task/mechanism/model families; no novelty in prompt sensitivity, ANOVA interactions, failure to generalize alone.",
+  "experiment": {
+    "phase_0": "Zero-call protocol and existing artifact custody/replay. Before paper result: verify historical condition labels, estimator compatibility, scorer parser, hosted seed semantics, missingness identity, and model version.",
+    "phase_1": "Provider canary plus small precommitted 96-call instrumentation pilot, requiring successful P67 format-calibration prior to larger experiment. Do not use pilot for scientific p-values or model selection.",
+    "phase_2": "Prospective 8192-call maximum main replication only after fixed go/no-go gate; no provider calls automatically and no partial adaptive scale-up.",
+    "models": [
+      {
+        "family": "GPT-OSS",
+        "provider": "Groq",
+        "id": "openai/gpt-oss-120b",
+        "api_seed_claim": "none unless actually transmitted"
+      },
+      {
+        "family": "Gemini",
+        "provider": "Google GenAI",
+        "id": "gemini-3.5-flash-lite",
+        "availability": "must be canary-verified; unavailable -> TECHNICAL_HOLD, not cherry-picked substitute"
+      }
+    ],
+    "tasks": 8,
+    "mechanism_families": 4,
+    "independently_generated_instances_per_mechanism": 2,
+    "mechanism_examples": [
+      "provenance witness matching",
+      "two-hop causally relevant relational composition",
+      "guarded response/threshold",
+      "evidence transformation with independent invariance controls"
+    ],
+    "vertices": 16,
+    "vertex_definition": "R×T (00,01,10,11) crossed with even-parity F/H/L nuisance contexts (000,011,101,110); preserves paired R and T comparisons within each nuisance context. The 16-vertex restricted design cannot estimate every 5-way cube interaction.",
+    "semantic_twins": [
+      "valid",
+      "null"
+    ],
+    "response_policies": 2,
+    "response_policy_note": "Each provider uses two prospectively chosen, API-supported distinct output contracts; within-provider prompt text is byte-identical across contracts. Cross-provider decoder differences cannot be interpreted as matched API interventions.",
+    "invocations_per_cell": 8,
+    "blocks": [
+      "A: draws 1–4",
+      "B: draws 5–8"
+    ],
+    "maximum_calls": 8192,
+    "pilot_max_calls": 96,
+    "pilot_identity": "2 models × 2 held-out independent task instances × 4 R/T vertices × 2 semantic twins × 2 response policies × 3 repeats",
+    "task_order_randomized": true,
+    "provider_seeds": "A numeric local draw label is not a model API seed unless request payload proves it. Log service response metadata and versions.",
+    "controls": [
+      "positive valid witness",
+      "null no-justification twin",
+      "coarse recoverable positive",
+      "sham-rich negative",
+      "target-vs-decoy distinction",
+      "format contract canary"
+    ],
+    "score": "Executable joint-twin correctness across all attempted calls; separately report format-validity and semantic correctness among observable outputs with selection warning. Semantic oracle independent of response parser, plus blind human review of ambiguous outputs.",
+    "paper_primary_1": "R/T operator marginal contrasts in matched nuisance contexts, task mechanism and model; evaluate sign reversal and transport under pre-frozen task-held-out predictions, with correction for within-task dependence.",
+    "paper_primary_2": "Leave-one-mechanism-family-out out-of-task prediction of representation difficulty compared to task-only baseline, using Brier loss and paired mechanism-level uncertainty. Predeclare practically relevant improvement margin before calls.",
+    "secondary": "Stopping-time replication only when calibrated sequential design is equivalent across response policies and provider models; otherwise stopping outcomes are historical only, not silently pooled."
+  },
+  "interpretation_gates": {
+    "do_not_claim": "No universal no-transport theorem or absence of causal effects from nonsignificant tests; no accuracy semantics from provider failure; no external generalization from eight synthetic instances alone.",
+    "artifact_kill": "If semantic-neutral adjudication erases R/T sign reversals or cross-task transport failure, mark EVALUATION_ARTIFACT and do not publish intrinsic sensitivity claim.",
+    "family_kill": "If a second independent model family does not reproduce sign inversion, report model/provider-bundle locality, not cross-model robustness.",
+    "ecology_kill": "If held-out mechanism results can be predicted with cross-task operator structure, historical nontransport is not externally supported.",
+    "equivalence_kill": "If any R/T edit changes the hidden task solution or target witness, discard that cell and mark protocol CONSTRUCT_HOLD; do not posthoc retarget oracle.",
+    "quality_gate": "No main calls if canary/format pilot fails, and no per-model substitution selected by trial outcomes.",
+    "success": "Evidence supports narrow replicated task-local representation-operator behavior even after scorer/format correction and out-of-family evaluation. Still no claim of general epistemic-infrastructure foreclosure.",
+    "inconclusive": "Declare underpowered/inconsistent if confidence intervals and prediction differences do not resolve practical threshold."
+  },
+  "future_papers": {
+    "instrumentation": "P66-P67 selective observability and score validity as possible separate method study only after P67 actual experiment",
+    "theory": "P5-P16-P68 defeasibility-route preservation as separate formal/behavioral project; do not retrofit into empirical P69 primary paper"
+  },
+  "commit_governance": {
+    "line": "main",
+    "author_and_committer": "WhoSia",
+    "github_actions_bot_commits": "ABSOLUTELY_FORBIDDEN",
+    "actions": "read-only; provider run must require manual dispatch and pilot gate",
+    "source_retirement": "No deletion before SHA inventory and verified Drive archiving"
+  }
+}
