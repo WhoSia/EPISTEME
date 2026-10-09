@@ -1,0 +1,52 @@
+name: EPISTEME P69 P70 Evidence-Bounded Closure Court
+on:
+  push:
+    paths:
+      - 'src/p69_p70_scoped_closure_court.py'
+      - 'active/p69_p70_scoped_closure_court.md'
+      - '.github/workflows/p69_p70_scoped_closure.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  scoped_closure:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Refute five false science-closure paths
+        run: |
+          python -m py_compile src/p69_p70_scoped_closure_court.py
+          python src/p69_p70_scoped_closure_court.py --self-test
+      - name: Recover frozen ORIGINAL real-source receipts without provider calls
+        run: |
+          set -euo pipefail
+          mkdir -p receipts/p69 receipts/r1 receipts/p70 receipts/eco2
+          gh run download 37925719478 --repo "$GITHUB_REPOSITORY" --name p69-instrument-pilot-verdict --dir receipts/p69
+          gh run download 37931512662 --repo "$GITHUB_REPOSITORY" --name p69-r1-resumed-calibration-verdict --dir receipts/r1
+          gh run download 37930648628 --repo "$GITHUB_REPOSITORY" --name p70-32call-recovered-verdict --dir receipts/p70
+          gh run download 37997168518 --repo "$GITHUB_REPOSITORY" --name p70-eco2-blind-review-preflight-receipt-only --dir receipts/eco2
+      - name: Close only completed bounded experiments, not paper or human reviews
+        run: |
+          python src/p69_p70_scoped_closure_court.py \
+            --p69-pilot receipts/p69/p69_pilot_result.json \
+            --p69-r1 receipts/r1/resumed_r1_verdict.json \
+            --p70-scifact receipts/p70/p70_recovered_verdict.json \
+            --eco2-review receipts/eco2/p70_eco2_review_state.json \
+            --bridge receipts/eco2/p70_cross_ecology_partial_bridge.json \
+            --out receipts/episteme_p69_p70_scoped_closure.json
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: episteme-p69-p70-scoped-closure-receipt-only
+          path: receipts/episteme_p69_p70_scoped_closure.json
+          retention-days: 30
+# Only original immutable run receipts, no repo writeback and no provider calls.
