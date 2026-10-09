@@ -1,1 +1,2 @@
 P69 instrument worker+analysis synthetic 192-slot regression only. PUSH MUST NOT call providers. Real pilot workflow_dispatch requires actual P69 provider canary verdict and identical source SHA. No bot commits, no secrets used on push.
+2026-10-09 forensic no-provider recheck: actual 192-slot artifact TECHNICAL_PILOT_HOLD; analyzer CLI now exits 2 for any non-READY verdict. P70 theory independent.
