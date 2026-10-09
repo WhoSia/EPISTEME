@@ -265,6 +265,7 @@ def main():
     target.write_text(json.dumps(output,indent=2)+"\n")
     print("P70_EXTERNAL_PILOT_SLOTS="+str(len(output["rows"])))
     print("P70_SOURCE_SHA256="+receipt["dev_sha256"])
+    print("P70_CORPUS_SHA256="+receipt["corpus_sha256"])
 
 
 if __name__=="__main__":main()
