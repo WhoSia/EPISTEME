@@ -42,3 +42,17 @@ A single source has no cross-ecology effect or transported effect estimand. Do n
 
 ## What would turn this into real cross-ecology identification?
 First reproduce the labeling/abstention contract with an **independently sourced second ecology** (e.g., claim verification from a non-SciFact publisher/dataset) and a separately audited, comparable task definition. Then freeze a cross-ecology `phi` mechanism mapping and held-out task-family predictions *before* hosted response measurement, with independent blinded answer/rationale adjudication. If no oracle-preserving bridge can be established, stop and report `BRIDGE_HOLD` instead of recoding the disagreement as model failure.
+
+## Actual 2026-10-09 hosted 32-call run, recovered without new calls
+
+Historical paid [run #37929439637](https://github.com/WhoSia/EPISTEME/actions/runs/37929439637) used the exact original SciFact source and completed **32/32 provider replies**, but the Actions run FAILED at aggregation because `receipts/` also contained two `OFFLINE_FIXTURE` files. The old aggregate counted four bundles rather than the two actual `ACTUAL_PROVIDER` bundles. This is an **analysis source-mode isolation bug**, not an indication of hosted model failure. The source artifacts remain immutable.
+
+Fixed analyzer: ignore offline fixtures for data selection but require two independently checked ACTUAL_PROVIDER bundle records; self-test now mixes synthetic and real fixture receipts to regress the failure. Run [#37930648628](https://github.com/WhoSia/EPISTEME/actions/runs/37930648628) recovered **`PROVISIONAL_SINGLE_ECOLOGY_MEASURABLE`** with **ZERO additional paid provider calls**. [Recovered verdict Drive archive](https://drive.google.com/file/d/1age6Jwd8yge-JqpVt3LOiffJNCJMn95a/view); [32 original scored model receipts Drive archive](https://drive.google.com/file/d/1AEW5lOxTJpf4genoxkAC7w-bKfA1dIRZ/view).
+
+Actual 4 source claim clusters × I/R/H/RH × two model/provider bundles:
+- Groq GPT-OSS-120B: provider response 16/16, exact format 16/16, original annotation label agreement 16/16, annotated rationale cited 16/16. Matched R difference 0/8; matched H difference 0/8.
+- Google Gemini 3.5 Flash-Lite: provider response 16/16, exact format 16/16, original annotation label agreement 8/16, annotated rationale cited 12/16. Source-label agreement 4/8 SUPPORT, 4/8 CONTRADICT. Matched R difference 0/8; matched H difference 0/8.
+- **Causal authority ceiling:** these are descriptive contrasts with one hosted draw per representation and FOUR independent claim clusters from ONE external source ecology. A zero observed contrast does not prove invariance or transported representation effects, and correct source-label matches do not supersede independent packet-specific semantic annotation. Model+provider differences cannot be attributed solely to model architecture.
+- Original source dev SHA256 `86f0435d08fdb65d1aa41d1472684f57e6e71930626497bdf4d7a9ec1a632217`; corpus SHA256 `b8d6c89624cb2ed74dee8938effc4f5d8bd2086887880af8110d64be4ceade62`. No empirical result may override the original source data and packet projections.
+
+**Final scoped status:** `P70_EXTERNAL_SINGLE_ECOLOGY_PILOT_MEASURABLE / TRANSPORT_THEORY_NOT_VALIDATED / P70_RESEARCH_OPEN`. Never rerun the paid 32 calls to fix a previous offline-mixing bug.
