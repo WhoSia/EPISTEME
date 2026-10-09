@@ -49,15 +49,46 @@ jobs:
           assert a['H_semantic_bridge']=='HOLD'
           print('P70_ECO2_REAL_PACKETS=16 HUMAN_REVIEW_PENDING=32 NO_FALSE_ADJUDICATION')
           PY
+      - name: Acquire frozen original SciFact science-abstract evidence source
+        run: |
+          curl --fail --location --silent --show-error --max-time 120 --retry 1 --max-filesize 50000000 \
+            https://scifact.s3-us-west-2.amazonaws.com/release/latest/data.tar.gz \
+            --output scifact_original.tar.gz
+          python - <<'PY'
+          from pathlib import Path
+          import tarfile
+          with tarfile.open("scifact_original.tar.gz","r:gz") as archive:
+              archive.extractall("scifact_ephemeral",filter="data")
+          dev=list(Path("scifact_ephemeral").rglob("claims_dev.jsonl"))
+          corpus=list(Path("scifact_ephemeral").rglob("corpus.jsonl"))
+          assert len(dev)==len(corpus)==1
+          Path("private_review_stage/scifact_paths.txt").write_text(str(dev[0])+"\\n"+str(corpus[0])+"\\n")
+          print("P70_SCIFACT_ORIGINAL_SOURCE_PRESENT_WITH_SOURCE_HASH_GATE")
+          PY
+      - name: Cross-audit two original independent sources using partial bridge only
+        run: |
+          PYTHONPATH=src python src/p70_cross_ecology_bridge_audit.py --self-test
+          PYTHONPATH=src python - <<'PY'
+          import subprocess,os
+          from pathlib import Path
+          claim,corpus=Path("private_review_stage/scifact_paths.txt").read_text().splitlines()
+          subprocess.run(["python","src/p70_cross_ecology_bridge_audit.py",
+            "--scifact-claims",claim,"--scifact-corpus",corpus,
+            "--averitec-dev","averitec_original_dev.json",
+            "--out","receipts/p70_cross_ecology_partial_bridge.json"],
+            env=os.environ|{"PYTHONPATH":"src"},check=True)
+          PY
       - name: Drop raw and sealed source before uploading only scope receipt
         run: |
-          rm -rf private_review_stage averitec_original_dev.json
+          rm -rf private_review_stage averitec_original_dev.json scifact_original.tar.gz scifact_ephemeral
           echo 'P70_REVIEW_RAW_SOURCE_NOT_UPLOADED provider_calls=0'
       - if: always()
         uses: actions/upload-artifact@v4
         with:
           name: p70-eco2-blind-review-preflight-receipt-only
-          path: receipts/p70_eco2_review_state.json
+          path: |
+            receipts/p70_eco2_review_state.json
+            receipts/p70_cross_ecology_partial_bridge.json
           retention-days: 30
 # No actual human review is claimed, no provider calls or secrets.
 # Original publisher-licensed data never enters repo or CI artifacts.
