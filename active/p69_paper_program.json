@@ -1,7 +1,7 @@
 {
   "stage": "EPISTEME-P69",
   "formal_name": "Manuscript-Directed Representation-Effect Transport, Evaluation-Artifact Disentanglement, Independent Model-Family Replication, Held-Out Task-Ecology Validation & Publication-Readiness Court",
-  "state": "OPEN / GEMINI_METADATA_ACCESS_PASS / GENERATECONTENT_RETEST_PENDING / CONTRACT_TECHNICAL_HOLD / PAPER_CONSTRUCT_HOLD",
+  "state": "OPEN / CANARY_MEASUREMENT_CONTRACT_READY / PILOT_TECHNICAL_HOLD / PAPER_CONSTRUCT_HOLD",
   "mission": "Turn P53-P65's task-local representation-operator effects and failed cross-task transfer into a rigorous paper claim through strong counter-explanations, independently generated task ecologies, model-family replication and scorer/format disentanglement, not by adding arbitrary P-number stages.",
   "primary_paper": "Task-Conditional Representation-Operator Effects and the Failure of Cross-Task Transport in Hosted LLM Falsification Tasks",
   "locked_history": {
@@ -408,5 +408,42 @@
       "model_jobs": "skipped",
       "scope": "Provider-free source-level tests after remediation; not a new live Gemini canary."
     }
+  },
+  "live_measurement_status": {
+    "as_of": "2026-10-09 KST",
+    "canary_run_id": 37917857783,
+    "canary_sha": "18cb018c4792d814c888e855fd494809d41a6bde",
+    "canary_verdict": "MEASUREMENT_CONTRACT_READY",
+    "pilot_run_id": 37925719478,
+    "pilot_sha": "18cb018c4792d814c888e855fd494809d41a6bde",
+    "pilot_result_artifact_id": 11613872997,
+    "pilot_invocation_slots": 192,
+    "pilot_provider_responses": 192,
+    "pilot_verdict": "TECHNICAL_PILOT_HOLD",
+    "pilot_arms": {
+      "gemini": {
+        "strict_schema": {
+          "format_valid": 48,
+          "grounded_correct": 26
+        },
+        "json_object": {
+          "format_valid": 47,
+          "grounded_correct": 23,
+          "positive_valid_grounded": 0
+        }
+      },
+      "gptoss120": {
+        "strict_schema": {
+          "format_valid": 48,
+          "grounded_correct": 36
+        },
+        "json_object": {
+          "format_valid": 34,
+          "grounded_correct": 25,
+          "minimum_format_valid_gate": 36
+        }
+      }
+    },
+    "notes": "Historic Actions SUCCESS was not a measurement PASS; analyzer now prospectively fail-closes. No new provider calls, no paper promotion."
   }
 }
