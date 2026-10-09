@@ -29,6 +29,8 @@ LABELS=("SUPPORT","CONTRADICT")
 VERSIONS=("I","R","H","RH")
 N_CLAIMS=4
 MAX_CALLS=32
+FROZEN_DEV_SHA256="86f0435d08fdb65d1aa41d1472684f57e6e71930626497bdf4d7a9ec1a632217"
+FROZEN_CORPUS_SHA256="b8d6c89624cb2ed74dee8938effc4f5d8bd2086887880af8110d64be4ceade62"
 
 
 def fingerprint(value):
@@ -100,6 +102,9 @@ def load_source(claim_path,corpus_path):
         "source":"SciFact original annotated development release",
         "source_authority":"SOURCE_LABEL_CONSISTENCY_NOT_PACKET_MINIMAL_PROOF",
     }
+    if (source_receipt["dev_sha256"]!=FROZEN_DEV_SHA256 or
+        source_receipt["corpus_sha256"]!=FROZEN_CORPUS_SHA256):
+        raise ValueError("P70_REAL_SOURCE_DIGEST_CHANGED__HALT_BEFORE_PROVIDER_CALL")
     return selected,corpus,source_receipt
 
 
