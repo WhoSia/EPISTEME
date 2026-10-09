@@ -24,7 +24,7 @@ def classify(exc):
         ("INVALID_ARGUMENT",r"invalid.argument|invalid parameter|bad request"),
     ]
     tag=next((key for key,pattern in patterns if re.search(pattern,msg,re.I)),"UNKNOWN")
-    if tag=="UNKNOWN":tag={401:"AUTH_OR_PERMISSION",403:"AUTH_OR_PERMISSION",404:"MODEL_OR_ENDPOINT_UNAVAILABLE",429:"RATE_OR_QUOTA",400:"INVALID_REQUEST_UNCLASSIFIED",500:"SERVER_TEMPORARY",502:"SERVER_TEMPORARY",503:"SERVER_TEMPORARY",504:"SERVER_TEMPORARY"}.get(status,"UNKNOWN")
+    if tag=="UNKNOWN":tag={401:"AUTH_OR_PERMISSION",403:"AUTH_OR_PERMISSION",404:"MODEL_OR_ENDPOINT_UNAVAILABLE",402:"BILLING_REQUIRED",429:"RATE_OR_QUOTA",400:"INVALID_REQUEST_UNCLASSIFIED",500:"SERVER_TEMPORARY",502:"SERVER_TEMPORARY",503:"SERVER_TEMPORARY",504:"SERVER_TEMPORARY"}.get(status,"UNKNOWN")
     return {"exception_type":type(exc).__name__,"http_status":status,"failure_category":tag}
 
 def self_test():
@@ -36,5 +36,8 @@ def self_test():
     assert "private_secret" not in str(result)
     class Missing(Exception):status_code=404
     assert classify(Missing())["failure_category"]=="MODEL_OR_ENDPOINT_UNAVAILABLE"
-    print("P69_REDACTED_ERROR_SELFTEST_PASS")
+    class Payment(Exception): status_code=402
+    payment=classify(Payment())
+    assert payment["http_status"]==402 and payment["failure_category"]=="BILLING_REQUIRED"
+    print("P69_REDACTED_ERROR_SELFTEST_PASS billing_402=PASS")
 if __name__=="__main__":self_test()
