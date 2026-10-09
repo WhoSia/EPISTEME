@@ -1,0 +1,84 @@
+name: EPISTEME P69 P70 Zero-Call Receipt Recovery
+on:
+  push:
+    paths:
+      - '.github/workflows/p69_p70_receipt_recovery.yml'
+      - 'src/p70_external_source_analyze.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  recover_p69_canary:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    env:
+      GH_TOKEN: ${{ github.token }}
+      SOURCE_RUN: '37929410643'
+      SOURCE_SHA: '2363dc9b176afbd574dd1efce5999fdded25b1a1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install groq google-genai
+      - name: Check historical dispatch identity
+        run: |
+          set -euo pipefail
+          test "$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN}" --jq '.head_sha')" = "$SOURCE_SHA"
+          test "$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN}" --jq '.event')" = "workflow_dispatch"
+          mkdir -p receipts/p69_canary_raw
+          for bundle in gemini gptoss120; do
+            gh run download "$SOURCE_RUN" --repo "$GITHUB_REPOSITORY" \
+              --name "p69-r1-canary-$bundle" --dir receipts/p69_canary_raw
+          done
+      - name: Recover four actually executed model contracts without calling models
+        run: |
+          PYTHONPATH=src python src/p69_provider_canary_analyze.py \
+            --root receipts/p69_canary_raw --out receipts/p69_r1_canary_recovered.json
+          echo "P69_R1_CANARY_RECOVERY_PROVIDER_CALLS=0"
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p69-r1-recovered-source-canary-verdict
+          path: receipts/p69_r1_canary_recovered.json
+          retention-days: 30
+
+  recover_p70_external:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    env:
+      GH_TOKEN: ${{ github.token }}
+      SOURCE_RUN: '37929439637'
+      SOURCE_SHA: '2363dc9b176afbd574dd1efce5999fdded25b1a1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install groq google-genai
+      - name: Check original 32-call source and download existing results
+        run: |
+          set -euo pipefail
+          test "$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN}" --jq '.head_sha')" = "$SOURCE_SHA"
+          test "$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN}" --jq '.event')" = "workflow_dispatch"
+          mkdir -p receipts/p70_original
+          gh run download "$SOURCE_RUN" --repo "$GITHUB_REPOSITORY" \
+            --name p70-independent-source-pilot-receipts --dir receipts/p70_original
+      - name: Validate actual ledgers against additional synthetic receipt noise
+        run: |
+          PYTHONPATH=src python src/p70_external_source_analyze.py --self-test
+          PYTHONPATH=src python src/p70_external_source_analyze.py \
+            --root receipts/p70_original --out receipts/p70_recovered_verdict.json
+          echo "P70_EXTERNAL_RECOVERY_PROVIDER_CALLS=0"
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p70-32call-recovered-verdict
+          path: receipts/p70_recovered_verdict.json
+          retention-days: 30
+
+# Read-only reproduction of EXACT PREVIOUS paid data, never re-runs models.
+# Both source run IDs and their SHAs are pinned. No secrets and no git writeback.
