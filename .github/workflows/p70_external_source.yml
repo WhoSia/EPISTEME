@@ -1,0 +1,99 @@
+name: EPISTEME P70 Independent Source Pilot
+on:
+  workflow_dispatch:
+    inputs:
+      confirm_spend:
+        description: "Enter RUN_32_CALLS for exactly up to 32 new model calls"
+        required: true
+        type: string
+  push:
+    paths:
+      - src/p70_external_source_pilot.py
+      - src/p70_external_source_analyze.py
+      - .github/workflows/p70_external_source.yml
+
+permissions:
+  contents: read
+
+jobs:
+  independent_source:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install groq google-genai
+      - name: Exact human-bounded spend gate
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          APPROVAL: ${{ inputs.confirm_spend }}
+        run: test "$APPROVAL" = "RUN_32_CALLS"
+      - name: Retrieve independently authored original SciFact source
+        run: |
+          curl --fail --location --silent --show-error --max-time 120 --retry 1 --max-filesize 50000000 \
+            https://scifact.s3-us-west-2.amazonaws.com/release/latest/data.tar.gz \
+            --output original_scifact.tar.gz
+          python - <<'PY'
+          from pathlib import Path
+          import tarfile
+          with tarfile.open('original_scifact.tar.gz','r:gz') as archive:
+              archive.extractall('external_source',filter='data')
+          claims=list(Path('external_source').rglob('claims_dev.jsonl'))
+          corpus=list(Path('external_source').rglob('corpus.jsonl'))
+          assert len(claims)==len(corpus)==1
+          Path('receipts').mkdir(exist_ok=True)
+          Path('receipts/source_paths.txt').write_text(str(claims[0])+'\n'+str(corpus[0])+'\n')
+          print('P70_REAL_SCIFACT_CUSTODY_PASS raw_source_kept_on_ephemeral_runner')
+          PY
+      - name: Independent source and paired source-label offline tests
+        run: |
+          python -m py_compile src/p70_external_source_pilot.py src/p70_external_source_analyze.py
+          PYTHONPATH=src python src/p70_external_source_pilot.py --self-test
+          PYTHONPATH=src python src/p70_external_source_analyze.py --self-test
+          python - <<'PY'
+          import subprocess
+          from pathlib import Path
+          claim,corpus=Path('receipts/source_paths.txt').read_text().splitlines()
+          for model in ('gemini','gptoss120'):
+              subprocess.run(['python','src/p70_external_source_pilot.py',
+                  '--claims',claim,'--corpus',corpus,'--model',model,
+                  '--offline','--out',f'receipts/p70_external_offline_{model}.json'],
+                  check=True,env=__import__('os').environ|{'PYTHONPATH':'src'})
+          print('P70_EXTERNAL_ORIGINAL_SOURCE_OFFLINE_PASS calls=0')
+          PY
+      - name: Run maximum 32 calls on independent SciFact annotations
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          python - <<'PY'
+          import subprocess
+          from pathlib import Path
+          claim,corpus=Path('receipts/source_paths.txt').read_text().splitlines()
+          for model in ('gemini','gptoss120'):
+              subprocess.run(['python','src/p70_external_source_pilot.py',
+                  '--claims',claim,'--corpus',corpus,'--model',model,
+                  '--out',f'receipts/p70_actual_{model}.json'],
+                  check=True,env=__import__('os').environ|{'PYTHONPATH':'src'})
+          PY
+      - name: Aggregate independently sourced outcomes
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          PYTHONPATH=src python src/p70_external_source_analyze.py \
+            --root receipts --out receipts/p70_external_verdict.json
+      - name: Upload only hashed/scored receipts, no SciFact text
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p70-independent-source-pilot-receipts
+          path: |
+            receipts/p70_actual_*.json
+            receipts/p70_external_verdict.json
+          retention-days: 30
+
+# Source is official original SciFact; don't treat the matched decoy as null.
+# Push has ZERO provider calls. Manual dispatch maximum 32.
+# No GitHub Actions bot commit, push or tag creation.
