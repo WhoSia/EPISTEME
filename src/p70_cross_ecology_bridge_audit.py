@@ -51,14 +51,6 @@ def read_scifact(claims_path,corpus_path):
     if any(len(pools[k])<2 for k in pools):raise ValueError("P70_BRIDGE_SCIFACT_NOT_ENOUGH")
     return [a for label in pools for _,a in sorted(pools[label],key=lambda x:x[0])[:2]]
 
-def bridge_audit(sf_atoms,averitec_selected):
-    av_atoms=[]
-    labelmap={"SUPPORT":"SUPPORT","CONTRADICT":"CONTRADICT"}
-    for source in averitec_selected:
-        claim, (label,doc,indices,decoy) = source if isinstance(source,tuple) and len(source)==2 else (None,None)
-        # Cross-source code consumes AVeriTeC select() output in a separate path.
-        raise ValueError("P70_BRIDGE_WRONG_AVERITEC_ADAPTER")
-
 def project_averitec(selected):
     atoms=[]
     for src in selected:
@@ -77,8 +69,6 @@ def project_averitec(selected):
     return atoms
 
 def court(scifact_atoms,averitec_atoms):
-    if len(scifact_atoms)!=len(averitec_atoms)!=4:
-        raise ValueError("P70_BRIDGE_EXPECT_FOUR_EACH")
     if len(scifact_atoms)!=4 or len(averitec_atoms)!=4:
         raise ValueError("P70_BRIDGE_NOT_FOUR")
     pairs=[]
