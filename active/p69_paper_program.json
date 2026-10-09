@@ -445,5 +445,25 @@
       }
     },
     "notes": "Historic Actions SUCCESS was not a measurement PASS; analyzer now prospectively fail-closes. No new provider calls, no paper promotion."
+  },
+  "measurement_repair_r1": {
+    "state": "OFFLINE_PREFLIGHT_PASS__LIVE_DISPATCH_PENDING",
+    "protocol": "active/p69_measurement_repair_r1.md",
+    "workflow": ".github/workflows/p69_measurement_repair.yml",
+    "calibration_max_calls": 64,
+    "fresh_canary_max_calls": 4,
+    "absolute_max_provider_calls": 68,
+    "first_offline_ci_run": 37927936486,
+    "reference_192_run": 37925719478,
+    "minimum_procedure_v1_gates": "8/8 provider responses, >=7/8 format-valid and >=1/4 positive grounded and >=1/4 null grounded in each of four model/channel arms",
+    "authority": "CALIBRATION_ONLY_DOES_NOT_AUTHORIZE_MAIN_8192"
+  },
+  "raw_pilot_archive_custody": {
+    "folder_id": "1X7veUdKK1PIbnUM2wN5SOzaDbuE_QWJm",
+    "verdict_drive_id": "1vxdlNVP37Wu19hUa2GX6WCajbF-kg8vf",
+    "gemini_drive_id": "1sNjzwEA5zYNLErKQRB4ic5oHPfhnsDaT",
+    "gptoss120_drive_id": "1W5MfSp-AV8dhaMLm8pYiJwqwHYWrfftM",
+    "source_run_id": 37925719478,
+    "readback": "FILE_METADATA_CONFIRMED"
   }
 }
