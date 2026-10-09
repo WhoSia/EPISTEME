@@ -447,7 +447,7 @@
     "notes": "Historic Actions SUCCESS was not a measurement PASS; analyzer now prospectively fail-closes. No new provider calls, no paper promotion."
   },
   "measurement_repair_r1": {
-    "state": "OFFLINE_PREFLIGHT_PASS__LIVE_DISPATCH_PENDING",
+    "state": "ACTUAL_FOUR_SLOT_CANARY_READY__CALIBRATION_64_NOT_STARTED",
     "protocol": "active/p69_measurement_repair_r1.md",
     "workflow": ".github/workflows/p69_measurement_repair.yml",
     "calibration_max_calls": 64,
@@ -456,7 +456,22 @@
     "first_offline_ci_run": 37927936486,
     "reference_192_run": 37925719478,
     "minimum_procedure_v1_gates": "8/8 provider responses, >=7/8 format-valid and >=1/4 positive grounded and >=1/4 null grounded in each of four model/channel arms",
-    "authority": "CALIBRATION_ONLY_DOES_NOT_AUTHORIZE_MAIN_8192"
+    "authority": "CALIBRATION_ONLY_DOES_NOT_AUTHORIZE_MAIN_8192",
+    "original_paid_attempt_run_id": 37929410643,
+    "original_paid_attempt_sha": "2363dc9b176afbd574dd1efce5999fdded25b1a1",
+    "historical_failure": "CANARY_GATE_AND_ANALYZE_IMPORT_ERROR_AFTER_4_SUCCESSFUL_CALLS",
+    "original_successful_canary_slots": 4,
+    "original_attempt_calibration_slots_executed": 0,
+    "recovered_provider_free_run_id": 37930648628,
+    "recovered_canary_verdict": "MEASUREMENT_CONTRACT_READY",
+    "resume_workflow": ".github/workflows/p69_r1_resume_64.yml",
+    "resume_manual_input": "RUN_REMAINING_64",
+    "resume_offline_preflight_run_id": 37930782814,
+    "remaining_possible_paid_calibration_slots": 64,
+    "live_calibration_state": "NOT_RUN",
+    "canary_gemini_drive_id": "1OkJqdXmiMaqsd1SfAEcAWa9QfN1ytDip",
+    "canary_gptoss_drive_id": "1R-cByC7nNgmpj1sz89_uFGzyinFpRSTl",
+    "recovered_verdict_drive_id": "1Obx1y6WyKUOe3gXdc_FVsbE42-8YxzA7"
   },
   "raw_pilot_archive_custody": {
     "folder_id": "1X7veUdKK1PIbnUM2wN5SOzaDbuE_QWJm",
