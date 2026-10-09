@@ -82,6 +82,21 @@ def self_test():
         assert x["provider_invocation_slots"]==192
         assert all(v["calls"]==48 for by in x["arms"].values() for v in by.values())
         d=json.loads(Path(td,"gemini.json").read_text())
+        # A complete provider ledger can still fail the scientific measurement gate.
+        abstain=json.loads(json.dumps(d))
+        for row in abstain["rows"]:
+            if row["channel"]=="json_object" and row["semantic"]=="valid":
+                row["semantic_correct"]=False
+        Path(td,"gemini.json").write_text(json.dumps(abstain))
+        assert analyze(td)["verdict"]=="GLOBAL_ABSTENTION_OR_NONSELECTIVE_HOLD"
+        Path(td,"gemini.json").write_text(json.dumps(d))
+        # Format loss must produce a technical HOLD, even with all provider responses.
+        malformed=json.loads(json.dumps(d))
+        for row in [r for r in malformed["rows"] if r["channel"]=="json_object"][:13]:
+            row["format_valid"]=False
+        Path(td,"gemini.json").write_text(json.dumps(malformed))
+        assert analyze(td)["verdict"]=="TECHNICAL_PILOT_HOLD"
+        Path(td,"gemini.json").write_text(json.dumps(d))
         d["rows"][0]["prompt_sha256"]="corrupted"
         Path(td,"gemini.json").write_text(json.dumps(d))
         try:analyze(td)
@@ -102,3 +117,5 @@ if __name__=="__main__":
         target=Path(a.out);target.parent.mkdir(parents=True,exist_ok=True)
         target.write_text(json.dumps(doc,indent=2)+"\n")
         print("P69_"+doc["verdict"])
+        if doc["verdict"]!="MEASUREMENT_PILOT_READY":
+            raise SystemExit(2)
