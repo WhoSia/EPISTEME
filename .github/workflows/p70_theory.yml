@@ -1,0 +1,27 @@
+name: EPISTEME P70 Conditional Transport Theory
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'src/p70_transport.py'
+      - 'active/p70_theory_program.md'
+      - '.github/workflows/p70_theory.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  theory:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile and falsify finite transport claims
+        run: |
+          python -m py_compile src/p70_transport.py
+          PYTHONPATH=src python src/p70_transport.py --self-test
+          echo "P70_PROVIDER_FREE_THEORY_PASS calls=0"
+# No API secrets, no hosted provider calls, no source writeback.
