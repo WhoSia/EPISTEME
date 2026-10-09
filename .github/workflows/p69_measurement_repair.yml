@@ -1,0 +1,148 @@
+name: EPISTEME P69 Bounded Measurement Repair
+on:
+  workflow_dispatch:
+    inputs:
+      confirm_spend:
+        description: "Enter RUN_68_CALLS: 4 new canary + at most 64 calibration calls"
+        required: true
+        type: string
+  push:
+    paths:
+      - src/p69_measurement_repair.py
+      - src/p69_measurement_repair_analyze.py
+      - .github/workflows/p69_measurement_repair.yml
+
+permissions:
+  contents: read
+
+jobs:
+  preflight:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Bounded study approval only for explicit manual dispatch
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          APPROVAL: ${{ inputs.confirm_spend }}
+        run: test "$APPROVAL" = "RUN_68_CALLS"
+      - name: Provider-free parser and counterfactual calibration tests
+        run: |
+          python -m py_compile src/p69_measurement_repair.py src/p69_measurement_repair_analyze.py
+          PYTHONPATH=src python src/p69_provider_canary.py --self-test
+          PYTHONPATH=src python src/p69_measurement_repair.py --self-test
+          PYTHONPATH=src python src/p69_measurement_repair_analyze.py --self-test
+          echo "P69_R1_OFFLINE_PREFLIGHT_PASS provider_calls=0"
+
+  canary:
+    if: github.event_name == 'workflow_dispatch'
+    needs: preflight
+    strategy:
+      fail-fast: false
+      matrix:
+        model: [gemini, gptoss120]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install groq google-genai
+      - name: Real fresh-source 2-call model/contract canary
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          PYTHONPATH=src python src/p69_provider_canary.py --model ${{ matrix.model }} \
+            --out receipts/canary/${{ matrix.model }}.json
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p69-r1-canary-${{ matrix.model }}
+          path: receipts/canary/
+          retention-days: 30
+
+  canary_gate:
+    if: github.event_name == 'workflow_dispatch'
+    needs: canary
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: p69-r1-canary-*
+          path: receipts/canary_shards
+          merge-multiple: true
+      - name: Fail closed before the 64 calibration requests
+        run: |
+          PYTHONPATH=src python src/p69_provider_canary_analyze.py \
+            --root receipts/canary_shards --out receipts/p69_r1_fresh_canary.json
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p69-r1-fresh-canary-verdict
+          path: receipts/p69_r1_fresh_canary.json
+          retention-days: 30
+
+  calibration:
+    if: github.event_name == 'workflow_dispatch'
+    needs: canary_gate
+    strategy:
+      fail-fast: false
+      matrix:
+        model: [gemini, gptoss120]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install groq google-genai
+      - name: 32 paired slots per model, no retries or fallback
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          PYTHONPATH=src python src/p69_measurement_repair.py --model ${{ matrix.model }} \
+            --out receipts/repair/${{ matrix.model }}.json
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p69-r1-calibration-${{ matrix.model }}
+          path: receipts/repair/
+          retention-days: 30
+
+  analyze:
+    if: github.event_name == 'workflow_dispatch' && always()
+    needs: [preflight,canary_gate,calibration]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: p69-r1-calibration-*
+          path: receipts/repair_shards
+          merge-multiple: true
+      - name: Compare held baseline and repaired contracts
+        run: |
+          PYTHONPATH=src python src/p69_measurement_repair_analyze.py \
+            --root receipts/repair_shards --out receipts/p69_r1_result.json
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p69-r1-calibration-verdict
+          path: receipts/p69_r1_result.json
+          retention-days: 30
+
+# Push: zero provider calls. Manual dispatch only: at most 68 provider calls.
+# All jobs read-only; no GitHub Actions bot writeback or adaptive scaling.
