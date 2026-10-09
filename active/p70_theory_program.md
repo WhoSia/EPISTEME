@@ -68,3 +68,13 @@ Take one mechanism, a source identity response success probability 1/2 and sourc
 4. Promote conditional transport only after truly held-out mechanism prediction and strict measurement gates. Return to EPISTEME founding switchability question rather than ending at an instrument benchmark.
 
 **Authority ledger:** `ORIGINAL P69 DATA != P70 MODEL VALIDATION`; `TOY COUNTERMODEL != EMPIRICAL RESULT`; `THEOREM UNDER ASSUMPTIONS != TEST OF ASSUMPTIONS`; `CI PASS != SCIENCE PASS`.
+
+## P70-T3 — Actual P69 synthetic instrument bridge audit (provider-free)
+
+Implemented `src/p70_bridge_audit.py` against the **existing** `p69_task_factory` and `p69_witness_enumerator`, not a rewritten toy compiler. It audits 8 main tasks × 2 valid/null semantics × 4 F/H/L nuisance contexts × 4 R/T interventions = 256 generated packets. For each matching context it checks exact inclusion-minimal witness-role signatures (after canonicalizing evidence-ID rename roles) and for each fixed R bit checks T trace reversal on 128 edges. These are **within-compiler synthetic oracle properties**, not observed model effects or independently authored ecologies.
+
+Two adversaries explicitly break false equivalence:
+1. Start with two possible inclusion-minimal provenance witnesses, delete one relevant origin while retaining another; truth remains positive, witness-family bijection fails. Answer-equivalence alone cannot certify intervention equivalence.
+2. Substitute a row-reversal (H-like) action under the name "T". Truth/witness role can remain unchanged, yet the proposed trace-reversal commutation certificate fails. Operator names do not establish functional equivalence.
+
+Passing these audits earns `SYNTHETIC_ORACLE_EQUIVARIANCE_VERIFIED` only, **not** behavioral-invariance, transportability or a paper p-value. The next hard case is a genuine cross-task `phi` that maps different evidence topologies; same within-family role labels are not an external bridge.
