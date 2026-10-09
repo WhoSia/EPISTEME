@@ -493,5 +493,18 @@
     "gptoss120_drive_id": "1W5MfSp-AV8dhaMLm8pYiJwqwHYWrfftM",
     "source_run_id": 37925719478,
     "readback": "FILE_METADATA_CONFIRMED"
+  },
+  "scoped_closure_20261010": {
+    "verdict": "COMPLETED_BOUNDED_PROVIDER_EXPERIMENTS_CLOSED_NEGATIVE",
+    "original_pilot_192": "TECHNICAL_PILOT_HOLD",
+    "r1_calibration_64": "REPAIR_MEASUREMENT_HOLD",
+    "paper_construct": "PAPER_CONSTRUCT_HOLD",
+    "manuscript_publication_ready": false,
+    "independent_human_oracle": "NOT_COMPLETED",
+    "main_8192_call_study": "NOT_RUN_NOT_AUTHORIZED",
+    "canonical_closure_doc": "active/p69_p70_scoped_closure_court.md",
+    "exact_original_receipt_validation_run": 37997389628,
+    "no_replay_of_old_provider_calls": true,
+    "p71": "FORMAL_TITLE_PROPOSED_ONLY"
   }
 }
