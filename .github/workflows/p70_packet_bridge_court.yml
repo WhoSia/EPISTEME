@@ -1,0 +1,63 @@
+name: EPISTEME P70 ECO2 Semantic Review and Partial Bridge Court
+on:
+  push:
+    paths:
+      - 'src/p70_packet_adjudication.py'
+      - 'src/p70_partial_mechanism_bridge.py'
+      - '.github/workflows/p70_packet_bridge_court.yml'
+      - 'active/p70_packet_semantic_triage.md'
+      - 'active/p69_p70_scoped_closure_court.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original_packet_review:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile and attack offline adjudication and partial bridge contracts
+        run: |
+          python -m py_compile src/p70_packet_adjudication.py src/p70_partial_mechanism_bridge.py
+          PYTHONPATH=src python src/p70_packet_adjudication.py --self-test
+          PYTHONPATH=src python src/p70_partial_mechanism_bridge.py
+      - name: Obtain original fixed-license external author development file
+        run: |
+          curl --fail --location --silent --show-error --max-time 120 --retry 1 \
+            --max-filesize 5000000 \
+            https://raw.githubusercontent.com/MichSchli/AVeriTeC/7c62d1ec8df3fb560d6efe2b85fa191135636f81/data/dev.json \
+            --output averitec_original_dev.json
+      - name: Stage original full blinded packets only on ephemeral runner
+        run: |
+          PYTHONPATH=src python src/p70_packet_adjudication.py \
+            --source averitec_original_dev.json \
+            --public private_review_stage/p70_eco2_masked_packets.json \
+            --sealed private_review_stage/p70_eco2_sealed_labels.json \
+            --verdict receipts/p70_eco2_review_state.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          a=json.loads(Path('receipts/p70_eco2_review_state.json').read_text())
+          assert a['verdict']=='P70_PACKET_HUMAN_ADJUDICATION_HOLD'
+          assert a['packets']==16 and a['reviewers_completed']==0
+          assert a['R_semantic_bridge']=='HOLD'
+          assert a['H_semantic_bridge']=='HOLD'
+          print('P70_ECO2_REAL_PACKETS=16 HUMAN_REVIEW_PENDING=32 NO_FALSE_ADJUDICATION')
+          PY
+      - name: Drop raw and sealed source before uploading only scope receipt
+        run: |
+          rm -rf private_review_stage averitec_original_dev.json
+          echo 'P70_REVIEW_RAW_SOURCE_NOT_UPLOADED provider_calls=0'
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p70-eco2-blind-review-preflight-receipt-only
+          path: receipts/p70_eco2_review_state.json
+          retention-days: 30
+# No actual human review is claimed, no provider calls or secrets.
+# Original publisher-licensed data never enters repo or CI artifacts.
