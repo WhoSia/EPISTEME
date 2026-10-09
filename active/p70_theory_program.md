@@ -78,3 +78,20 @@ Two adversaries explicitly break false equivalence:
 2. Substitute a row-reversal (H-like) action under the name "T". Truth/witness role can remain unchanged, yet the proposed trace-reversal commutation certificate fails. Operator names do not establish functional equivalence.
 
 Passing these audits earns `SYNTHETIC_ORACLE_EQUIVARIANCE_VERIFIED` only, **not** behavioral-invariance, transportability or a paper p-value. The next hard case is a genuine cross-task `phi` that maps different evidence topologies; same within-family role labels are not an external bridge.
+
+## P70-T4 — Format selection as an independent observation axis
+
+Let F indicate a response that satisfies the exact output contract and C indicate strict evidence-grounded correctness **only where F=1**. The all-call executable outcome is X = 1{F=1 and C=1}. For any observed model/provider/channel/task block with at least one valid response, write f=P(F=1), q=P(C=1|F=1) and x=P(X=1)=f q. Comparing arms a and b, the **exact descriptive identity**
+
+    x_a - x_b = (f_a - f_b) q_b + f_a (q_a - q_b)
+
+separates a format-selection component from the conditional-grounding component. This decomposition depends on reference arm b. It is an arithmetic accounting identity, **not** a causal separation (especially since C is undefined for invalid outputs and conditional samples are selected).
+
+For a **hypothetical** completion of semantically missing format-invalid rows, an arm with n requests, v valid-format replies and k strictly correct valid replies admits an unconstrained completion interval [k/n,(k+n-v)/n]. These bounds are not observations of a latent fact and cannot turn invalid JSON into identified correct/incorrect content. An a-b completed effect spans [k_a/n_a-(k_b+n_b-v_b)/n_b,(k_a+n_a-v_a)/n_a-k_b/n_b]. Missing provider responses are likewise unconstrained rather than silently scored semantically false.
+
+Apply only as **frozen historical finite-ledger arithmetic** to P69 #37925719478:
+- Groq strict vs JSON: 48/48 vs 34/48 format-valid, 36/48 vs 25/48 all-call strictly grounded. Observed executable difference = +11/48 for strict. Hypothetical missing-format completion difference ranges -3/48 to +11/48, including zero. The exact reference-b decomposition assigns almost all executable difference to the format-validity change, while the remaining conditional-grounding difference is much smaller. This does **not** prove a format-mediated causal effect.
+- Gemini strict vs JSON: 48/48 vs 47/48 format-valid, 26/48 vs 23/48 grounded. Observed executable difference = +3/48 for strict. The completion sensitivity range is +2/48 to +3/48; the much larger problem remains the JSON positive-valid abstention measured within the task classes, not just one invalid JSON.
+- Both are paired task allocations with distinct draws/provider responses, not exchangeable independent mechanism clusters. Neither is evidence for or against ecological transport.
+
+This motivated **two different P69-R1 repairs**: enumerated exact-output guidance and a separate evidence-tracing discipline. Preserve answer-direction and grounded-witness endpoints rather than retrofitting the scorer. `src/p70_selection_bounds.py` verifies exact rational decompositions and sensitivity intervals with zero calls. It does not estimate a causal direct or mediated effect.
