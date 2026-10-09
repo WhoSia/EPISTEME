@@ -14,7 +14,7 @@ def analyze(root):
     for f in Path(root).rglob("*.json"):
         try:d=json.loads(f.read_text())
         except (ValueError,OSError):continue
-        if d.get("kind")=="EXTERNAL_SCIFACT_PILOT":docs.append(d)
+        if d.get("kind")=="EXTERNAL_SCIFACT_PILOT" and d.get("mode")=="ACTUAL_PROVIDER":docs.append(d)
     if len(docs)!=2 or {d.get("model_bundle") for d in docs}!=set(MODEL_IDS):
         raise ValueError("P70_MISSING_OR_DUPLICATED_SOURCE_BUNDLE")
     sha=set()
@@ -106,6 +106,11 @@ def self_test():
             d=run(model,picked,corpus,fake_source,offline=True)
             d["mode"]="ACTUAL_PROVIDER"
             Path(td,model+".json").write_text(json.dumps(d))
+        # Real workflow includes two synthetic dry-run receipts in the same
+        # directory as two ACTUAL_PROVIDER receipts; never count them as data.
+        for model in MODEL_IDS:
+            synthetic=run(model,picked,corpus,fake_source,offline=True)
+            Path(td,"offline_"+model+".json").write_text(json.dumps(synthetic))
         x=analyze(td)
         assert x["verdict"]=="PROVISIONAL_SINGLE_ECOLOGY_MEASURABLE"
         assert x["total_provider_slots"]==32 and x["distinct_source_ecologies"]==1
@@ -115,7 +120,7 @@ def self_test():
         try:analyze(td)
         except ValueError as e:assert "CHANGED_EVIDENCE" in str(e)
         else:raise AssertionError("P70_FAKE_EQUIVALENCE_ACCEPTED")
-    print("P70_EXTERNAL_PILOT_ANALYZER_SELFTEST_PASS slots=32 invalid_bridge=REJECTED calls=0")
+    print("P70_EXTERNAL_PILOT_ANALYZER_SELFTEST_PASS slots=32 fixture_isolation=PASS invalid_bridge=REJECTED calls=0")
 
 
 def main():
