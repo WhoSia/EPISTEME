@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'src/p70_packet_adjudication.py'
+      - 'src/p70_cross_ecology_bridge_audit.py'
       - 'src/p70_partial_mechanism_bridge.py'
       - '.github/workflows/p70_packet_bridge_court.yml'
       - 'active/p70_packet_semantic_triage.md'
@@ -62,7 +63,7 @@ jobs:
           dev=list(Path("scifact_ephemeral").rglob("claims_dev.jsonl"))
           corpus=list(Path("scifact_ephemeral").rglob("corpus.jsonl"))
           assert len(dev)==len(corpus)==1
-          Path("private_review_stage/scifact_paths.txt").write_text(str(dev[0])+"\\n"+str(corpus[0])+"\\n")
+          Path("private_review_stage/scifact_paths.txt").write_text(str(dev[0])+"\n"+str(corpus[0])+"\n")
           print("P70_SCIFACT_ORIGINAL_SOURCE_PRESENT_WITH_SOURCE_HASH_GATE")
           PY
       - name: Cross-audit two original independent sources using partial bridge only
