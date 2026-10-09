@@ -1,0 +1,82 @@
+name: EPISTEME P70 Rival and Independent Ecology Courts
+on:
+  push:
+    paths:
+      - 'src/p70_r1_rival_court.py'
+      - 'src/p70_ecology_averitec.py'
+      - 'active/p70_rival_ecology_program.md'
+      - '.github/workflows/p70_rival_ecology.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  original_r1_rival_court:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+      FROZEN_R1_RUN: '37931512662'
+      R1_DISPATCH_HEAD: '8230a8b9dd07498aed469b9eccc1a93f37f749e1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Pure forensic tests
+        run: |
+          python -m py_compile src/p70_r1_rival_court.py
+          python src/p70_r1_rival_court.py --self-test
+      - name: Verify human original 64-call run and retrieve actual receipts
+        run: |
+          set -euo pipefail
+          test "$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${FROZEN_R1_RUN}" --jq '.head_sha')" = "$R1_DISPATCH_HEAD"
+          test "$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${FROZEN_R1_RUN}" --jq '.event')" = "workflow_dispatch"
+          mkdir -p receipts/original_r1
+          for model in gemini gptoss120; do
+            gh run download "$FROZEN_R1_RUN" --repo "$GITHUB_REPOSITORY" \
+              --name "p69-r1-resumed-calibration-$model" --dir receipts/original_r1
+          done
+          python src/p70_r1_rival_court.py \
+            --root receipts/original_r1 --out receipts/p70_r1_rival_court.json
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p70-r1-rival-court-receipt-only
+          path: receipts/p70_r1_rival_court.json
+          retention-days: 30
+
+  second_original_ecology:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Pure structural bridge court regression
+        run: |
+          python -m py_compile src/p70_ecology_averitec.py
+          python src/p70_ecology_averitec.py --self-test
+      - name: Fetch author-published frozen AVeriTeC development annotations
+        run: |
+          curl --fail --location --silent --show-error --max-time 120 --retry 1 \
+            --max-filesize 5000000 \
+            https://raw.githubusercontent.com/MichSchli/AVeriTeC/7c62d1ec8df3fb560d6efe2b85fa191135636f81/data/dev.json \
+            --output averitec_dev_original.json
+      - name: Audit independently authored web QA source without provider calls
+        run: |
+          python src/p70_ecology_averitec.py \
+            --source averitec_dev_original.json --out receipts/p70_averitec_source_receipt.json
+          echo "P70_SECOND_ECOLOGY_EXTERNAL_ORIGINAL_AUDITED provider_calls=0"
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p70-averitec-original-source-receipt-only
+          path: receipts/p70_averitec_source_receipt.json
+          retention-days: 30
+# Both jobs STRICTLY read-only; no provider credentials; no model calls.
+# No raw evidence text is uploaded, only counts, source hashes, and claim hashes.
+# Source commit is frozen and exact dataset bytes are receipted.
