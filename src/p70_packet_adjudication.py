@@ -173,6 +173,8 @@ if __name__=="__main__":
             p.error("source, public, sealed, verdict required")
         public,ledger,orig=compile_review(a.source)
         Path(a.public).parent.mkdir(parents=True,exist_ok=True)
+        Path(a.sealed).parent.mkdir(parents=True,exist_ok=True)
+        Path(a.verdict).parent.mkdir(parents=True,exist_ok=True)
         Path(a.public).write_text(json.dumps(public,indent=2,ensure_ascii=False))
         Path(a.sealed).write_text(json.dumps(ledger,indent=2,ensure_ascii=False))
         review_a=json.loads(Path(a.review_a).read_text()) if a.review_a else None
