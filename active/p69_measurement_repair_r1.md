@@ -46,3 +46,27 @@ Current `.github/workflows/p69_measurement_repair.yml` now installs the SDKs in 
 **Do NOT repeat `RUN_68_CALLS`.** The correct continuation is [P69 R1 resume only remaining 64 workflow](https://github.com/WhoSia/EPISTEME/actions/workflows/p69_r1_resume_64.yml), with exact `confirm_spend=RUN_REMAINING_64`. Its first job checks the old dispatch ID, original exact source SHA and four actual prior model contracts; every source checkout is frozen at the original `2363dc9b` commit so newer workflow fixes do not mutate the original experiment's prompt/instrument. It then executes two 32-slot batches, and fail-closed analyzes their receipts. The new 64 calls require a separate manual authorizing dispatch; **no further P69 provider calls have been made**. Offline push preflight [#37930782814](https://github.com/WhoSia/EPISTEME/actions/runs/37930782814) PASS: same-SHA historical canary, worker grid, judge red/green tests, 0 provider calls.
 
 **Paper status:** Historical P69 192-call pilot remains `TECHNICAL_PILOT_HOLD`; P69 R1 64-call repair calibration is `NOT_RUN`; 8,192-call main remains unauthorized. Salvaged provider canary PASS does not promote science.
+
+## Verified actual R1 continuation — 64-call result (2026-10-09 KST)
+
+The intended remaining-64-only [human workflow_dispatch #37931512662](https://github.com/WhoSia/EPISTEME/actions/runs/37931512662) did execute at the **original frozen experiment source** SHA `2363dc9b`, after verifying the historical four-call Canary. Both provider jobs completed 32/32; the judge returned `P69_REPAIR_MEASUREMENT_HOLD`, exit 2, despite successful provider jobs. Do NOT retry, scale, or re-label this result as a CI infrastructure bug.
+
+**Observed predeclared gate by provider and response contract (8 calls per arm; 4 valid / 4 null):**
+
+| Bundle | Prompt | Channel | Format-valid | Grounded valid | Grounded null | Repaired-arm gate |
+| --- | --- | --- | ---: | ---: | ---: | --- |
+| Gemini | frozen_v0 | strict | 8/8 | 2/4 | 4/4 | baseline |
+| Gemini | frozen_v0 | JSON object | 8/8 | 0/4 | 4/4 | baseline |
+| Gemini | procedure_v1 | strict | 8/8 | **0/4** | 4/4 | **HOLD** |
+| Gemini | procedure_v1 | JSON object | 8/8 | 4/4 | 3/4 | PASS |
+| GPT-OSS | frozen_v0 | strict | 8/8 | 1/4 | 3/4 | baseline |
+| GPT-OSS | frozen_v0 | JSON object | 5/8 | 0/4 | 4/4 | baseline |
+| GPT-OSS | procedure_v1 | strict | 8/8 | 4/4 | 3/4 | PASS |
+| GPT-OSS | procedure_v1 | JSON object | 8/8 | 4/4 | 4/4 | PASS |
+
+The Gemini strict arm's two positive task clusters both returned `ANSWER_WRONG` in both draws; the response contract was satisfied in every case, making this an **answer-direction/grounded-signal** failure rather than a malformed-JSON failure. The same procedure apparently helps Gemini's JSON-object arm, so interpreting one prompt edit as a transferable improvement would conflate decoding contracts, model/provider bundle, and task ecology. Two authored tasks and two draws per cell do not establish a stable causal interaction.
+
+**Provenance/custody:** original R1 verdict artifact #11616108547; actual Gemini #11616326279 and Groq #11616008880. Same artifacts archived in canonical EPISTEME Drive with successful folder listing:
+[Gemini rows](https://drive.google.com/file/d/1-YaUoImgmCeu4NqVfqFSKu0kHdZuHlKi/view) · [Groq rows](https://drive.google.com/file/d/1iwSu4A1QQekLvHdsykCtC-hBfyKrO2HE/view) · [HOLD verdict](https://drive.google.com/file/d/1Uehn5mxby4Kcvgx0dpc-IUSHKpHmqRmJ/view).
+
+**Authority:** `R1_LIVE_COMPLETED / REPAIR_MEASUREMENT_HOLD / P69_PAPER_CONSTRUCT_HOLD`. All 64 calibration slots spent; no additional provider calls authorized. The user should NOT start any prior R1 workflow again. Next activity: theory-led response-contract interaction and external ecological/independent scorer discrimination, without immediate billed scale-up.
