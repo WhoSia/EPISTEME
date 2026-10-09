@@ -18,6 +18,12 @@ Active execution surface for the EPISTEME research program.
 
 **P70 now separately THEORY-OPEN, no P70 provider calls.** [Formal theory and countermodels](active/p70_theory_program.md) · [finite exact-rational checker](src/p70_transport.py) · [native 256-packet witness/trace bridge audit](src/p70_bridge_audit.py) · [read-only P70 CI](.github/workflows/p70_theory.yml) · [P70 Notion](https://app.notion.com/p/3f4ef561cf9281698d75db449586b606). P70 is a parallel conceptual program, not retroactive P69 manuscript closure.
 
+## Active execution gates — P69-R1 measurement repair and P70 external source
+
+- **P69-R1:** forensic 192-call source analysis established different failure modes: Groq JSON invalid direction vocabulary/grounding; Gemini JSON overabstention on positive cases. New [P69-R1 protocol](active/p69_measurement_repair_r1.md), [paired worker](src/p69_measurement_repair.py), [fail-closed judge](src/p69_measurement_repair_analyze.py), [capped Actions](.github/workflows/p69_measurement_repair.yml). Original 192 results are immutable. Manual call ceiling **68** (fresh four-slot provider canary gates 64 calibration calls). Push and offline CI run **zero** provider calls. Even calibration-ready does NOT authorize 192/8192 main extrapolation.
+- **P70 external originality pilot:** [precommitted externally annotated SciFact protocol](active/p70_external_source_pilot_protocol.md), [source and model worker](src/p70_external_source_pilot.py), [external source judge](src/p70_external_source_analyze.py), [independent source Actions](.github/workflows/p70_external_source.yml). The official external SciFact development+corpus SHA-256 are pinned against source drift. Four externally annotated claims (2 SUPPORT, 2 CONTRADICT) × I/R/H/RH × two provider bundles = **32** maximum model calls, manual dispatch only, one ecology, no constructed semantic null and no causal/transport p-value. A push validates the genuine external source **with zero paid calls**; model tasks remain manual.
+- **Repository authority:** P69 `TECHNICAL_PILOT_HOLD` and `PAPER_CONSTRUCT_HOLD` persist. P70 is theory-open; the externally sourced pilot is exploratory, not independent multi-ecology replication. No bot authored commits or writeback.
+
 ### EPISTEME-P69 — frozen manuscript and measurement branch
 
 **EPISTEME-P69 — Manuscript-Directed Representation-Effect Transport, Evaluation-Artifact Disentanglement, Independent Model-Family Replication, Held-Out Task-Ecology Validation & Publication-Readiness Court**
