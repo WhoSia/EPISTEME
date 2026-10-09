@@ -5,6 +5,7 @@ on:
     paths:
       - 'src/p70_transport.py'
       - 'src/p70_bridge_audit.py'
+      - 'src/p70_selection_bounds.py'
       - 'active/p70_theory_program.md'
       - '.github/workflows/p70_theory.yml'
 
@@ -22,8 +23,9 @@ jobs:
           python-version: '3.12'
       - name: Compile and falsify finite transport claims
         run: |
-          python -m py_compile src/p70_transport.py src/p70_bridge_audit.py
+          python -m py_compile src/p70_transport.py src/p70_bridge_audit.py src/p70_selection_bounds.py
           PYTHONPATH=src python src/p70_transport.py --self-test
           PYTHONPATH=src python src/p70_bridge_audit.py
+          PYTHONPATH=src python src/p70_selection_bounds.py
           echo "P70_PROVIDER_FREE_THEORY_PASS calls=0"
 # No API secrets, no hosted provider calls, no source writeback.
