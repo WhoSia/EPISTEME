@@ -14,6 +14,8 @@ SOURCE_REPO_COMMIT="7c62d1ec8df3fb560d6efe2b85fa191135636f81"
 SOURCE_URL=("https://raw.githubusercontent.com/MichSchli/AVeriTeC/"+
             SOURCE_REPO_COMMIT+"/data/dev.json")
 SOURCE_LICENSE="CC-BY-NC-4.0"
+FROZEN_SOURCE_SHA256="499793726b4a5406780928a3d9dedc48d6dd53de778f22437d129cacdb08e300"
+FROZEN_SOURCE_SIZE=1785475
 ELIGIBLE={"supported":"SUPPORT","refuted":"CONTRADICT"}
 TARGET_PER_LABEL=2
 VERTICES=("I","R","H","RH")
@@ -25,6 +27,8 @@ def source_checks(file):
     raw=Path(file).read_bytes()
     if len(raw)>5_000_000 or len(raw)<100_000:
         raise ValueError("P70_ECO2_UNEXPECTED_ORIGINAL_SOURCE_SIZE")
+    if len(raw)!=FROZEN_SOURCE_SIZE or hashlib.sha256(raw).hexdigest()!=FROZEN_SOURCE_SHA256:
+        raise ValueError("P70_ECO2_ORIGINAL_SOURCE_DRIFT__NO_DATA_PROMOTION")
     try:data=json.loads(raw)
     except (UnicodeError,ValueError) as e:raise ValueError("P70_ECO2_BAD_JSON") from e
     if not isinstance(data,list) or len(data)<100:
