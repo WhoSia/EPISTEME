@@ -23,6 +23,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - run: python -m pip install groq google-genai
       - name: Bounded study approval only for explicit manual dispatch
         if: github.event_name == 'workflow_dispatch'
         env:
