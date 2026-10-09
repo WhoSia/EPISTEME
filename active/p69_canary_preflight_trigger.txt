@@ -1,3 +1,4 @@
 P69 Gemini failure diagnostic source preflight: redacted error classifier, metadata GET fallback (manual canary only), no SDK retries, red HOLD verdict; zero text-generation calls on push. No github-actions[bot] commits.
 P69 exit-gate regression replay: red synthetic contract must exit 2 and retain receipt; green synthetic contract must exit 0. Trigger is provider-free; no hosted model requests.
 P69 second provider-free CI: repair obsolete NO_PROVIDER_CALLS state assertion after hosted canary, test actual red/green judge exit semantics. No generation on push.
+P69 provider-free billing classifier regression: HTTP 402 mapped to BILLING_REQUIRED; no provider calls on push.
