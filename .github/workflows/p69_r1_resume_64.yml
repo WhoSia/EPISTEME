@@ -1,0 +1,127 @@
+name: EPISTEME P69 R1 Resume Remaining 64 Calls
+on:
+  workflow_dispatch:
+    inputs:
+      confirm_spend:
+        description: "Explicitly authorize only the remaining 64 P69 R1 calls: RUN_REMAINING_64"
+        required: true
+        type: string
+  push:
+    paths:
+      - '.github/workflows/p69_r1_resume_64.yml'
+
+permissions:
+  contents: read
+  actions: read
+
+env:
+  ORIGINAL_SHA: '2363dc9b176afbd574dd1efce5999fdded25b1a1'
+  ORIGINAL_CANARY_RUN: '37929410643'
+
+jobs:
+  previous_canary_gate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.ORIGINAL_SHA }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install groq google-genai
+      - name: Require separate explicit approval, not a Git push
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          APPROVAL: ${{ inputs.confirm_spend }}
+        run: test "$APPROVAL" = "RUN_REMAINING_64"
+      - name: Verify old Canary run identity and actually valid historical receipts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          test "$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${ORIGINAL_CANARY_RUN}" --jq '.head_sha')" = "$ORIGINAL_SHA"
+          test "$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${ORIGINAL_CANARY_RUN}" --jq '.event')" = "workflow_dispatch"
+          mkdir -p receipts/original_canary
+          for model in gemini gptoss120; do
+            gh run download "$ORIGINAL_CANARY_RUN" --repo "$GITHUB_REPOSITORY" \
+              --name "p69-r1-canary-$model" --dir receipts/original_canary
+          done
+          PYTHONPATH=src python src/p69_provider_canary_analyze.py \
+            --root receipts/original_canary --out receipts/original_canary_gate.json
+          PYTHONPATH=src python src/p69_measurement_repair.py --self-test
+          PYTHONPATH=src python src/p69_measurement_repair_analyze.py --self-test
+          echo "P69_R1_HISTORIC_SAME_SHA_CANARY_GATE_PASS paid_calls=0"
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p69-r1-resume-reused-canary-receipt
+          path: receipts/original_canary_gate.json
+          retention-days: 30
+
+  remaining_calibration:
+    if: github.event_name == 'workflow_dispatch'
+    needs: previous_canary_gate
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        model: [gptoss120, gemini]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.ORIGINAL_SHA }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install groq google-genai
+      - name: Up to 32 requested calls per original model without SDK retries
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          PYTHONPATH=src python src/p69_measurement_repair.py \
+            --model ${{ matrix.model }} --out receipts/calibration/${{ matrix.model }}.json
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p69-r1-resumed-calibration-${{ matrix.model }}
+          path: receipts/calibration/
+          retention-days: 30
+
+  read_only_judge:
+    if: github.event_name == 'workflow_dispatch' && always()
+    needs: [previous_canary_gate, remaining_calibration]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.ORIGINAL_SHA }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install groq google-genai
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: p69-r1-resumed-calibration-*
+          path: receipts/resumed_shards
+          merge-multiple: true
+      - name: Strict noninferential calibration verdict
+        run: |
+          PYTHONPATH=src python src/p69_measurement_repair_analyze.py \
+            --root receipts/resumed_shards --out receipts/resumed_r1_verdict.json
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p69-r1-resumed-calibration-verdict
+          path: receipts/resumed_r1_verdict.json
+          retention-days: 30
+
+# Never restart 4 successful canary requests: reuses 37929410643.
+# Original calibration/prompt code is checked out by exact 2363dc SHA.
+# No paid model calls on push; manual dispatch is separately approved.
+# Absolute resumed cap 64; original 4 + new 64 = frozen 68-slot cap.
+# Every job has read-only permissions and no bot Git history writes.
