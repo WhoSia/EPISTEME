@@ -46,7 +46,11 @@ def verify(source):
             assert {x["case_id"] for x in legacy_form["judgments"]}==expected
             assert {x["case_id"]:x["packet_sha256"] for x in legacy_form["judgments"]}=={
                 x["case_id"]:x["packet_sha256"] for x in form["judgments"]}
-            assert "original source label" not in legacy_txt.lower()
+            # Natural-language prohibition of looking up original labels is
+            # expected; reject actual sealed metadata markers, not instructions.
+            assert "source_label_SEALED" not in legacy_txt
+            assert "source_label_SEALED" not in json.dumps(bundle["cases"])
+            assert "justification" not in json.dumps(bundle["cases"])
             html=render(bundle,form)
             assert len(html)>10000 and "blind_to_original_gold_and_peer_judgments:true" in html
             # Review information flows into masked HTML, not into workflow artifacts.
