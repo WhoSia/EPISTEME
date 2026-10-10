@@ -31,29 +31,53 @@ def build(source):
         projected_roles={(e["question"],e["answer"],e["source_url"])
                          for e in projected["question_answer_evidence"]}
         available=[]
+        questions_without_eligible_answer=0
+        raw_answer_records=0
         for i,q in enumerate(questions):
-            item=_clean_qa(q)
-            evidence_id="full_"+digest([row["source_claim_id"],i])[:12]
-            if item is not None:
-                available.append({"evidence_id":evidence_id,
-                      "question":item["question"],"answer":item["answer"],
-                      "source_url":item["source_url"],"answer_state":"PRESENT_IN_ORIGINAL"})
-            else:
-                available.append({"evidence_id":evidence_id,
-                      "question":str(q.get("question","")) if isinstance(q,dict) else "",
-                      "answer":"","source_url":None,
-                      "answer_state":"NO_ELIGIBLE_ORIGINAL_ANSWER"})
-        if len(available)!=len(questions):raise ValueError("P70_LOST_ORIGINAL_QA")
+            question=str(q.get("question","")) if isinstance(q,dict) else ""
+            answers=q.get("answers",[]) if isinstance(q,dict) else []
+            if not isinstance(answers,list):answers=[]
+            eligible_here=False
+            for j,ans in enumerate(answers):
+                if not isinstance(ans,dict):continue
+                raw_answer_records+=1
+                val=ans.get("answer")
+                url=ans.get("source_url")
+                usable=(isinstance(val,str) and bool(val.strip()) and
+                        isinstance(url,str) and url.startswith(("http://","https://"))
+                        and "No answer could be found" not in val)
+                eligible_here|=usable
+                available.append({"evidence_id":"full_"+digest(
+                    [row["source_claim_id"],i,j])[:12],
+                    "question":question,
+                    "answer":val.strip() if isinstance(val,str) else "",
+                    "source_url":url if isinstance(url,str) else None,
+                    "answer_state":"PRESENT_IN_ORIGINAL" if usable else "ORIGINAL_ANSWER_UNUSABLE",
+                    "original_question_index":i,
+                    "original_answer_index":j})
+            if not eligible_here:
+                questions_without_eligible_answer+=1
+                if not answers:
+                    available.append({"evidence_id":"full_"+digest(
+                        [row["source_claim_id"],i,"none"])[:12],
+                        "question":question,"answer":"","source_url":None,
+                        "answer_state":"NO_ELIGIBLE_ORIGINAL_ANSWER",
+                        "original_question_index":i,
+                        "original_answer_index":None})
+        if len({e["original_question_index"] for e in available})!=len(questions):
+            raise ValueError("P70_LOST_ORIGINAL_QUESTION")
         # The projection chooses first two complete QA entries, not
         # necessarily the first two original question positions.
         full_roles={(e["question"],e["answer"],e["source_url"])
                     for e in available if e["answer_state"]=="PRESENT_IN_ORIGINAL"}
         if not projected_roles.issubset(full_roles):
             raise ValueError("P70_PROJECTION_NOT_PRESENT_IN_FULL_ORIGINAL")
-        counts["original_questions"]+=len(available)
+        counts["original_questions"]+=len(questions)
+        counts["original_answer_records"]+=raw_answer_records
+        counts["full_review_evidence_rows"]+=len(available)
         counts["projection_retained_qa"]+=len(projected_roles)
-        counts["original_questions_beyond_projection"]+=len(available)-len(projected_roles)
-        counts["original_answer_missing_or_unusable"]+=sum(x["answer_state"]!="PRESENT_IN_ORIGINAL" for x in available)
+        counts["original_questions_beyond_projection"]+=len(questions)-len(projected_roles)
+        counts["original_answer_missing_or_unusable"]+=questions_without_eligible_answer
         for view,evidence in (("FULL_ORIGINAL_QA",available),
                               ("PROJECTED_TWO_QA",projected["question_answer_evidence"])):
             case_id="P70FULL_"+digest([row["source_claim_id"],view])[:16]
@@ -65,6 +89,8 @@ def build(source):
                   "source_position":row["source_position"],
                   "condition":view,"packet_sha256":digest(p),
                   "available_ids":[e["evidence_id"] for e in evidence],
+                  "admissible_ids":[e["evidence_id"] for e in evidence
+                      if e.get("answer_state","PRESENT_IN_ORIGINAL")=="PRESENT_IN_ORIGINAL"],
                   "original_label_SEALED":row["source_label"],
                   "structural_projection_hash":meta["qa_multiset_sha256"]})
     if len(public)!=8 or dict(counts)["original_questions"]!=10 or counts["projection_retained_qa"]!=8:
@@ -128,7 +154,7 @@ def adjudicate(sealed,reviews=None):
             if j.get("verdict") not in ("SUPPORT","CONTRADICT","INSUFFICIENT","AMBIGUOUS"):
                 raise ValueError("P70_REVIEW_BAD_VERDICT")
             names=j.get("sufficient_evidence_ids")
-            if not isinstance(names,list) or len(names)!=len(set(names)) or not set(names).issubset(original["available_ids"]):
+            if not isinstance(names,list) or len(names)!=len(set(names)) or not set(names).issubset(original.get("admissible_ids",original["available_ids"])):
                 raise ValueError("P70_INVALID_EVIDENCE_REFERENCE")
             if j["verdict"] in ("SUPPORT","CONTRADICT") and not names:
                 raise ValueError("P70_LABEL_WITHOUT_JUSTIFICATION")
