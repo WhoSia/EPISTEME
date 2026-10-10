@@ -1,0 +1,63 @@
+name: EPISTEME P71 Blinded Review Admission Court
+on:
+  push:
+    paths:
+      - 'src/p71_review_handoff.py'
+      - 'src/p71_switch_certificate.py'
+      - 'active/p71_research_program.md'
+      - 'active/p71_paper_candidate_court.md'
+      - '.github/workflows/p71_review_admission.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  review_p0:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify genuine no-human-review honest code gates
+        run: |
+          python -m py_compile src/p71_review_handoff.py
+          PYTHONPATH=src python src/p71_review_handoff.py --self-test
+      - name: Download frozen author original under CC BY-NC license
+        run: |
+          curl --fail --location --silent --show-error --max-time 120 --retry 1 \
+            --max-filesize 5000000 \
+            https://raw.githubusercontent.com/MichSchli/AVeriTeC/7c62d1ec8df3fb560d6efe2b85fa191135636f81/data/dev.json \
+            --output private_original_averitec.json
+      - name: Produce TWO distinct blinded human handoffs only on runner
+        run: |
+          PYTHONPATH=src python src/p71_review_handoff.py \
+            --source private_original_averitec.json \
+            --outdir PRIVATE_HUMAN_HANDOFF_NOT_UPLOADED \
+            --out receipts/p71_p0_readiness.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          root=Path('PRIVATE_HUMAN_HANDOFF_NOT_UPLOADED')
+          docs=[json.loads((root/f'reviewer_{k}_masked.json').read_text()) for k in ('A','B')]
+          r=json.loads(Path('receipts/p71_p0_readiness.json').read_text())
+          assert r['actual_human_reviews_received']==0 and r['expected_independent_human_judgments']==32
+          assert len(docs[0]['cases'])==len(docs[1]['cases'])==16
+          assert [x['case_id'] for x in docs[0]['cases']] != [x['case_id'] for x in docs[1]['cases']]
+          assert all(not d['source_labels_or_justifications_visible'] for d in docs)
+          assert all(not d['model_responses_visible'] for d in docs)
+          print('P71_ORIGINAL_16_PACKET_A_B_MASKED_HANDOFF_PASS human_judgments=0 paid_calls=0')
+          PY
+      - name: Remove all original/packet and sealed gold before publishing receipt
+        run: |
+          rm -rf PRIVATE_HUMAN_HANDOFF_NOT_UPLOADED private_original_averitec.json
+          echo 'P71_ORIGINAL_EVIDENCE_NOT_UPLOADED'
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p71-human-review-readiness-receipt-only
+          path: receipts/p71_p0_readiness.json
+          retention-days: 30
+# No secrets, no models, no mock-human completion, no data mirrors.
