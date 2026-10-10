@@ -5,7 +5,7 @@ network or analytics. Do not put raw licensed packet HTML in public CI artifacts
 Output JSON follows p70/p71 independent-human review court contracts.
 """
 from __future__ import annotations
-import argparse, html, json
+import argparse, html, json, os
 from pathlib import Path
 
 FLAGS=("temporal_scope","subject_identity","evidence_specificity",
@@ -157,4 +157,5 @@ if __name__=="__main__":
         path=Path(a.out);path.parent.mkdir(parents=True,exist_ok=True)
         path.write_text(render(json.loads(Path(a.masked).read_text()),
             json.loads(Path(a.template).read_text())),encoding="utf-8")
+        os.chmod(path, 0o600)
         print("P71_REVIEW_OFFLINE_HTML_READY blinded_cases=16 real_reviews=0 provider_calls=0")
