@@ -177,18 +177,15 @@ def analyze_reviews(masked_packets, sealed, reviewer_a=None,
         raise ValueError("P71_ORIGINAL_CLAIM_CLUSTERS_NOT_FOUR")
     arbitration_status="NOT_NEEDED" if not disputes else "THIRD_REVIEW_REQUIRED"
     if arbitration is not None:
-        if arbitration.get("role")!="THIRD_INDEPENDENT_HUMAN_ADJUDICATOR":
-            raise ValueError("P71_FORGED_ARBITER_ROLE")
-        cid_set={d["case_id"] for d in disputes}
-        if arbitration.get("reviewer_id") in (ida,idb) or not arbitration.get("independent_from_original_reviewers"):
-            raise ValueError("P71_NOT_INDEPENDENT_ARBITER")
-        adjudicated=arbitration.get("judgments")
-        if not isinstance(adjudicated,list) or {x.get("case_id") for x in adjudicated}!=cid_set or len(adjudicated)!=len(cid_set):
-            raise ValueError("P71_ARBITRATION_NOT_EXACT_DISPUTE_SET")
-        for item in adjudicated:
-            if item.get("verdict") not in ("SUPPORT","CONTRADICT","INSUFFICIENT","AMBIGUOUS") or len(str(item.get("reason","")).strip())<12:
-                raise ValueError("P71_ARBITRATION_INCOMPLETE")
-        arbitration_status="THIRD_REVIEW_SUBMITTED_CUSTODY_UNVERIFIED"
+        # Canonical adjudicator specification is owned by the pre-existing
+        # p71_review_disagreement_court; no competing third-review schema.
+        from p71_review_disagreement_court import run as canonical_run
+        canonical = canonical_run(sealed, reviewer_a, reviewer_b, arbitration)
+        if canonical.get("pairwise_disagreements", len(disputes)) != len(disputes):
+            raise ValueError("P71_PARALLEL_COURT_DISAGREEMENT_DIVERGENCE")
+        if canonical["verdict"] != "P71_THIRD_PARTY_DISPUTE_PROCESS_COMPLETED":
+            raise ValueError("P71_THIRD_REVIEW_UNRESOLVED")
+        arbitration_status = "THIRD_REVIEW_SUBMITTED_CUSTODY_UNVERIFIED"
     return {"kind": "P71_ADJUDICATION_COURT",
             "verdict": "CONSENSUS_CANDIDATE_CUSTODIAN_HOLD"
                 if not disputes else "DISAGREEMENT_ADJUDICATION_HOLD",
@@ -237,10 +234,12 @@ def self_test():
     try:analyze_reviews(public,sealed,ra,ra)
     except ValueError as e:assert "INDEPENDENCE" in str(e)
     else:raise AssertionError("P71_REPEATED_REVIEWER_PASSED")
-    arb={"role":"THIRD_INDEPENDENT_HUMAN_ADJUDICATOR","reviewer_id":"MOCK_C",
-         "independent_from_original_reviewers":True,"judgments":[{
-           "case_id":public[0]["case_id"],"verdict":"AMBIGUOUS",
-           "reason":"Real-world context is not present in synthetic case."}]}
+    arb={"role":"THIRD_HUMAN_DISPUTE_ADJUDICATOR","adjudicator_id":"MOCK_C",
+         "blind_to_source_gold":True,"resolved_cases":[{
+           "case_id":public[0]["case_id"],
+           "packet_sha256":sealed[0]["sha256_review_packet"],
+           "verdict":"AMBIGUOUS","sufficient_evidence_ids":[],
+           "rationale":"Real-world context is not present in synthetic case."}]}
     end=analyze_reviews(public,sealed,ra,rb,arb)
     assert end["adjudication_status"]=="THIRD_REVIEW_SUBMITTED_CUSTODY_UNVERIFIED"
     assert end["semantic_bridge"]=="HOLD"
