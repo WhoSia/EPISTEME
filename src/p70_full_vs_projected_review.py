@@ -134,7 +134,8 @@ def adjudicate(sealed,reviews=None):
     if set(reviews)!={"F1","F2","P1","P2"}:
         raise ValueError("P70_REQUIRED_TWO_REVIEWERS_PER_CONDITION")
     ids=[z.get("reviewer_id") for z in reviews.values()]
-    if not all(isinstance(x,str) and len(x.strip())>2 for x in ids) or len(set(ids))!=4:
+    if (not all(isinstance(x,str) and len(x.strip())>2 and not x.startswith("REPLACE_") for x in ids)
+        or len(set(ids))!=4):
         raise ValueError("P70_NOT_FOUR_DISTINCT_HUMAN_REVIEWERS")
     known={x["case_id"]:x for x in sealed}
     counters=collections.Counter()
@@ -158,6 +159,9 @@ def adjudicate(sealed,reviews=None):
                 raise ValueError("P70_INVALID_EVIDENCE_REFERENCE")
             if j["verdict"] in ("SUPPORT","CONTRADICT") and not names:
                 raise ValueError("P70_LABEL_WITHOUT_JUSTIFICATION")
+            if not isinstance(j.get("source_access_limitations"),list) or any(
+                not isinstance(x,str) or not x.strip() for x in j["source_access_limitations"]):
+                raise ValueError("P70_SOURCE_ACCESS_LIMITATIONS_INVALID")
             if j.get("omitted_questions_material") not in (True,False,None):
                 raise ValueError("P70_UNDECLARED_OMISSION_EFFECT")
             if j.get("time_or_referent_problem") not in (True,False):
@@ -188,7 +192,7 @@ def self_test():
         return {"reviewer_id":name,"independent_from_model_and_source_authors":True,
                 "judgments":[{"case_id":x["case_id"],"packet_sha256":x["packet_sha256"],
                   "verdict":"SUPPORT","sufficient_evidence_ids":["e0"],
-                  "omitted_questions_material":False,
+                  "omitted_questions_material":False,"source_access_limitations":[],
                   "time_or_referent_problem":False,"reason":"Synthetic test reviewer only; not real."}
                  for x in sealed if x["condition"]==view]}
     fake={"F1":mock("MOCK_FA","FULL_ORIGINAL_QA"),"F2":mock("MOCK_FB","FULL_ORIGINAL_QA"),
