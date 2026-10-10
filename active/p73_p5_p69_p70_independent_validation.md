@@ -59,3 +59,10 @@ The AVeriTeC original pinned development source, revision `7c62d1ec8df3fb560d6ef
 - [P70 original vs projected comparison, 0/16 human receipt](https://drive.google.com/file/d/1OCllIKsyZmUmvjnlCLzDom0EuL_buYjs/view)
 
 **Next paper-court decision:** P69 A1 can be written as a transparent exploratory negative-methods preprint only, reporting all original contract and scoring failures. P70/P71 warrant-bridge paper remains blocked by actual independent reviewers and original-source page authority; P73 field causal audit paper remains blocked by genuine consent-based time-indexed measurements and causal controls. The strongest next deliverable is an independent blind-review study without duplicate inference from packet variants, not another toy precision improvement.
+
+## P70 full-evidence implementation strengthened — all original answer records (2026-10-10)
+
+Initial full-QA handoff correctly preserved all ten original question positions but selected only one usable answer per question. The implementation has now been strengthened to retain **every original answer record** (including unusable answers with explicit status) and to reject missing original question positions. The source-locked actual four-claim sample had **10 original question records and 10 original answer records**, 8 retained complete-QA projection atoms, 2 original questions outside the projection and 1 original question lacking an eligible source answer. Human reviewers may cite only source-authorized, eligible answer records, not an empty or unusable answer entry. **This is still only the original dataset's answers, not a live independent crawl of cited web pages.**
+
+[Exact latest G-001 three-job CI #38044892498](https://github.com/WhoSia/EPISTEME/actions/runs/38044892498) **SUCCESS**; all P73/P69/P70 jobs passed after the strengthened full-answer compiler. [Verified canonical v2 P70 counts-only receipt](https://drive.google.com/file/d/1eTBqqRl27Okoji06bdNLEAmJorgisCUI/view). Earlier v1 receipt is preserved as prior code history but **v2 supersedes it for complete original-answer handling**. Reviewer outcomes remain 0/16; P71 old packet review 0/32.
+
