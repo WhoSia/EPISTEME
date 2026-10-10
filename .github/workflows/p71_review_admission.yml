@@ -5,7 +5,9 @@ on:
       - 'src/p71_review_handoff.py'
       - 'src/p71_switch_certificate.py'
       - 'src/p71_review_html.py'
-      - 'src/p71_switch_certificate.py'
+      - 'src/p71_integration_court.py'
+      - 'src/p71_prepare_review_handoff.py'
+      - 'src/p71_review_disagreement_court.py'
       - 'active/p71_research_program.md'
       - 'active/p71_paper_candidate_court.md'
       - '.github/workflows/p71_review_admission.yml'
@@ -63,6 +65,27 @@ jobs:
           assert all((root/f'reviewer_{k}_offline.html').stat().st_size>10000 for k in ('A','B'))
           print('P71_ORIGINAL_16_PACKET_A_B_MASKED_HANDOFF_PASS human_judgments=0 paid_calls=0')
           PY
+      - name: Cross-audit both review tools and adversarial mock failure paths on ORIGINAL data
+        run: |
+          python -m py_compile src/p71_integration_court.py src/p71_prepare_review_handoff.py src/p71_review_disagreement_court.py
+          PYTHONPATH=src python src/p71_prepare_review_handoff.py --self-test
+          PYTHONPATH=src python src/p71_review_disagreement_court.py --self-test
+          PYTHONPATH=src python src/p71_integration_court.py \
+            --source private_original_averitec.json \
+            --receipt receipts/p71_original_integration_court.json
+      - name: Assert G-001 read-only Actions and no bot-authored Git writes
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          governance=Path("GOVERNANCE.md").read_text()
+          workflow=Path(".github/workflows/p71_review_admission.yml").read_text()
+          assert "G-001" in governance and "github-actions[bot]" in governance
+          assert "permissions:\n  contents: read" in workflow
+          assert "contents: write" not in workflow
+          assert "git push " not in workflow and "git commit " not in workflow
+          assert "gh pr merge" not in workflow
+          print("P71_G001_NO_BOT_AUTHOR_OR_WRITEBACK_PASS")
+          PY
       - name: Remove all original/packet and sealed gold before publishing receipt
         run: |
           rm -rf PRIVATE_HUMAN_HANDOFF_NOT_UPLOADED private_original_averitec.json
@@ -71,6 +94,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: p71-human-review-readiness-receipt-only
-          path: receipts/p71_p0_readiness.json
+          path: |
+            receipts/p71_p0_readiness.json
+            receipts/p71_original_integration_court.json
           retention-days: 30
 # No secrets, no models, no mock-human completion, no data mirrors.
