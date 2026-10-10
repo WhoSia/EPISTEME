@@ -2,6 +2,13 @@
 
 Active execution surface for the EPISTEME research program.
 
+## P73-P5 × P69 × P70 — independently sourced review and source-time audit design (2026-10-10)
+
+**Canonical [joint protocol and actual source checks](active/p73_p5_p69_p70_independent_validation.md)**. [G-001 read-only original-source three-job CI #38044552352](https://github.com/WhoSia/EPISTEME/actions/runs/38044552352) PASS: P73-P5 notice-vs-control prospective audit design has **zero actual interventions and causal HOLD**; P69 source-authored SciFact holdout has **8 previously unused claims/8 different documents with no overlap with P70's 4 selected claims/documents**, but is still **one SciFact ecology**, and blinded independent scorers **0/16**; P70 compares **10 original AVeriTeC question records vs 8 retained QA atoms**, with 2 omitted and 1 question lacking a usable original answer; four human full-vs-projected raters **0/16**. Existing P71 16-variant dual human review **0/32**, P69 paper construct HOLD, P70 semantics/behavioral transport HOLD. **No new API calls or human participation.**
+
+**Verified Drive receipts:** [P73 design](https://drive.google.com/file/d/1bd-ELHsF801hNuH_da78xSAI9gnJammg/view) · [P69 scorer-ready holdout](https://drive.google.com/file/d/1j4psNjZi6xcS7Ob6gy6UE3wn8LDk1alc/view) · [P70 full-vs-projected panels](https://drive.google.com/file/d/1OCllIKsyZmUmvjnlCLzDom0EuL_buYjs/view). Only hashed counts and HOLDs are uploaded; private licensed claim/reviewer packets are deleted from CI runner.
+
+
 ## Repository doctrine
 
 - `main` is the working line; do not create routine per-stage branches.
