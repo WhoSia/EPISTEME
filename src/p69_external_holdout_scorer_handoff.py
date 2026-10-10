@@ -150,8 +150,8 @@ def self_test():
                   "verdict":"SUPPORT","indispensable_evidence_ids":[p["evidence"][0]["evidence_id"]],
                   "answer_adequacy":True,"ambiguity_flags":[],"reason":"Independent MOCK only; not a real reviewer."}
                  for p in fixture]}
-    assert review_verdict(fixture,sealed,mock("A"),mock("B"))["scorer_judgments"]==16
-    try:review_verdict(fixture,sealed,mock("A"),mock("A"))
+    assert review_verdict(fixture,sealed,mock("REVIEWER_A"),mock("REVIEWER_B"))["scorer_judgments"]==16
+    try:review_verdict(fixture,sealed,mock("REVIEWER_A"),mock("REVIEWER_A"))
     except ValueError:pass
     else:raise AssertionError("P69_FALSE_INDEPENDENCE")
     return "P69_EXTERNAL_SCORER_CONTRACT_TEST_PASS_REAL_HUMANS_ZERO"
