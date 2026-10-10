@@ -18,6 +18,10 @@ Active execution surface for the EPISTEME research program.
 
 **P70 now separately THEORY-OPEN, no P70 provider calls.** [Formal theory and countermodels](active/p70_theory_program.md) · [finite exact-rational checker](src/p70_transport.py) · [native 256-packet witness/trace bridge audit](src/p70_bridge_audit.py) · [read-only P70 CI](.github/workflows/p70_theory.yml) · [P70 Notion](https://app.notion.com/p/3f4ef561cf9281698d75db449586b606). P70 is a parallel conceptual program, not retroactive P69 manuscript closure.
 
+## P72 ACTIVE — original P0 results (2026-10-10)
+
+P72 has been formally opened: [canonical program](active/p72_research_program.md) and [Notion](https://app.notion.com/p/3f5ef561cf928172a422ec7f44da0599). [Original P0 read-only CI #38040008919](https://github.com/WhoSia/EPISTEME/actions/runs/38040008919) PASS. Its [P0 code](src/p72_reflexive_audit_court.py) checks identification of information-acquisition versus audit-announcement contrasts and bounded synthetic ordering counterexamples. This is mathematical design validation, not observed causal behavior or novel theorem. Earlier P2-P4 and external performative prediction are explicit prior-art competitors. P71 external human reviews 0/32, P69 paper HOLD and P70 semantic bridge HOLD remain. No new commercial model calls. Actions follow G-001 read-only. [Archived scoped receipt](https://drive.google.com/file/d/1G8I6t-6pjbyktKjqyf-d91jneFEKUEX1/view).
+
 ## P71-P5 endogeneity court and P72 formal-name proposal (2026-10-10)
 
 - **P71-P5 original-code CI:** [GitHub #38039400106](https://github.com/WhoSia/EPISTEME/actions/runs/38039400106) SUCCESS with [exact counterworld stress tests](src/p71_endogenous_audit_court.py): robust dominance vs classical minimax-regret are distinct policy objectives, and two observationally identical audit-only worlds can have opposite unaudited migration benefits. These are **known-class decision/causal identification countermodels**, NOT novel theorems, actual target outcomes, or human annotations.
