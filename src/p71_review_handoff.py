@@ -64,6 +64,7 @@ def build_handoff(original_source, destination, seed=71001):
             "role": "INDEPENDENT_HUMAN_REVIEW",
             "reviewer_id": "REPLACE_WITH_PRIVATE_DISTINCT_PSEUDONYM",
             "independent_from_author_and_model_outputs": False,
+            "blind_to_original_gold_and_peer_judgments": False,
             "instructions": "Do not submit until all 16 entries are completed, and the independence attestation is true.",
             "judgments": [{
                 "case_id": p["case_id"],
