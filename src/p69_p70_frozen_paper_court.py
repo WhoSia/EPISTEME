@@ -78,11 +78,33 @@ def audit_scifact(path):
         if src["corpus_sha256"]!="b8d6c89624cb2ed74dee8938effc4f5d8bd2086887880af8110d64be4ceade62":
             raise ValueError("P70_CORPUS_SHA_MISMATCH")
         grids.append(tuple(sorted(grid)))
+        pairs={(x["claim_id"],x["version"]):x for x in rows}
+        multiclass={}
+        binary={}
+        for op,edges in (("R",(("I","R"),("H","RH"))),
+                         ("H",(("I","H"),("R","RH")))):
+            transitions=[];binary_transitions=[]
+            for claim_id in sorted({x["claim_id"] for x in rows}):
+                for a,b in edges:
+                    x,y=pairs[claim_id,a],pairs[claim_id,b]
+                    transitions.append(x["model_verdict"]!=y["model_verdict"])
+                    binary_transitions.append(
+                        (x["label_matches_original_annotation"] is True)!=
+                        (y["label_matches_original_annotation"] is True))
+            multiclass[op]=sum(transitions)
+            binary[op]=sum(binary_transitions)
         report[model]={"provider_responses":sum(r["provider_status"]=="RESPONSE" for r in rows),
                "format_valid":sum(r["format_valid"] is True for r in rows),
                "source_label_matches":sum(r["label_matches_original_annotation"] is True for r in rows),
                "annotated_rationale_cited":sum(r["annotated_rationale_cited"] is True for r in rows),
                "underlying_original_claim_clusters":4,
+               "wrong_label_even_though_annotated_rationale_cited":sum(
+                   r["label_matches_original_annotation"] is not True and
+                   r["annotated_rationale_cited"] is True for r in rows),
+               "multiclass_label_switches_R_out_of_8":multiclass["R"],
+               "multiclass_label_switches_H_out_of_8":multiclass["H"],
+               "binary_correctness_switches_R_out_of_8":binary["R"],
+               "binary_correctness_switches_H_out_of_8":binary["H"],
                "semantic_packet_truth":"EXTERNAL_ADJUDICATION_MISSING"}
     if grids[0]!=grids[1]:raise ValueError("P70_MISMATCHED_MODEL_SOURCE_CLAIMS")
     return report
@@ -96,6 +118,13 @@ def audit(pilot,repair,scifact):
     assert all(gem[c][s]["format_valid"]==4 for c in CHANNELS for s in ("valid","null"))
     assert p70["gemini"]["source_label_matches"]==8
     assert p70["gptoss120"]["source_label_matches"]==16
+    assert p70["gemini"]["multiclass_label_switches_R_out_of_8"]==1
+    assert p70["gemini"]["multiclass_label_switches_H_out_of_8"]==1
+    assert p70["gemini"]["binary_correctness_switches_R_out_of_8"]==0
+    assert p70["gemini"]["binary_correctness_switches_H_out_of_8"]==0
+    assert p70["gemini"]["wrong_label_even_though_annotated_rationale_cited"]==4
+    assert p70["gptoss120"]["multiclass_label_switches_R_out_of_8"]==0
+    assert p70["gptoss120"]["multiclass_label_switches_H_out_of_8"]==0
     return {"kind":"P69_P70_FROZEN_ACTUAL_ORIGINAL_ROWS_REPLAY","p69":m,"p70":p70,
             "real_provider_observations":192+64+32,
             "new_provider_calls":0,"independent_human_packet_judgments":0,
