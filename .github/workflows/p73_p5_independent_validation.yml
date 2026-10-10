@@ -43,7 +43,7 @@ jobs:
           governance=Path('GOVERNANCE.md').read_text()
           assert 'G-001' in governance
           assert re.search(r'(?m)^permissions:\n  contents: read$',s)
-          assert not re.search(r'(?m)^\\s*contents:\\s*write\\s*
+          assert not any(x.strip()==('contents:'+' write') for x in s.splitlines())
           prohibited=('git'+' push ', 'git'+' commit ', 'gh'+' pr merge')
           assert not any(x in s for x in prohibited)
           print('P73_P5_G001_NO_ACTIONS_WRITE_PASS')
