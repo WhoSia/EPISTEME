@@ -18,6 +18,12 @@ Active execution surface for the EPISTEME research program.
 
 **P70 now separately THEORY-OPEN, no P70 provider calls.** [Formal theory and countermodels](active/p70_theory_program.md) · [finite exact-rational checker](src/p70_transport.py) · [native 256-packet witness/trace bridge audit](src/p70_bridge_audit.py) · [read-only P70 CI](.github/workflows/p70_theory.yml) · [P70 Notion](https://app.notion.com/p/3f4ef561cf9281698d75db449586b606). P70 is a parallel conceptual program, not retroactive P69 manuscript closure.
 
+## P71-P5 endogeneity court and P72 formal-name proposal (2026-10-10)
+
+- **P71-P5 original-code CI:** [GitHub #38039400106](https://github.com/WhoSia/EPISTEME/actions/runs/38039400106) SUCCESS with [exact counterworld stress tests](src/p71_endogenous_audit_court.py): robust dominance vs classical minimax-regret are distinct policy objectives, and two observationally identical audit-only worlds can have opposite unaudited migration benefits. These are **known-class decision/causal identification countermodels**, NOT novel theorems, actual target outcomes, or human annotations.
+- **P72 FORMAL TITLE PROPOSED ONLY:** **EPISTEME-P72 — Endogenous Warrant Acquisition & Reflexive Representation Migration: Audit-Induced State Transitions, Counterfactual Evidence Stability, Sequential Review Value & Irreversible Switching Falsification Court**. See [P71–P72 boundary and prior-art court](active/p71_endogenous_audit_p72_proposal.md) and [P71 formal program](active/p71_research_program.md). Compete against existing performative prediction/partial-identification and value-of-information theory. P72 is NOT open/activated, no paid model or real human experiments authorized.
+- **HOLD unchanged:** P71 independent AVeriTeC human judgments 0/32; P69 publication construct HOLD; P70 proof bridge and behavioral cross-ecology transport not identified. Workflow is G-001 read-only and has no bot git writeback.
+
 ## P71 active — Two-Pipeline Human-Warrant Admission & Original-Source Integration (2026-10-10)
 
 **Single canonical P71 research page:** [P71 Notion](https://app.notion.com/p/3f5ef561cf9281d6a429f59cdcf4fbc7). The [P71-P0 operational companion](https://app.notion.com/p/3f5ef561cf92819eaeafcf76bb85feaf) is NOT an additional competing research stage. [Formal program](active/p71_research_program.md) · [paper rival court](active/p71_paper_candidate_court.md) · [exploratory methods draft](active/p71_paper_A1_exploratory_extended_abstract.md).
