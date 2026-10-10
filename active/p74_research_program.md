@@ -58,3 +58,23 @@ Separate source correctness, provenance authority, answer sufficiency, independe
 GitHub Actions must remain read-only: `permissions: contents: read`, no Action commits, pushes, tags, merges, branch mutations, or attribution to bots. Human-account repository promotion only. Run/commit SHA and explicit PASS/HOLD readback needed before CI promotion. No historical CI run is evidence for this new P74 code unless exact commit/build covered it.
 
 **P0 local computation:** PASS for the deterministic fixtures and exhaustive completion model. **External/CI status:** separately record once inspected. **Causal effect on real sources:** HOLD. **New theorem/independent scholarly novelty:** HOLD. **Independent human warrant:** HOLD. **Source authority certification:** HOLD.
+
+
+## P74-P1 — Authority-transition admissibility versus causal counterfactual identification (executed, synthetic)
+
+[Executable exact court](../src/p74_p1_authority_identification_court.py) · [P69–P73 inheritance / rival registry](p74_p69_p73_inheritance_court.md).
+
+**Primary attack:** does adding a source's separately collected timestamp, content hash, proof role, referent, issuing authority interval, revocation and collector/issuer identity reduce the identification region of the **notice-effect on source change**? Answer in this fixture: **NO**. These are records of the *observed factual world*; they are not measured counterfactuals. They affect the independently typed *authority-admissibility at observation* calculation (7/8 valid, 1/8 revoked in the synthetic fixture), but not the causal potential outcome class (256 completions, ACE [-1/4,+3/4]).
+
+**Only an explicitly introduced cross-world structural bridge changes the ACE set:**
+- two exposed units hypothetically satisfy untreated potential source-change Y(0)=0: 64 completions, ACE [0,+3/4];
+- all four exposed units hypothetically satisfy Y(0)=0: 16 completions, ACE [+1/4,+3/4].
+These are **not empirical discoveries**, **not verified external authority**, and **not consequences of source timestamps**. Code refuses a bridge unless the caller expressly marks it `explicitly_assume_crossworld_bridge=True`, and checks duplicate/invalid constraints. The new sign-identification in the strong case is *assumption-driven*.
+
+**Adversarial failure cases** cover no genuine third-party attestation (synthetic-only self-label remains mandatory), timestamp reversals, future-signed certificates, publisher=attestor identity collision, wrong recorded bytes, proof-role/referent mismatch, duplicated witness, and illicit counterfactual promotion. Time-effective authority `[start,end)` is conceptually distinct from content-updated timestamps and actual notice/acquisition treatment versions.
+
+**Novelty/rival boundary:** Identified-set intersections and metadata-vs-counterfactual distinction are standard partial-identification logic (Manski 2005, Drive original read). Group interference (Hudgens & Halloran 2008), stateful feedback (Brown et al. 2022), and parallel-trend sensitivity (Rambachan & Roth 2023, original full paper not canonical Drive read) remain direct competitors. P74 must seek **independently witnessed real evidence transitions** and nontrivial identification improvements, not promote elementary finite arithmetic as a new theorem.
+
+**Carry-over court:** historical actual P69 hosted 192+64, P70 hosted 32, P70 original QA 10 answers/10 questions vs 8 projection, P69 distinct SciFact holdout 8/8, P71 16 variants ×2 anticipated humans, and P72/P73 proof-role/time/observation antagonists are preserved in [inheritance registry](p74_p69_p73_inheritance_court.md). P69 humans 0/16, P70 new humans 0/16, P71 humans 0/32; *evidence inheritance does not imply new independent validation*.
+
+**Operational gate:** P74-P0 and P74-P1 stdlib programs are run by the existing G-001 read-only CI workflow. Capture the *exact latest HEAD* and run ID from GitHub after this document write. No paid model calls, actual audit notices, humans or institution interventions. All real causal, source-authority and warrant certification claims remain HOLD.
