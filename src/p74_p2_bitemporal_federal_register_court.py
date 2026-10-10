@@ -39,6 +39,8 @@ class Event:
     special_instruction_effective: str | None = None
     proof_role: str = "DOCUMENTARY_PUBLICATION_RECORD"
     source_verification: str = "PUBLIC_INDEX_AND_TEXT_DESK_REVIEW"
+    # Publication date is observed; database commit/transaction timestamp is not.
+    independently_verified_transaction_at: str | None = None
 
 
 def events() -> tuple[Event, ...]:
@@ -77,6 +79,8 @@ def validate(court: tuple[Event, ...]) -> None:
     for doc, event in indexed.items():
         if event.docket != DOCKET or event.source != DOC_URLS[doc]:
             raise ValueError("P74_SOURCE_DOCKET_OR_LOCATOR_DRIFT")
+        if event.independently_verified_transaction_at is not None:
+            raise ValueError("P74_UNVERIFIED_DB_TRANSACTION_TIME_PROMOTION")
         if event.source_verification != "PUBLIC_INDEX_AND_TEXT_DESK_REVIEW":
             raise ValueError("P74_FALSE_AUTHENTICATED_PDF_PROMOTION")
         if event.signed and day(event.signed) > day(event.publication):
@@ -209,6 +213,9 @@ def self_test() -> dict:
     test_rejection(lambda: validate((orig, replace(fix,
               proof_role="CURRENT_ENFORCEABLE_AMENDMENT"), withdrawn)),
                    "WRONG_SOURCE_PROOF_ROLE")
+    test_rejection(lambda: validate((replace(orig,
+              independently_verified_transaction_at="2024-09-20"), fix, withdrawn)),
+                   "UNVERIFIED_DB_TRANSACTION_TIME_PROMOTION")
     test_rejection(lambda: rule_state(court, target_date="2025-02-04",
               record_date="2025-01-20", scope="UNKNOWN"),
                    "UNKNOWN_PROOF_SCOPE")
