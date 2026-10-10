@@ -77,3 +77,14 @@ Original-source version-locked [P71 Actions #38030378027](https://github.com/Who
 The [`.github/workflows/p71_review_admission.yml`](../.github/workflows/p71_review_admission.yml) is pure read-only GitHub Actions: `permissions: contents: read`, no bot-authored Git history changes, no provider calls, and only source SHA/count/HOLD receipts uploaded. This explicitly satisfies [GOVERNANCE G-001](../GOVERNANCE.md). [CI receipt archived in Google Drive](https://drive.google.com/file/d/1c37oGfD1JPjvw0HlzYV4yEFkddlif3B-/view). Two currently retained handoff modules are not automatically retired: original exact blob and transitive dependency archival to Drive precedes any source deletion.
 
 **Current epistemic limit:** P71-P0 stage `ORIGINAL_SOURCE_AND_SOFTWARE_CI_PASS`, but **0/32 external human judgments**, no independently certified packet oracle, no semantic transport bridge, no P69 paper PASS, no P70/P71 hosted target evidence. The P71 second Notion page is an operational companion; [canonical P71 Notion](https://app.notion.com/p/3f5ef561cf9281d6a429f59cdcf4fbc7) is the single research-state authority.
+
+## 8. P71-P5 endogenous audit and P72 proposed successor boundary — 2026-10-10
+
+**Observed tooling:** [P71-P5 exact-rational counterworld court](../src/p71_endogenous_audit_court.py) and [actual zero-provider-call P71 CI #38039400106](https://github.com/WhoSia/EPISTEME/actions/runs/38039400106) PASS. Unlike a new human-study result, this is a conceptual falsification of overbroad switching certificates: robust dominance may HOLD while classical minimax-regret recommends SWITCH; and two structural worlds have identical audit-only records with opposite unaudited effects. **Existing theory** already studies regret, endogenous measurement and performative prediction, so there is no claim of a new mathematical law.
+
+**Prior-art challenge:** Perdomo et al., [Performative Prediction](https://proceedings.mlr.press/v119/perdomo20a.html) (ICML 2020), and Stoye, [New Perspectives on Statistical Decisions Under Ambiguity](https://doi.org/10.1146/annurev-economics-080511-110959) (2012). See [full P71-P5 study and P72 admission proposal](p71_endogenous_audit_p72_proposal.md) for countermodels and prospective policy control designs.
+
+**P72 proposed formal name (NOT OPEN):**
+EPISTEME-P72 — Endogenous Warrant Acquisition & Reflexive Representation Migration: Audit-Induced State Transitions, Counterfactual Evidence Stability, Sequential Review Value & Irreversible Switching Falsification Court
+
+A full new P72 project is **not** auto-created; admission requires actual independent P71 human evidence and a prospectively identifiable audit-intervention target. P71 remains 0/32 human ratings, P69 manuscript HOLD and P70 cross-ecology causal/semantic transport HOLD.
