@@ -3,6 +3,8 @@ on:
   push:
     paths:
       - 'src/p73_safe_probe_court.py'
+      - 'src/p73_history_safe_court.py'
+      - 'active/p73_p1_new_literature_and_dynamic_observation.md'
       - 'active/p73_research_program.md'
       - '.github/workflows/p73_theory.yml'
   workflow_dispatch:
@@ -19,9 +21,10 @@ jobs:
           python-version: '3.12'
       - name: P72/P73 finite model tests
         run: |
-          python -m py_compile src/p73_safe_probe_court.py src/p72_warrant_fibre_court.py
+          python -m py_compile src/p73_safe_probe_court.py src/p73_history_safe_court.py src/p72_warrant_fibre_court.py
           PYTHONPATH=src python src/p72_warrant_fibre_court.py
           PYTHONPATH=src python src/p73_safe_probe_court.py
+          PYTHONPATH=src python src/p73_history_safe_court.py
       - name: Minimal scientific receipt
         run: |
           mkdir -p receipts
@@ -29,10 +32,16 @@ jobs:
           import json
           from pathlib import Path
           from p73_safe_probe_court import adversarial_tests
+          from p73_history_safe_court import test as dynamic_test
           r=adversarial_tests()
           assert r['new_theorem_authority']=='NONE'
           assert r['actual_human_review_count']==0
           assert r['new_paid_model_calls']==0
+          d=dynamic_test()
+          assert d['warrant_preserving_prepare_then_read_cost']=='2'
+          assert d['local_pairwise_distinguishability_not_global_safe_policy']=='PASS'
+          assert d['external_passivity_certified'] is False
+          r['P73_P1_dynamic_history_court']=d
           Path('receipts/p73_scoped.json').write_text(json.dumps(r,indent=2)+'\n')
           print('P73_RECEIPT_SCOPE_PASS')
           PY
