@@ -99,8 +99,10 @@ def review_verdict(public,sealed,ra=None,rb=None):
         return {"verdict":"P69_INDEPENDENT_SCORER_HOLD",
                 "expected_reviewers":2,"actual_reviewers":0,
                 "target_claim_clusters":8,"scorer_judgments":0}
-    if (ra.get("reviewer_id")==rb.get("reviewer_id") or
-        not all(x.get("independent_of_author_and_model") is True for x in (ra,rb))):
+    reviewer_ids=[x.get("reviewer_id") for x in (ra,rb)]
+    if (any(not isinstance(x,str) or len(x.strip())<3 or x.startswith("REPLACE_") for x in reviewer_ids)
+        or len(set(reviewer_ids))!=2
+        or not all(x.get("independent_of_author_and_model") is True for x in (ra,rb))):
         raise ValueError("P69_NOT_INDEPENDENT_DISTINCT_REVIEWERS")
     ref={x["case_id"]:x for x in sealed}
     case_ids=set(ref)
@@ -122,6 +124,9 @@ def review_verdict(public,sealed,ra=None,rb=None):
                 raise ValueError("P69_POSITIVE_WITHOUT_WITNESS")
             if not isinstance(j.get("reason"),str) or len(j["reason"].strip())<15:
                 raise ValueError("P69_SCORER_REASON_MISSING")
+            if (not isinstance(j.get("ambiguity_flags"),list)
+                or any(not isinstance(flag,str) or not flag.strip() for flag in j["ambiguity_flags"])):
+                raise ValueError("P69_SCORER_AMBIGUITY_FLAGS_INVALID")
             if j.get("answer_adequacy") not in (True,False):
                 raise ValueError("P69_SCORER_INDEPENDENT_ANSWER_REQUIRED")
     a={x["case_id"]:x for x in ra["judgments"]};b={x["case_id"]:x for x in rb["judgments"]}
@@ -143,7 +148,7 @@ def self_test():
         return {"reviewer_id":id,"independent_of_author_and_model":True,
                 "judgments":[{"case_id":p["case_id"],"packet_sha256":digest(p),
                   "verdict":"SUPPORT","indispensable_evidence_ids":[p["evidence"][0]["evidence_id"]],
-                  "answer_adequacy":True,"reason":"Independent MOCK only; not a real reviewer."}
+                  "answer_adequacy":True,"ambiguity_flags":[],"reason":"Independent MOCK only; not a real reviewer."}
                  for p in fixture]}
     assert review_verdict(fixture,sealed,mock("A"),mock("B"))["scorer_judgments"]==16
     try:review_verdict(fixture,sealed,mock("A"),mock("A"))
