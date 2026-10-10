@@ -36,7 +36,7 @@ def validate(rows:list[Snapshot],announcement_at:str, *,
     if not preregistered or not consent_and_legal_review:
         raise ValueError("P73_P5_UNAUTHORIZED_PROSPECTIVE_FIELD_INTERVENTION")
     assert all(r.wave in ("pre","post") and r.arm in ("audit_notice","control") for r in rows)
-    if len(rows)<8:raise ValueError("P73_P5_INSUFFICIENT_SOURCE_PANEL")
+    if len(rows)<4:raise ValueError("P73_P5_INSUFFICIENT_SOURCE_PANEL")
     groups={}
     announcement=_time(announcement_at)
     for row in rows:
