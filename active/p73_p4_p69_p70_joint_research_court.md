@@ -53,6 +53,23 @@ There are **8 same-polarity SciFact–AVeriTeC candidate pairs** across the two 
 
 **P70 scientific verdict:** `SOURCE_CORPUS_VERIFIED / STRUCTURAL_METADATA_PASS / SEMANTIC_PACKET_WARRANT_HOLD / CROSS_ECOLOGY_BEHAVIORAL_EFFECT_UNIDENTIFIED`. The existing P71 masked A/B private human review protocol (16 packets × two independent humans) remains 0/32 actually submitted. Truth promotion also requires independent source-role/time witnesses and a held-out target-model experiment that has not run.
 
+## New row-level falsifier: categorical verdict moves while the binary metric stays constant
+
+**Identified only after reopening the REAL SciFact 32 hosted output rows, not inferred from source-label scores:** In Gemini's original SciFact claim ID `636` (source label `SUPPORT`), the response was `INSUFFICIENT` at `I` but `CONTRADICT` at `H`. Both score false against the original `SUPPORT` label, so the previously reported **zero matched R/H difference in binary correctness** hid a real change in the response category.
+
+With matched R edges (`I↔R`, `H↔RH`) and H edges (`I↔H`, `R↔RH`), each model has 8 paired edges per operator over four original claim clusters:
+
+| Provider | R: categorical verdict changes | H: categorical verdict changes | R/H: binary source-label correctness changes |
+| --- | ---: | ---: | --- |
+| Gemini | **1/8** | **1/8** | **0/8 and 0/8** |
+| Groq GPT-OSS | 0/8 | 0/8 | 0/8 and 0/8 |
+
+All four Gemini views of claim 636 also cited an original annotated rationale sentence, even though none produced the original annotation label. Across all Gemini views the count of `original rationale cited AND incorrect original label` is **4/16**. Original rationale citation is thus not sufficient for correct categorical classification on these particular observations; it is even less a guarantee that a projected minimal proof has independent packet-level authority.
+
+**Mathematical reason for masking:** the binary readout `f(l)=1{l=source_label}` is many-to-one. In general `f(l_R)=f(l_I)` does **not imply** `l_R=l_I`. This elementary coarsening observation is not a new theorem, but the **actual hosted category switch** is a concrete negative example of relying solely on binary accuracy to judge representation stability. Report **both categorical stability and calibrated correctness** in future preregistration.
+
+**Inferential ceiling:** only ONE of FOUR original source claim clusters has that Gemini category switch; the two operator edge counts reuse the same claim, the source test is not independently human reannotated, and no repeated stochastic draws exist for that source. The result cannot establish a general representation effect, a contract-internal causal explanation, or an ecological transport law. It nevertheless falsifies the overbroad finite-ledger statement `same binary score ⇒ same model verdict`.
+
 ## P73-P4 — What the external source read does and does not verify
 
 New executable [`src/p73_p4_source_snapshot_court.py`](../src/p73_p4_source_snapshot_court.py) fetched the ACTUAL pinned AVeriTeC original **twice** and ACTUAL SciFact original source in the same read-only GitHub CI. Source SHA, revision, original claim balance, exact QA content multisets, original full question count and polarity-pair census are reproducible. Only digests, aggregates and **HOLD statuses** are uploaded.
