@@ -3,6 +3,8 @@ on:
   push:
     paths:
       - 'src/p72_reflexive_audit_court.py'
+      - 'src/p72_warrant_fibre_court.py'
+      - 'active/p72_p1_warrant_transport_and_p73_proposal.md'
       - 'active/p72_research_program.md'
       - '.github/workflows/p72_theory.yml'
   workflow_dispatch:
@@ -21,9 +23,10 @@ jobs:
           python-version: '3.12'
       - name: Run P72 exact finite identification and P71 predecessor falsifiers
         run: |
-          python -m py_compile src/p72_reflexive_audit_court.py src/p71_endogenous_audit_court.py
+          python -m py_compile src/p72_reflexive_audit_court.py src/p72_warrant_fibre_court.py src/p71_endogenous_audit_court.py
           PYTHONPATH=src python src/p71_endogenous_audit_court.py
           PYTHONPATH=src python src/p72_reflexive_audit_court.py
+          PYTHONPATH=src python src/p72_warrant_fibre_court.py
       - name: Save source-stable zero-data receipt with precise claim ceiling
         run: |
           mkdir -p receipts
@@ -31,9 +34,14 @@ jobs:
           import json
           from pathlib import Path
           from p72_reflexive_audit_court import self_test
+          from p72_warrant_fibre_court import self_test as warrant_test
           r=self_test()
           assert r['human_review_count']==0 and r['paid_provider_calls']==0
           assert r['paper_claim_authority']=='EXISTING_LINEAR_IDENTIFICATION_AND_SYNTHETIC_COUNTERMODELS_ONLY'
+          w=warrant_test()
+          assert w['real_human_packet_reviews']==0 and w['new_provider_calls']==0
+          assert w['novel_theorem_authority']=='NONE'
+          r['P72_P1_warrant_fibre_court']=w
           Path('receipts/p72_p0_formal_court.json').write_text(json.dumps(r,indent=2,sort_keys=True)+'\n')
           print('P72_P0_RECEIPT_SCOPED_COURT_PASS human_reviews=0 calls=0')
           PY
