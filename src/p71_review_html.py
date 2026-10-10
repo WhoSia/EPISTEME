@@ -117,6 +117,7 @@ sufficient_evidence_ids:evidence,flags:flags,qa_order_semantically_safe:safety==
 reason:reason});}
 const output={role:'INDEPENDENT_HUMAN_REVIEW',reviewer_id:pseudonym,
 independent_from_author_and_model_outputs:true,
+blind_to_original_gold_and_peer_judgments:true,
 judgments:results};
 const url=URL.createObjectURL(new Blob([JSON.stringify(output,null,2)],
 {type:'application/json'}));
