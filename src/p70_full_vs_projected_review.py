@@ -165,10 +165,10 @@ def self_test():
                   "omitted_questions_material":False,
                   "time_or_referent_problem":False,"reason":"Synthetic test reviewer only; not real."}
                  for x in sealed if x["condition"]==view]}
-    fake={"F1":mock("FA","FULL_ORIGINAL_QA"),"F2":mock("FB","FULL_ORIGINAL_QA"),
-          "P1":mock("PA","PROJECTED_TWO_QA"),"P2":mock("PB","PROJECTED_TWO_QA")}
+    fake={"F1":mock("MOCK_FA","FULL_ORIGINAL_QA"),"F2":mock("MOCK_FB","FULL_ORIGINAL_QA"),
+          "P1":mock("MOCK_PA","PROJECTED_TWO_QA"),"P2":mock("MOCK_PB","PROJECTED_TWO_QA")}
     assert adjudicate(sealed,fake)["reported_judgments"]==16
-    fake["P2"]["reviewer_id"]="PA"
+    fake["P2"]["reviewer_id"]="MOCK_PA"
     try:adjudicate(sealed,fake)
     except ValueError as e:assert "DISTINCT" in str(e)
     else:raise AssertionError("P70_FAKE_INDEPENDENCE_ACCEPTED")
