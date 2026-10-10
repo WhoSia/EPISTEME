@@ -41,12 +41,14 @@ jobs:
             --source private_original_averitec.json \
             --outdir PRIVATE_HUMAN_HANDOFF_NOT_UPLOADED \
             --out receipts/p71_p0_readiness.json
-          for k in A B; do
-            PYTHONPATH=src python src/p71_review_html.py \
-              --masked PRIVATE_HUMAN_HANDOFF_NOT_UPLOADED/reviewer_${k}_masked.json \
-              --template PRIVATE_HUMAN_HANDOFF_NOT_UPLOADED/reviewer_${k}_response_TEMPLATE.json \
-              --out PRIVATE_HUMAN_HANDOFF_NOT_UPLOADED/reviewer_${k}_offline.html
-          done
+          PYTHONPATH=src python src/p71_review_html.py \
+            --masked PRIVATE_HUMAN_HANDOFF_NOT_UPLOADED/reviewer_A_masked.json \
+            --template PRIVATE_HUMAN_HANDOFF_NOT_UPLOADED/reviewer_A_response_TEMPLATE.json \
+            --out PRIVATE_HUMAN_HANDOFF_NOT_UPLOADED/reviewer_A_offline.html
+          PYTHONPATH=src python src/p71_review_html.py \
+            --masked PRIVATE_HUMAN_HANDOFF_NOT_UPLOADED/reviewer_B_masked.json \
+            --template PRIVATE_HUMAN_HANDOFF_NOT_UPLOADED/reviewer_B_response_TEMPLATE.json \
+            --out PRIVATE_HUMAN_HANDOFF_NOT_UPLOADED/reviewer_B_offline.html
           python - <<'PY'
           import json
           from pathlib import Path
