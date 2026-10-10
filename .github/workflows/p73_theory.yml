@@ -5,6 +5,7 @@ on:
       - 'src/p73_safe_probe_court.py'
       - 'src/p73_history_safe_court.py'
       - 'src/p73_winning_belief_court.py'
+      - 'src/p73_typed_warrant_role_court.py'
       - 'active/p73_p1_new_literature_and_dynamic_observation.md'
       - 'active/p73_research_program.md'
       - '.github/workflows/p73_theory.yml'
@@ -22,11 +23,12 @@ jobs:
           python-version: '3.12'
       - name: P72/P73 finite model tests
         run: |
-          python -m py_compile src/p73_safe_probe_court.py src/p73_history_safe_court.py src/p73_winning_belief_court.py src/p72_warrant_fibre_court.py
+          python -m py_compile src/p73_safe_probe_court.py src/p73_history_safe_court.py src/p73_winning_belief_court.py src/p73_typed_warrant_role_court.py src/p72_warrant_fibre_court.py
           PYTHONPATH=src python src/p72_warrant_fibre_court.py
           PYTHONPATH=src python src/p73_safe_probe_court.py
           PYTHONPATH=src python src/p73_history_safe_court.py
           PYTHONPATH=src python src/p73_winning_belief_court.py
+          PYTHONPATH=src python src/p73_typed_warrant_role_court.py
       - name: Minimal scientific receipt
         run: |
           mkdir -p receipts
@@ -36,6 +38,7 @@ jobs:
           from p73_safe_probe_court import adversarial_tests
           from p73_history_safe_court import test as dynamic_test
           from p73_winning_belief_court import test as winning_test
+          from p73_typed_warrant_role_court import test as provenance_test
           r=adversarial_tests()
           assert r['new_theorem_authority']=='NONE'
           assert r['actual_human_review_count']==0
@@ -48,6 +51,9 @@ jobs:
           w=winning_test()
           assert w['prep_read_horizon']==2 and w['new_model_calls']==0
           r['P73_P2_winning_belief_court']=w
+          t=provenance_test()
+          assert t['model_calls']==0 and t['real_independent_provenance_witnesses']==0
+          r['P73_P3_typed_warrant_role_court']=t
           Path('receipts/p73_scoped.json').write_text(json.dumps(r,indent=2)+'\n')
           print('P73_RECEIPT_SCOPE_PASS')
           PY
