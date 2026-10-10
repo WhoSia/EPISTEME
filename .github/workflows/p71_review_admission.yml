@@ -79,11 +79,14 @@ jobs:
           from pathlib import Path
           governance=Path("GOVERNANCE.md").read_text()
           workflow=Path(".github/workflows/p71_review_admission.yml").read_text()
+          import re
           assert "G-001" in governance and "github-actions[bot]" in governance
-          assert "permissions:\n  contents: read" in workflow
-          assert "contents: write" not in workflow
-          assert "git push " not in workflow and "git commit " not in workflow
-          assert "gh pr merge" not in workflow
+          assert re.search(r"(?m)^permissions:\\n  contents: read$",workflow)
+          assert not re.search(r"(?m)^\\s*contents: write\\s*$",workflow)
+          # Don't cause self-matching by putting whole forbidden shell snippets
+          # literally in the audit command written inside this same workflow.
+          prohibited=("git"+" push ", "git"+" commit ", "gh"+" pr merge")
+          assert not any(x in workflow for x in prohibited)
           print("P71_G001_NO_BOT_AUTHOR_OR_WRITEBACK_PASS")
           PY
       - name: Remove all original/packet and sealed gold before publishing receipt
