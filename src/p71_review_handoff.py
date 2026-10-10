@@ -6,7 +6,7 @@ Distribution packs contain source claim/QA text and must NOT be uploaded to
 public GitHub Actions artifacts. Only status/hash/census receipts may be shared.
 """
 from __future__ import annotations
-import argparse, hashlib, json, random
+import argparse, hashlib, json, random, os
 from collections import Counter, defaultdict
 from pathlib import Path
 
@@ -30,7 +30,8 @@ def build_handoff(original_source, destination, seed=71001):
     """
     public, sealed, source_receipt = compile_review(original_source)
     out = Path(destination)
-    out.mkdir(parents=True, exist_ok=True)
+    out.mkdir(parents=True, exist_ok=True, mode=0o700)
+    os.chmod(out, 0o700)
     by_id = {p["case_id"]: p for p in public}
     seal = {p["case_id"]: p for p in sealed}
     if len(by_id) != 16 or len(seal) != 16:
@@ -57,9 +58,9 @@ def build_handoff(original_source, destination, seed=71001):
         if any("source_label" in json.dumps(p) or "justification" in p
                for p in cases):
             raise ValueError("P71_SOURCE_LABEL_LEAK")
-        (out / ("reviewer_" + reviewer + "_masked.json")).write_text(
-            json.dumps(packet_output, ensure_ascii=False, indent=2) + "\n"
-        )
+        masked_path = out / ("reviewer_" + reviewer + "_masked.json")
+        masked_path.write_text(json.dumps(packet_output, ensure_ascii=False, indent=2) + "\n")
+        os.chmod(masked_path, 0o600)
         template = {
             "role": "INDEPENDENT_HUMAN_REVIEW",
             "reviewer_id": "REPLACE_WITH_PRIVATE_DISTINCT_PSEUDONYM",
@@ -76,9 +77,9 @@ def build_handoff(original_source, destination, seed=71001):
                 "reason": "",
             } for p in cases],
         }
-        (out / ("reviewer_" + reviewer + "_response_TEMPLATE.json")).write_text(
-            json.dumps(template, ensure_ascii=False, indent=2) + "\n"
-        )
+        template_path = out / ("reviewer_" + reviewer + "_response_TEMPLATE.json")
+        template_path.write_text(json.dumps(template, ensure_ascii=False, indent=2) + "\n")
+        os.chmod(template_path, 0o600)
     # The sealed file MUST NOT be circulated to reviewers. IDs, gold, roles
     # and source-control metadata are exclusively custodian-side.
     sealed_output = {
@@ -86,9 +87,9 @@ def build_handoff(original_source, destination, seed=71001):
         "truth_authority": "ORIGINAL_SOURCE_LABELS_NOT_PACKET_GOLD",
         "cases": sealed,
     }
-    (out / "CUSTODIAN_ONLY_sealed_ledger.json").write_text(
-        json.dumps(sealed_output, ensure_ascii=False, indent=2) + "\n"
-    )
+    seal_path = out / "CUSTODIAN_ONLY_sealed_ledger.json"
+    seal_path.write_text(json.dumps(sealed_output, ensure_ascii=False, indent=2) + "\n")
+    os.chmod(seal_path, 0o600)
     return {"kind": "P71_BLIND_HANDOFF_RECEIPT",
             "source_sha256": source_receipt["sha256"],
             "case_count": 16, "reviewer_assignments": 2,
@@ -147,6 +148,7 @@ def analyze_reviews(masked_packets, sealed, reviewer_a=None,
     idb,b=check_review(reviewer_b,sealed)
     if ida==idb or not all(
         x.get("independent_from_author_and_model_outputs") is True
+        and x.get("blind_to_original_gold_and_peer_judgments") is True
         for x in (reviewer_a,reviewer_b)):
         raise ValueError("P71_HUMAN_REVIEW_INDEPENDENCE_NOT_ATTESTED")
     roles=_qa_role_map(masked_packets)
@@ -218,6 +220,7 @@ def self_test():
     def fixture(name):
         return {"role":"INDEPENDENT_HUMAN_REVIEW","reviewer_id":name,
           "independent_from_author_and_model_outputs":True,
+          "blind_to_original_gold_and_peer_judgments":True,
           "judgments":[{"case_id":p["case_id"],"packet_sha256":s["sha256_review_packet"],
              "verdict":"SUPPORT","sufficient_evidence_ids":[p["question_answer_evidence"][0]["evidence_id"]],
              "flags":[],"qa_order_semantically_safe":True,
