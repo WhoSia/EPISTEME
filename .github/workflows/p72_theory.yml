@@ -1,0 +1,62 @@
+name: EPISTEME P72 Endogenous Audit P0 Court
+on:
+  push:
+    paths:
+      - 'src/p72_reflexive_audit_court.py'
+      - 'active/p72_research_program.md'
+      - '.github/workflows/p72_theory.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  p72_exact_identification:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run P72 exact finite identification and P71 predecessor falsifiers
+        run: |
+          python -m py_compile src/p72_reflexive_audit_court.py src/p71_endogenous_audit_court.py
+          PYTHONPATH=src python src/p71_endogenous_audit_court.py
+          PYTHONPATH=src python src/p72_reflexive_audit_court.py
+      - name: Save source-stable zero-data receipt with precise claim ceiling
+        run: |
+          mkdir -p receipts
+          PYTHONPATH=src python - <<'PY'
+          import json
+          from pathlib import Path
+          from p72_reflexive_audit_court import self_test
+          r=self_test()
+          assert r['human_review_count']==0 and r['paid_provider_calls']==0
+          assert r['paper_claim_authority']=='EXISTING_LINEAR_IDENTIFICATION_AND_SYNTHETIC_COUNTERMODELS_ONLY'
+          Path('receipts/p72_p0_formal_court.json').write_text(json.dumps(r,indent=2,sort_keys=True)+'\n')
+          print('P72_P0_RECEIPT_SCOPED_COURT_PASS human_reviews=0 calls=0')
+          PY
+      - name: G-001 inspect read-only workflow and no bot Git history mutations
+        run: |
+          python - <<'PY'
+          import re
+          from pathlib import Path
+          governance=Path('GOVERNANCE.md').read_text()
+          workflow=Path('.github/workflows/p72_theory.yml').read_text()
+          assert 'G-001' in governance
+          assert re.search(r'(?m)^permissions:\n  contents: read$',workflow)
+          assert not re.search(r'(?m)^\s*contents: write\s*$',workflow)
+          unsafe=('git'+' push ', 'git'+' commit ', 'gh'+' pr merge')
+          assert not any(part in workflow for part in unsafe)
+          print('P72_G001_READ_ONLY_NO_BOT_HISTORY_WRITES_PASS')
+          PY
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p72-p0-zero-call-exact-identification-receipt
+          path: receipts/p72_p0_formal_court.json
+          retention-days: 30
+
+# Entire workflow is read-only; no provider/API credentials, no real participants.
+# This is a theory/method falsification court only, not a measurement result.
