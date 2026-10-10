@@ -4,6 +4,7 @@ on:
     paths:
       - 'src/p71_review_handoff.py'
       - 'src/p71_switch_certificate.py'
+      - 'src/p71_review_html.py'
       - 'src/p71_switch_certificate.py'
       - 'active/p71_research_program.md'
       - 'active/p71_paper_candidate_court.md'
@@ -24,9 +25,10 @@ jobs:
           python-version: '3.12'
       - name: Verify genuine no-human-review honest code gates
         run: |
-          python -m py_compile src/p71_review_handoff.py src/p71_switch_certificate.py
+          python -m py_compile src/p71_review_handoff.py src/p71_switch_certificate.py src/p71_review_html.py
           PYTHONPATH=src python src/p71_review_handoff.py --self-test
           PYTHONPATH=src python src/p71_switch_certificate.py
+          PYTHONPATH=src python src/p71_review_html.py --self-test
       - name: Download frozen author original under CC BY-NC license
         run: |
           curl --fail --location --silent --show-error --max-time 120 --retry 1 \
@@ -39,6 +41,12 @@ jobs:
             --source private_original_averitec.json \
             --outdir PRIVATE_HUMAN_HANDOFF_NOT_UPLOADED \
             --out receipts/p71_p0_readiness.json
+          for k in A B; do
+            PYTHONPATH=src python src/p71_review_html.py \
+              --masked PRIVATE_HUMAN_HANDOFF_NOT_UPLOADED/reviewer_\$k\_masked.json \
+              --template PRIVATE_HUMAN_HANDOFF_NOT_UPLOADED/reviewer_\$k\_response_TEMPLATE.json \
+              --out PRIVATE_HUMAN_HANDOFF_NOT_UPLOADED/reviewer_\$k\_offline.html
+          done
           python - <<'PY'
           import json
           from pathlib import Path
@@ -50,6 +58,7 @@ jobs:
           assert [x['case_id'] for x in docs[0]['cases']] != [x['case_id'] for x in docs[1]['cases']]
           assert all(not d['source_labels_or_justifications_visible'] for d in docs)
           assert all(not d['model_responses_visible'] for d in docs)
+          assert all((root/f'reviewer_{k}_offline.html').stat().st_size>10000 for k in ('A','B'))
           print('P71_ORIGINAL_16_PACKET_A_B_MASKED_HANDOFF_PASS human_judgments=0 paid_calls=0')
           PY
       - name: Remove all original/packet and sealed gold before publishing receipt
