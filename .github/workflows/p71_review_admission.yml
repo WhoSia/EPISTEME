@@ -81,8 +81,8 @@ jobs:
           workflow=Path(".github/workflows/p71_review_admission.yml").read_text()
           import re
           assert "G-001" in governance and "github-actions[bot]" in governance
-          assert re.search(r"(?m)^permissions:\\n  contents: read$",workflow)
-          assert not re.search(r"(?m)^\\s*contents: write\\s*$",workflow)
+          assert re.search(r"(?m)^permissions:\n  contents: read$",workflow)
+          assert not re.search(r"(?m)^\s*contents: write\s*$",workflow)
           # Don't cause self-matching by putting whole forbidden shell snippets
           # literally in the audit command written inside this same workflow.
           prohibited=("git"+" push ", "git"+" commit ", "gh"+" pr merge")
