@@ -6,6 +6,8 @@ on:
       - 'src/p71_switch_certificate.py'
       - 'src/p71_review_html.py'
       - 'src/p71_integration_court.py'
+      - 'src/p71_endogenous_audit_court.py'
+      - 'active/p71_endogenous_audit_p72_proposal.md'
       - 'src/p71_prepare_review_handoff.py'
       - 'src/p71_review_disagreement_court.py'
       - 'active/p71_research_program.md'
@@ -30,6 +32,7 @@ jobs:
           python -m py_compile src/p71_review_handoff.py src/p71_switch_certificate.py src/p71_review_html.py
           PYTHONPATH=src python src/p71_review_handoff.py --self-test
           PYTHONPATH=src python src/p71_switch_certificate.py
+          PYTHONPATH=src python src/p71_endogenous_audit_court.py
           PYTHONPATH=src python src/p71_review_html.py --self-test
       - name: Download frozen author original under CC BY-NC license
         run: |
