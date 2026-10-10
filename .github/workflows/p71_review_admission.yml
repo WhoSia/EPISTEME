@@ -43,9 +43,9 @@ jobs:
             --out receipts/p71_p0_readiness.json
           for k in A B; do
             PYTHONPATH=src python src/p71_review_html.py \
-              --masked PRIVATE_HUMAN_HANDOFF_NOT_UPLOADED/reviewer_\$k\_masked.json \
-              --template PRIVATE_HUMAN_HANDOFF_NOT_UPLOADED/reviewer_\$k\_response_TEMPLATE.json \
-              --out PRIVATE_HUMAN_HANDOFF_NOT_UPLOADED/reviewer_\$k\_offline.html
+              --masked PRIVATE_HUMAN_HANDOFF_NOT_UPLOADED/reviewer_${k}_masked.json \
+              --template PRIVATE_HUMAN_HANDOFF_NOT_UPLOADED/reviewer_${k}_response_TEMPLATE.json \
+              --out PRIVATE_HUMAN_HANDOFF_NOT_UPLOADED/reviewer_${k}_offline.html
           done
           python - <<'PY'
           import json
