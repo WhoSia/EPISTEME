@@ -1,0 +1,27 @@
+name: EPISTEME P74-P0 Synthetic Causal Nonidentification
+on:
+  push:
+    paths:
+      - 'src/p74_p0_observational_equivalence.py'
+      - 'active/p74_research_program.md'
+      - '.github/workflows/p74_p0_nonidentification.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  synthetic-countermodels:
+    name: P74-P0 countermodels and sharp bounds (no external calls)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Python standard-library countermodel verification
+        run: |
+          python3 -m py_compile src/p74_p0_observational_equivalence.py
+          python3 src/p74_p0_observational_equivalence.py
+      - name: Read-only authority and no external human or provider effects
+        run: |
+          echo "P74-P0 is synthetic only. NO_REAL_FIELD_AUDIT=1"
+          echo "NO_NEW_PAID_PROVIDER=1 NO_HUMAN_REVIEW=1"
