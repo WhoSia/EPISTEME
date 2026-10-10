@@ -61,6 +61,8 @@ def validate(rows:list[Snapshot],announcement_at:str, *,
     for (arm,sid),waves in groups.items():
         if set(waves)!={"pre","post"}:raise ValueError("P73_MISSING_PANEL_WAVE")
         pre,post=waves["pre"],waves["post"]
+        if pre.source_sha!=post.source_sha and _time(pre.source_updated_at)==_time(post.source_updated_at):
+            raise ValueError("P73_SOURCE_HASH_CHANGED_WITHOUT_RECORDED_UPDATE_EPOCH")
         if pre.authorization!=post.authorization or pre.source_role!=post.source_role:
             # A real source-authority change is reported, not silently used
             # to claim that the observed outcome shift was caused by auditing.
@@ -105,7 +107,7 @@ def fixture():
                     source_sha="a"*64 if wave=="pre" else "b"*64,
                     source_role="CLAIM_WARRANT",authorization="TEST_ONLY",
                     authority_effective_from="2026-09-01T00:00:00+09:00",
-                    source_updated_at="2026-09-30T00:00:00+09:00",
+                    source_updated_at="2026-09-30T00:00:00+09:00" if wave=="pre" else "2026-10-02T00:00:00+09:00",
                     certified_external_page_capture=True,
                     measured_outcome=1 if wave=="post" and arm=="audit_notice" else 0,
                     independent_collector_id=f"SYNTHETIC_{wave}"))
@@ -124,6 +126,7 @@ def self_test():
         else:raise AssertionError("P73_FALSE_CERTIFICATION_"+reason)
     from dataclasses import replace
     must_reject(lambda r:r[:-1],"MISSING_PANEL_WAVE")
+    must_reject(lambda r:[replace(x,source_updated_at="2026-09-30T00:00:00+09:00") if x.wave=="post" else x for x in r],"SOURCE_HASH_CHANGED_WITHOUT_RECORDED_UPDATE_EPOCH")
     must_reject(lambda r:[replace(x,source_role="WRONG_ROLE") if i==1 else x
                           for i,x in enumerate(r)],"CHANGING_ROLE")
     must_reject(lambda r:[replace(x,read_at="2026-10-04T10:00:00+09:00") if i==0 else x
