@@ -4,6 +4,7 @@ on:
     paths:
       - 'src/p71_review_handoff.py'
       - 'src/p71_switch_certificate.py'
+      - 'src/p71_switch_certificate.py'
       - 'active/p71_research_program.md'
       - 'active/p71_paper_candidate_court.md'
       - '.github/workflows/p71_review_admission.yml'
@@ -23,8 +24,9 @@ jobs:
           python-version: '3.12'
       - name: Verify genuine no-human-review honest code gates
         run: |
-          python -m py_compile src/p71_review_handoff.py
+          python -m py_compile src/p71_review_handoff.py src/p71_switch_certificate.py
           PYTHONPATH=src python src/p71_review_handoff.py --self-test
+          PYTHONPATH=src python src/p71_switch_certificate.py
       - name: Download frozen author original under CC BY-NC license
         run: |
           curl --fail --location --silent --show-error --max-time 120 --retry 1 \
