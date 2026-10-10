@@ -2,6 +2,13 @@
 
 Active execution surface for the EPISTEME research program.
 
+## P70 full-evidence implementation strengthened — all original answer records (2026-10-10)
+
+Initial full-QA handoff correctly preserved all ten original question positions but selected only one usable answer per question. The implementation has now been strengthened to retain **every original answer record** (including unusable answers with explicit status) and to reject missing original question positions. The source-locked actual four-claim sample had **10 original question records and 10 original answer records**, 8 retained complete-QA projection atoms, 2 original questions outside the projection and 1 original question lacking an eligible source answer. Human reviewers may cite only source-authorized, eligible answer records, not an empty or unusable answer entry. **This is still only the original dataset's answers, not a live independent crawl of cited web pages.**
+
+[Exact latest G-001 three-job CI #38044892498](https://github.com/WhoSia/EPISTEME/actions/runs/38044892498) **SUCCESS**; all P73/P69/P70 jobs passed after the strengthened full-answer compiler. [Verified canonical v2 P70 counts-only receipt](https://drive.google.com/file/d/1eTBqqRl27Okoji06bdNLEAmJorgisCUI/view). Earlier v1 receipt is preserved as prior code history but **v2 supersedes it for complete original-answer handling**. Reviewer outcomes remain 0/16; P71 old packet review 0/32.
+
+
 ## P73-P5 × P69 × P70 — independently sourced review and source-time audit design (2026-10-10)
 
 **Canonical [joint protocol and actual source checks](active/p73_p5_p69_p70_independent_validation.md)**. [G-001 read-only original-source three-job CI #38044552352](https://github.com/WhoSia/EPISTEME/actions/runs/38044552352) PASS: P73-P5 notice-vs-control prospective audit design has **zero actual interventions and causal HOLD**; P69 source-authored SciFact holdout has **8 previously unused claims/8 different documents with no overlap with P70's 4 selected claims/documents**, but is still **one SciFact ecology**, and blinded independent scorers **0/16**; P70 compares **10 original AVeriTeC question records vs 8 retained QA atoms**, with 2 omitted and 1 question lacking a usable original answer; four human full-vs-projected raters **0/16**. Existing P71 16-variant dual human review **0/32**, P69 paper construct HOLD, P70 semantics/behavioral transport HOLD. **No new API calls or human participation.**
