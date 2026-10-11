@@ -34,9 +34,9 @@ RECORDS = (
     Record("food_confirmation","FDA","CONFIRMATION","2025-09-26","2025-18730",
            "https://www.govinfo.gov/content/pkg/FR-2025-09-26/html/2025-18730.htm","food_original"),
     Record("irs_proposal_2019","IRS","PROPOSED_RULE","2019-09-10","2019_PROPOSAL_84_FR_47455",
-           "https://www.govinfo.gov/content/pkg/FR-2019-09-10/html/2019-17822.htm"),
+           "https://www.govinfo.gov/content/pkg/FR-2019-09-10/pdf/FR-2019-09-10.pdf"),
     Record("irs_proposal_2020","IRS","PROPOSED_REVISION","2020-01-14","2020_PROPOSAL_85_FR_2061",
-           "https://www.govinfo.gov/content/pkg/FR-2020-01-14/html/2020-00340.htm","irs_proposal_2019"),
+           "https://www.govinfo.gov/content/pkg/FR-2020-01-14/pdf/FR-2020-01-14.pdf","irs_proposal_2019"),
     Record("irs_withdrawal","IRS","PROPOSAL_WITHDRAWAL","2025-07-02","2025-12193",
            "https://www.govinfo.gov/content/pkg/FR-2025-07-02/html/2025-12193.htm","irs_proposal_2019"),
 )
@@ -165,6 +165,9 @@ def validate_record_ledger() -> None:
     assert FROZEN_METADATA["food_confirmation"]["confirmed_effective"] < "2025-09-26"
     assert FROZEN_METADATA["hearing_withdrawal"]["withdrawal_effective"] < FROZEN_METADATA["hearing_original"]["effective_scheduled"]
     assert all(r.source.startswith("https://www.govinfo.gov/content/pkg/FR-") for r in RECORDS)
+    # Historical IRS source URLs point to verified entire government issues,
+    # rather than guessing unverified per-document FR identifiers.
+    assert all(r.source.endswith(".pdf") for r in RECORDS if r.key.startswith("irs_proposal"))
 
 
 def reject(fn, expected: str):
