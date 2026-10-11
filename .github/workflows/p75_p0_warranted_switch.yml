@@ -1,0 +1,27 @@
+name: EPISTEME P75 P0 Warranted Switching Admission
+on:
+  push:
+    paths:
+      - 'src/p75_p0_warranted_switch_admission.py'
+      - 'active/p75_research_program.md'
+      - '.github/workflows/p75_p0_warranted_switch.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  synthetic-admission:
+    name: P75 P0 offline factorial and false-certification rejection
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Zero-provider zero-human exact P0 diagnostic
+        run: |
+          python3 -m py_compile src/p75_p0_warranted_switch_admission.py
+          python3 src/p75_p0_warranted_switch_admission.py
+      - name: Explicit research admission ceiling
+        run: |
+          echo 'P75_P0_DESIGN_ONLY: external independent warrant=0; real switching decisions=0'
+          echo 'No human recruited, no network or paid model API called by this workflow'
