@@ -134,13 +134,58 @@ def typed_projection(q: Question) -> str:
 
 
 def conventional_bitemporal_prov_rival(q: Question) -> str:
-    """Semantically equivalent reference; same curated metadata and branch rules.
+    """Separate event-folding implementation using the SAME curated source facts.
 
-    This is a *constructed non-independent competitor*, NOT an actual separate
-    SQL/PROV product implementation or an empirical head-to-head benchmark.
-    A fully competent standard temporal+role model can reproduce all labels.
+    This is a functionally independent program branch, but NOT an external
+    SQL product, independently blinded adjudicator, or independent corpus.
+    It exposes a competent existing temporal/provenance rival with no
+    proposed novel P74 primitive.
     """
-    return typed_projection(q)
+    asof, target = d(q.known_as_of), d(q.target_date)
+    events = {
+        "HEARING": tuple(r for r in RECORDS if r.key.startswith("hearing_")),
+        "FOOD": tuple(r for r in RECORDS if r.key.startswith("food_")),
+        "IRS": tuple(r for r in RECORDS if r.key.startswith("irs_")),
+    }
+    if q.branch not in events:
+        raise ValueError("P74_UNKNOWN_ECOLOGY")
+    known = {r.action for r in events[q.branch] if d(r.published) <= asof}
+    if q.branch == "HEARING":
+        if "DIRECT_FINAL" not in known:
+            return "NOT_YET_PUBLISHED"
+        if q.role == "HISTORICAL_PUBLICATION":
+            return "HISTORICAL_SUPPORTED"
+        if q.role not in ("NORMATIVE_EFFECT", "SPECIAL_EFFECT"):
+            raise ValueError("P74_UNKNOWN_PROOF_ROLE")
+        if "WITHDRAWAL" in known and target >= d(FROZEN_METADATA["hearing_withdrawal"]["withdrawal_effective"]):
+            return "WITHDRAWN_BEFORE_EFFECT"
+        if q.role == "SPECIAL_EFFECT" and "CORRECTION" not in known:
+            return "EFFECTIVE_DATE_NOT_KNOWN"
+        valid_from = (FROZEN_METADATA["hearing_original"]["special_corrected"]
+                      if q.role == "SPECIAL_EFFECT" else
+                      FROZEN_METADATA["hearing_original"]["effective_scheduled"])
+        if target < d(valid_from):
+            return "NOT_YET_EFFECTIVE"
+        return "PROJECTED_CONDITIONAL" if target > asof else "DOCUMENTARY_EFFECT_UNVERIFIED"
+    if q.branch == "FOOD":
+        if q.role == "CONFIRMATION_EXISTENCE":
+            return "HISTORICAL_SUPPORTED" if "CONFIRMATION" in known else "NOT_YET_PUBLISHED"
+        if q.role != "NORMATIVE_EFFECT":
+            raise ValueError("P74_UNKNOWN_PROOF_ROLE")
+        if "DIRECT_FINAL" not in known:
+            return "NOT_YET_PUBLISHED"
+        if target < d(FROZEN_METADATA["food_original"]["effective_scheduled"]):
+            return "NOT_YET_EFFECTIVE"
+        if "CONFIRMATION" in known:
+            return "CONFIRMED_EFFECT"
+        return "PROJECTED_CONDITIONAL" if target > asof else "UNCONFIRMED_AS_OF"
+    if q.role == "HISTORICAL_PUBLICATION":
+        return "HISTORICAL_SUPPORTED" if "PROPOSED_RULE" in known else "NOT_YET_PUBLISHED"
+    if q.role == "NORMATIVE_EFFECT":
+        return "PROPOSAL_NOT_EFFECTIVE_LAW"
+    if q.role == "PROPOSAL_PENDING":
+        return "PROPOSAL_WITHDRAWN" if "PROPOSAL_WITHDRAWAL" in known else "PROPOSAL_PENDING_NOT_LAW"
+    raise ValueError("P74_UNKNOWN_PROOF_ROLE")
 
 
 def publication_only_heuristic(q: Question) -> str:
@@ -211,7 +256,8 @@ def self_test() -> dict:
        "typed_projection_matches_author_gold":typed_correct,
        "conventional_bitemporal_PROV_rival_matches_author_gold":convention_correct,
        "simplistic_publication_only_matches_author_gold":ablation_correct,
-       "strong_rival_independently_implemented":False,
+       "strong_rival_independently_implemented":True,
+       "strong_rival_external_product_or_blind_source":False,
        "gold_labels_blind_external":False,
        "historically_timestamped_original_pdf_bytes_obtained":False,
        "actual_audit_interventions":0,
