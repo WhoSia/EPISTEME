@@ -95,3 +95,18 @@ This is P74 **internal section P2**; the official research stage remains P74. It
 **Original-literature rivalry:** PROV-IDEA (Pérez et al. 2025) and provenance-driven nanopublications (Menotti et al. 2025) originals read from canonical Drive; W3C PROV-O directly read; SQL bitemporal ISO/IEC 19075-2 metadata available but standard full text **Drive 미확보(색인 검색 기준)**. No new mathematical novelty claimed.
 
 **P74-P2 code/tests:** validates original/correction/withdrawal chain, signed/filed/published ordering, scope-specific scheduled effective dates, role-sensitive query, as-of no-future leakage, withdrawal preceding effect, actual historical publication survival and fail-closed synthetic mutations. No real source content hashes, independently timestamped live captures, customer interactions, paid model calls or blinded human reviews. Source timeline documentary PASS; official-file authority certification and causal/warrant effects HOLD.
+
+
+## P74-P3 — Final bounded documentary comparison and official stage disposition (2026-10-11)
+
+[Full original-document comparative rival & P75 proposal court](p74_p3_scope_closure_p75_title_court.md) · [executable P3 diagnostic](../src/p74_p3_multi_ecology_baseline_court.py).
+
+From three independently described document chains across FDA and IRS, **8 distinct documentary entries**, the author constructed **17 proof-role/time questions** from verified public government text metadata (NOT a random, independent gold test). Publication-only naive ablation: **8/17** correct by these authored labels. P74 typed time/role logic **17/17**. Separately-coded conventional bitemporal/provenance event-folding logic **17/17** on exactly the same curated source facts and label definitions. This is a descriptive code and metadata diagnostic, not an external SQL database comparison, novel empirical predictive edge, P69/P70 human warrant result, causal audit identification or current U.S. legal opinion. Strong conventional rival **SURVIVES**.
+
+Important differentiated cases: FDA direct-final amended effective date before entry and withdrawn; FDA direct-final of 2025-07-17 confirmed on 2025-09-26 to be effective 2025-09-22 (no confirmation hindsight injected at 2025-09-23); IRS 2019/2020 *proposals* withdrawn 2025-07-02 (proposals were not enacted rules). The original official PDF bytes and independent past transaction logs are not certified.
+
+**Scope-bounded P74 stage closure:** `P74_STAGE_EXECUTION_CLOSED_SCOPE_BOUNDED / P74_P0_P3_SOURCE_AND_SYNTHETIC_CHECKS_PASS / NOVEL_P74_ADVANTAGE_NOT_ESTABLISHED / CAUSAL_WARRANT_EMPIRICAL_HOLD_CARRIED`. P74 does **not** constitute original theorem proof or paper readiness; unfulfilled real-world requirements remain. All historic P69 192+64 and P70 32 real hosted calls preserved, with P69 human 0/16, P70 human 0/16, P71 human 0/32. P73 real audit interventions 0. No new billing or recruitment.
+
+**Proposed P75 (not opened):** *EPISTEME-P75 — Warrant-Conditioned Representation Switching under Temporal Evidence Revision: Contract-Sensitive Observability, Independent Semantic Certification, Counterfactual Decision Value & Cross-Ecology Mechanism Falsification*. P75 replaces "can temporal provenance be represented?" by "when does independently warranted evidence make switching representation rational and legitimately certified, beyond strong temporal/PROV and decision-theoretic incumbents?" Exact scientific admission conditions and falsifiers live in [P75 proposal section](p74_p3_scope_closure_p75_title_court.md). No P75 files/CI/stage created before user acceptance.
+
+**Governance:** G-001 read-only GitHub Actions, no bot-authored history; official Notion root and P74 page must be updated with exact final SHA + fresh CI and readback.
