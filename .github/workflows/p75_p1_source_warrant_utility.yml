@@ -5,6 +5,8 @@ on:
       - 'src/p75_p1_vitaminc_source_admission.py'
       - 'src/p75_p1_blind_warrant_utility_protocol.py'
       - 'active/p75_p1_vitaminc_warrant_switch_protocol.md'
+      - 'active/p75_research_program.md'
+      - 'src/p75_p0_warranted_switch_admission.py'
       - '.github/workflows/p75_p1_source_warrant_utility.yml'
   workflow_dispatch:
 
@@ -20,7 +22,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Compile and run P75-P1 independent-source admission
         run: |
-          python3 -m py_compile src/p75_p1_vitaminc_source_admission.py src/p75_p1_blind_warrant_utility_protocol.py
+          python3 -m py_compile src/p75_p0_warranted_switch_admission.py src/p75_p1_vitaminc_source_admission.py src/p75_p1_blind_warrant_utility_protocol.py
+          python3 src/p75_p0_warranted_switch_admission.py
           python3 src/p75_p1_vitaminc_source_admission.py
           python3 src/p75_p1_blind_warrant_utility_protocol.py
       - name: Explicit verified provenance ceiling
