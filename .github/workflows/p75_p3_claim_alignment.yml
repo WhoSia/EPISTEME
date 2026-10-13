@@ -1,0 +1,49 @@
+name: EPISTEME P75-P3 Claim-Revision Packet Court
+on:
+  push:
+    paths:
+      - 'src/p75_p3_claim_revision_alignment.py'
+      - 'active/p75_p3_claim_alignment_and_drive_custody.md'
+      - '.github/workflows/p75_p3_claim_alignment.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  claim-alignment:
+    name: Real pinned source to original Wikipedia case packet alignment
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - name: Offline parser/gate tests
+        run: |
+          python3 -m py_compile src/p75_p3_claim_revision_alignment.py
+          python3 src/p75_p3_claim_revision_alignment.py
+      - name: Pinned real 12-case lineage+claim packet reconstruction
+        timeout-minutes: 14
+        run: |
+          python3 src/p75_p3_claim_revision_alignment.py --acquire --public-dir "$RUNNER_TEMP/p75_public" --private-dir "$RUNNER_TEMP/p75_private"
+          test "$(find "$RUNNER_TEMP/p75_private" -maxdepth 1 -name 'packet_*.json' | wc -l)" -eq 12
+          python3 - "$RUNNER_TEMP/p75_public/public_alignment_receipt.json" <<'PY'
+          import json,sys
+          d=json.load(open(sys.argv[1]))
+          assert d["groups"]==12
+          assert d["same_R3_holdout_commitment_sha256"]=="7d96568480e87aec80ffb8be1d3002d5fb11920ac40a3f9fd5e57a176ac22e78"
+          assert d["semantic_entailment_certified_groups"]==0
+          assert d["independently_blind_human_reviewed_groups"]==0
+          print("P75_P3_12_PRIVATE_PACKETS_GENERATED_SEMANTICS_AND_HUMANS_STILL_HOLD")
+          PY
+          rm -rf "$RUNNER_TEMP/p75_private"
+      - name: Archive only source fingerprints and masked panel IDs
+        uses: actions/upload-artifact@v4
+        with:
+          name: p75-p3-masked-source-packet-index-NO-original-text
+          path: ${{ runner.temp }}/p75_public
+          if-no-files-found: error
+          retention-days: 30
+      - name: G001 nonpublication gate
+        run: |
+          echo "READ_ONLY_GITHUB=true NO_PROVIDER_OR_RATER_ACTION=true"
+          echo "No raw licensed dataset claim/evidence/source wikitext in CI archive"
