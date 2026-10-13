@@ -88,8 +88,31 @@ def query_wikipedia(ids):
         for rev in page.get("revisions",[]):
             revisions[str(rev["revid"])]={
                 "page":page.get("title"),"timestamp":rev.get("timestamp"),
-                "sha1":rev.get("sha1"),"size":rev.get("size")}
+                "sha1":rev.get("sha1"),"size":rev.get("size"),"parentid":rev.get("parentid")}
     return revisions
+
+def actual_revision_content(ids):
+    # Independent Wikimedia historical WIKITEXT; NO content published here.
+    ids=[str(x) for x in ids if str(x).isdigit() and int(x)>0]
+    if not ids:return {}
+    results={}
+    for start in range(0,len(ids),24):
+        part=ids[start:start+24]
+        params=urlencode({"action":"query","prop":"revisions","revids":"|".join(part),
+          "rvprop":"ids|timestamp|sha1|content","rvslots":"main",
+          "format":"json","formatversion":"2"})
+        result=json.loads(get("https://en.wikipedia.org/w/api.php?"+params))
+        if result.get("error"):raise RuntimeError("WIKIMEDIA_REVISION_CONTENT_API_FAILURE")
+        for page in result.get("query",{}).get("pages",[]):
+            for revision in page.get("revisions",[]):
+                source=revision.get("slots",{}).get("main",{}).get("content")
+                if not isinstance(source,str):continue
+                results[str(revision["revid"])]={"page":page.get("title"),
+                   "revision_text_sha256":sha256(source.encode()).hexdigest(),
+                   "timestamp":revision.get("timestamp"),
+                   "source_sha1":revision.get("sha1"),
+                   "parentid":revision.get("parentid")}
+    return results
 
 def main():
     p=argparse.ArgumentParser();p.add_argument("--acquire",action="store_true")
@@ -135,6 +158,38 @@ def main():
             holdout["verified_source_page_groups"]=len(verified_12)
             holdout["verified_12_source_page_commitment_sha256"]=sha256(sealed.encode()).hexdigest() if len(verified_12)==12 else None
             holdout["candidate_status"]="API_METADATA_VERIFIED_12_GROUPS" if len(verified_12)==12 else "INSUFFICIENT_REVISED_HOLDOUT_GROUPS"
+            # R3 challenge: request actual Wikisource revision contents and
+            # the immediate *parent* revision; compare content fingerprints.
+            # This is NOT an independent semantic entailment of VitaminC
+            # claim/evidence snippets; content never leaves runner.
+            to_check=verified_candidates[:24]
+            ids_to_check=[entry[2][0] for entry in to_check]
+            this=actual_revision_content(ids_to_check)
+            prev_ids={rev:str(response[rev].get("parentid","")) for rev in ids_to_check
+                      if rev in response and response[rev].get("parentid")}
+            previous=actual_revision_content(list(dict.fromkeys(prev_ids.values())))
+            qualified=[entry for entry in to_check
+                 if entry[2][0] in this
+                 and entry[2][0] in prev_ids
+                 and prev_ids[entry[2][0]] in previous
+                 and this[entry[2][0]]["revision_text_sha256"] !=
+                     previous[prev_ids[entry[2][0]]]["revision_text_sha256"]]
+            content_12=qualified[:12]
+            content_commit=sha256("\\n".join(json.dumps(
+                (x[0],x[1],x[2][0],this[x[2][0]]["revision_text_sha256"],
+                 previous[prev_ids[x[2][0]]]["revision_text_sha256"]),
+                separators=(",",":")) for x in content_12).encode()).hexdigest() if len(content_12)==12 else None
+            holdout["R3_parent_content_verified_source_pages"]=len(content_12)
+            holdout["R3_parent_content_commitment_sha256"]=content_commit
+            holdout["R3_status"]="R3_12_DISTINCT_PAGE_REVISION_AND_PARENT_CONTENTS_DIFFER" if content_commit else "R3_SOURCE_CONTENT_HOLD"
+            holdout["R3_original_dataset_evidence_sentences_semantically_mapped"]=False
+            content_summary={"candidate_source_revisions_content_requested":len(ids_to_check),
+                "candidate_revision_content_returned":len(this),
+                "parent_revision_content_returned":len(previous),
+                "changed_content_page_groups":len(qualified),
+                "R3_12_verified_source_page_groups":len(content_12),
+                "no_raw_original_text_exported":True}
+
             previews={k:(k in response and normalize(response[k]["page"])==normalize(v))
                       for k,v in PREVIEWS.items()}
             wiki={"status":"WIKIMEDIA_API_METADATA_RESPONSE","requested":len(revs),
@@ -143,6 +198,7 @@ def main():
                   "candidate_revisions_requested":len(revs)-len(PREVIEWS),
                   "candidate_revision_page_mismatches":len(revs)-len(PREVIEWS)-matched,
                   "verified_12_groups":len(verified_12),
+                  "historical_original_and_parent_content_comparison":content_summary,
                   "content_equivalence_to_dataset":"NOT_VERIFIED",
                   "independent_history_timestamps_found":sum(bool(v.get("timestamp")) for v in response.values())}
         except Exception as e:
