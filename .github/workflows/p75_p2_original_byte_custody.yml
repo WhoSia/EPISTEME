@@ -1,0 +1,48 @@
+name: EPISTEME P75-P2 Original Licensed Byte Custody
+on:
+  push:
+    paths:
+      - 'src/p75_p2_original_dataset_custody.py'
+      - '.github/workflows/p75_p2_original_byte_custody.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verified-originals:
+    name: Pinned original SHA and source-page heldout receipt
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - name: Source-custody offline guard
+        run: |
+          python3 -m py_compile src/p75_p2_original_dataset_custody.py
+          python3 src/p75_p2_original_dataset_custody.py
+      - name: Recompute original SHA-256 in ephemeral runner
+        timeout-minutes: 14
+        run: |
+          python3 src/p75_p2_original_dataset_custody.py --acquire --output "$RUNNER_TEMP/p75_p2_receipt"
+          test -f "$RUNNER_TEMP/p75_p2_receipt/public_receipt.json"
+          python3 - "$RUNNER_TEMP/p75_p2_receipt/public_receipt.json" <<'PY'
+          import json,sys
+          j=json.load(open(sys.argv[1],encoding="utf-8"))
+          assert j["status"]=="SOURCE_BYTES_REHASHED_AND_MATCHED"
+          assert set(j["files"])=={"train","dev","test"}
+          assert not j["raw_license_or_original_corpus_in_public_artifact"]
+          assert j["real_human_reviews"]==j["real_switch_utility"]==j["new_paid_model_calls"]==0
+          print("P75_P2_LICENSED_ORIGINAL_HASH_VERIFICATION_SUCCESS_WITH_NO_PUBLIC_RAW_CORPUS")
+          PY
+      - name: Archive public source-check metadata receipt ONLY
+        uses: actions/upload-artifact@v4
+        with:
+          name: p75-p2-original-source-public-metadata-only
+          path: ${{ runner.temp }}/p75_p2_receipt/public_receipt.json
+          if-no-files-found: error
+          retention-days: 30
+      - name: Research-authority ceiling
+        run: |
+          echo "REPO_READ_ONLY=TRUE HUMAN_REVIEWS=0 PAID_CALLS=0"
+          echo "NO_RAW_LICENSED_WIKIPEDIA_DATA_IN_PUBLIC_REPO_OR_ARTIFACT"
+          echo "WIKIMEDIA_API_REVISION_METADATA_IS_NOT_WIKIPEDIA_TEXT_SEMANTIC_CERTIFICATION"
