@@ -5,6 +5,8 @@ on:
       - 'src/p75_p3_claim_revision_alignment.py'
       - 'active/p75_p3_claim_alignment_and_drive_custody.md'
       - 'research_custody/p75_p4_public_recipient_cert.pem'
+      - 'src/p75_p4_source_relative_warrant_court.py'
+      - 'active/p75_p4_semantic_warrant_attack_court.md'
       - 'active/p75_research_program.md'
       - '.github/workflows/p75_p3_claim_alignment.yml'
   workflow_dispatch:
@@ -21,7 +23,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Offline parser/gate tests
         run: |
-          python3 -m py_compile src/p75_p3_claim_revision_alignment.py
+          python3 -m py_compile src/p75_p3_claim_revision_alignment.py src/p75_p4_source_relative_warrant_court.py
           python3 src/p75_p3_claim_revision_alignment.py
       - name: Pinned real 12-case lineage+claim packet reconstruction
         timeout-minutes: 14
@@ -40,6 +42,7 @@ jobs:
           assert d["source_text_alignment_hold_groups"]==2
           print("P75_P3_12_PRIVATE_PACKETS_GENERATED_SEMANTICS_AND_HUMANS_STILL_HOLD")
           PY
+          python3 src/p75_p4_source_relative_warrant_court.py --private-dir "$RUNNER_TEMP/p75_private" --public-dir "$RUNNER_TEMP/p75_public"
           (cd "$RUNNER_TEMP/p75_private" && zip -q -r "$RUNNER_TEMP/p75_private_original_sources.zip" .)
           openssl cms -encrypt -binary -aes256 -in "$RUNNER_TEMP/p75_private_original_sources.zip" -out "$RUNNER_TEMP/p75_encrypted_source_packets.cms" -outform DER research_custody/p75_p4_public_recipient_cert.pem
           test -s "$RUNNER_TEMP/p75_encrypted_source_packets.cms"
