@@ -4,6 +4,7 @@ on:
     paths:
       - 'src/p75_p3_claim_revision_alignment.py'
       - 'active/p75_p3_claim_alignment_and_drive_custody.md'
+      - 'active/p75_research_program.md'
       - '.github/workflows/p75_p3_claim_alignment.yml'
   workflow_dispatch:
 
