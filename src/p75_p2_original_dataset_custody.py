@@ -72,7 +72,7 @@ def select(splits):
         if "NOT ENOUGH INFO" not in meta["labels"] and not ({"SUPPORTS","REFUTES"}<=meta["labels"]):continue
         if meta["revs"]:eligible.setdefault(page,(page,case,tuple(sorted(meta["revs"]))))
     # No original text or heldout group IDs are publicly disclosed.
-    frozen=sorted(eligible.values(),key=lambda t:sha256(("P75-P2-v1|"+t[0]).encode()).hexdigest())[:12]
+    frozen=sorted(eligible.values(),key=lambda t:sha256(("P75-P2-v1|"+t[0]).encode()).hexdigest())[:48]
     commit=sha256("\n".join(json.dumps(x,separators=(",",":")) for x in frozen).encode()).hexdigest()
     return frozen,{"test_only_pages":len(only),"contrastive_eligible_pages":len(eligible),
                    "selected_disjoint_page_groups":len(frozen),"holdout_commitment_sha256":commit,
@@ -119,26 +119,37 @@ def main():
         selected,holdout=select(splits)
         overlap={a+"_vs_"+b:len(splits[a][0]&splits[b][0])
                  for a,b in (("train","dev"),("train","test"),("dev","test"))}
-        revs=[x for entry in selected for x in entry[2]][:8]
-        revs=list(PREVIEWS)+list(dict.fromkeys(revs))
+        revs=[entry[2][0] for entry in selected]
+        revs=list(PREVIEWS)+list(dict.fromkeys(revs))[:48]
         wiki={"status":"NOT_VERIFIED"}
         try:
             response=query_wikipedia(revs)
             selected_lookup={rev:page for page,case,rs in selected for rev in rs}
             matched=sum(normalize(response[x]["page"])==selected_lookup.get(x) for x in revs
                        if x in response and x in selected_lookup)
+            verified_candidates=[entry for entry in selected if entry[2][0] in response
+                       and normalize(response[entry[2][0]]["page"])==entry[0]
+                       and response[entry[2][0]].get("timestamp") and response[entry[2][0]].get("sha1")]
+            verified_12=verified_candidates[:12]
+            sealed="\\n".join(json.dumps(entry,separators=(",",":")) for entry in verified_12)
+            holdout["verified_source_page_groups"]=len(verified_12)
+            holdout["verified_12_source_page_commitment_sha256"]=sha256(sealed.encode()).hexdigest() if len(verified_12)==12 else None
+            holdout["candidate_status"]="API_METADATA_VERIFIED_12_GROUPS" if len(verified_12)==12 else "INSUFFICIENT_REVISED_HOLDOUT_GROUPS"
             previews={k:(k in response and normalize(response[k]["page"])==normalize(v))
                       for k,v in PREVIEWS.items()}
             wiki={"status":"WIKIMEDIA_API_METADATA_RESPONSE","requested":len(revs),
                   "found":len(response),"preview_page_matches":previews,
                   "candidate_revision_page_matches":matched,
                   "candidate_revisions_requested":len(revs)-len(PREVIEWS),
+                  "candidate_revision_page_mismatches":len(revs)-len(PREVIEWS)-matched,
+                  "verified_12_groups":len(verified_12),
                   "content_equivalence_to_dataset":"NOT_VERIFIED",
                   "independent_history_timestamps_found":sum(bool(v.get("timestamp")) for v in response.values())}
         except Exception as e:
             wiki={"status":"WIKIMEDIA_API_HOLD","error_type":type(e).__name__}
         public={"stage":"EPISTEME_P75_P2_PINNED_ORIGINAL_FILE_CUSTODY",
           "status":"SOURCE_BYTES_REHASHED_AND_MATCHED",
+          "original_12_candidate_commitment_superseded_by_API_checked_R2":True,
           "pinned_source_revision":REV,"source_repository":"tals/vitaminc",
           "source_licence":"Author DATA_LICENSE referencing Wikipedia and CC BY-SA 3.0",
           "license_sha256":sha256(raw_license).hexdigest(),
