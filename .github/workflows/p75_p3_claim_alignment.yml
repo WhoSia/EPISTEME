@@ -33,6 +33,9 @@ jobs:
           assert d["same_R3_holdout_commitment_sha256"]=="7d96568480e87aec80ffb8be1d3002d5fb11920ac40a3f9fd5e57a176ac22e78"
           assert d["semantic_entailment_certified_groups"]==0
           assert d["independently_blind_human_reviewed_groups"]==0
+          assert d["directional_exact_candidate_groups"]==9
+          assert d["partial_or_ambiguous_groups"]==1
+          assert d["source_text_alignment_hold_groups"]==2
           print("P75_P3_12_PRIVATE_PACKETS_GENERATED_SEMANTICS_AND_HUMANS_STILL_HOLD")
           PY
           rm -rf "$RUNNER_TEMP/p75_private"
