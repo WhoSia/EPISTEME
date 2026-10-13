@@ -4,6 +4,7 @@ on:
     paths:
       - 'src/p75_p3_claim_revision_alignment.py'
       - 'active/p75_p3_claim_alignment_and_drive_custody.md'
+      - 'research_custody/p75_p4_public_recipient_cert.pem'
       - 'active/p75_research_program.md'
       - '.github/workflows/p75_p3_claim_alignment.yml'
   workflow_dispatch:
@@ -39,7 +40,11 @@ jobs:
           assert d["source_text_alignment_hold_groups"]==2
           print("P75_P3_12_PRIVATE_PACKETS_GENERATED_SEMANTICS_AND_HUMANS_STILL_HOLD")
           PY
-          rm -rf "$RUNNER_TEMP/p75_private"
+          (cd "$RUNNER_TEMP/p75_private" && zip -q -r "$RUNNER_TEMP/p75_private_original_sources.zip" .)
+          openssl cms -encrypt -binary -aes256 -in "$RUNNER_TEMP/p75_private_original_sources.zip" -out "$RUNNER_TEMP/p75_encrypted_source_packets.cms" -outform DER research_custody/p75_p4_public_recipient_cert.pem
+          test -s "$RUNNER_TEMP/p75_encrypted_source_packets.cms"
+          rm -rf "$RUNNER_TEMP/p75_private" "$RUNNER_TEMP/p75_private_original_sources.zip"
+
       - name: Archive only source fingerprints and masked panel IDs
         uses: actions/upload-artifact@v4
         with:
@@ -47,6 +52,13 @@ jobs:
           path: ${{ runner.temp }}/p75_public
           if-no-files-found: error
           retention-days: 30
+      - name: Archive only encrypted private original packets
+        uses: actions/upload-artifact@v4
+        with:
+          name: p75-p4-publickey-encrypted-original-source-packets
+          path: ${{ runner.temp }}/p75_encrypted_source_packets.cms
+          if-no-files-found: error
+          retention-days: 7
       - name: G001 nonpublication gate
         run: |
           echo "READ_ONLY_GITHUB=true NO_PROVIDER_OR_RATER_ACTION=true"
