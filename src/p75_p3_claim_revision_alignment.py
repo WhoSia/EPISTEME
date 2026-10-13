@@ -149,6 +149,18 @@ def analyse_case(entry,rows,wiki,parents):
        "source_witness_relation_ids":[digest(k)[:18] for k in (old_sentence,new_sentence) if k],
        "source_alignment_notice":"HEURISTIC_ONLY_NOT_SEMANTIC_GOLD",
        "dataset_evidence_example":e,
+       "publisher_rows_NO_REFERENCE_LABELS":[
+           {"claim":str(row.get("claim","")),"evidence":str(row.get("evidence","")),
+            "evidence_id":digest(str(row.get("evidence","")))[:18],
+            "source_page_revision_id":str(row.get("wiki_revision_id",""))}
+           for row in observed_rows],
+       "selected_pair_NO_REFERENCE_LABELS":[
+           {"claim":str(row.get("claim","")),"evidence":str(row.get("evidence","")),
+            "evidence_id":digest(str(row.get("evidence","")))[:18]} for row in (chosen or ())],
+       "source_wikitext_changed_lines_PRIVATE_ONLY":list(
+           difflib.unified_diff(old["text"].splitlines(),new["text"].splitlines(),
+                                fromfile="parent_rev",tofile="selected_rev",n=1))[:180],
+
        "proposed_minimal_evidence_ids":[digest(e)[:18]] if e else [],
        "review_prompts":["For the EXACT stated claim, classify old and new evidence separately as SUPPORTS/REFUTES/NOT ENOUGH INFO, without consulting publisher labels.",
           "Identify a sufficient evidence set and test each atom for necessity, including alternative minimal sets.",
@@ -253,6 +265,7 @@ def main():
           "same_R3_holdout_commitment_sha256":holdout_commit,
           "groups":12,
           "source_revision_and_parent_content_captured_in_runner":12,
+          "encrypted_independent_reading_workflow_needed":True,
           "directional_exact_candidate_groups":sum(q["directional_exact_candidate"] for q in public),
           "partial_or_ambiguous_groups":sum(q["partial_or_ambiguous"] for q in public),
           "source_text_alignment_hold_groups":sum(q["source_alignment_quality"]=="SOURCE_TEXT_ALIGNMENT_HOLD" for q in public),
