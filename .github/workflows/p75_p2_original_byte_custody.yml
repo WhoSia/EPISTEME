@@ -3,6 +3,8 @@ on:
   push:
     paths:
       - 'src/p75_p2_original_dataset_custody.py'
+      - 'active/p75_p2_original_byte_wikimedia_holdout_court.md'
+      - 'active/p75_research_program.md'
       - '.github/workflows/p75_p2_original_byte_custody.yml'
   workflow_dispatch:
 
