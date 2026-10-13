@@ -1,0 +1,30 @@
+name: EPISTEME P75-P1 Original-Source Warrant and Utility Gate
+on:
+  push:
+    paths:
+      - 'src/p75_p1_vitaminc_source_admission.py'
+      - 'src/p75_p1_blind_warrant_utility_protocol.py'
+      - 'active/p75_p1_vitaminc_warrant_switch_protocol.md'
+      - '.github/workflows/p75_p1_source_warrant_utility.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  offline-metadata-and-protocol:
+    name: VitaminC source-metadata and synthetic human-policy protocol
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile and run P75-P1 independent-source admission
+        run: |
+          python3 -m py_compile src/p75_p1_vitaminc_source_admission.py src/p75_p1_blind_warrant_utility_protocol.py
+          python3 src/p75_p1_vitaminc_source_admission.py
+          python3 src/p75_p1_blind_warrant_utility_protocol.py
+      - name: Explicit verified provenance ceiling
+        run: |
+          echo "PUBLIC_TRAIN_PREVIEW_8_ROWS_2_CASE_GROUPS_NOT_HELDOUT"
+          echo "NO_VERIFIED_WIKIPEDIA_REVISIONS NO_REHASHED_ORIGINAL_DATASET_BYTES"
+          echo "HUMAN_RATERS=0 SWITCH_UTILITY_OBSERVATIONS=0 PAID_MODEL_CALLS=0"
