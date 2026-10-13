@@ -106,11 +106,28 @@ def analyse_case(entry,rows,wiki,parents):
     rank.sort(key=lambda x:-x[0])
     chosen=rank[0][1] if rank else None
     alignment=rank[0][2] if rank else []
+    directional=(len(alignment)==2 and
+       (alignment==[(True,False),(False,True)] or alignment==[(False,True),(True,False)]))
+    partial=(not directional and any(any(k) for k in alignment))
+    alignment_quality=("DIRECTIONAL_EXACT_CANDIDATE" if directional
+       else "PARTIAL_AMBIGUOUS_HOLD" if partial else "SOURCE_TEXT_ALIGNMENT_HOLD")
+
     # Distinguish overlap/changed-span heuristics from human-proof validity.
     e=str(chosen[0].get("evidence","")) if chosen else (str(observed_rows[0].get("evidence","")) if observed_rows else "")
     claim=str(chosen[0].get("claim","")) if chosen else (str(observed_rows[0].get("claim","")) if observed_rows else "")
     old_sentence,old_score=closest(sentences(old["text"]),claim,e)
     new_sentence,new_score=closest(sentences(new["text"]),claim,e)
+    # In nine directionally matched groups, use actual publisher evidence
+    # substrings in the respective independently retrieved wiki snapshots.
+    old_exact_candidate,new_exact_candidate="",""
+    if directional:
+        for item,(in_old,in_new) in zip(chosen,alignment):
+            if in_old and not in_new:old_exact_candidate=str(item.get("evidence",""))
+            if in_new and not in_old:new_exact_candidate=str(item.get("evidence",""))
+        if not old_exact_candidate or not new_exact_candidate:
+            raise ValueError("P75_DIRECTIONAL_EVIDENCE_ANCHOR_MISSING")
+        old_sentence,new_sentence=old_exact_candidate,new_exact_candidate
+
     pre_wiki="https://en.wikipedia.org/w/index.php?oldid="+str(old["id"])
     post_wiki="https://en.wikipedia.org/w/index.php?oldid="+rev
     records=[{"row_id_sha256":digest(str(row.get("unique_id",row.get("id", "")))),
@@ -126,7 +143,10 @@ def analyse_case(entry,rows,wiki,parents):
        "condition":"MASKED_FULL_OR_PROJECTED_BY_EXTERNAL_CUSTODIAN",
        "claim":claim,
        "source_links":{"old":pre_wiki,"new":post_wiki},
-       "source_sentences":{"old_heuristic":old_sentence,"new_heuristic":new_sentence},
+       "source_sentences":{"old_source_candidate":old_sentence,"new_source_candidate":new_sentence},
+       "source_alignment_quality":alignment_quality,
+       "source_witness_retained_trace_ids":[digest(k)[:18] for k in (old_sentence,new_sentence) if k],
+       "source_witness_relation_ids":[digest(k)[:18] for k in (old_sentence,new_sentence) if k],
        "source_alignment_notice":"HEURISTIC_ONLY_NOT_SEMANTIC_GOLD",
        "dataset_evidence_example":e,
        "proposed_minimal_evidence_ids":[digest(e)[:18]] if e else [],
@@ -150,6 +170,10 @@ def analyse_case(entry,rows,wiki,parents):
       "original_parent_revision_timestamp_present":bool(old.get("timestamp")),
       "source_real_dataset_rows":len(observed_rows),
       "same_claim_changed_label_evidence_pair_count":len(pairs),
+      "source_alignment_quality":alignment_quality,
+      "directional_exact_candidate":directional,
+      "partial_or_ambiguous":partial,
+      "evidence_pair_source_sha256":[digest(k) for k in (old_exact_candidate,new_exact_candidate) if k],
       "selected_pair_dataset_evidence_exact_in_snapshots":alignment,
       "nearest_old_sentence_lexical_overlap":old_score,
       "nearest_new_sentence_lexical_overlap":new_score,
@@ -229,6 +253,10 @@ def main():
           "same_R3_holdout_commitment_sha256":holdout_commit,
           "groups":12,
           "source_revision_and_parent_content_captured_in_runner":12,
+          "directional_exact_candidate_groups":sum(q["directional_exact_candidate"] for q in public),
+          "partial_or_ambiguous_groups":sum(q["partial_or_ambiguous"] for q in public),
+          "source_text_alignment_hold_groups":sum(q["source_alignment_quality"]=="SOURCE_TEXT_ALIGNMENT_HOLD" for q in public),
+
           "original_test_claims_in_review_bundle":sum(int(p["private_packet_example_complete"]) for p in public),
           "same_claim_cross_label_pair_groups":sum(p["same_claim_changed_label_evidence_pair_count"]>0 for p in public),
           "at_least_one_exact_evidence_match_groups":sum(any(any(t) for t in p["selected_pair_dataset_evidence_exact_in_snapshots"]) for p in public),
