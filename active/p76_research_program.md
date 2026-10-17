@@ -1,0 +1,77 @@
+# EPISTEME-P76 — Endogenous Defeat-Capacity Lock-in & the Irreversibility of Epistemic Migration: Representation-Dependent Verification Options, Evidence-Production Hysteresis, Restoration Thresholds & Cross-Infrastructure Rival Falsification
+
+**OFFICIALLY AUTHORIZED/OPENED by user on 2026-10-17.** Exact title frozen. P75 remains CLOSED_BOUNDED, not secretly reopened. The P76 scientific stage is **P0 INHERITANCE + FALSIFICATION PROGRAM**, not P76 paper results or a novel theorem.
+
+## Founding question and research strategy
+
+**Founding:** When globally interoperable, digitally standardized, AI-mediated knowledge infrastructures become entrenched, what determines whether superior representations, measurements, ontologies, standards and theories can actually replace them?
+
+P76 asks whether adoption of incumbent representation `R_t` itself alters the future *available discriminating evidence-production actions* `A_t^{defeat}(R_{0:t},K_t)`, so that restoring ordinary current budgets and standard adoption levels fails to restore the experiments needed to recognize a superior rival. **Option loss, hysteresis, self-confirming feedback and switching inertia alone are ALREADY PRIOR ART** and NOT P76 novelty. The only useful target is an independently source-observed adoption-conditioned loss of **specific rival-defeating data/measurement/test actions** irreducible (under matched stated observable states) to strongest existing option, learning and infrastructure models.
+
+Do not optimize for a neat formal theorem over identifying real discriminatory evidence. Prefer one genuine versioned transition with independent pre/post source and a strong conventional counterexplanation over 10,000 invented toy cases.
+
+## Complete genealogy audit — result, assumption, counterexample, negative control, proposed-only
+
+| Era | Canonical inherited outcome | What P76 MUST NOT claim |
+|---|---|---|
+| P1–P3 | Defeat-route capital, executable falsifiability gap, retained/discarded investigation options; P3 explicitly showed Forand irreversible option maintenance, self-confirming learning and infrastructure option value are earlier literature. P3 independent distinctive phenomenon **HOLD**. | Generic option value / irreversible experiment maintenance is not novel. |
+| P4–P17 | Multiple lines on epistemic infrastructure, competing representations and test routes; much is conceptual/model-based with mixed observational authority. **Genealogy requires source-by-source original archive pass, no blanket result claim**. | Don't manufacture a 14-stage empirically validated continuum. |
+| P18–P19 | P18 Rich/coarse positive recoverability control FAILED due to witness absence in retained trace despite note-only reference. P19 was a matched-control prospective design, NOT empirical result. | Positive-control failure cannot count as warrant-preservation mechanism. |
+| P20–P56 | Broad formal/design/cross-model archive to be itemized by primary chat archives and Notion; no blanket claim of finished causal/semantic source identification. | A high P number doesn't imply 56 validated new mechanisms. |
+| P57–P59 | Missingness-free result with 16 operator reversals but **0/15 Holm-rejected transport/reproducibility/prediction hypotheses** over four possible missing-cell completions. | Reversal in one task is not cross-task universal effect. |
+| P60–P68 | Source/proof/decoy and independent certificate research; P66 12,288 condition design unexecuted, P68 synthetic warrant, no real independent certificate. | Never translate a precommit into behavioral proof. |
+| P69 | 192 actual pilot+64 bounded repair model responses, strict Gemini procedure 8/8 schema valid 0/4 grounded-positive vs JSON object 8/8 schema 4/4 grounded-positive (small authored task set). Full 8192 run not done. | No provider-general causal effect or paper PASS. |
+| P70 | 32 original hosted responses plus independently curated AVeriTeC/SciFact source QA, ten originals eight usable projection, two omitted; source fidelity ≠ semantics. | Dataset labels and sourced URLs are not external fact authority. |
+| P71–P73 | Symbolic minimax decision and role/time equivalence, prospective audit feedback, real intervention/independent human study NOT done. | A synthetic countermodel isn't actual human choice or institutional change. |
+| P74 | Actual bitemporal provenance and causal source-time effects court; strongest PROV source-aware standard rival **ties**, source metadata alone doesn't identify causal impact. | Timestamp bookkeeping not a novel general contribution. |
+| P75 | Source-authored 255,552,326 bytes VitaminC three original SHA matches, 12 page-disjoint Wikimedia revision lineages/parents, actual alignment 9 exact/1 partial/2 missing, three source locations repaired, two *assistant-provisional* one-sentence candidates. P5 exact Python/independent Go 90-grid (34 action-set changes, 11 ties), complete bitemporal PROV+ordinary decision rival ties. **CLOSED_BOUNDED, not a new theorem, no measured real switch utility.** | Do not confuse authored source text with external world truth; human preferences out of scope. |
+
+**Review completeness:** P3, P18, P57–P59, P69–P75 and source original paper ancestry are inspected at primary native Notion/GitHub levels. P4–P56 contain a large record; their stage-by-stage verbatim primary source classification remains a task, so this is **thematic full-lineage inheritance with gaps explicitly disclosed**, NOT exhaustive reading of every turn in 75 stages. Historical Drive archive 1–4 contains earlier chat transcripts and must be consulted for any strong provenance/novelty claim.
+
+## Original classical rivals actually close-read in user's Drive (not merely abstracts)
+
+- **Forand (2015), Keeping Your Options Open**, Journal of Economic Dynamics & Control 53, 47–68, DOI 10.1016/j.jedc.2015.02.008. [Original](https://drive.google.com/file/d/1oqhWFOoOHY2dFh2L9i5k-eMVYG3eDHBJ/view): explicit cost of preserving inactive trial options and irreversible discard. **Generic option extinction and reconstitution are anticipated**.
+- **Farrell & Saloner (1985), Standardization, Compatibility, and Innovation**, RAND Journal of Economics 16, 70–83. [Original](https://drive.google.com/file/d/1B1upRm8FEh87y_EcCyDHOc0DDkj62Gef/view): incomplete information and compatibility can cause excess inertia.
+- **Arthur (1989), Competing Technologies, Increasing Returns, and Lock-In by Historical Events**, Economic Journal 99, 116–131. [Original](https://drive.google.com/file/d/1devRTYAr9TJHJ4A01V-nYPqKAv3LQXzM/view): contingent adoption dynamics and increasing returns create lock-in.
+- **Aanestad, Grisot, Hanseth & Vassilakopoulou eds. (2017), Information Infrastructures within European Health Care: Working with the Installed Base**, DOI 10.1007/978-3-319-51020-0. [Original](https://drive.google.com/file/d/1c0Wryyd_GBpLZstNZk7P3sb-ZAx_1Jfx/view): actual socio-technical migration, maintained installed-base constraints, not proof of our particular capacity feedback.
+
+Further strongest rivals: self-confirming equilibrium/action-dependent learning; Bayesian exploration and Blackwell comparisons; generic sufficient-statistic loss, data retention policy, software compatibility/irreversible option stock. Find originals and quantitative discriminators before attempting novelty.
+
+## P76-P0 formal discovery target — measurable, not merely symbolic
+
+For each prospective original source case, record `(incumbent representation/version, rival version, incumbent adoption trajectory, historical source retention, exact mechanism for losing test or measurement action, source timestamps vs acquisition timestamps, replacement costs, feasible return action, exogenously observable public standard change)`.
+
+**Competing explanations ordered strong-to-strong:**
+1. R1: Forand-style retained/discarded scientific equipment/rights/skills with maintenance costs and irreversibility; beliefs already affect effort.
+2. R2: Farrell–Saloner standard excess inertia + Arthur's increasing returns and compatibility; a better rival is not adopted.
+3. R3: Bayesian experiment selection/self-confirming learning/Blackwell plus full bitemporal data provenance.
+4. R4: richer installed-base model with source-dependent and representation-dependent option capital. If this reproduces the case at no extra empirical restrictions, there is **no established discriminating P76 theory**.
+
+**Discriminating source challenge:** Two historically grounded comparison cases must match installed adoption, funding, known source evidence and observed retained project options (including R1's genuinely relevant hidden state, rather than depriving the rival of it). Do they still differ on verifiably available future rival-defeating tests because source-typed *representation/proof-role compatibility* changes the materialized falsification paths? Distinguish destroyed information from unavailable user-visible projection and from merely costly restoration (P18 recovered witness test). **A source hash cannot alone establish the counterfactual.**
+
+**Prioritized original real-world ecologies to screen (candidate only):**
+- Migration of machine-readable public standards and versioned schema, where raw data can be retained while the old consumer or converter changes meaning.
+- Transition in measurement systems or scientific data format with retired calibration/toolchains, version-tagged original datasets and release notes.
+- Public archive/version-controlled documentation changes where old rival-defeating queries become impossible despite retained historical snippets (beware proof-access vs actual incapacity).
+
+Selection needs an independent original migration event, actual artifacts and strong historical provenance. No invented successful migration or user-behavior study.
+
+## Paper candidacy and explicit stopping rule
+
+**CURRENT PAPER JUDGMENT: DO NOT WRITE FULL MAIN MANUSCRIPT YET.** P69's construct remains HOLD, P75's semantic/value result is source-relative and classically replicable, and P76 so far has **no empirically accepted original transition case and no strong-rival-excluding test**. Writing a rhetorical full manuscript now risks a long survey or an unoriginal restatement of Forand/Arthur with symbolic examples.
+
+A meaningful paper-ready **GO** requires all of:
+(1) verifiable new original archival transition case(s) with exact pre/post code, raw data, lost/retained measurement/test action and evidence custody;
+(2) a fixed conditional proposition or mechanism that a strong Forand + self-confirming + PROV rival fails on a **matched information/state comparison** (or explicitly narrow informative negative evidence paper, subject to independent feasibility);
+(3) repeatable source-dependent measurement/data analysis with at least one independent implementation or genuinely distinct ecology;
+(4) clear scope, effect/uncertainty, original primary-source bibliography, falsifiers and ruled-out common explanations;
+(5) no fabricated broad human preference/causal intervention claim, no new recruited humans and no paid experiments without user authorization.
+
+**Current scorecard (0/5 required gates accepted)**: research question YES, historical expertise YES, source proof of distinct new mechanism NO, real external exemplar NO, comparative novel result NO; thus **PAPER HOLD**. Appropriate interim output: source genealogy/research-note and adversarial research plan, not submit-ready manuscript.
+
+**No-human doctrine:** user explicitly forbids new human reviewers. This is not an estimand impediment; answer source-relative, original real archival, code and mathematically conditional questions without people. Old P69/P70/P71 prospective 0/16/0/32 are inactive optional designs.
+
+**P76 currently:** `OPEN_P0_INHERITANCE_AND_SOURCE_SCOUTING / SCIENTIFIC_MECHANISM_HOLD / PAPER_HOLD / HUMAN_FREE`. Do not open P77 or force an early paper. P76 original code and field experiments require actual external source evidence, not a superfluous synthetic gate.
+
+## Next high-value action
+Source-screen exact real migration cases across distinct standard authorities, retrieve version-controlled originals and licenses, freeze before/after witnesses, and attempt strong Forand/PROV coverage. Explicitly count failures and source gaps. Revisit full pre-P69 chat archives for any important already-inventoried factual cases or research false starts.
