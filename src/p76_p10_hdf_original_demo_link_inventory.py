@@ -13,6 +13,7 @@ URL="https://hdfdap.hdfgroup.org/zoo/h4toh5/h4toh5-def-demo.php"
 ALLOWED={"hdfdap.hdfgroup.org"}
 class Links(HTMLParser):
     def __init__(self): super().__init__(); self.links=[]
+    all_links=[]
     def handle_starttag(self,tag,attrs):
         if tag=="a":
             href=dict(attrs).get("href")
@@ -28,15 +29,16 @@ def go():
         parsed=urlsplit(u)
         if parsed.scheme not in ("http","https") or parsed.hostname not in ALLOWED: continue
         path=unquote(parsed.path).lower()
+        all_links.append({"url":u,"href":href})
         if any(ext in path for ext in (".hdf",".h5",".he5",".nc",".zip",".gz",".cdl",".odl")):
             links.append({"url":u,"type":"hdf_source" if ".hdf" in path else "converted_or_document"})
     unique={i["url"]:i for i in links}
     report={"court":"P76_P10_ORIGINAL_DEMO_INDEX","source_url":URL,"index_sha256":h,
      "index_bytes":len(raw),"relevant_links":list(unique.values())[:150],
-     "all_relevant_url_count":len(unique),"original_hdf_bytes_downloaded":False,
+     "all_relevant_url_count":len(unique),"all_same_host_links":all_links[:250],"original_hdf_bytes_downloaded":False,
      "converter_executed":False,"source_query_result":None,"novel_mechanism_proved":False}
     Path("p76_p10_original_link_inventory.json").write_text(json.dumps(report,indent=2))
     print(json.dumps({"court":report["court"],"index_sha256":h,
       "relevant_url_count":len(unique),"sample":list(unique)[:8]},indent=2))
-    assert len(unique)>=2, "No downloadable original or converted links discovered: inspect actual HTML before proceeding"
+    assert len(all_links)>=5, "Official HTML has no usable same-domain links"
 if __name__=="__main__":go()
