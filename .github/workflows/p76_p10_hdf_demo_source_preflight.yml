@@ -1,0 +1,23 @@
+name: EPISTEME P76-P10 Original HDF Demo Link Preflight
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - src/p76_p10_hdf_original_demo_link_inventory.py
+      - .github/workflows/p76_p10_hdf_demo_source_preflight.yml
+permissions:
+  contents: read
+jobs:
+  original-source-index:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect official HDF source/demo index only
+        run: python3 src/p76_p10_hdf_original_demo_link_inventory.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: p76-p10-official-hdf-demo-index
+          path: p76_p10_original_link_inventory.json
+          if-no-files-found: warn
