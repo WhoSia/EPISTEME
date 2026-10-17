@@ -7,6 +7,7 @@ from pathlib import Path
 from urllib.request import Request,urlopen
 from collections import defaultdict
 from pyhdf.HDF import HDF,HC
+import pyhdf.V  # HDF.vgstart resolves this module lazily by name
 from pyhdf.SD import SD,SDC
 import numpy as np
 
