@@ -77,7 +77,7 @@ try:
       a=sd.select(sd.reftoindex(r))
       try:
        n=a.info()[0]
-       if n in names and here.startswith(("/Histogram1/","/Histogram2/")):
+       if n in names and (here in ("/Histogram1","/Histogram2") or here.startswith(("/Histogram1/","/Histogram2/"))):
         try: val=decoded(a.get())
         except Exception as e:val={"read_error":str(e)[:120]}
         found[here+"/"+n]={"ref":int(r),"value":val,
