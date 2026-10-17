@@ -1,0 +1,29 @@
+name: EPISTEME P76-P24 Original Acquisition & Monitor Exposure Court
+on:
+  push:
+    paths:
+      - src/p76_p24_original_acquisition_exposure_audit.py
+      - .github/workflows/p76_p24_acquisition_exposure.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-acquisition-context:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install scientific readers on isolated hosted runner
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y hdf4-tools libhdf4-dev hdf5-tools
+          python3 -m pip install --user --break-system-packages numpy h5py pyhdf
+      - name: Enumerate original neutron acquisition exposure source objects and preserve vendor path identity
+        run: python3 src/p76_p24_original_acquisition_exposure_audit.py
+      - name: Preserve source-specific evidence without bot repository writes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p76-p24-neutron-exposure-context-source-evidence
+          path: p76_p24_acquisition_unit_inventory.json
+          if-no-files-found: warn
