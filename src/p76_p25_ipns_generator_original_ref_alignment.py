@@ -94,6 +94,7 @@ try:
                             "shape":list(val.shape),"value":val.reshape(-1).tolist()[:8]}
                     finally:o.endaccess()
         for root in roots:walk(root,"",set())
+        report["pulse_paths_seen"]={p:v for p,v in sds_paths.items() if "proton" in p.lower()}
         observations=[]
         for i in (1,2):
             p="/Histogram"+str(i)
@@ -103,6 +104,9 @@ try:
                 item[m+"_group_ref"]=group_paths.get(path)
                 item[m+"_data"]=sds_paths.get(path+"/data")
             item["proton"]=sds_paths.get(p+"/LRMECS/source/proton_pulses")
+            if item["proton"] is None:
+                choices=[(key,val) for key,val in sds_paths.items() if key.startswith(p+"/") and key.endswith("/proton_pulses")]
+                if len(choices)==1:item["proton"],item["proton_actual_path"]=choices[0][1],choices[0][0]
             item["run"]=sds_paths.get(p+"/run_number")
             observations.append(item)
         report["observations"]=observations
