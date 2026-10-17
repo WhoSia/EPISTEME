@@ -1,5 +1,11 @@
 # EPISTEME
 
+## Latest audited P76 stage: P22 (real IPNS NeXus measurement query, 2026-10-17)
+
+[Full P76-P22 detector-qualified measurement, shared HDF4/HDF5 alias and P77 promotion court](active/p76_p22_detector_scoped_neutron_scientific_query_and_alias_identity.md) · [actual CI SUCCESS #39043333481](https://github.com/WhoSia/EPISTEME/actions/runs/39043333481). Upstream IPNS/LRMECS **real instrument archive HDF4** bytes and HDF Group vendor converter SHA verified; two detector-qualified, bin-edge-correct scientific queries agree in full array values, units and axes. Histogram1 sum **2,666,912** (148×750), Histogram2 sum **2,809,690** (148×35); 20/20 scoped dataset path comparisons agree, and 8/8 real shared-source hard-link alias equivalences persist. **No general causal loss of future falsification; P77 scent alias-derived double evidence counting is standard provenance/pseudoreplication and NOT promoted. PAPER HOLD.** No GitHub-Actions bot-authored commits, no new human raters or paid calls.
+
+---
+
 ## EPISTEME-P76 formally OPEN — 2026-10-17
 
 **EPISTEME-P76 — Endogenous Defeat-Capacity Lock-in & the Irreversibility of Epistemic Migration: Representation-Dependent Verification Options, Evidence-Production Hysteresis, Restoration Thresholds & Cross-Infrastructure Rival Falsification**.
