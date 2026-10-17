@@ -1,0 +1,31 @@
+name: EPISTEME P76-P28 Three-Representation Source Court
+on:
+  push:
+    paths:
+      - 'src/p76_p28_three_representation_court.py'
+      - '.github/workflows/p76_p28_three_representation.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-vs-historical-vs-vendor:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install original HDF4 and HDF5 dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y libhdf4-dev
+          python3 -m pip install --user --break-system-packages pyhdf h5py numpy
+      - name: Compare three authenticated representations
+        run: python3 src/p76_p28_three_representation_court.py
+      - name: Preserve audit JSON, including failed assertions
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p76-p28-three-representation-court
+          path: p76_p28_three_representation_court.json
+          if-no-files-found: warn
