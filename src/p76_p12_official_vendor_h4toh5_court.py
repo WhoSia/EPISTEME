@@ -54,6 +54,8 @@ try:
         receipt["archive_file_listing"]=[str(p.relative_to(directory)) for p in directory.rglob("*") if p.is_file()][:90]
         receipt["candidate_binaries"]=[str(p.relative_to(directory)) for p in tools]
         print("VENDOR_ARCHIVE_LISTING",json.dumps(receipt["archive_file_listing"][:90]),flush=True)
+        print("INSTALLER_EXTRACT_DIAGNOSTIC",json.dumps(receipt["installer_extract"]),flush=True)
+        print("EXTRACTED_LISTING",json.dumps([str(p.relative_to(directory)) for p in target.rglob("*")][:100]),flush=True)
         assert tools,"No official executable h4toh5 binary in verified publisher archive"
         binary=tools[0];binary.chmod(binary.stat().st_mode|0o111)
         receipt["binary_path"]=str(binary.relative_to(directory))
