@@ -1,0 +1,36 @@
+# EPISTEME-P76-P7 — PEA-Scope / Harvest Original Archaeology and Founding-Question Return Court
+
+**2026-10-17 KST — P76 continues, no P77. Scientific outcome: Cross-Lab method rescue, no claimed novel P76 theorem or actual HDF4 migration execution; paper HOLD.**
+
+## First-hand source review
+1. [PEA-Scope M1–M7 exported spine](https://app.notion.com/p/3c9ef561cf9281f0870fe7dde473c3a9): M1 goal→commitment over-strengthening test (a supposed requirement might not be necessary); M3 explicit semantic *leak* versus *exclusion* witnesses, relative to stated formalization; M4 dimensions **induced** by interventions that flip applicability judgments instead of prespecifying preferred axes; M6 partial causal equivalence and source authority. Already sophisticated anti-axiom methodology. **Do not count historical reports as fresh P76 experiments**.
+2. [PEA-Scope Origin & Drift Audit](https://app.notion.com/p/3c8ef561cf9281dbaee4eb5a210c5d86): M37 identified overgrowth from feedback applicability scope into agent runtime; M38–M39 executed return-to-original scientific outcome by active-set tests. Founding criterion: `PERFORMANCE FUNCTIONAL != SCOPE/ACTION AUTHORITY`. This is a direct warning that source-converter engineering and CI growth can masquerade as P76 empirical discovery.
+3. [PEA-Scope final archival Harvest](https://app.notion.com/p/3e6ef561cf9281358ab4f80b969bbcd2): early arbitrary six-axis scope basis was rejected, and retired PEA lab is **closed**. Preserve its lineage as donor material; never revive closed lab or mistake closed archival bytes for a new authority. Existing sealed original Chat export SHA was checked in prior PEA work, not independently recalculated here.
+4. [PEA-Scope M66-PX historical successor attack](https://app.notion.com/p/3e4ef561cf92811791b1c36f22b53088): five-coordinate compressed standing certificate was subjected to coordinate-by-coordinate future-control-suffix tests. Validity became a history-dependent recursively updated V*, while a hidden-history collision F-L6 remained a **proposed, not verified** falsifier. Crucial: a small representation is not automatically an adequately identified sufficient statistic; challenge it with histories agreeing in present state but different admissible future interventions.
+5. [PEA M66 closed-scope final](https://app.notion.com/p/3e4ef561cf92815b9333e6c2b7d545b0): generic contextual preference selectivity/revision was already represented in earlier sources; fatal stronger modern rival tests not executed. Program deliberately CLOSED WITHOUT PROMOTION, no automatic new generation. P76 must emulate its negative-novelty honesty.
+6. [Research OS cross-shelf Harvest IV](https://app.notion.com/p/3d2ef561cf92817aa160d2a85e4fb26b): semiring provenance offers compositional alternative witness paths; **but derivation provenance is not scientific evidential authority**. Resilience, return speed, persistence, and basin size are different measurements; source identities and original-world empirical results cannot be inferred by loose analogy. Harvest's original passage coverage is heterogeneous.
+7. [Harvest XLIX](https://app.notion.com/p/3e6ef561cf9281b0a4a2c5ad2312db3b): raw data→dataset is an actual transformation, sampling uncertainty ≠ model/specification uncertainty, preregistering one analytic path ≠ proving uniqueness, many analysts ≠ independent world contact. Emphasize *source/analysis branch geometry* before compression.
+8. [Harvest XLVI](https://app.notion.com/p/3e6ef561cf92814c9e26f437466878b6): representation authority and intervention naturalness; do not promote schema translation or interface changes to an identified causal intervention without paired original worlds.
+
+## P76 source-relative transfer, not old-field resurrection
+**T1 — Anti-arbitrary-factor criterion.** R/A/G/I/X is a set of historically useful tags, not axioms. Derive splits from *specific admissible future intervention suffixes* that flip acceptability/cost/witness. If no such intervention exists, merge tags in a purpose-specific quotient; if it exists, retain the split. Do not call this novel: weighted bisimulation/Myhill–Nerode-like distinctions and PEA-Scope original M4 directly anticipate it.
+
+**T2 — Anti-sufficiency blind spot.** Given two historical states s,s' with same current claim/output, source-availability and all currently observed R/A/G/I/X tags, search a future legal/technical query and budget such that executable criticism or restoration choice differs. If a witness exists, the proposed summary is **not** sufficient for that future family. But a trivial new query that directly exposes omitted source bits is not enough for paper novelty.
+
+**T3 — Authority separation.** Semantic *expressibility* of a criticism, source-authorized *executability*, and legitimacy/world-truth of its result must have distinct custody. Running `h4toh5` with technical PASS does not certify correctness of recovered scientific comparison; a file converter is not an independent epistemic judge.
+
+**T4 — Counterfactual return-to-origin gate.** Every proposed P76 code addition must answer: what exact potentially rival-defeating future experimental question becomes possible or impossible? Has P9/P10's endogenous D(q) been respected? Does classical Forand + full source-provenance + weighted transitions already explain the case? If the answer is no, do not add CI/gates just for documentation volume.
+
+**T5 — Source/branch authority.** Fixed pre-registered query/cost/hypothesis is necessary for a fair conditional test, but does not certify uniqueness of the chosen specification. Define alternate materialization/migration pipelines and independent old-reader recovery; compare outcomes, rather than credit one hand-chosen pipeline.
+
+## A falsifiable experiment proposal within P76
+Freeze SAME original official HDF4 bytes h; q_original(h) and converter-based q_migrated(h) plus q_archive_rescue(h). Define an *external* scientific test family D0 from original documented data fields, independent of which migration succeeded. Let authorized migration choices determine future feasible q-specific commands and evidence. Before results:
+- Control 0: original+old reader works (or explicitly report why source environment unavailable);
+- Control 1: clean HDF5 conversion preserves at least one science-query exact value;
+- Negative: one deliberately unsupported object/metadata mapping shows *conversion route* loss, not global source ability loss;
+- Distinctive candidate: two apparently equivalent current archives differing by prior migration path, with matched original source custody and full classical option state, diverge in a new independently legitimate future query. If competitor explains by retained software/permission/cost, P76 special mechanism fails.
+
+**Empirical results:** none newly executed in this source-archaeology pass. The HDF original-converted-rescued query remains unrun. This report makes P76-P7 a meaningful genealogy/method correction, **not a paper-ready substantive discovery**.
+
+## No-human doctrine and paper disposition
+No recruited new human raters, no synthetic human-gold substitute, no paid provider calls. Donor PEA is closed; no PEA archaeology for its own sake. `P76-P7 METHOD_HARVEST_PASS / HDF_REAL_QUERY_HOLD / STRONG_RIVAL_NO_DEFEAT / PAPER_HOLD / NO_P77`.
