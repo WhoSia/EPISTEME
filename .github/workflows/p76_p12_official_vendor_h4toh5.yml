@@ -1,0 +1,27 @@
+name: EPISTEME P76-P12 Official HDF4-HDF5 Vendor Court
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - src/p76_p12_official_vendor_h4toh5_court.py
+      - .github/workflows/p76_p12_official_vendor_h4toh5.yml
+permissions:
+  contents: read
+jobs:
+  official-vendor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install independent HDF5 header verifier
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y hdf5-tools
+      - name: Verify publisher checksum and run official conversion on source pinned fixtures
+        run: python3 src/p76_p12_official_vendor_h4toh5_court.py
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p76-p12-real-vendor-source-court
+          path: p76_p12_vendor_binary_receipt.json
+          if-no-files-found: warn
