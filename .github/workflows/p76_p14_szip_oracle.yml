@@ -1,0 +1,28 @@
+name: EPISTEME P76-P14 Native SZIP Oracle Diagnostic
+on:
+  push:
+    paths:
+      - src/p76_p14_szip_source_oracle_diagnostic.py
+      - .github/workflows/p76_p14_szip_oracle.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-szip:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install original and converted readers
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y hdf4-tools
+          python3 -m pip install --user --break-system-packages h5py numpy
+      - name: Native SZIP oracle audit
+        run: python3 src/p76_p14_szip_source_oracle_diagnostic.py
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p76-p14-szip-source-diagnostic
+          path: p76_p14_szip_oracle_receipt.json
+          if-no-files-found: warn
