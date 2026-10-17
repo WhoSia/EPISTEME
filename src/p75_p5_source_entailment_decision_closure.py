@@ -53,6 +53,7 @@ class Atom:
     polarity:int
     retained_full:bool
     retained_excerpt:bool
+    effective_until:int|None=None
 
 def evidence_at(atoms:tuple[Atom,...],asof:int,record_cutoff:int,
                 subject:str,predicate:str,obj:str):
@@ -63,6 +64,7 @@ def evidence_at(atoms:tuple[Atom,...],asof:int,record_cutoff:int,
     available=[]
     for a in atoms:
         if a.valid_time>asof or a.record_time>record_cutoff:continue
+        if a.effective_until is not None and asof>=a.effective_until:continue
         if (a.subject,a.predicate,a.obj)!=(subject,predicate,obj):continue
         if a.proof_role not in ("direct_claim","direct_defeater"):continue
         if a.retained_full:available.append(a)
@@ -92,11 +94,12 @@ def counterexamples():
     # One paragraph drops reference but the SAME article infobox retains it.
     nickname=(
         Atom(**{**common,"revision":"v1","valid_time":1,"record_time":1},
-             proof_role="direct_claim",polarity=1,retained_full=True,retained_excerpt=True),
+             proof_role="direct_claim",polarity=1,retained_full=True,retained_excerpt=True,effective_until=2),
         Atom(**common,proof_role="direct_claim",polarity=1,
              retained_full=True,retained_excerpt=False))
     assert simple_latest_snippet((nickname[-1],),3) is False
     assert p75_conditional_warrant(nickname,2,3,c)=="SOURCE_RELATIVE_SUPPORT"
+    assert p75_conditional_warrant((nickname[0],),2,3,c)=="SOURCE_RELATIVE_UNDETERMINED" # expired old claim not resurrected
     # A new author assertion and an explicitly coded contemporaneous defeater
     # cannot be used as a unanimous warrant. 'editor warning' is an authored
     # caution, not independently validated historical fact.
