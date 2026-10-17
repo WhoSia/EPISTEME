@@ -33,6 +33,15 @@ def pull(relative,cap):
   d=f.read(cap+1)
  assert len(d)<=cap
  return d
+def canon_text(v):
+ if isinstance(v,bytes):return v.decode("utf8","replace").strip("\\x00")
+ if isinstance(v,str):return v.strip("\\x00")
+ a=np.asarray(v)
+ if a.dtype.kind=="S":
+  return b"".join(a.reshape(-1).tolist()).decode("utf8","replace").strip("\\x00")
+ if a.dtype.kind=="U":
+  return "".join(a.reshape(-1).tolist()).strip("\\x00")
+ return None
 def summarize(a):
  arr=np.asarray(a)
  return {"shape":list(arr.shape),"dtype":str(arr.dtype),"n":int(arr.size),
@@ -96,18 +105,32 @@ try:
       ds=f[requested];arr=np.asarray(ds[()])
       row["hdf5_object_addr"]=int(h5py.h5o.get_info(ds.id).addr)
       row["new"]=summarize(arr)
-      row["new_units"]=str(ds.attrs.get("units",""))
+      row["new_units"]=canon_text(ds.attrs.get("units",""))
       if left is not None:
        row["shape_equal"]=list(left["array"].shape)==list(arr.shape)
        row["elementwise_equal"]=bool(np.array_equal(left["array"],arr))
-       row["unit_string_equal"]=row["old_units"]==row["new_units"]
+       row["unit_string_equal"]=row["old_units"]==row["new_units"]\n       if requested.endswith(("/start_time","/end_time")):\n        row["semantic_datetime_equal"]=canon_text(left["array"])==canon_text(arr)\n        row["old_time_text"]=canon_text(left["array"])\n        row["new_time_text"]=canon_text(arr)
      R["path_checks"].append(row)
     R["hdf5_data_paths_like_data"]=[x for x in h5paths if x.endswith("/data")][:45]
   finally:sd.end();v.end();h.close()
+ R["monitor_alias_checks"]=[]
+ for monitor in ("monitor1","monitor2"):
+  p1="/Histogram1/"+monitor+"/data"
+  p2="/Histogram2/"+monitor+"/data"
+  a=next(x for x in R["path_checks"] if x["path"]==p1)
+  b=next(x for x in R["path_checks"] if x["path"]==p2)
+  R["monitor_alias_checks"].append({"name":monitor,
+   "hdf4_shared_source_ref":a["old_ref"]==b["old_ref"],
+   "hdf5_shared_object_addr":a["hdf5_object_addr"]==b["hdf5_object_addr"],
+   "both_path_values_equal":bool(a["elementwise_equal"] and b["elementwise_equal"])})
+ R["monitor_alias_fracture_in_preexisting_hdf5"]=all(
+  x["hdf4_shared_source_ref"] and not x["hdf5_shared_object_addr"] and x["both_path_values_equal"] for x in R["monitor_alias_checks"])
+ R["units_semantically_equal"]=all(x.get("unit_string_equal") is True for x in R["path_checks"])
+ R["datetime_semantically_equal"]=all(x.get("semantic_datetime_equal") is True for x in R["path_checks"] if x["path"].endswith(("/start_time","/end_time")))
  R["exact_path_pair_count"]=sum(x.get("hdf4_exists") and x.get("hdf5_exact_path_exists") for x in R["path_checks"])
  R["exact_path_numeric_or_string_equal_count"]=sum(x.get("elementwise_equal") is True for x in R["path_checks"])
  R["native_comparison_status"]="SAME_REPO_SOURCE_PAIR_AUDITED_NOT_EXACT_ORIGIN_CAUSALITY"
 finally:
  OUT.write_text(json.dumps(R,indent=2))
  print(json.dumps(R,indent=2))
-assert R["both_source_bytes_verified"] and len(R["path_checks"])==len(FIELDS)
+assert R["both_source_bytes_verified"] and len(R["path_checks"])==len(FIELDS)\nassert R["monitor_alias_fracture_in_preexisting_hdf5"] and R["units_semantically_equal"] and R["datetime_semantically_equal"]
