@@ -1,0 +1,22 @@
+name: EPISTEME P76-P16 NSIDC Original Source Inventory
+on:
+  push:
+    paths:
+      - src/p76_p16_nsidc_scientific_original_inventory.py
+      - .github/workflows/p76_p16_nsidc_science_inventory.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-index:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Read official NSIDC dataset original file index
+        run: python3 src/p76_p16_nsidc_scientific_original_inventory.py
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p76-p16-nsidc-original-source-court
+          path: p76_p16_nsidc0397_index.json
