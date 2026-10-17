@@ -1,0 +1,29 @@
+name: EPISTEME P76-P11 Real HDF Conversion Numeric Query Court
+on:
+  push:
+    paths:
+      - src/p76_p11_h5utils_original_converted_query.py
+      - .github/workflows/p76_p11_h5utils_numeric_query.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  old-new-query:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install independently distributed HDF4/HDF5 conversion tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y hdf4-tools h5utils hdf5-tools
+          python3 -m pip install --user --break-system-packages numpy h5py pyhdf
+          h5fromh4 -V || true
+      - name: Compare source/original-reader with actual converted HDF5 reader
+        run: python3 src/p76_p11_h5utils_original_converted_query.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: p76-p11-numeric-concordance-and-explicit-third-party-scope
+          path: p76_p11_h5utils_numeric_concordance.json
+          if-no-files-found: warn
