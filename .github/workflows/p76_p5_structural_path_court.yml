@@ -1,0 +1,31 @@
+name: EPISTEME P76-P5 Source Path Structural Court
+on:
+  push:
+    paths:
+      - "src/p76_p5_finite_verification_path_counterexample.py"
+      - "active/p76_p5_solid_style_heuristic_reduction_and_verification_congruence.md"
+      - "active/p76_research_program.md"
+      - ".github/workflows/p76_p5_structural_path_court.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  finite-structural-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - name: Assert exact counterexample and research-admission limits
+        run: |
+          python3 src/p76_p5_finite_verification_path_counterexample.py > "$RUNNER_TEMP/court.json"
+          python3 - "$RUNNER_TEMP/court.json" <<'PY'
+          import json,sys
+          x=json.load(open(sys.argv[1]))
+          assert x["single_resource_loss_observations_identical"]
+          assert len(x["distinct_double_failure_responses"])==4
+          assert not x["five_stage_unique_minimality_proved"]
+          assert x["source_relative_real_migration_evidence_count"]==0
+          assert not x["new_theorem_claimed"]
+          print("P76_P5_CONSTRUCTED_NONCANONICAL_FIVE_STAGE_COURT_PASS")
+          print("P76_P5_NO_REAL_HDF_MIGRATION_NO_NEW_THEOREM")
+          PY
