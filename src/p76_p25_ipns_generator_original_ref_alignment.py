@@ -6,6 +6,7 @@ import hashlib, json, re, subprocess
 from pathlib import Path
 from html.parser import HTMLParser
 from urllib.request import urlopen, Request
+import pyhdf.V, pyhdf.VS
 from pyhdf.HDF import HDF, HC
 from pyhdf.SD import SD, SDC
 import numpy as np
@@ -115,7 +116,10 @@ try:
         report["generator_pattern_explains_observed_storage_structure"]=True
         report["source_time_series_or_charge_calibration_source_found"]=False
     finally:
-        sd.end();v.end();h.close();fpath.unlink(missing_ok=True)
+        if "sd" in locals(): sd.end()
+        if "v" in locals(): v.end()
+        if "h" in locals(): h.close()
+        fpath.unlink(missing_ok=True)
 finally:
     OUT.write_text(json.dumps(report,ensure_ascii=False,indent=2))
     print(json.dumps(report,ensure_ascii=False,indent=2))
