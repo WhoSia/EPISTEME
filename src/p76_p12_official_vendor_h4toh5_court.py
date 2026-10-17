@@ -44,7 +44,13 @@ try:
             files=t.getmembers()
             assert all(not m.name.startswith("/") and ".." not in Path(m.name).parts and not m.issym() and not m.islnk() for m in files),"Unsafe archive path/link"
             t.extractall(directory,filter="data")
-        tools=[p for p in directory.rglob("*") if p.is_file() and "h4toh5" in p.name.lower() and not p.suffix in (".txt",".md",".so",".a",".h")]
+        installer=directory/"hdf"/"H4H5-2.2.5-Linux.sh"
+        assert installer.is_file(),"Expected publisher Linux self-extractor"
+        receipt["installer_sha256"]=hashlib.sha256(installer.read_bytes()).hexdigest()
+        target=directory/"expanded";target.mkdir()
+        probe=run("bash",str(installer),"--noexec","--target",str(target))
+        receipt["installer_extract"]={"returncode":probe.returncode,"stdout":probe.stdout[:900],"stderr":probe.stderr[:900]}
+        tools=[p for p in target.rglob("*") if p.is_file() and "h4toh5" in p.name.lower() and not p.suffix in (".txt",".md",".so",".a",".h")]
         receipt["archive_file_listing"]=[str(p.relative_to(directory)) for p in directory.rglob("*") if p.is_file()][:90]
         receipt["candidate_binaries"]=[str(p.relative_to(directory)) for p in tools]
         print("VENDOR_ARCHIVE_LISTING",json.dumps(receipt["archive_file_listing"][:90]),flush=True)
