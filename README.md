@@ -1,5 +1,20 @@
 # EPISTEME
 
+## Canonical research stage — 2026-10-17
+
+**EPISTEME-P75 `CLOSED_BOUNDED`** (human-free source-relative and finite conditional-decision court; not full epistemic replacement theory or paper-level novelty). [Final bounded P75-P5 scientific verdict](active/p75_p5_bounded_closure_and_p76_proposal.md) · [P75 formal program](active/p75_research_program.md) · [P75-P5 Python exact-rational test](src/p75_p5_source_entailment_decision_closure.py) · [independent Go audit](src/p75_p5_independent_integer_audit.go).
+
+**Scientific result:** Original VitaminC full SHA-verified 3 files, 12 verified historical revision lineages, 3 text-alignment repair locations, 2 source-relative one-sentence witness hypotheses and 0 external human semantic certificates. Final restricted source semantics + exact 90-cell decision analysis passed independent Python/Go, **but strong conventional full-source bitemporal-PROV and ordinary decision comparator is sufficient; P75-specific superiority, population welfare and manuscript novelty NOT established**. Prior P69/P70 hosted 288 responses remain historical and cannot be re-counted. Historical optional planned human 0/16, 0/16 and 0/32 are NOT an obligation to recruit anyone.
+
+**Mandatory governance:** No newly recruited human reviewers/participants for this program; six sibling-Lab [human-rater compulsion correction](active/p75_human_requirement_correction_cross_lab.md). No new paid model calls or synthetic raters claimed as human. Preserve all negative results and original source ancestry; GitHub Actions read-only, research commits authenticated `WhoSia`. Full licensed VitaminC raw 255 MB is pinned and verified from original publisher but **NOT durably copied to user's private Drive**.
+
+**P76 formal name — PROPOSED, NOT OPEN**:
+*EPISTEME-P76 — Endogenous Defeat-Capacity Lock-in & the Irreversibility of Epistemic Migration: Representation-Dependent Verification Options, Evidence-Production Hysteresis, Restoration Thresholds & Cross-Infrastructure Rival Falsification*.
+
+P76 tests whether entrenched representation use depletes the rival-specific capacity to **produce disconfirming evidence**, even if present installed standard and budget are matched; **Forand (2015) option maintenance, Farrell–Saloner (1985) compatibility inertia, Arthur (1989) increasing returns, and installed-base theory are full-strength rivals**, not achievements to rename. The user must approve the name before P76 is opened.
+
+---
+
 Active execution surface for the EPISTEME research program.
 
 ## P70 full-evidence implementation strengthened — all original answer records (2026-10-10)
