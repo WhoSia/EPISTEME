@@ -29,7 +29,7 @@ try:
   expanded=d/"expanded";expanded.mkdir()
   inst=run(["bash",str(d/"hdf"/"H4H5-2.2.5-Linux.sh")],cwd=expanded,input="y\ny\ny\ny\n")
   assert inst.returncode==0,(inst.stdout[-600:],inst.stderr)
-  binary=next(p for p in expanded.rglob("*") if p.is_file() and p.name.lower()=="h4toh5")
+  binary=next(p for p in expanded.rglob("*") if p.is_file() and "h4toh5" in p.name.lower() and p.suffix not in (".h",".txt",".md",".so",".a"))
   binary.chmod(binary.stat().st_mode|0o111)
   for path,want in FILES:
    raw=get("https://raw.githubusercontent.com/HDFGroup/hdf4/"+PIN+"/"+path,2000000)
