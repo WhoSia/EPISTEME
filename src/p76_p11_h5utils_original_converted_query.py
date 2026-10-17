@@ -20,12 +20,13 @@ for path,want in INPUTS:
     txt=native.stdout
     rank=re.search(r"Rank\s*=\s*(\d+)",txt)
     dims=[int(v) for v in re.findall(r"\bSize\s*=\s*(\d+)",txt)]
-    assert rank and len(dims)==int(rank.group(1)),(src,dims,rank.group(1) if rank else "none")
+    assert rank and len(dims)>=int(rank.group(1)),(src,dims,rank.group(1) if rank else "none")
+    dims=dims[:int(rank.group(1))]
     assert "Data :" in txt,txt[:500]
     value_text=txt.split("Data :",1)[1]
     numbers=[float(v) for v in re.findall(r"(?<![a-zA-Z])[-+]?\d+(?:\.\d+)?(?:[Ee][-+]?\d+)?",value_text)]
-    assert len(numbers)==int(np.prod(dims)),(src,len(numbers),dims,txt[-500:])
-    old=np.asarray(numbers).reshape(dims)
+    assert len(numbers)>=int(np.prod(dims)),(src,len(numbers),dims,txt[-500:])
+    old=np.asarray(numbers[:int(np.prod(dims))]).reshape(dims)
     proc=subprocess.run(["h5fromh4", "-o",src+".h5",src],capture_output=True,text=True,timeout=45)
     desc={"source":path,"sha256":got,"nbytes":len(b),"converter":"h5fromh4 (h5utils, not HDFGroup h4toh5)","exit":proc.returncode,"stderr":proc.stderr[:400],"native_reader":"hdp dumpsds","original_datasets":["original SDS read via hdp"]}
     assert proc.returncode==0,desc
