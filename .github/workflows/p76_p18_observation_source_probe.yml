@@ -1,0 +1,21 @@
+name: EPISTEME P76-P18 Actual MODIS Historical Source Access
+on:
+  push:
+    paths:
+      - src/p76_p18_observation_archive_direct_source.py
+      - .github/workflows/p76_p18_observation_source_probe.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  historical-observation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 src/p76_p18_observation_archive_direct_source.py
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p76-p18-historical-original-custody-receipt
+          path: p76_p18_observation_source_receipt.json
