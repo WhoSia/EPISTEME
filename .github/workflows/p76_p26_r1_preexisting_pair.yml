@@ -1,0 +1,27 @@
+name: EPISTEME P76-P26-R1 Pre-existing HDF4/HDF5 Pair Court
+on:
+  push:
+    paths:
+      - src/p76_p26_r1_preexisting_neXus_hdf4_hdf5_pair.py
+      - .github/workflows/p76_p26_r1_preexisting_pair.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-archive-pair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install native HDF4 and HDF5 query readers in hosted runner
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y libhdf4-dev
+          python3 -m pip install --user --break-system-packages pyhdf h5py numpy
+      - name: Audit both original run 3701 versions without a new converter
+        run: python3 src/p76_p26_r1_preexisting_neXus_hdf4_hdf5_pair.py
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p76-p26-r1-preexisting-hdf4-hdf5-pair
+          path: p76_p26_r1_preexisting_neXus_counterpart.json
