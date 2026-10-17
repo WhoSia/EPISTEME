@@ -34,13 +34,13 @@ def pull(relative,cap):
  assert len(d)<=cap
  return d
 def canon_text(v):
- if isinstance(v,bytes):return v.decode("utf8","replace").strip("\\x00")
- if isinstance(v,str):return v.strip("\\x00")
+ if isinstance(v,bytes):return v.decode("utf8","replace").rstrip(chr(0))
+ if isinstance(v,str):return v.rstrip(chr(0))
  a=np.asarray(v)
  if a.dtype.kind=="S":
-  return b"".join(a.reshape(-1).tolist()).decode("utf8","replace").strip("\\x00")
+  return b"".join(a.reshape(-1).tolist()).decode("utf8","replace").rstrip(chr(0))
  if a.dtype.kind=="U":
-  return "".join(a.reshape(-1).tolist()).strip("\\x00")
+  return "".join(a.reshape(-1).tolist()).rstrip(chr(0))
  return None
 def summarize(a):
  arr=np.asarray(a)
@@ -109,7 +109,11 @@ try:
       if left is not None:
        row["shape_equal"]=list(left["array"].shape)==list(arr.shape)
        row["elementwise_equal"]=bool(np.array_equal(left["array"],arr))
-       row["unit_string_equal"]=row["old_units"]==row["new_units"]\n       if requested.endswith(("/start_time","/end_time")):\n        row["semantic_datetime_equal"]=canon_text(left["array"])==canon_text(arr)\n        row["old_time_text"]=canon_text(left["array"])\n        row["new_time_text"]=canon_text(arr)
+       row["unit_string_equal"]=row["old_units"]==row["new_units"]
+       if requested.endswith(("/start_time","/end_time")):
+        row["semantic_datetime_equal"]=canon_text(left["array"])==canon_text(arr)
+        row["old_time_text"]=canon_text(left["array"])
+        row["new_time_text"]=canon_text(arr)
      R["path_checks"].append(row)
     R["hdf5_data_paths_like_data"]=[x for x in h5paths if x.endswith("/data")][:45]
   finally:sd.end();v.end();h.close()
