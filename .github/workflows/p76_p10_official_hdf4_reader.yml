@@ -1,0 +1,29 @@
+name: EPISTEME P76-P10 Native Original HDF4 Reader
+on:
+  push:
+    paths:
+      - src/p76_p10_official_hdf4_native_reader_preflight.py
+      - .github/workflows/p76_p10_official_hdf4_reader.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  actual-upstream-hdf4:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install HDF4 native reader on temporary runner
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y hdf4-tools
+          command -v hdp
+      - name: Read SHA-pinned authentic HDF Group HDF4 fixture bytes
+        run: python3 src/p76_p10_official_hdf4_native_reader_preflight.py
+      - name: Save source-specific receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p76-p10-official-hdf4-read-receipt
+          path: p76_p10_official_hdf4_native_reader_receipt.json
+          if-no-files-found: warn
