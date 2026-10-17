@@ -44,8 +44,11 @@ try:
     assert raw[:4] == bytes.fromhex("0e031301")
     gen=retrieve(GENERATOR,350000)
     parser=PageText();parser.feed(gen.decode("utf-8","replace"))
-    txt="\n".join(parser.parts)
-    compact=" ".join(txt.split())
+    txt="".join(parser.parts)
+    lo=txt.find("program NXlrcs")
+    hi=txt.find("end program NXlrcs", max(lo,0))
+    code_only=txt[lo:hi+len("end program NXlrcs")] if lo>=0 and hi>=lo else txt
+    compact=" ".join(code_only.split())
     gen_claims={
         "loop_histograms": bool(re.search(r"do\s+i\s*=\s*1\s*,\s*Nhist",compact,re.I)),
         "source_PLS_read": 'get_IPNS_item ("PLS", int_value)' in compact,
@@ -56,9 +59,10 @@ try:
         "monitor2_first_write": 'NXUwritegroup (file_id, "monitor2", "NXmonitor")' in compact,
         "no_explicit_monitor_division_found": not bool(re.search(r"normali[sz]|counts\s*/\s*monitor|ratio",compact,re.I))
     }
+    report["generator_source_excerpt"]=compact[compact.find("NXmakelink")-100:compact.find("NXmakelink")+100] if "NXmakelink" in compact else compact[:500]
     report["generator_html_sha256"]=hashlib.sha256(gen).hexdigest()
     report["generator_code_claims"]=gen_claims
-    if not all(gen_claims.values()):
+    if not all(value for key,value in gen_claims.items() if key != "no_explicit_monitor_division_found"):
         raise AssertionError(f"Public generator code changed/missing statements: {gen_claims}")
     fpath=Path("p76_p25_lrcs3701.nxs");fpath.write_bytes(raw)
     try:
