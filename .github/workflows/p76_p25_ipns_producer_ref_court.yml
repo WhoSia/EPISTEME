@@ -1,0 +1,29 @@
+name: EPISTEME P76-P25 Original IPNS Producer Provenance Court
+on:
+  push:
+    paths:
+      - src/p76_p25_ipns_generator_original_ref_alignment.py
+      - .github/workflows/p76_p25_ipns_producer_ref_court.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-generator-alignment:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up native HDF4 reader on isolated runner
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y hdf4-tools libhdf4-dev
+          python3 -m pip install --user --break-system-packages numpy pyhdf
+      - name: Compare public generator logic with original HDF4 object refs
+        run: python3 src/p76_p25_ipns_generator_original_ref_alignment.py
+      - name: Preserve all source-dependent statuses
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p76-p25-ipns-public-generator-provenance
+          path: p76_p25_original_generator_alignment.json
+          if-no-files-found: warn
