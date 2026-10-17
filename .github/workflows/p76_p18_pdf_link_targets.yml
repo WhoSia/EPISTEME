@@ -1,0 +1,22 @@
+name: EPISTEME P76-P18 Original Science PDF Link Targets
+on:
+  push:
+    paths:
+      - src/p76_p18_publisher_pdf_source_targets.py
+      - .github/workflows/p76_p18_pdf_link_targets.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  pdf-source-links:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 -m pip install --user --break-system-packages PyMuPDF
+      - run: python3 src/p76_p18_publisher_pdf_source_targets.py
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p76-p18-public-source-pdf-link-targets
+          path: p76_p18_publisher_source_targets.json
