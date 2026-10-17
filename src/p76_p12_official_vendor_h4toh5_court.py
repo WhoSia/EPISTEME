@@ -44,7 +44,8 @@ try:
             files=t.getmembers()
             assert all(not m.name.startswith("/") and ".." not in Path(m.name).parts and not m.issym() and not m.islnk() for m in files),"Unsafe archive path/link"
             t.extractall(directory,filter="data")
-        tools=[p for p in directory.rglob("*") if p.is_file() and p.name=="h4toh5"]
+        tools=[p for p in directory.rglob("*") if p.is_file() and "h4toh5" in p.name.lower() and not p.suffix in (".txt",".md",".so",".a",".h")]
+        receipt["archive_file_listing"]=[str(p.relative_to(directory)) for p in directory.rglob("*") if p.is_file()][:90]
         receipt["candidate_binaries"]=[str(p.relative_to(directory)) for p in tools]
         assert tools,"No official executable h4toh5 binary in verified publisher archive"
         binary=tools[0];binary.chmod(binary.stat().st_mode|0o111)
