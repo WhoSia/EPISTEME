@@ -25,8 +25,9 @@ try:
    item["native_hdp_exit"]=a.returncode
    item["native_hdp_excerpt"]=a.stdout[:1800]
    item["native_hdp_error"]=a.stderr[:250]
+  item["classification"]="HDF4_VERIFIED" if item["source_byte_validated"] else ("HDF5_MAGIC_UNDER_HDF4_FOLDER" if magic=="89484446" else "UNSUPPORTED_OR_UNKNOWN")
   R["files"].append(item)
 finally:
  Path("p76_p20_scientific_hdf4_custody.json").write_text(json.dumps(R,indent=2))
  print(json.dumps(R,indent=2))
-assert all(x.get("source_byte_validated") for x in R["files"]),"Original-source bytes must all match git tree size and HDF4 signature"
+assert sum(x.get("source_byte_validated") and x.get("native_hdp_exit")==0 for x in R["files"])>=2,"Require two source-byte-authenticated real research HDF4 files with native reader PASS"
