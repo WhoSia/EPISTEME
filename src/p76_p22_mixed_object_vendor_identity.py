@@ -149,6 +149,57 @@ try:
     R["source_alias_checks"].append({"source_ref":src_ref,"source_paths":ordered,
         "h5_existing_paths":available,"all_source_paths_exist":len(available)==len(ordered),
         "all_h5_paths_same_object":len(set(object_addrs))==1 if available else None})
+
+   # All checks below use original NXentry source paths, not generated CDF0.0 index vgroups.
+   R["nxentry_alias_audit"]=[]
+   for x in R["source_alias_checks"]:
+    relevant=[q for q in x["source_paths"] if q.startswith("/Histogram1/") or q.startswith("/Histogram2/")]
+    available=[q for q in relevant if q in f and isinstance(f[q],h5py.Dataset)]
+    addrs=[int(h5py.h5o.get_info(f[q].id).addr) for q in available]
+    R["nxentry_alias_audit"].append({"source_ref":x["source_ref"],"nxentry_paths":relevant,
+          "existing_h5_paths":available,"all_exist":len(available)==len(relevant),
+          "same_hdf5_object":bool(addrs) and len(set(addrs))==1})
+   R["histogram_queries"]=[]
+   for hist in ("Histogram1","Histogram2"):
+    base="/"+hist+"/data/"
+    old={}
+    for name in ("data","time_of_flight","polar_angle"):
+     matches=[p for p in paths if p.get("path")==base+name and "_value" in p]
+     assert len(matches)==1,(base,name,len(matches))
+     old[name]=matches[0]
+    def summary(values,dt,axis,attrs):
+     assert values.ndim==2 and axis.ndim==1 and dt.ndim==1
+     valid=(axis.size==values.shape[1]+1 and dt.size==values.shape[0])
+     if not valid:return {"bin_axis_compatible":False}
+     n=int(np.sum(values,dtype=np.int64))
+     centers=(axis[:-1].astype(np.float64)+axis[1:].astype(np.float64))/2.
+     intensity=np.asarray(values,dtype=np.float64).sum(axis=0)
+     weighted=float(np.dot(intensity,centers)/n) if n else None
+     rows=values.sum(axis=1,dtype=np.int64)
+     first=int(next((i for i,x in enumerate(rows) if x!=0),0))
+     return {"bin_axis_compatible":True,"shape":list(values.shape),"sum_counts":n,
+       "angle_count":int(dt.size),"time_bin_count":int(values.shape[1]),
+       "time_edge_count":int(axis.size),"mean_count_weighted_tof_microseconds":weighted,
+       "first_nonzero_angle_index":first,"first_nonzero_angle_degrees":float(dt[first]),
+       "first_nonzero_angle_counts":int(rows[first]),
+       "row_sums_sha256":hashlib.sha256(np.asarray(rows,dtype="<i8").tobytes()).hexdigest(),
+       "data_axes_attribute":js(attrs.get("axes")),"data_signal_attribute":js(attrs.get("signal")),
+       "counts_units":js(attrs.get("units"))}
+    origin=summary(old["data"]["_value"],old["polar_angle"]["_value"],old["time_of_flight"]["_value"],old["data"].get("attributes",{}))
+    newobjects=[f[base+n] if base+n in f else None for n in ("data","time_of_flight","polar_angle")]
+    assert all(isinstance(a,h5py.Dataset) for a in newobjects)
+    newdata,newtime,newangle=newobjects
+    new=summary(np.asarray(newdata[()]),np.asarray(newangle[()]),np.asarray(newtime[()]),
+       {str(k):js(val) for k,val in newdata.attrs.items()})
+    fieldchecks={}
+    for name,obj in zip(("data","time_of_flight","polar_angle"),newobjects):
+     ox=old[name]
+     fieldchecks[name]={"elementwise_equal":bool(np.array_equal(ox["_value"],np.asarray(obj[()]))),
+        "source_units":js(ox["attributes"].get("units")),
+        "new_units":js(obj.attrs.get("units")) if "units" in obj.attrs else None,
+        "unit_equal":js(ox["attributes"].get("units"))==(js(obj.attrs.get("units")) if "units" in obj.attrs else None)}
+    R["histogram_queries"].append({"entry":hist,"original":origin,"converted":new,
+       "source_to_converted_scientific_query_equal":origin==new,"per_dataset_checks":fieldchecks})
   R["source_count"]=len(paths)
   R["source_sds_count"]=sum(i["object_kind"]=="SDS" for i in paths)
   R["source_vdata_count"]=sum(i["object_kind"]=="Vdata" for i in paths)
@@ -161,7 +212,8 @@ try:
                              if i.get("name") in ("data","time_of_flight","polar_angle","energy")][:110]
   print("SUMMARY",json.dumps({k:R[k] for k in ["source_count","source_sds_count","source_vdata_count","destination_dataset_count","primary_exact_paths","primary_numerical_equal","primary_numerical_mismatch","source_root_examples"]}))
   print("PRIMARY_PAIRS",json.dumps(R["primary_pairs"][:26],default=str)[:15000])
-  print("ALIAS_AUDIT",json.dumps(R["source_alias_checks"][:14],default=str)[:4500])
+  print("ALIAS_AUDIT",json.dumps(R["nxentry_alias_audit"][:14],default=str)[:4500])
+  print("HISTOGRAM_SCIENCE_QUERIES",json.dumps(R["histogram_queries"],default=str)[:6500])
 finally:
  OUT.write_text(json.dumps(R,indent=2,default=str))
 assert R["vendor_checksum_verified"] and R["format_conversion_executed"]
