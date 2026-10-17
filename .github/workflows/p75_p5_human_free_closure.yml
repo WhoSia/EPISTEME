@@ -6,6 +6,7 @@ on:
       - 'src/p75_p5_independent_integer_audit.go'
       - 'active/p75_p5_bounded_closure_and_p76_proposal.md'
       - 'active/p75_research_program.md'
+      - 'README.md'
       - '.github/workflows/p75_p5_human_free_closure.yml'
   workflow_dispatch:
 
