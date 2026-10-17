@@ -1,0 +1,27 @@
+name: EPISTEME P76-P26 Producer Contract and Wall-Time Source Court
+on:
+  push:
+    paths:
+      - src/p76_p26_ipns_pls_producer_contract_court.py
+      - .github/workflows/p76_p26_ipns_pls_contract.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-producer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - name: Source-only dependencies, isolated hosted runner
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y libhdf4-dev
+          python3 -m pip install --user --break-system-packages pyhdf numpy
+      - name: Cross-check archived producer call sites and original scientific run fields
+        run: python3 src/p76_p26_ipns_pls_producer_contract_court.py
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p76-p26-producer-contract-exposure-source-receipt
+          path: p76_p26_producer_contract_and_exposure_audit.json
