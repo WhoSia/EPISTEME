@@ -1,0 +1,29 @@
+name: EPISTEME P76-P27 Original NeXus Alias-vs-Query Court
+on:
+  push:
+    paths:
+      - src/p76_p27_source_pair_alias_query_intervention.py
+      - .github/workflows/p76_p27_alias_query_intervention.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-neXus-archival-pair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install original NeXus HDF4 and HDF5 readers
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y libhdf4-dev
+          python3 -m pip install --user --break-system-packages pyhdf h5py numpy
+      - name: Test path-conditioned queries and alias-sensitive aggregations
+        run: python3 src/p76_p27_source_pair_alias_query_intervention.py
+      - name: Upload exact paired result including metadata and restrictions
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p76-p27-archival-pair-identity-query-controls
+          path: p76_p27_alias_sensitive_query_court.json
+          if-no-files-found: warn
