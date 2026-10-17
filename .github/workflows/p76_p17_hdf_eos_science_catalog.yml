@@ -1,0 +1,21 @@
+name: EPISTEME P76-P17 Open Science HDF4 Catalog
+on:
+  push:
+    paths:
+      - src/p76_p17_hdf_eos_observation_archive_catalog.py
+      - .github/workflows/p76_p17_hdf_eos_science_catalog.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  observation-catalog:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 src/p76_p17_hdf_eos_observation_archive_catalog.py
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p76-p17-authentic-hdf4-science-catalog
+          path: p76_p17_hdf_science_archive_index.json
