@@ -1,5 +1,13 @@
 # EPISTEME
 
+## EPISTEME-P76 formally OPEN — 2026-10-17
+
+**EPISTEME-P76 — Endogenous Defeat-Capacity Lock-in & the Irreversibility of Epistemic Migration: Representation-Dependent Verification Options, Evidence-Production Hysteresis, Restoration Thresholds & Cross-Infrastructure Rival Falsification**.
+
+[Canonical P76 P0 research program, full bounded genealogy and PAPER HOLD](active/p76_research_program.md) · [P76 official Notion](https://app.notion.com/p/3fcef561cf928104bf33d29e7b2acdf5). User-authorized P76 now OPEN, **P75 remains CLOSED_BOUNDED**. The next test is original, historically versioned source evidence of *representation-dependent loss of rival-falsifying measurement/test capability*, checked against serious Forand (2015), Farrell–Saloner (1985), Arthur (1989), installed-base and self-confirming-learning rivals. These earlier theories already explain simple option loss/path-dependence; P76 novelty is NOT established. **No full paper yet (PAPER HOLD), no human recruitment, no new paid calls.**
+
+---
+
 ## Canonical research stage — 2026-10-17
 
 **EPISTEME-P75 `CLOSED_BOUNDED`** (human-free source-relative and finite conditional-decision court; not full epistemic replacement theory or paper-level novelty). [Final bounded P75-P5 scientific verdict](active/p75_p5_bounded_closure_and_p76_proposal.md) · [P75 formal program](active/p75_research_program.md) · [P75-P5 Python exact-rational test](src/p75_p5_source_entailment_decision_closure.py) · [independent Go audit](src/p75_p5_independent_integer_audit.go).
