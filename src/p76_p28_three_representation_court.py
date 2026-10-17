@@ -71,6 +71,24 @@ try:
   R["conversion_rc"]=converted.returncode
   assert converted.returncode==0 and target.is_file(),converted.stderr[-1000:]
   R["official_conversion_sha256"]=hashlib.sha256(target.read_bytes()).hexdigest()
+  # Independent native HDF4 A/B witness must be produced by P27 in this same CI job.
+  p27_path=Path("p76_p27_alias_sensitive_query_court.json")
+  assert p27_path.is_file(),"P27 original-HDF4 readback receipt missing"
+  p27=json.loads(p27_path.read_text())
+  assert p27.get("both_source_bytes_verified") is True
+  assert p27.get("monitor_alias_fracture_in_preexisting_hdf5") is True
+  assert p27.get("exact_path_pair_count")==20
+  assert p27.get("units_semantically_equal") is True
+  assert p27.get("datetime_semantically_equal") is True
+  checks=p27.get("path_checks",[])
+  assert len(checks)==len(FIELDS)
+  for field in FIELDS:
+   item=next((x for x in checks if x.get("path")==field),None)
+   assert item and item.get("hdf4_exists") and item.get("hdf5_exact_path_exists"),field
+   assert item.get("unit_string_equal") is True,field
+   assert item.get("elementwise_equal") is True or item.get("semantic_datetime_equal") is True,field
+  R["native_hdf4_A_to_archived_hdf5_B_independently_verified"]=True
+  R["p27_native_receipt_sha256"]=hashlib.sha256(p27_path.read_bytes()).hexdigest()
   with h5py.File(sourcefiles[1],"r") as B,h5py.File(target,"r") as C:
    for path in FIELDS:
     assert path in B and path in C, path
@@ -94,7 +112,7 @@ try:
      "monitor_sums_by_path":totals}
    R["existing_companion"]=evidence(B)
    R["official_converted"]=evidence(C)
-   R["triplet_full_path_equality"]=all(x["values_semantically_equal"] and x["units_semantically_equal"] for x in R["comparisons"])
+   R["triplet_full_path_equality"]=bool(R["native_hdf4_A_to_archived_hdf5_B_independently_verified"]) and all(x["values_semantically_equal"] and x["units_semantically_equal"] for x in R["comparisons"])
    R["companion_alias_fractured_vs_official"]=R["existing_companion"]["monitor_unique_object_count"]==4 and R["official_converted"]["monitor_unique_object_count"]==2
    assert R["triplet_full_path_equality"] and R["companion_alias_fractured_vs_official"]
    assert R["existing_companion"]["monitor_all_paths_sum"]==356242
