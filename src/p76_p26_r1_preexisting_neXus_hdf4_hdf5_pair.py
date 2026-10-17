@@ -129,6 +129,16 @@ try:
    "both_path_values_equal":bool(a["elementwise_equal"] and b["elementwise_equal"])})
  R["monitor_alias_fracture_in_preexisting_hdf5"]=all(
   x["hdf4_shared_source_ref"] and not x["hdf5_shared_object_addr"] and x["both_path_values_equal"] for x in R["monitor_alias_checks"])
+ monitor_rows=[r for r in R["path_checks"] if r["path"].endswith(("/monitor1/data","/monitor2/data"))]
+ source_unique={r["old_ref"]:r["old"]["sum"] for r in monitor_rows}
+ companion_unique={r["hdf5_object_addr"]:r["new"]["sum"] for r in monitor_rows}
+ R["identity_dedup_monitor_accounting"]={
+  "hdf4_unique_stored_objects":len(source_unique),
+  "hdf5_unique_stored_objects":len(companion_unique),
+  "hdf4_sum_over_unique_source_objects":sum(source_unique.values()),
+  "hdf5_sum_over_unique_companion_objects":sum(companion_unique.values()),
+  "ratio_of_storage_identity_based_sums":sum(companion_unique.values())/sum(source_unique.values()),
+  "is_not_authorized_physical_normalization":True}
  R["units_semantically_equal"]=all(x.get("unit_string_equal") is True for x in R["path_checks"])
  R["datetime_semantically_equal"]=all(x.get("semantic_datetime_equal") is True for x in R["path_checks"] if x["path"].endswith(("/start_time","/end_time")))
  R["exact_path_pair_count"]=sum(x.get("hdf4_exists") and x.get("hdf5_exact_path_exists") for x in R["path_checks"])
@@ -139,3 +149,4 @@ finally:
  print(json.dumps(R,indent=2))
 assert R["both_source_bytes_verified"] and len(R["path_checks"])==len(FIELDS)
 assert R["monitor_alias_fracture_in_preexisting_hdf5"] and R["units_semantically_equal"] and R["datetime_semantically_equal"]
+assert R["identity_dedup_monitor_accounting"]["ratio_of_storage_identity_based_sums"]==2
