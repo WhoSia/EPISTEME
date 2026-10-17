@@ -20,12 +20,16 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y libhdf4-dev
           python3 -m pip install --user --break-system-packages pyhdf h5py numpy
-      - name: Compare three authenticated representations
+      - name: Authenticate A-to-B HDF4 versus archived HDF5 (P27 independent reader)
+        run: python3 src/p76_p27_source_pair_alias_query_intervention.py
+      - name: Compare B-to-C and verify converter from fixed A
         run: python3 src/p76_p28_three_representation_court.py
       - name: Preserve audit JSON, including failed assertions
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: p76-p28-three-representation-court
-          path: p76_p28_three_representation_court.json
+          path: |
+            p76_p27_alias_sensitive_query_court.json
+            p76_p28_three_representation_court.json
           if-no-files-found: warn
