@@ -238,7 +238,7 @@ try:
      rec["h5_path_found"]=True;rec["h5_type"]=str(d.dtype);rec["h5_shape"]=list(d.shape)
      rec["h5_preview"]=js(val.reshape(-1)[:12]);rec["h5_attrs"]={str(k):js(z) for k,z in d.attrs.items()}
      rec["h5_obj_addr"]=int(h5py.h5o.get_info(d.id).addr)
-     if original.get("original_kind")=="SDS" and "old_values_sha256" in original:
+     if original.get("object_kind")=="SDS" and "old_values_sha256" in original:
       match=[x for x in paths if x.get("path")==pth and x.get("object_kind")=="SDS" and "_value" in x]
       if len(match)==1:rec["old_new_elementwise_equal"]=bool(np.array_equal(match[0]["_value"],val))
     else:rec["h5_path_found"]=False
@@ -257,6 +257,48 @@ try:
    R["p24_distinct_p77_science_object_identified"]=False
    print("P24_EXPOSURE_INVENTORY",json.dumps(R["p24_exposure_path_correspondence"],default=str)[:24000])
    print("P24_ACQUISITION_CONTEXT",json.dumps(R["p24_monitor_acquisition_context"],default=str)[:3000])
+
+   # P24-R2: compare acquisition identity at THREE distinct grains: value, source object and physical run.
+   # The third grain is not identifiable from file metadata alone.
+   def old_source(pth):
+    matches=[x for x in paths if x.get("path")==pth and x.get("object_kind")=="SDS" and "_value" in x]
+    assert len(matches)==1,(pth,len(matches))
+    return matches[0]
+   def text_value(z):
+    aa=np.asarray(z).reshape(-1)
+    return "".join(chr(int(x)&255) if isinstance(x,(int,np.integer)) else (x.decode("utf-8","replace") if isinstance(x,bytes) else str(x)) for x in aa).strip("\x00 ")
+   R["p24_acquisition_identity_certificate"]=[]
+   for hist in ("Histogram1","Histogram2"):
+    info={"entry":hist,"measurement_count":next(q["original"]["sum_counts"] for q in R["histogram_queries"] if q["entry"]==hist)}
+    for name in ("start_time","end_time","run_number"):
+     pth="/"+hist+"/"+name
+     old=old_source(pth);new=np.asarray(f[pth][()])
+     value_old=text_value(old["_value"]) if name.endswith("_time") else int(np.asarray(old["_value"]).reshape(-1)[0])
+     value_new=text_value(new) if name.endswith("_time") else int(new.reshape(-1)[0])
+     info[name]={"old_value":value_old,"new_value":value_new,"semantic_equal":value_old==value_new,
+                 "old_ref":int(old["ref"]),"h5_object_address":int(h5py.h5o.get_info(f[pth].id).addr)}
+    pth="/"+hist+"/instrument/source/proton_pulses"
+    old=old_source(pth);new=np.asarray(f[pth][()])
+    oldval=int(np.asarray(old["_value"]).reshape(-1)[0]);newval=int(new.reshape(-1)[0])
+    info["proton_pulses"]={"old_value":oldval,"new_value":newval,"value_equal":oldval==newval,
+       "old_ref":int(old["ref"]),"h5_object_address":int(h5py.h5o.get_info(f[pth].id).addr),
+       "attrs":old.get("attributes",{})}
+    info["illustrative_counts_per_recorded_proton_pulse"]=(float(info["measurement_count"])/oldval) if oldval>0 else None
+    R["p24_acquisition_identity_certificate"].append(info)
+   aa,bb=R["p24_acquisition_identity_certificate"]
+   R["p24_value_vs_storage_identity"]={
+     "same_proton_pulse_value":aa["proton_pulses"]["old_value"]==bb["proton_pulses"]["old_value"],
+     "distinct_original_pulse_objects":aa["proton_pulses"]["old_ref"]!=bb["proton_pulses"]["old_ref"],
+     "distinct_hdf5_pulse_objects":aa["proton_pulses"]["h5_object_address"]!=bb["proton_pulses"]["h5_object_address"],
+     "run_number_equal":aa["run_number"]["old_value"]==bb["run_number"]["old_value"],
+     "start_time_equal":aa["start_time"]["old_value"]==bb["start_time"]["old_value"],
+     "end_time_equal":aa["end_time"]["old_value"]==bb["end_time"]["old_value"],
+     "exposure_identity_identified":False,
+     "physical_normalization_estimator_endorsed":False}
+   assert all(z["proton_pulses"]["value_equal"] and all(z[k]["semantic_equal"] for k in ("start_time","end_time","run_number")) for z in (aa,bb))
+   assert R["p24_value_vs_storage_identity"]["same_proton_pulse_value"] and R["p24_value_vs_storage_identity"]["distinct_original_pulse_objects"]
+   print("P24_ACQUISITION_CERTIFICATE",json.dumps(R["p24_acquisition_identity_certificate"],default=str))
+   print("P24_IDENTITY_GRAINS",json.dumps(R["p24_value_vs_storage_identity"],default=str))
 
    # P23 - actual shared monitor object versus repeated path incidence
    R["p23_monitor_identity"]=[]
