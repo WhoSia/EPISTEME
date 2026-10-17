@@ -1,0 +1,26 @@
+name: EPISTEME P76-P21 Instrument Original Vendor Court
+on:
+  push:
+    paths:
+      - src/p76_p21_real_neXus_hdf4_instrument_vendor_court.py
+      - .github/workflows/p76_p21_real_instrument_vendor.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  real-instrument-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install scientific file format readers
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y hdf4-tools hdf5-tools
+      - name: Original NeXus HDF4 versus official vendor HDF5
+        run: python3 src/p76_p21_real_neXus_hdf4_instrument_vendor_court.py
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p76-p21-real-instrument-original-vendor-receipt
+          path: p76_p21_instrument_source_vendor_receipt.json
