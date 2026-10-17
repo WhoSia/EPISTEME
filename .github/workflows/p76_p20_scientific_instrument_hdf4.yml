@@ -1,0 +1,26 @@
+name: EPISTEME P76-P20 Scientific Facility HDF4 Original Custody
+on:
+  push:
+    paths:
+      - src/p76_p20_nexus_original_instrument_hdf4.py
+      - .github/workflows/p76_p20_scientific_instrument_hdf4.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  real-instrument-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install native HDF4 independent reader
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y hdf4-tools
+      - name: Verify original scientific instrument HDF4 bytes and native metadata
+        run: python3 src/p76_p20_nexus_original_instrument_hdf4.py
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p76-p20-real-science-hdf4-original-byte-custody
+          path: p76_p20_scientific_hdf4_custody.json
