@@ -47,6 +47,10 @@ class DecisionDossier:
     independent_reviewers: int
     reviewer_identity_external_custodian_verified: bool
     switch_utility_empirically_validated: bool
+    # Optional, machine-checkable route. Booleans are assertions, NOT proof receipts.
+    independent_formal_certificate_replayed: bool = False
+    source_claim_scope_mechanically_checked: bool = False
+    target_is_conditional_model_decision: bool = False
 
 
 CONTRACTS = ("strict_schema", "json_object")
@@ -100,13 +104,23 @@ def warrant_admission(dossier: DecisionDossier) -> tuple[Action, str]:
         raise ValueError("P75_MISSING_DECISION_CUTOFF")
     # Intentional strictness: an author-written Boolean or source URL is not
     # a third-party certificate. In real submissions custody must be external.
+    # A mechanical proof/certificate replay is a separate admissible route
+    # for a CONDITIONAL MODEL-RELATIVE decision, no human rater required.
+    # An observational HUMAN PREFERENCE estimand is a different project and
+    # cannot be inferred from a proof or from simulated participant responses.
+    nonhuman = (dossier.target_is_conditional_model_decision
+                and dossier.independent_formal_certificate_replayed
+                and dossier.source_claim_scope_mechanically_checked)
+    optional_human = (dossier.independent_reviewers >= 2
+                      and dossier.reviewer_identity_external_custodian_verified
+                      and not dossier.target_is_conditional_model_decision)
     certified = (
         dossier.source_original_authenticated
         and dossier.role_and_time_certified
         and dossier.minimal_sufficient_warrant_independently_adjudicated
-        and dossier.independent_reviewers >= 2
-        and dossier.reviewer_identity_external_custodian_verified
-        and dossier.switch_utility_empirically_validated
+        and (nonhuman or optional_human)
+        and (dossier.target_is_conditional_model_decision
+             or dossier.switch_utility_empirically_validated)
     )
     if not certified:
         return "REVIEW", "P75_CERTIFICATION_AND_UTILITY_HOLD"
@@ -166,6 +180,22 @@ def test_no_conclusion_promotion() -> dict:
     single_reviewer = DecisionDossier(**{**hypothetical.__dict__,
                                          "independent_reviewers":1})
     assert warrant_admission(single_reviewer)[0] == "REVIEW"
+    # Non-human structural warrant: independent replay is REQUIRED, human
+    # count = 0 is entirely acceptable for a CONDITIONAL model conclusion.
+    model_conditional = DecisionDossier(**{**hypothetical.__dict__,
+        "independent_reviewers":0,
+        "reviewer_identity_external_custodian_verified":False,
+        "switch_utility_empirically_validated":False,
+        "independent_formal_certificate_replayed":True,
+        "source_claim_scope_mechanically_checked":True,
+        "target_is_conditional_model_decision":True})
+    assert warrant_admission(model_conditional)[0] == "SWITCH"
+    assert warrant_admission(DecisionDossier(**{**model_conditional.__dict__,
+        "independent_formal_certificate_replayed":False}))[0] == "REVIEW"
+    assert warrant_admission(DecisionDossier(**{**model_conditional.__dict__,
+        "source_claim_scope_mechanically_checked":False}))[0] == "REVIEW"
+    assert warrant_admission(DecisionDossier(**{**model_conditional.__dict__,
+        "target_is_conditional_model_decision":False}))[0] == "REVIEW"
     no_utility = DecisionDossier(**{**hypothetical.__dict__,
                                     "switch_utility_empirically_validated":False})
     assert warrant_admission(no_utility)[0] == "REVIEW"
@@ -205,6 +235,9 @@ def test_no_conclusion_promotion() -> dict:
         "hypothetical_classical_minimax_prefers_switch":True,
         "p75_uncertified_counterexample_policy":"REVIEW",
         "p75_hypothetically_fully_certified_positive_policy":"SWITCH",
+        "human_raters_required_for_conditional_model_warrant":False,
+        "nonhuman_certificate_route_synthetic_only":True,
+        "human_preference_effect_measured":False,
         "independent_warrant_established":False,
         "causal_switch_improvement_identified":False,
         "novel_behavioral_effect":False,
