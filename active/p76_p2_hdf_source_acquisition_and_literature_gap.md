@@ -1,0 +1,22 @@
+# EPISTEME-P76-P2 — Original HDF Migration Literature Gap and Source-Query Preservation Contract
+
+Date 2026-10-17 KST. Stage: source/link and bibliography review only. Original HDF fixture, converter and scientific query have NOT yet been executed; no new human recruitment or paid model call. PAPER HOLD.
+
+## Drive lookup
+Google Drive title-keyword queries 'H4toH5', 'Mapping HDF4 Objects', 'Transition from HDF4', 'HDF4 to CF', 'HDF-EOS2' returned zero matching title hits. Absence is SEARCH-BASED, not an exhaustive inventory proof.
+Already present: Forand (2015) 1oqhWFOoOHY2dFh2L9i5k-eMVYG3eDHBJ; Farrell & Saloner (1985) 1B1upRm8FEh87y_EcCyDHOc0DDkj62Gef; Arthur (1989) 1devRTYAr9TJHJ4A01V-nYPqKAv3LQXzM; PROV-IDEA 2025 1uWNj6eYFDnjIJzsbbR4BFZhTZGJV5Y_9; Leonelli & Tempini (2020) Data Journeys 1u9t353rlkg3HAZVrHh5zfcIUuIOXik5N; Hart et al. (2016) Ten Simple Rules 1ebTaDq95qE5wTGBqrxypo21UtMp6ce95; Wilkinson et al. (2016) FAIR 14tlL0qTThy1hswb1JhcYl26X7zQND5sq. No re-download requested.
+
+## Missing or not found: official OA originals and literature
+
+1. Folk, McGrath and Yang, Mapping HDF4 Objects to HDF5 Objects, Version 4 (2017 revised), official OA 25-page PDF: https://docs.hdfgroup.org/archive/support/HDF5/doc/ADGuide/H4toH5Mapping.pdf . Explicit mappings for SDS dimension scales, annotations, groups and metadata. Major prior art against a generic schema-translation novelty claim.
+2. HDF Group, H4toH5 Conversion Library User's Guide v2.2.5, OA official PDF: https://support.hdfgroup.org/releases/h4h5tools/v2_2/v2_2_5/documentation/h4toh5lib_UG.pdf . Example HDF4 sds_simple_example.hdf described under toolkit /lib/examples. OA alternate original HTML: https://support.hdfgroup.org/ftp/HDF5/tools/h4toh5/src/unpacked/doc/h4toh5lib_UG.html . Guide discusses nonconverting objects, weak correctness checks and no automatic undo.
+3. HDF Group, Transition from HDF4 to HDF5, OA original PDF: https://docs.hdfgroup.org/archive/support/products/hdf5_tools/h4toh5/TransitionIssues.pdf . Strong alternative account in software application and translation migration.
+4. HDF Group official h4h5tools 2.2.5 software source and download index (NOT an article PDF): https://hdfgroup.github.io/downloads/index.html and conversion source/demo https://hdfdap.hdfgroup.org/software/h4toh5.php and https://hdfdap.hdfgroup.org/zoo/h4toh5/h4toh5-def-demo.php . Real paired NASA HDF4 and converted HDF5 samples are listed.
+5. Lee and Yang (2023), A Study on Significant Properties for Dataset Type Preservation Format, J Korean Biblia Society 34(4), 259–283, DOI 10.14699/kbiblia.2023.34.4.259. Journal OA article/PDF button: https://journal.kci.go.kr/kbiblia/archive/articleView?artiId=ART003031337 . Full article is subject to its journal license. Research already discusses significant preservation attributes of datasets.
+6. US Library of Congress Recommended Formats Statement—Datasets: official free text https://wwws.loc.gov/preservation/resources/rfs/data.html . Warns migration to archival formats can lose precision and accuracy; not a peer-reviewed paper/PDF.
+7. HDF Group h4h5tools historical version 2.2.3 source release notice: https://www.hdfgroup.org/2017/09/12/release-h4toh5-conversion-library-tools-version-2-2-3-newsletter-158/ . Gives tested library versions; official software announcement, not academic paper.
+
+## Objective court, priority P76-P2
+Experimental object: fixed HDF4 original bytes, source checksum, exact legacy reader version, exact converter version, and scientific query Q; compare Q(HDF4 original via old reader), Q(HDF5 converted via new reader), Q(original HDF4 under archive-compatible restoration), and independent source expected value. Distinguish successful preservation, representation/metadata mapping failure, original source loss, endpoint support retirement, and scientifically genuine loss of a rival-defeating test.
+Negative control: if original bytes and old reader can still run the target query within a defined feasibility budget, new-format incompatibility is not irreversible defeat-capacity lock-in. Strongest rivals: HDF official mapping/converter, classical ETL provenance, Forand option stock and maintenance cost, source/toolchain retention. Conversion failures not automatically new mechanisms.
+Paper readiness remains HOLD because there is no actual fixture-conversion execution and no strong-rival-excluding phenomenon. Do not invent a SHA or conversion failure, and don't treat source manuals as actual peer-reviewed novel discovery.
