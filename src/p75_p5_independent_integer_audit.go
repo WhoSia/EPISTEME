@@ -9,11 +9,12 @@ type Atom struct{
  Subject,Predicate,Object,Role string
  Valid,Record,Polarity int
  Full,Excerpt bool
+ ExpireAt int // zero = no expiry
 }
 func sourceStatus(src []Atom,validAt,recordAt int,subject,predicate,object string)string{
  positive,negative:=false,false
  for _,a:=range src {
-  if a.Valid>validAt || a.Record>recordAt || !a.Full {continue}
+  if a.Valid>validAt || a.Record>recordAt || !a.Full || (a.ExpireAt>0&&validAt>=a.ExpireAt) {continue}
   if a.Subject!=subject||a.Predicate!=predicate||a.Object!=object{continue}
   if a.Polarity==1&&a.Role=="direct_claim"{positive=true}
   if a.Polarity==-1&&a.Role=="direct_defeater"{negative=true}
@@ -45,15 +46,16 @@ func choose(l,u,k,r int,test bool)([]string,map[string]int){
  return acts,loss
 }
 func main(){
- old:=Atom{"a","is","b","direct_claim",1,1,1,true,true}
- newW:=Atom{"a","is","b","direct_claim",2,3,1,true,false}
+ old:=Atom{"a","is","b","direct_claim",1,1,1,true,true,2}
+ newW:=Atom{"a","is","b","direct_claim",2,3,1,true,false,0}
  assert(!latest([]Atom{newW},3),"excerpt lost")
  assert(sourceStatus([]Atom{old,newW},2,3,"a","is","b")=="SOURCE_RELATIVE_SUPPORT","source kept")
- objection:=Atom{"a","is","b","direct_defeater",2,3,-1,true,false}
- newA:=Atom{"a","is","b","direct_claim",2,3,1,true,true}
+ assert(sourceStatus([]Atom{old},2,3,"a","is","b")=="SOURCE_RELATIVE_UNDETERMINED","old expired must not appear")
+ objection:=Atom{"a","is","b","direct_defeater",2,3,-1,true,false,0}
+ newA:=Atom{"a","is","b","direct_claim",2,3,1,true,true,0}
  assert(latest([]Atom{newA,objection},3),"naive latest")
  assert(sourceStatus([]Atom{newA,objection},2,3,"a","is","b")=="SOURCE_RELATIVE_CONFLICT","conflict")
- scope:=Atom{"a","is","b2","direct_claim",2,3,1,true,true}
+ scope:=Atom{"a","is","b2","direct_claim",2,3,1,true,true,0}
  assert(latest([]Atom{scope},3),"naive scope")
  assert(sourceStatus([]Atom{scope},2,3,"a","is","b")=="SOURCE_RELATIVE_UNDETERMINED","exact scope")
  assert(sourceStatus([]Atom{newA},2,2,"a","is","b")=="SOURCE_RELATIVE_UNDETERMINED","hindsight")
