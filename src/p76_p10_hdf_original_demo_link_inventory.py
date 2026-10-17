@@ -24,6 +24,7 @@ def go():
     h=hashlib.sha256(raw).hexdigest()
     p=Links();p.feed(raw.decode("utf-8","replace"))
     links=[]
+    all_links=[]
     for href in p.links:
         u=urljoin(URL,href)
         parsed=urlsplit(u)
