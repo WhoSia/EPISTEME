@@ -1,0 +1,27 @@
+name: EPISTEME P76-P22 IPNS Native Vgroup Identity
+on:
+  push:
+    paths:
+      - src/p76_p22_source_vgroup_identity.py
+      - .github/workflows/p76_p22_native_vgroup.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  ipns-identity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y libhdf4-dev hdf4-tools
+          python3 -m pip install --user --break-system-packages pyhdf numpy
+      - name: Read native HDF4 Vgroups and their original SDS references
+        run: python3 src/p76_p22_source_vgroup_identity.py
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p76-p22-native-vgroup-source-identity
+          path: p76_p22_source_vgroup_court.json
+          if-no-files-found: warn
