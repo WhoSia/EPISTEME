@@ -1,0 +1,27 @@
+name: EPISTEME P76-P22 Native Mixed-Object vs Vendor Path
+on:
+  push:
+    paths:
+      - src/p76_p22_mixed_object_vendor_identity.py
+      - .github/workflows/p76_p22_mixed_object_vendor.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  instrument-path:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y libhdf4-dev hdf4-tools
+          python3 -m pip install --user --break-system-packages pyhdf numpy h5py
+      - name: Compare same source HDF4 vgroup reference identity to HDF5 path and numeric values
+        run: python3 src/p76_p22_mixed_object_vendor_identity.py
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p76-p22-vgroup-source-vendor-qualified-comparison
+          path: p76_p22_mixed_path_comparison.json
+          if-no-files-found: warn
