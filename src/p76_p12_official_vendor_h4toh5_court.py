@@ -48,8 +48,8 @@ try:
         assert installer.is_file(),"Expected publisher Linux self-extractor"
         receipt["installer_sha256"]=hashlib.sha256(installer.read_bytes()).hexdigest()
         target=directory/"expanded";target.mkdir()
-        probe=run("bash",str(installer),"--noexec","--target",str(target))
-        receipt["installer_extract"]={"returncode":probe.returncode,"stdout":probe.stdout[:900],"stderr":probe.stderr[:900]}
+        probe=subprocess.run(["bash",str(installer)],cwd=target,input="y\ny\ny\ny\n",capture_output=True,text=True,timeout=50)
+        receipt["installer_extract"]={"returncode":probe.returncode,"stdout":probe.stdout[-2400:],"stderr":probe.stderr[-1400:]}
         tools=[p for p in target.rglob("*") if p.is_file() and "h4toh5" in p.name.lower() and not p.suffix in (".txt",".md",".so",".a",".h")]
         receipt["archive_file_listing"]=[str(p.relative_to(directory)) for p in directory.rglob("*") if p.is_file()][:90]
         receipt["candidate_binaries"]=[str(p.relative_to(directory)) for p in tools]
