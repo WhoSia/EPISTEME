@@ -1,0 +1,28 @@
+name: EPISTEME P76-P13 Vendor Query Fidelity
+on:
+  push:
+    paths:
+      - src/p76_p13_vendor_elementwise_semantics.py
+      - .github/workflows/p76_p13_vendor_elementwise.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  vendor-all-sds:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install original HDF4 native and HDF5 readers
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y hdf4-tools hdf5-tools
+          python3 -m pip install --user --break-system-packages h5py numpy
+      - name: Compare source SDS contents and official vendor HDF5 conversion
+        run: python3 src/p76_p13_vendor_elementwise_semantics.py
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p76-p13-original-vendor-full-query-audit
+          path: p76_p13_vendor_elementwise_receipt.json
+          if-no-files-found: warn
