@@ -1,0 +1,29 @@
+name: EPISTEME P76-P23 Real Shared Neutron Monitor Alias Court
+on:
+  push:
+    paths:
+      - src/p76_p23_shared_monitor_object_identity.py
+      - .github/workflows/p76_p23_shared_monitor_identity.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-reference-vs-path:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install version-independent scientific readers on temporary runner
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y hdf4-tools libhdf4-dev hdf5-tools
+          python3 -m pip install --user --break-system-packages numpy h5py pyhdf
+      - name: Check old HDF4 shared monitor SDS refs against official HDF5 object aliases
+        run: python3 src/p76_p23_shared_monitor_object_identity.py
+      - name: Retain full source-specific numerical and identity receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p76-p23-ipns-monitor-source-object-identity
+          path: p76_p23_monitor_alias_distinctness.json
+          if-no-files-found: warn
