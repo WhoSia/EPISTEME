@@ -137,4 +137,5 @@ try:
 finally:
  OUT.write_text(json.dumps(R,indent=2))
  print(json.dumps(R,indent=2))
-assert R["both_source_bytes_verified"] and len(R["path_checks"])==len(FIELDS)\nassert R["monitor_alias_fracture_in_preexisting_hdf5"] and R["units_semantically_equal"] and R["datetime_semantically_equal"]
+assert R["both_source_bytes_verified"] and len(R["path_checks"])==len(FIELDS)
+assert R["monitor_alias_fracture_in_preexisting_hdf5"] and R["units_semantically_equal"] and R["datetime_semantically_equal"]
