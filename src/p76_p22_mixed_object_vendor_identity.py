@@ -116,9 +116,12 @@ try:
     item={k:v for k,v in src.items() if k not in ("_value","head_records")}
     options=[n for n in dest if n.rsplit("/",1)[-1]==src.get("name")]
     item["basename_candidate_count"]=len(options)
-    item["exact_path_found"]=src.get("path") in dest
+    item["exact_path_found"]=bool(src.get("path") in f and isinstance(f[src["path"]],h5py.Dataset))
     if item["exact_path_found"]:
-     to=dest[src["path"]];item["hdf5_type"]=to["dtype"];item["hdf5_shape"]=to["shape"]
+     d=f[src["path"]];to={"dtype":str(d.dtype),"shape":list(d.shape),
+         "attrs":{str(k):js(v) for k,v in d.attrs.items()},"_ds":d}
+     item["hdf5_object_address"]=int(h5py.h5o.get_info(d.id).addr)
+     item["hdf5_type"]=to["dtype"];item["hdf5_shape"]=to["shape"]
      attrs_old=src.get("attributes",{})
      item["old_units"]=attrs_old.get("units")
      item["new_units"]=to["attrs"].get("units")
@@ -132,6 +135,20 @@ try:
       item["sample_old"]=[js(z) for z in left.reshape(-1)[:4]]
       item["sample_new"]=[js(z) for z in right.reshape(-1)[:4]]
     R["primary_pairs"].append(item)
+   # Repeated HDF4 SDS refs may appear beneath several groups: audit HDF5 aliases
+   refpaths={}
+   for x in paths:
+    if x.get("object_kind")=="SDS" and x.get("path") and x.get("name") in ("data","time_of_flight","polar_angle"):
+     refpaths.setdefault(int(x["ref"]),set()).add(x["path"])
+   R["source_alias_checks"]=[]
+   for src_ref,src_paths in sorted(refpaths.items()):
+    if len(src_paths)<2:continue
+    ordered=sorted(src_paths)
+    available=[p for p in ordered if p in f and isinstance(f[p],h5py.Dataset)]
+    object_addrs=[int(h5py.h5o.get_info(f[p].id).addr) for p in available]
+    R["source_alias_checks"].append({"source_ref":src_ref,"source_paths":ordered,
+        "h5_existing_paths":available,"all_source_paths_exist":len(available)==len(ordered),
+        "all_h5_paths_same_object":len(set(object_addrs))==1 if available else None})
   R["source_count"]=len(paths)
   R["source_sds_count"]=sum(i["object_kind"]=="SDS" for i in paths)
   R["source_vdata_count"]=sum(i["object_kind"]=="Vdata" for i in paths)
@@ -144,6 +161,7 @@ try:
                              if i.get("name") in ("data","time_of_flight","polar_angle","energy")][:110]
   print("SUMMARY",json.dumps({k:R[k] for k in ["source_count","source_sds_count","source_vdata_count","destination_dataset_count","primary_exact_paths","primary_numerical_equal","primary_numerical_mismatch","source_root_examples"]}))
   print("PRIMARY_PAIRS",json.dumps(R["primary_pairs"][:26],default=str)[:15000])
+  print("ALIAS_AUDIT",json.dumps(R["source_alias_checks"][:14],default=str)[:4500])
 finally:
  OUT.write_text(json.dumps(R,indent=2,default=str))
 assert R["vendor_checksum_verified"] and R["format_conversion_executed"]
