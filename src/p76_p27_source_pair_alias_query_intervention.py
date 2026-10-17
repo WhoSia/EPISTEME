@@ -109,6 +109,12 @@ try:
       if left is not None:
        row["shape_equal"]=list(left["array"].shape)==list(arr.shape)
        row["elementwise_equal"]=bool(np.array_equal(left["array"],arr))
+       if requested.endswith(("/monitor1/data","/monitor2/data")):
+        srcraw=np.ascontiguousarray(np.asarray(left["array"],dtype="<i4")).tobytes()
+        dstra=np.ascontiguousarray(np.asarray(arr,dtype="<i4")).tobytes()
+        row["original_full_numeric_sha256"]=hashlib.sha256(srcraw).hexdigest()
+        row["companion_full_numeric_sha256"]=hashlib.sha256(dstra).hexdigest()
+        row["canonical_numeric_sha_equal"]=row["original_full_numeric_sha256"]==row["companion_full_numeric_sha256"]
        row["unit_string_equal"]=row["old_units"]==row["new_units"]
        if requested.endswith(("/start_time","/end_time")):
         row["semantic_datetime_equal"]=canon_text(left["array"])==canon_text(arr)
@@ -194,10 +200,9 @@ try:
  run_by_entry={q["entry"]:q["run_number"] for q in R["p27_per_histogram_value_queries"]}
  for row in monitor_rows:
   parts=row["path"].strip("/").split("/")
-  key=(run_by_entry[parts[0]],parts[1],row["old"]["shape"][0],tuple(row["old"]["head"]))
-  # Content collisions in first 5 samples are prevented by verifying full elementwise equality
-  # on all four original-vs-H5 paths earlier in this court.
-  assert row.get("elementwise_equal") is True
+  key=(run_by_entry[parts[0]],parts[1],row["old"]["shape"][0],row["original_full_numeric_sha256"])
+  # Full numeric digest is a content signature, not physical-acquisition identity.
+  assert row.get("elementwise_equal") is True and row["canonical_numeric_sha_equal"]
   semantic_source[key]=int(row["old"]["sum"])
   semantic_h5[key]=int(row["new"]["sum"])
  R["p27_aggregation_policy_controls"]["dedup_by_run_role_content_signature_source"]=int(sum(semantic_source.values()))
