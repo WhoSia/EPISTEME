@@ -2,6 +2,7 @@ name: EPISTEME P76-P28 Three-Representation Source Court
 on:
   push:
     paths:
+      - 'src/p76_p27_source_pair_alias_query_intervention.py'
       - 'src/p76_p28_three_representation_court.py'
       - '.github/workflows/p76_p28_three_representation.yml'
   workflow_dispatch:
