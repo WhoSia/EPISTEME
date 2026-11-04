@@ -59,6 +59,16 @@ The *capacity* to collect fresh LEP events was lost; this did not eliminate all 
 
 The two cases do not support a universal causal direction; they allow careful **contradictory tests** of blanket infrastructural lock-in. Case selection is deliberate and cannot establish causal average treatment effects.
 
+## 6a. Independent archival corroboration and a more demanding philosophical interpretation
+
+[CERN Archives, LEP fonds](https://archives.web.cern.ch/CERN_archive/guide/accelerators/LEP/isalep/) expressly states that, after LEP ceased operation, LEP data analysis continued with possibility of finding new phenomena. Its finding aids identify surviving LEP/LEPC minutes and management records. This validates the distinction between acquisition shutdown and inference shutdown as an **original archival authority**, not just the inference drawn by EPISTEME.
+
+The archive lists potentially retrievable contemporaneous LEPC and management committee minutes. These may be materially stronger for reconstructing ex-ante deliberation than later memoirs or generic newspaper reports; exact minutes have NOT yet been retrieved or cross-examined in this study. No claim of full archival coverage.
+
+The same tunnel gave multiple competing science options at different times: initial LEP infrastructure allowed subsequent LHC, but the LHC installation in the shared tunnel constrained LEP continuation. Maiani's own records describe both sides. Neither path-independent freedom nor universal lock-in is supported.
+
+**Research gate:** Prior to independent interpretive claims, examine contemporaneous LEPC / RB minutes and ask (a) what extension schedule was actually viable, (b) what subjective signal likelihood and resource uncertainty existed, (c) whether option constraints were physical, contractual or contingent, and (d) whether any **strong rival historical account** misses a concrete primary-source fact. Avoid retrospective success-story bias.
+
 ## 7. P77 terminal court
 **Verdict: DOCUMENTED HISTORY OF A RESOURCE-CONSTRAINED EXPERIMENTAL OPPORTUNITY, NOT A NEW PHILOSOPHICAL DISCOVERY.**
 
