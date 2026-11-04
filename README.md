@@ -46,6 +46,10 @@ A specific case has now been audited: the solar-neutrino problem (Homestake, Kam
 
 In 2000 CERN did decline a 2001 extension of LEP after an **ex-ante 2.9σ** candidate near **115 GeV**, choosing LHC construction and the shared tunnel. Critically, no new LEP data acquisition **does not mean no subsequent evidential revision**: the original dataset was reanalyzed, the **final 2003 combined result was ~1.7σ**, and the Higgs later found at the LHC had a different mass (~125 GeV), beyond LEP's on-shell ZH discovery reach. Never smuggle hindsight into the 2000 choice or equate closing one apparatus with closing all avenues for criticism. The new court is a stronger source-grounded **terminal-review stress test**, not a novel mechanism.
 
+## P77 W11 — time-indexed decision feasibility and rival economics (2026-11-04)
+
+[W11 LEP extension option-set and strong prior-art court](active/p77_w11_20261104_lep_extension_option_sets_cost_benefit_rival_court.md). CERN's September 2000 short-run extension, expressly said not to delay the LHC, is **not** equivalent to a 2001 extension with potentially different shared-tunnel and schedule costs. December shutdown implementation records are **post-decision**, not ex-ante optimization receipts. Existing research-infrastructure cost–benefit theory directly studies opportunity costs, quasi-option value and LEP/LHC shared assets; thus **no independent EPISTEME novelty is certified**. Original LEPC/RB minutes remain to be acquired. **P77 active / P78 HOLD / PAPER HOLD**.
+
 ## Source code and former research stages
 
 The historical GitHub tree was intentionally compacted *after* a byte-verified full-history and source snapshot was uploaded to Google Drive. The historic programs, original workflows, manuscripts, experimental receipts and previous README have **not** been erased. Find the complete custody receipt, full file inventory, immutable head and restoration instructions in [ARCHIVE.md](ARCHIVE.md).
