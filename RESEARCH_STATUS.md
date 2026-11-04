@@ -1,4 +1,6 @@
-# EPISTEME P77 — Research Identity and Terminal Court
+# EPISTEME-P77 — Research Identity Adjudication: Historical Testability, Philosophical Reconstitution & Terminal Review
+
+**Formal status source:** [Notion P77 canonical generation](https://app.notion.com/p/40eef561cf9281bd9b7be9700af4ab53), confirmed 2026-11-04. P77 is a decision stage, not an approved new theory; the original EPISTEME Lab name and historical P1–P76 records remain intact.
 
 **Stage:** constrained history-and-philosophy-of-science reading; undecided independent-Lab identity. **No P78 / no paper / no new positive mechanism approved.**
 
@@ -27,6 +29,10 @@ At present A partially passes, B/E/F fail or are unestablished, C remains condit
 
 ## Philosophical residency (proposal, not scheduled automation)
 A possible 12-week close-reading protocol: Chang and Lakatos on epistemic iteration and rival programs; Rheinberger, Galison, Pickering on laboratory alternatives; Leonelli, Bowker, DPHEP on data histories; cases in which archived instruments or alternative methods were **successfully restored**, thereby attacking a blanket loss hypothesis. Finally explain the *same* specific case from MQR and EPISTEME perspectives. Write page-cited claim/counterclaim/case ledger, not invented novelty or weekly P-number inflation.
+
+## Decision authority and version boundary
+
+The official P77 title **replaces an earlier provisional P77 title**. Keep historical research courts as dated evidence, not current-stage directives. P77 itself does not transfer its results into MQR, close the Lab, or authorize P78. This repository's [README](README.md) and [full-history custody](ARCHIVE.md) reflect the same scope.
 
 ## Decision
 After source-grounded reading and a one-case test, choose independently:
