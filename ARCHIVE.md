@@ -1,5 +1,7 @@
 # EPISTEME — Full-History Custody and Retirement Record
 
+**Current official generation:** [EPISTEME-P77 — Research Identity Adjudication: Historical Testability, Philosophical Reconstitution & Terminal Review](https://app.notion.com/p/40eef561cf9281bd9b7be9700af4ab53) (confirmed 2026-11-04). The P77 naming update does not modify the historical source tree or the SHA-sealed pre-compaction archive.
+
 ## Full verified pre-compaction archive
 
 - Source repository: `WhoSia/EPISTEME`, default branch `main`.
