@@ -1,1 +1,0 @@
-EPISTEME-P57 canonical sharded relaunch after hosted-runner 6h cancellation. Same frozen design; three task shards; Actions read-only/artifact-only; no repository writeback.

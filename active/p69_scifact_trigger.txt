@@ -1,1 +1,0 @@
-P69 second SciFact original data audit: verify paired external claim cases and SAME-count non-rationale evidence controls using real corpus under semantic-null HUMAN_HOLD. Retain only numerical provenance hash receipt; read-only workflow, no paid calls.

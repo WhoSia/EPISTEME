@@ -1,1 +1,0 @@
-P67 second zero-call preflight: assert full 384-cell synthetic end-to-end pipeline; never run pilot on push.
