@@ -1,10 +1,20 @@
-# EPISTEME — Research Program Review (P77)
+# EPISTEME-P77 — Research Identity Adjudication: Historical Testability, Philosophical Reconstitution & Terminal Review
+
+**Official P77 title (confirmed 2026-11-04):** EPISTEME-P77 — Research Identity Adjudication: Historical Testability, Philosophical Reconstitution & Terminal Review.
+
+**Notion canonical generation:** [EPISTEME-P77 Official Research Identity Court](https://app.notion.com/p/40eef561cf9281bd9b7be9700af4ab53).
 
 **Current status, 2026-11-04:** `P77 RESEARCH-IDENTITY REVIEW / PHILOSOPHY-OF-SCIENCE HARVEST / PAPER HOLD / P78 HOLD`.
 
 EPISTEME is **not closed**, but no new independent scientific mechanism is certified. Its large P1–P76 experimental programs have completed bounded results and substantial negative/competitor-defeated branches. P77 is a controlled review of whether a *distinct* history-and-philosophy-of-science research question remains, rather than an automatic new experiment or an "EPISTEME 2.0" successor.
 
 > Founding question (September 18, 2026): Can AI-assisted translation and entrenched scientific or technical infrastructures change whether an improved alternative standard can be adopted and *tested*? The broad claim is already strongly anticipated by standard economics, history/philosophy of science, archival science and measurement studies; we do not claim it as a discovery.
+
+## Title, lineage and authority
+
+The P77 title above is the user's **confirmed official generation name**, not a manuscript title or a certified novel scientific theory. The earlier provisional title, *Research-Program Reconstitution, Empirical Asset Recovery, Prior-Art Saturation & Scientific Problem Selection*, remains in the dated November 2 W1 record as historical provenance. The original Lab title, *EPISTEME — Epistemic Path-dependence, Infrastructure, Standards, Translation, Evolution, Migration & Entrenchment*, is a separate founding identity and has not been retroactively renamed.
+
+The [current Notion Lab record](https://app.notion.com/p/3dfef561cf928159a05fc412236be36e) and [P77 formal generation page](https://app.notion.com/p/40eef561cf9281bd9b7be9700af4ab53) are authoritative for current semantic status; [RESEARCH_STATUS.md](RESEARCH_STATUS.md) records the GitHub-side decision criteria.
 
 ## What is being studied
 
