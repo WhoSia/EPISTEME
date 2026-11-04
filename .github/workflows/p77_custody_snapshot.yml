@@ -1,0 +1,39 @@
+name: EPISTEME P77 full-history custody snapshot
+on:
+  push:
+    paths:
+      - .github/workflows/p77_custody_snapshot.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  custody:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout complete history without write permission
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Bundle source, refs, tracked-tree manifest and hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p custody
+          git rev-parse HEAD > custody/HEAD.txt
+          git show -s --format='%H%n%aI%n%an%n%s' HEAD > custody/HEAD_commit.txt
+          git ls-files -z | xargs -0 -r -n1 printf '%s\n' > custody/tracked_paths.txt
+          git ls-tree -r --long HEAD > custody/git_tree.txt
+          git archive --format=tar.gz --output=custody/episteme-head.tar.gz HEAD
+          git bundle create custody/episteme-full-history.bundle --all
+          (cd custody && sha256sum episteme-head.tar.gz episteme-full-history.bundle HEAD.txt tracked_paths.txt git_tree.txt > SHA256SUMS.txt)
+          printf 'read-only receipt; no commits, tags, or pushes by Actions\n' > custody/GOVERNANCE.txt
+      - name: Upload custody files only (never commit)
+        uses: actions/upload-artifact@v4
+        with:
+          name: episteme-p77-full-history-custody
+          path: custody/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 30
