@@ -40,6 +40,12 @@ This must not simply duplicate MQR, whose current work concerns formation/calibr
 
 A specific case has now been audited: the solar-neutrino problem (Homestake, Kamiokande, SNO 1985 design proposal, 2001 CC/ES and 2002 NC experiments). **Its key experiment was already proposed by Chen (1985); its epistemic triangulation was explicitly studied by Evans & Thébault (2020).** Thus the first case is a strong **negative control against claimed philosophical novelty**, not a standalone new discovery. A toy two-flavor response-matrix check separates rank from instrument-level statistical inference. The pending independent research issue is whether *institutional access to feasible rival-testing operations* can be shown causally to foreclose an alternative in a different primary-source history. No P78, no paper.
 
+## Second historical-testability court — LEP shutdown (W10)
+
+[Original-source LEP 2000 termination court](active/p77_w10_20261104_lep_2000_closure_temporal_warrant_court.md) | [Notion W10](https://app.notion.com/p/40eef561cf92818f9636d1640e905f07).
+
+In 2000 CERN did decline a 2001 extension of LEP after an **ex-ante 2.9σ** candidate near **115 GeV**, choosing LHC construction and the shared tunnel. Critically, no new LEP data acquisition **does not mean no subsequent evidential revision**: the original dataset was reanalyzed, the **final 2003 combined result was ~1.7σ**, and the Higgs later found at the LHC had a different mass (~125 GeV), beyond LEP's on-shell ZH discovery reach. Never smuggle hindsight into the 2000 choice or equate closing one apparatus with closing all avenues for criticism. The new court is a stronger source-grounded **terminal-review stress test**, not a novel mechanism.
+
 ## Source code and former research stages
 
 The historical GitHub tree was intentionally compacted *after* a byte-verified full-history and source snapshot was uploaded to Google Drive. The historic programs, original workflows, manuscripts, experimental receipts and previous README have **not** been erased. Find the complete custody receipt, full file inventory, immutable head and restoration instructions in [ARCHIVE.md](ARCHIVE.md).
