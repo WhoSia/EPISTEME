@@ -34,6 +34,12 @@ This must not simply duplicate MQR, whose current work concerns formation/calibr
 - [October prior-art defeat](active/p76_w12_20261031_new_prior_art_defeat_audit.md): DPHEP, Leonelli, Borgman et al. defeat broad novelty.
 - [P77 research courts](active/p77_w7_20261104_pea_terminal_court_philosophy_residency_proposal.md) and other `active/p77_*` notes: literature/genealogy reviews, **not** new scientific discoveries.
 
+## First source-grounded P77 historical case — solar neutrinos (W9)
+
+[Historical Testability & Fatal Rival Court](active/p77_w9_20261104_solar_neutrino_historical_testability_and_fatal_rival_court.md) | [rank/conditioning sanity-check code](src/p77_solar_neutrino_identifiability_toy.py) | [Notion W9](https://app.notion.com/p/40eef561cf9281d8b803dbdc55143c9e).
+
+A specific case has now been audited: the solar-neutrino problem (Homestake, Kamiokande, SNO 1985 design proposal, 2001 CC/ES and 2002 NC experiments). **Its key experiment was already proposed by Chen (1985); its epistemic triangulation was explicitly studied by Evans & Thébault (2020).** Thus the first case is a strong **negative control against claimed philosophical novelty**, not a standalone new discovery. A toy two-flavor response-matrix check separates rank from instrument-level statistical inference. The pending independent research issue is whether *institutional access to feasible rival-testing operations* can be shown causally to foreclose an alternative in a different primary-source history. No P78, no paper.
+
 ## Source code and former research stages
 
 The historical GitHub tree was intentionally compacted *after* a byte-verified full-history and source snapshot was uploaded to Google Drive. The historic programs, original workflows, manuscripts, experimental receipts and previous README have **not** been erased. Find the complete custody receipt, full file inventory, immutable head and restoration instructions in [ARCHIVE.md](ARCHIVE.md).
