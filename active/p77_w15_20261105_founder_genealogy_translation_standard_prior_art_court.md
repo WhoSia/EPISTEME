@@ -27,7 +27,7 @@ The corpus also includes P77 W9–W14 cited Kinzel, Tambolo, Beauchemin–Staley
 ## III. New 2026 competitors found by public research — abstracts read, full PDFs NOT HELD
 
 1. [Marro & Torr (2026), *Position: LLM Agents Are the Antidote to Walled Gardens*, ICML/PMLR 306](https://proceedings.mlr.press/v306/marro26b.html): argues AI-mediated adapters can radically reduce application-layer interoperability barriers and thereby **undermine** incumbents' user lock-in. This is a published **position paper**: conceptual rival direction, not empirical evidence that a scientific community's standards will be displaced. Contrasts with TLP's possible entrenchment effect but the market scopes and behavioral mechanisms are not yet matched.
-2. [Rosero Abad, Bekkers & Raiteri (2026), *Open Standards, Closed Standards or Vertical Integration? Interoperability Pathways in Markets with Network Effects*](https://www.scienceopen.com/document?vid=f5c075e0-6a74-4dce-a72f-bf010b7afd2a): reports varied interoperability pathways and strategic interests in network markets. Prior art to any naive 'all interoperability has the same effect' generalization.
+2. [Rosero Abad, Bekkers & Raiteri (2026), *Open Standards, Closed Standards or Vertical Integration? Interoperability Pathways in Markets with Network Effects*](https://journals.open.tudelft.nl/jos/article/view/8038): Journal of Standardisation 5 (2026), DOI 10.59490/jos.2026.8038. Its four-case comparison (EVs, game consoles, payment systems, home computers) contrasts open standards, closed standards, and vertical integration, conditional on complementary-asset incentives. This is a verified bibliographic correction grounded in the publisher's article page; it does **not** verify the entire PDF was read.
 3. [Janssen et al. (2026), *Toward Full Interoperability in Materials Science: Integrating Workflows With Knowledge Graphs*](https://doi.org/10.1002/adem.71258): materials-science workflow interoperability and preserving reproducibility across workflow managers; a **concrete scientific-domain** cross-examination candidate. Abstract/metadata only at this stage.
 
 **Citation tier warning:** These three 2026 items were checked via publisher/proceedings/index summaries only; no claim of full-text reading, experimental replication, or possession in Drive. First and second direct-page open had retrieval limitations; do not silently upgrade to VERIFIED FULL TEXT.
@@ -72,3 +72,8 @@ Do **not** launch a broad simulation or coin a new hypothesis name. First constr
 Existing LEP original minutes remain documentary debt but are not mandatory for this new primary direction. Preserve the two missing CERN source items in the user-facing custody table as historical provenance debt. **New missing first-priority PDFs**: Marro & Torr (2026), Rosero Abad et al. (2026), Janssen et al. (2026), absent from targeted Drive search; no full-text custody asserted.
 
 **Disposition:** P77 PHASE-1 ACTIVE / P78 HOLD / PAPER HOLD / no independent novelty established.
+
+
+### 2026-11-05 bibliographic correction
+
+The previous ScienceOpen link proved unreliable for the user and could not be directly fetched. The article and DOI have been cross-checked against the [journal publisher](https://journals.open.tudelft.nl/jos/article/view/8038) and [TU/e institutional repository](https://research.tue.nl/en/publications/open-standards-closed-standards-or-vertical-integration-interoper/). Do not use the ScienceOpen URL as a canonical source. DOI: 10.59490/jos.2026.8038. PDF custody still pending.
