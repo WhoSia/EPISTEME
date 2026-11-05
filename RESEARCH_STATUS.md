@@ -1,5 +1,15 @@
 # EPISTEME-P77 — Research Identity Adjudication: Historical Testability, Philosophical Reconstitution & Terminal Review
 
+## 2026-11-05 — W23: complete CRI ZIP unpacked; 1261/1253 published denominators independently checked
+
+[Full evidence court](active/p77_w23_20261105_original_cri_archive_unsealed_data_grain_and_custody.md) · [ZIP+data replay validator](analysis/p77_w23_cri_archive_replay.py).
+
+The user's 117,386,632-byte [CRI-master.zip](https://drive.google.com/file/d/1qRL9_P6mV4nJaBMgxq3p60ShDa5p-NJY/view) was found via direct listing in Research OS `00_INTAKE`, moved with identical ID/size into **My Drive/EPISTEME** (never into Chat Archive), fully unpacked locally and all member CRCs checked. SHA-256 `64756bfe62b25cdd7dbea57d2b063cb0f564225751d1f0251b4879f426894098`; 439 archive files, 859,647,748 unpacked bytes. [New canonical extraction folder](https://drive.google.com/drive/folders/17piNryz_eTmhFgOKyHtzEmhM1Ok5YBZk) holds [public/derived core ZIP](https://drive.google.com/file/d/1CgxFRHi47xP3Mb6l2f7bolRG0NgnVugz/view), metadata README/LICENSE, actual derived `cri.csv`, `cri_team.csv`, `cri_str.csv` individually uploaded with verified Drive IDs/sizes. **Not** all original 439 files were individually uploaded to Drive: third-party ISSP respondent microdata remain preserved inside the original ZIP, subject to external reuse/access verification.
+
+**Unblocked and read entire actual model CSV:** `cri.csv` encoded cp1252; 1309 rows×479 cols, 48 Team0 baseline rows, after exclusion 1261 submitted model rows / 72 IDs. **1253 nonmissing AME**, 8 NA (team1), 1252 rows with complete confidence interval and p value. `t75m14` records an AME=-0.07332 but absent CI/p (do not confuse corrected PNAS Fig1 denominator with complete inferential classifications). `cri_str.csv` also cp1252; `cri_team.csv` 89×464. These are actual original source table computations, **NOT** re-executed R models, **NOT** assigned AI conversion interventions, and **NOT** evidence of a new theory.
+
+**Research director verdict:** Original-data access/custody gate PASS, downstream statistical reproduction and matched converter controls PENDING, founding AI translation→collective adoption→scientific testing causal effect NO-GO. **P77 ACTIVE / P78/PAPER HOLD; independent novelty not certified.** W24 must attempt bounded verified computational reproduction and a genuine founder-problem adversarial test, not an endless CRI research detour.
+
 ## 2026-11-05 — W22 market-observability vs scientific-test-route identification court
 
 **Canonical evidence:** [W22 research judgment](active/p77_w22_20261105_market_observability_scientific_test_route_countermodel.md) · [executed synthetic 16-world code](analysis/p77_w22_market_observation_vs_scientific_test_countermodel.py) · [official original-data acquisition guide](active/p77_w22_20261105_cri_issp_acquisition_guide.md).
