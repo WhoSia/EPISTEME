@@ -1,5 +1,17 @@
 # EPISTEME-P77 — Research Identity Adjudication: Historical Testability, Philosophical Reconstitution & Terminal Review
 
+## 2026-11-05 — P77 W36-W38 source adjudication: DataDesc, paradata and format adoption
+
+[W36 2026 close prior art](active/p77_w36_20261105_datadesc_ioproc_paradata_2026_fatal_prior_art.md), [W37 real standard choices](active/p77_w37_20261105_science_format_adoption_archival_vs_access_court.md), [W38 executed eligibility audit](active/p77_w38_20261105_seven_source_evidence_grain_and_causal_gate.md), [Python source audit](analysis/p77_w38_source_observation_causal_gate.py).
+
+Kuckertz et al. 2026 DOI 10.1016/j.patter.2026.101493 already develop DataDesc/ioProc metadata-mediated reproducible scientific adapters with REMix/FINE examples. Original [DataDesc](https://github.com/FZJ-IEK3-VSA/DataDesc) and [modelcouplingworkflows](https://github.com/dlr-ve-esy/modelcouplingworkflows) READMEs actually read, workflows not executed. Huvila et al. 2026 DOI 10.1108/JD-10-2025-0324 compare paradata representation across nine standards; indexed original abstract/excerpt reviewed, full PDF not yet read.
+
+US federal Reclamation RISE 2023 [institutional source](https://data.usbr.gov/catalog/8002/item/128581) prioritized netCDF over viable Zarr citing maturity. The [OME-Zarr 2023 original published full HTML](https://doi.org/10.1007/s00418-023-02209-1) reports temporary access conversions alongside other archival storage, and distinguishes documented adoption from prospective dynamic serving. These are **unmatched** descriptive evidence, NOT assigned AI converter experiments.
+
+**Operational fix:** measure archival format S, emitted access representation X, actually analyzed standard D separately. A source can expose OME-Zarr while original archival bytes remain in another format. Our executed Python audit of **seven hand-selected original-source case descriptions** passed source-claim eligibility assertions but is not a seven-lab causal panel. No original data contain a jointly observed AI adapter treatment, lab adoption transitions, and independently warranted H0/H1 test outcome. Full founding TLP remains unidentified.
+
+[Small actual test receipt in EPISTEME Drive](https://drive.google.com/file/d/1VJmY2pypnNqoU0Biue0VM9gX9U3TnwGe/view), 3919 bytes, local SHA256 1025f93ccf4b68814001de0e5c0bd0567bf648877e4ab1532f01e4db4395f6f2. Three new original PDFs not verified held: Kuckertz 2026, Huvila 2026, Moore 2023; published HTML or official abstracts and original GitHub README were read. **P77 ACTIVE / P78 HOLD / PAPER HOLD / independent novelty not certified.**
+
 ## 2026-11-05 — P77 W34-W35: actually computed original 250-visit science rates; meaningful estimands vs equivalent code
 
 [W34 actual author fish-source benchmark pilot](active/p77_w34_20261105_real_blade_fish_source_estimands_and_poisson_baseline.md) · [W35 author annotation equivalence negative control](active/p77_w35_20261105_original_blade_annotation_expression_equivalence_and_false_diversity.md) · [source-pinned read-only Python estimand auditor](analysis/p77_w34_fish_source_estimand_audit.py) · [expression equivalence auditor](analysis/p77_w35_fish_expression_equivalence.py).
