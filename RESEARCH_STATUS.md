@@ -1,5 +1,17 @@
 # EPISTEME-P77 — Research Identity Adjudication: Historical Testability, Philosophical Reconstitution & Terminal Review
 
+## 2026-11-05 — W22 market-observability vs scientific-test-route identification court
+
+**Canonical evidence:** [W22 research judgment](active/p77_w22_20261105_market_observability_scientific_test_route_countermodel.md) · [executed synthetic 16-world code](analysis/p77_w22_market_observation_vs_scientific_test_countermodel.py) · [official original-data acquisition guide](active/p77_w22_20261105_cri_issp_acquisition_guide.md).
+
+The founding original TLP problem was resumed rather than treating CRI reproduction as a new laboratory mission. An actually run **synthetic** 16-world sensitivity test holds 4/10 migration and the same numeric output constant while allowing the *stipulated* H0/H1 test-admissibility condition to be true or false depending on independently validated semantic fidelity, provenance, trusted manual alternatives and science workflow budgets. The observational implication is **ordinary non-identification**, not an EPISTEME-specific theorem or observed scientific test suppression. An independent affordable manual route defeats claims of unavoidable epistemic loss. Counterfactual comparisons need **matched budgets**; the positive manual-rescue world deliberately varies science budget as a sensitivity check, not a causal effect estimator.
+
+**Research data access verified from source:**
+- Original CRI code/derived tables: [GitHub nbreznau/CRI](https://github.com/nbreznau/CRI); separate [Harvard Dataverse 10.7910/DVN/UUP8CX](https://doi.org/10.7910/DVN/UUP8CX) cited by PNAS (live Dataverse page could not be fetched in this session).
+- Original ISSP Role of Government five waves [ISSP/GESIS portal](https://issp.org/data-download/) **requires free registration**: 1985 ZA1490 v1, 1990 ZA1950 v1, 1996 ZA2900 v1, 2006 ZA4700 v2, 2016 ZA6900 v2; exact original 2022 input provenance and World Bank/UN/OECD migration indicator vintage remain unresolved. The GESIS data download is for the user to perform under its access terms; W22 did not download authenticated microdata.
+
+**Decision:** W22 counterexample and user-acquisition manifest delivered; no real cohort/AI adapter comparison, no inferred community standard effect, no new scientific inference theorem. **P77 ACTIVE / P78 HOLD / PAPER HOLD**, and next research needs a true H0/H1 accepted-test metric with strong non-AI and alternative-route controls.
+
 ## 2026-11-05 — W21 authentic CRI team-level source and positivity audit
 
 [W21 source-based analysis](active/p77_w21_20261105_real_cri_team_csv_grain_and_positivity_court.md) and [executable read-only structural validator](analysis/p77_w21_cri_team_grain_validator.py). The genuine public `nbreznau/CRI/data/cri_team.csv` (Git blob `20293f871cdc613903601b3ea3ce089de6d002a5`) was fetched and parsed: **89 rows × 464 columns; 73 distinct team IDs including Team 0; 88 rows / 72 IDs excluding Team 0; 88 numeric and one missing AME; 11/55/23 No test/Reject/Support team–hypothesis rows; 16 duplicated team IDs.** Therefore a row is not necessarily a research team, and these aggregates cannot reconstruct the original 1,253 converged model estimates or assign an AI translator retrospectively. Python read-only validator's **synthetic** fixture passed locally; actual CRI CSV was parsed in the direct connector/JS environment, not by Python in the container. Larger `cri.csv` is public (~1.95 MB) but its text was unavailable from our connector.
