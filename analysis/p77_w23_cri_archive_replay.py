@@ -44,10 +44,10 @@ def main(archive):
         assert_equal("nonmissing AME models", len(estimates), 1253)
         ci = [r for r in estimates if all(r[k].strip().upper() not in ("NA","") for k in ("lower","upper"))]
         assert_equal("AME models with both confidence bounds", len(ci), 1252)
-        missing_ame = [r for r in submitted if r not in estimates]
+        missing_ame = [r for r in submitted if r["AME"].strip().upper() in ("NA", "")]
         assert_equal("nonconverged/missing-AME rows (no mechanism implied)", len(missing_ame), 8)
         assert_equal("missing-AME team IDs", {r["u_teamid"] for r in missing_ame}, {"1"})
-        ame_no_ci = [r["id"] for r in estimates if r not in ci]
+        ame_no_ci = [r["id"] for r in estimates if any(r[k].strip().upper() in ("NA", "") for k in ("lower", "upper"))]
         assert_equal("nonmissing AME with missing CI", ame_no_ci, ["t75m14"])
         assert_equal("team-summary rows", len(team), 89)
         assert_equal("team-summary columns", len(team[0]), 464)
