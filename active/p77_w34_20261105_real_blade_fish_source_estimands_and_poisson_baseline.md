@@ -46,7 +46,7 @@ The original BLADE expert annotations already include `fish_per_hour`, `group_si
 
 [Engzell 2023 original PDF](https://drive.google.com/file/d/1VpL2sCk2gRSlKVlrGwzoTm5UWW-DgIxp/view) and [Auspurg–Brüderl 2024 original PDF](https://drive.google.com/file/d/1s95yC7Rkxp52GK1BpiQzdL_00a4FWlFE/view) have already explained the scientific hazards of different estimands and invalid measurement conversions. MQR and existing statistical rate/offset and provenance literature are direct conventional competitors. An actual discrepancy between four source-valid *targets* does not constitute an independently novel EPISTEME TLP mechanism.
 
-[Python replay auditor](../analysis/p77_w34_fish_source_estimand_audit.py) uses an original Git **blob SHA-1** source seal and fails closed on wrong bytes. Its small synthetic selftest was run successfully; real source calculations were executed independently in connector JS, not by local Python. [Aggregate source receipts preserved in actual EPISTEME Drive](https://drive.google.com/file/d/REPLACE_AFTER_UPLOAD/view) once upload confirmed.
+[Python replay auditor](../analysis/p77_w34_fish_source_estimand_audit.py) uses an original Git **blob SHA-1** source seal and fails closed on wrong bytes. Its small synthetic selftest was run successfully; real source calculations were executed independently in connector JS, not by local Python. [Aggregate source receipts preserved in actual EPISTEME Drive](https://drive.google.com/file/d/1pUb4n89xQ-CiOaouQhyBCdOQrautwB60/view) once upload confirmed.
 
 ## 5. Disposition
 
