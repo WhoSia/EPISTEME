@@ -1,5 +1,13 @@
 # EPISTEME-P77 — Research Identity Adjudication: Historical Testability, Philosophical Reconstitution & Terminal Review
 
+## 2026-11-05 — W19 scientific-discrimination reality and fatal-rival decision
+
+**Canonical evidence:** [W19 source-grounded court](active/p77_w19_20261105_scientific_discrimination_case_adjudication_and_fatal_rivals.md) · [W19 Notion record](https://app.notion.com/p/40fef561cf9281429395ef307bef1ae0).
+
+The original [Rosero Abad, Bekkers & Raiteri (2026)](https://drive.google.com/file/d/1ylQS-SgEpLzolGGq2x89nSryGEfmJSMt/view) paper was identified in 00_INTAKE and admitted to 10_PAPERS with its **original ID and 1,395,931-byte size** read back; remove it from missing paper debt. W19 compared four actual scientific/standards source cases, notably Breznau et al.'s 2022 73-team test of a common immigration/social-policy hypothesis (1,261 models submitted, 1,253 converged) with a **2024 corrected Figure 1**, Pritchard–Wicenec's 2025 computational workflow reproducibility and DPHEP's 2026 scientific data reanalysis. Existing Reijula–Blanco Sequeiros (2024), Blanco Sequeiros (2026, *Synthese*), PROV-IDEA (2025), and RO-Crate (2024) already provide serious accounts of evidence/provenance discordance and data-to-phenomenon inference. The latter 2026 philosophy paper even engages Breznau directly.
+
+**Decision:** no examined case identifies AI-mediated translation -> collective standard adoption -> change in accessible *scientifically discriminating tests* on the same observational unit. This is an unfilled test design condition, **not certified novelty**. W20 may audit publicly available Breznau study code, 2024 correction, data licenses and prospective comparator feasibility; it may NOT retroactively treat the 2022 73-team study as AI-intervention evidence. **P77 ACTIVE, P78/PAPER HOLD, lab not closed.**
+
 ## 2026-11-05 — BINDING director strategy (current)
 
 The [official Notion P77 identity court](https://app.notion.com/p/40eef561cf9281bd9b7be9700af4ab53) and [STRATEGY_P77_CURRENT.md](STRATEGY_P77_CURRENT.md) now set the top-level operational direction: **keep EPISTEME active within P77, stop prioritizing LEP archival accumulation, and return to the original TLP/AI translation, switching cost, standards and scientific inquiry relation**. Run a bounded up-to-12-week strong-prior-art reconstruction/counterexample/empirical-contact study. This is a research prioritization, not an observed scientific result. Innovation or a paper is not guaranteed. Existing P1–P76 and W9–W14 receipts are preserved, not rewritten.
