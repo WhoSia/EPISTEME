@@ -1,5 +1,7 @@
 # EPISTEME-P77 — Research Identity Adjudication: Historical Testability, Philosophical Reconstitution & Terminal Review
 
+> **CURRENT DIRECTOR MANDATE · 2026-11-05:** [STRATEGY_P77_CURRENT.md](STRATEGY_P77_CURRENT.md) — EPISTEME remains active in P77. Restore the original TLP/AI translation and standards question; downshift LEP case expansion; undertake a bounded, adversarial **up-to-12-week** theoretical/historical reconstruction. **Goal: test for an independent fundamental explanation, not produce a paper or promise innovation.** Keep rival defeats, negative evidence and archival provenance. **P78 / PAPER HOLD.** [Official Notion decision](https://app.notion.com/p/40eef561cf9281bd9b7be9700af4ab53).
+
 **Official P77 title (confirmed 2026-11-04):** EPISTEME-P77 — Research Identity Adjudication: Historical Testability, Philosophical Reconstitution & Terminal Review.
 
 **Notion canonical generation:** [EPISTEME-P77 Official Research Identity Court](https://app.notion.com/p/40eef561cf9281bd9b7be9700af4ab53).
