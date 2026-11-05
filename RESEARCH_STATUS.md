@@ -1,5 +1,13 @@
 # EPISTEME-P77 — Research Identity Adjudication: Historical Testability, Philosophical Reconstitution & Terminal Review
 
+## 2026-11-05 — W20 provenance preflight; AI-adapter empirical identification still blocked
+
+[W20 original-code/correction/EPUB custody court](active/p77_w20_20261105_cri_preflight_corrections_epub_custody_and_intervention_nogo.md). Both freshly uploaded article PDFs are **verified held in 10_PAPERS**: [PNAS 2024 Breznau Fig.1 corrigendum](https://drive.google.com/file/d/1NSkJ1yxy8vZ4EUP6SwD5BQa3mbe5_G4z/view) (282,123 bytes) and [Janssen et al. 2026 materials-workflow interoperability PERSPECTIVE](https://drive.google.com/file/d/1WTPIdhhpn5l1xOB-K3D6iIOh9erpZCzo/view) (1,150,308 bytes). Old file identities/sizes preserved; raw SHA-256 audit was not performed. Janssen explicitly includes semantic knowledge graphs, provenance, LLMs and AI workflow orchestration; **fatal prior art to broad novelty claims**.
+
+Live [CRI repository](https://github.com/nbreznau/CRI) RMarkdown, Binder runtime/install script, CC0 repository LICENSE.md and 2024 correction examined. Original scripts explicitly exclude Team 0; repository README flags a wrongly reversed-coded belief field while saying published results do not depend on it. CRI `data/cri.csv` file exists in repository metadata but contents were not readable through connector; full baseline execution, third-party ISSP rights and versioned AI-vs-manual matched intervention **NOT VERIFIED**. No randomized AI intervention or actual scientific adoption effects have been demonstrated. **W20 SOURCE PREFLIGHT complete; intervention NO-GO, P77 ACTIVE / P78 PAPER HOLD.**
+
+Side audit: accessible Drive search has zero identifiable EPUB files by MIME/filename; historical 2026-10-24 archive lists Arrow and Joyner EPUB custody, now unverified. These must not be labeled corrupt or deleted solely from missing current search. Tollefsbol 3rd-vs-2nd mismatch is a **PDF edition** issue, not an EPUB defect.
+
 ## 2026-11-05 — W19 scientific-discrimination reality and fatal-rival decision
 
 **Canonical evidence:** [W19 source-grounded court](active/p77_w19_20261105_scientific_discrimination_case_adjudication_and_fatal_rivals.md) · [W19 Notion record](https://app.notion.com/p/40fef561cf9281429395ef307bef1ae0).
