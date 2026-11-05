@@ -138,6 +138,12 @@ Direct source inspection of [nbreznau/CRI](https://github.com/nbreznau/CRI) iden
 
 [W28–W30 aggregate-only source audit receipt preserved in true EPISTEME Drive](https://drive.google.com/file/d/1P5uosFIl9-IbL-h41YaMt6keRDCNg5lw/view), SHA256 d9fe79742e04bd7f44e66a19673d75e644f156de6a41c42524915e46308f5e0c; no licensed participant data moved to GitHub. **P77 ACTIVE / P78 HOLD / PAPER HOLD / originality unproven.** No further CRI ZIP, Mathur, Engzell or Auspurg PDFs need downloading.
 
+## P77 W31 — live scientific benchmark screens, no collective standard-adoption evidence (2026-11-05)
+
+[W31 original README benchmark audit and epistemic/coordination gate](active/p77_w31_20261105_authentic_scientific_agent_benchmark_screen_and_adoption_gap.md). Actual original public repository README read for [behavioral-data/BLADE](https://github.com/behavioral-data/BLADE) (expert-defensible analyses of real-world scientific data with grounded statistical transformation choices) and [Future-House/BixBench](https://github.com/Future-House/BixBench) (205 benchmark questions from 60 real published biological notebooks; dataset linked via Hugging Face). These are **existing benchmarks / direct engineering research competitors**, not model-run results or evidence of a randomized scientific AI format-converter treatment. Both lack directly identified lab-level community standard adoption event data in the verified README, so a standalone benchmark success cannot identify founding TLP mediation Z (AI adapter) -> A (collective standard choice) -> T (scientifically admissible discriminating tests).
+
+**Status: P77 ACTIVE / P78 HOLD / PAPER HOLD / novelty UNVERIFIED**. User has supplied all three PNAS critics and original CRI ZIP; no additional downloads needed at W31 until a specific, licensed, matched H0/H1 source-conversion task and baseline are independently specified.
+
 ## Source code and former research stages
 
 The historical GitHub tree was intentionally compacted *after* a byte-verified full-history and source snapshot was uploaded to Google Drive. The historic programs, original workflows, manuscripts, experimental receipts and previous README have **not** been erased. Find the complete custody receipt, full file inventory, immutable head and restoration instructions in [ARCHIVE.md](ARCHIVE.md).
