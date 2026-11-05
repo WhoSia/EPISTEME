@@ -1,5 +1,11 @@
 # EPISTEME-P77 — Research Identity Adjudication: Historical Testability, Philosophical Reconstitution & Terminal Review
 
+## 2026-11-05 — BINDING director strategy (current)
+
+The [official Notion P77 identity court](https://app.notion.com/p/40eef561cf9281bd9b7be9700af4ab53) and [STRATEGY_P77_CURRENT.md](STRATEGY_P77_CURRENT.md) now set the top-level operational direction: **keep EPISTEME active within P77, stop prioritizing LEP archival accumulation, and return to the original TLP/AI translation, switching cost, standards and scientific inquiry relation**. Run a bounded up-to-12-week strong-prior-art reconstruction/counterexample/empirical-contact study. This is a research prioritization, not an observed scientific result. Innovation or a paper is not guaranteed. Existing P1–P76 and W9–W14 receipts are preserved, not rewritten.
+
+**Immediate W15 fatal rivals:** Farrell & Saloner (1985) excess inertia; Arthur (1989) lock-in; Liu et al. (2011) endogenous converter decisions, profits and competition; Heinrich (2014) tied standards; Bakeev (2026) discipline-specific tractability/representation. Do not use the slogan 'converters ease individual use but reinforce incumbents' as if existing economics had never considered it. P78/PAPER remain HOLD until explicit promotion gates pass.
+
 **Formal status source:** [Notion P77 canonical generation](https://app.notion.com/p/40eef561cf9281bd9b7be9700af4ab53), confirmed 2026-11-04. P77 is a decision stage, not an approved new theory; the original EPISTEME Lab name and historical P1–P76 records remain intact.
 
 **Stage:** constrained history-and-philosophy-of-science reading; undecided independent-Lab identity. **No P78 / no paper / no new positive mechanism approved.**
