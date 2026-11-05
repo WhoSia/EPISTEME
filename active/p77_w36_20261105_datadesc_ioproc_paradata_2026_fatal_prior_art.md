@@ -1,0 +1,36 @@
+# EPISTEME-P77 W36 — 2026 Fatal Prior-Art Court: DataDesc/ioProc and Epistemic Selectivity of Process-Documentation Standards
+
+**Date:** 2026-11-05 KST. **Authority:** [P77 strategy](../STRATEGY_P77_CURRENT.md), [G-001](../GOVERNANCE.md). **Director judgment:** P77 ACTIVE; P78/PAPER HOLD; no independent novelty certification. **Prior:** [W27 six gates](p77_w27_20261105_founder_identity_six_gates_and_actual_data_entry_contract.md), [W34–35 authentic scientific source case](p77_w34_20261105_real_blade_fish_source_estimands_and_poisson_baseline.md).
+
+## 1. Actual new prior-art evidence, not an abstract guess
+
+**Kuckertz et al. 2026** (Patrick Kuckertz, Benjamin Fuchs et al.), *A framework for reproducibly managing coupled research software and data assets based on shared transformation functions*, **Patterns** 7(5), 101493. DOI [10.1016/j.patter.2026.101493](https://doi.org/10.1016/j.patter.2026.101493). Published online 13 April 2026; issue 8 May 2026. Source [PubMed / open PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC13161688/) and publisher abstract checked via web. **Actual corresponding original GitHub READMEs independently read**:
+- [FZJ-IEK3-VSA/DataDesc](https://github.com/FZJ-IEK3-VSA/DataDesc), README source blob `82d4a44f31f909c5ca76b4974d62133a013834c6`. Describes software metadata extraction, machine-readable DataDesc JSON, and tool support.
+- [dlr-ve-esy/modelcouplingworkflows](https://github.com/dlr-ve-esy/modelcouplingworkflows), README source blob `2596ad415fee8bec7ccee4c17a425d763144bade`. Describes **REMix** and **FINE** energy-system scientific model workflows with metadata annotations, shared data, ioProc and Snakemake workflows. This is not an unimplemented sketch. Paper says DataDesc schema/comparison software and ioProc version 2.2.0 plus case material are publicly available: [doi:10.26165/JUELICH-DATA/DLCYV5](https://doi.org/10.26165/JUELICH-DATA/DLCYV5), [doi:10.26165/JUELICH-DATA/VLBZIA](https://doi.org/10.26165/JUELICH-DATA/VLBZIA).
+- Claims supported by published abstract/README: machine-interpretable descriptions and comparison of dataset/software models, identified transformation requirements, reusable adapter workflows, documented conversion steps across two real energy-system use cases. **No independent R/energy-workflow execution performed by EPISTEME**, and this paper does not itself report a randomized *AI* translator -> community migration -> hypothesis admissibility causal effect. Its infrastructure and workflow features are powerful technical competitors.
+
+**Huvila, Sköld, Zengenene & Andersson 2026**, *What a standard makes out of a process? Data-documentation standards and their consequences to process documentation*, **Journal of Documentation** 82(7):289–314. DOI [10.1108/JD-10-2025-0324](https://doi.org/10.1108/JD-10-2025-0324), online April 24, 2026, CC BY 4.0, original publisher academic metadata and publicly indexed article abstract and discussion examined. Studies **nine** data-documentation standards: Data Package, DataCite, Dublin Core, OAI-ORE, PREMIS, CERIF, DDI, PROV, NetCDF. Their process/paradata affordances and granularity differ and emphasize curatorial provenance vs exchange/reuse; different perspectives on which *research processes* become describable. This directly anticipates broad EPISTEME statements that choosing a standard can select which aspects of a scientific process are represented and can influence epistemic affordances. **Caution:** article full original PDF was not in user's Drive when searched at W36 and not independently downloaded/read end-to-end; exact tables, nine-standard row classifications and all quotations need original-PDF reading prior to publication claims.
+
+**Existing close rivals remain:** Auspurg–Brüderl 2024 §2.3.1 on metric translation and estimand pooling; Engzell 2023, Mathur 2023; Farrell–Saloner 1985, Arthur 1989, Liu 2011, Heinrich 2014, Rosero Abad 2026 on compatibility/adoption; Bakeev 2026 on methodological embedding; Janssen 2026 and Pritchard–Wicenec on technical provenance. **Do not say machine-readable science transformation, provenance preservation, or standard-dependent representation was first discovered in P77.**
+
+## 2. More precise founding philosophical question after the fatal rivals
+
+A viable novel residual would have to be a **specific, competing-prediction mechanism**, e.g. a causal pathway from assigned AI conversion `Z`, through *observed scientific-community* adoption choices `A`, to an *independently adjudicated* loss/recovery of an executable hypothesis-discriminating test `T`, **after** controlling fixed inferential estimand, proper official deterministic adapter, schema-aware provenance, validation budgets, and real alternative manual routes. The fact that metadata/provenance already affects validity is **not** an independent discovery. DataDesc/ioProc is a concrete very strong non-AI comparator. Even real outcome differences under AI versus this comparator need separate economic/HPS attribution and a scientific-validation explanation rather than a headline grader score.
+
+There are at least three non-interchangeable representations of 'compatibility':
+1. Read/load the bytes or fields into a tool.
+2. Preserve the scientifically relevant transformation/provenance/units, including inferential object.
+3. Preserve the real budget-feasible, socially admissible *discriminating tests* across labs under changing standards.
+
+Theoretical distinctions are useful, but all three are treated in already-existing scientific workflow/measurement economics; **naming a hierarchy is not originality**.
+
+## 3. Evidence/limitations of this W36 unit
+
+**Executed:** public web/PubMed metadata checks, original DOI and rights, primary GitHub source README fetches for DataDesc & modelcouplingworkflows, direct comparison to existing P77 binding claims, user Drive search finding neither 2026 full PDF. We did **not** run their energy modeling programs or compare AI agents. Some publisher pages blocked HTML access; PubMed/PMC indexed materials and independently fetched code README support only the claims reported.
+
+**New original sources to obtain if original text review and storage required:**
+- Kuckertz et al 2026 DOI 10.1016/j.patter.2026.101493, original publisher/PMC CC BY publication PDF or verified accepted edition. DOI link above; institutional free archive [Jülich](https://juser.fz-juelich.de/record/1056551). Do not confuse DLR preprint version with final published record.
+- Huvila et al 2026 DOI 10.1108/JD-10-2025-0324, published CC BY 4.0, publisher full text and institutional author archive [Uppsala University staff list](https://www.uu.se/en/contact-and-organisation/staff?query=N8-1576).
+- Moore et al 2023 OME-Zarr adoption paper DOI 10.1007/s00418-023-02209-1, published PDF held by MIT institutional archive [MIT repository](https://dspace.mit.edu/entities/publication/ae784a29-4bbb-4157-b6f7-1164e2801b72); relevant to W37 and future acquisition.
+
+**W36 verdict:** Strong independent already-published **technical** and **philosophical** competitors now supported by source code and official bibliographic records; original novelty C/F gates further weakened, full founding causal chain remains untested. **P77 ACTIVE / P78 HOLD / PAPER HOLD.**
