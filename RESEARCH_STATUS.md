@@ -1,5 +1,19 @@
 # EPISTEME-P77 — Research Identity Adjudication: Historical Testability, Philosophical Reconstitution & Terminal Review
 
+## 2026-11-05 — P77 W24-W27 corrected figure, strongest metascience critiques and upstream source control
+
+Source courts: [W24](active/p77_w24_20261105_corrected_fig1_reproduction_and_estimand_court.md), [W25](active/p77_w25_20261105_significance_magnitude_and_meta_estimand_fatal_rivals.md), [W26](active/p77_w26_20261105_source_zip_za2900_csv_serialization_equivalence_court.md), [W27 six-gate review](active/p77_w27_20261105_founder_identity_six_gates_and_actual_data_entry_contract.md).
+
+**ACTUAL CORRECTED RESULT:** 1261 models submitted (Team0 excluded), 1253 standardized AMEs nonmissing, 1252 confidence-interval-complete. The original author's Figure1 source code inverse-team weighted negative / includes-zero / positive percentages to 25.4 / 57.7 / 16.9, exactly matching the physically inspected 2024 PNAS corrected Figure1. 244/806/202 classified models; unweighted percentages 19.489/64.377/16.134. 1126/1253=89.864% standardized point estimates have |AME_Z| <= .037, matching published prior critique. Actual original/standardized interval categorization has 0 flips among all 1252 pairs. These are source-table reproductions and negative controls, NOT full raw-survey R estimations and NOT new EPISTEME theory.
+
+**ACTUAL SOURCE-DUPLICATE ATTACK:** In the user-supplied CRI ZIP, two ZA2900.csv copies differ in 7488 v325 strings, 5344 bytes and SHA256. Both hold 35313 rows x 194 fields. 16218 numeric v325 records match common original ZA2900.dta within abs tolerance 1e-12; maximum inter-CSV float difference 7.77e-16. 19095 labeled entries not compared numerically. W26 **corrected** the provisional 781 'numeric differences' alarm to an innocent numerical serialization/precision difference. No material measurement difference confirmed.
+
+[Drive 6,181-byte independent source-replay packet](https://drive.google.com/file/d/1YZU8EH9MFN0lpTUpYDD7gm4AuwNDcwhy/view) stored beneath actual My Drive/EPISTEME, SHA256 53c830c7c2d9c037fd1f7be1fcd7780abefb84364c337aeb29f70daa8dff952f; original 117-MB source ZIP remains unchanged and preserved separately. No underlying licensed respondent rows pushed to GitHub.
+
+**Direct fatal rivals:** Mathur/Covington/VanderWeele 2023 on effect-size-vs-significance; Engzell 2023 within-study variability and measurement; Auspurg/Brüderl 2024 meta-estimand, incentive comparability and correct meta-analysis. Combined with original standards economics and scientific provenance, no independent TLP residual proved. **Data entry gate:** historical CRI has no assigned versioned AI translator, group standard-adoption intervention/logs, or independent H0/H1 feasible-test measurement. An actual matched AI versus strong non-AI paired scientific-workflow benchmark plus community adoption measurement is needed for the full chain; no existing ready-to-download dataset meeting this has yet been verified. Do NOT request another CRI ZIP or GESIS waves just to reproduce derived outputs.
+
+**Decision: P77 ACTIVE / P78 HOLD / PAPER HOLD; independent novelty NOT CERTIFIED.** Previous W15–W23 negative decisions remain; no independent AI causal finding or user-authorized lab closure.
+
 ## 2026-11-05 — W23: complete CRI ZIP unpacked; 1261/1253 published denominators independently checked
 
 [Full evidence court](active/p77_w23_20261105_original_cri_archive_unsealed_data_grain_and_custody.md) · [ZIP+data replay validator](analysis/p77_w23_cri_archive_replay.py).
