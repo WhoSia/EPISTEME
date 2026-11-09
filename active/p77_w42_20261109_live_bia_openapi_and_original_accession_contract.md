@@ -1,0 +1,19 @@
+# EPISTEME-P77 W42 — Actual BioImage Archive OpenAPI and Original-Accession Read
+
+**Date observed: 2026-11-09 KST. Status: P77 ACTIVE / P78 HOLD / PAPER HOLD; independent TLP mechanism unproven.** Charter: [STRATEGY_P77_CURRENT](../STRATEGY_P77_CURRENT.md); governance: [GOVERNANCE](../GOVERNANCE.md). Relevant past audits: [W39](p77_w39_20261105_three_publisher_originals_full_read_and_custody_court.md), [W40](p77_w40_20261105_new_bioimage_archive_2026_actual_integration_cohorts.md), [W41](p77_w41_20261105_bioimaging_archive_policy_vs_actual_source_standard_court.md).
+
+## Actual external-source access
+
+The canonical 2026-11-05 article [Zulueta-Coarasa et al, NAR DOI 10.1093/nar/gkag1108](https://doi.org/10.1093/nar/gkag1108) explicitly links the new [BIA API documentation](https://beta.bioimagearchive.org/search/redoc). A simple browser fetch and conventional web reader failed to render the ReDoc shell. We **successfully fetched and JSON-parsed the actual machine-readable [OpenAPI specification](https://beta.bioimagearchive.org/search/openapi.json)** via a JavaScript-rendering external web extraction connector, not a guessed API. OpenAPI specification version 3.1.0, software `info.version=0.1.0`, `servers[0].url=/search`.
+
+All seven declared GET routes: `/v1/search/fts`, `/v1/search/fts/image`, `/v1/website/doc`, `/v1/website/browse/study`, `/v1/website/study`, `/v1/website/browse/image`, `/v1/website/image`. The image search uses page size 1–100, offset through first 10,000 hits, then UUID cursor paging. Filter `facet.accession_id.eq` is documented for study search; the image endpoint uses text `query`, `includeDerivedImages`, `facet.image_format`, scientific image dimension/unit filters. Do not conflate the API *software revision* with a real biological image conversion date.
+
+Verified real [legacy BioStudies JSON accession S-BIAD1410](https://www.ebi.ac.uk/biostudies/api/v1/studies/S-BIAD1410): `accno=S-BIAD1410`, DOI `10.6019/S-BIAD1410`, `ReleaseDate=2024-10-30`, title *ReSCU-Nets: recurrent U-Nets for segmentation of multidimensional microscopy data*, 23 immediate study subsections. The old source's [official tabular metadata](https://www.ebi.ac.uk/biostudies/files/S-BIAD1410/S-BIAD1410.tsv) was independently fetched (136 returned lines), but this **is study metadata, not an exhaustive manifest of every original TIFF, segmentation image and package file**.
+
+Real [new BIA study API query](https://beta.bioimagearchive.org/search/v1/search/fts?facet.accession_id.eq=S-BIAD1410&pagination.page_size=2) returned exactly one indexed study, `uuid=40c20d53-6f99-4e07-ad21-ed3a6964d255`, `object_creator=bia_ingest`, source study `release_date=2024-10-30`, `submission_modification_date=null`. `version=5` is a revision number, NOT elapsed time or transformation event date.
+
+The scientific original study has `associated_ai_models` with ReSCU-Nets segmentation, but **the presence of an AI data-analysis model does not establish the BIA file-format converter was AI**. The [original BIA 2026 paper](https://doi.org/10.1093/nar/gkag1108) specifies an ordinary `bioformats2raw` deterministic converter in the image-ingest system. A task AI and a format converter must not be confused.
+
+**PASS:** official live schema, original accession and live new-study indexing, precise source-vs-index comparison. **HOLD:** historical conversion event time, exact software binary version, source TIFF-byte SHA, actual scientific H0/H1 oracle. None of these are recovered from the accession `release_date` or API model revision. **NO-GO:** no assigned LLM conversion treatment or observed scientific community adoption causal effect.
+
+Public real-record evidence [W43 accession census](../evidence/p77_w43_bia_20261109_four_accessions_metadata_census.json); no biological image bytes downloaded or publicly redistributed. **P77 ACTIVE; P78/PAPER HOLD.**
