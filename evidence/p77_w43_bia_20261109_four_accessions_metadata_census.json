@@ -1,0 +1,562 @@
+{
+  "title": "EPISTEME P77 W42-W43 BIA official public API metadata-only census",
+  "observed_date_KST": "2026-11-09",
+  "api_spec": "https://beta.bioimagearchive.org/search/openapi.json",
+  "grain": "image search result; not deposited image corpus",
+  "study_results": {
+    "S-BIAD1410": {
+      "url": "https://beta.bioimagearchive.org/search/v1/search/fts?facet.accession_id.eq=S-BIAD1410&pagination.page_size=1",
+      "total": 1,
+      "release_date": "2024-10-30"
+    },
+    "S-BIAD570": {
+      "url": "https://beta.bioimagearchive.org/search/v1/search/fts?facet.accession_id.eq=S-BIAD570&pagination.page_size=1",
+      "total": 1,
+      "release_date": "2022-10-24"
+    },
+    "S-BIAD1": {
+      "url": "https://beta.bioimagearchive.org/search/v1/search/fts?facet.accession_id.eq=S-BIAD1&pagination.page_size=1",
+      "total": 1,
+      "release_date": "2018-11-22"
+    },
+    "EMPIAR-10014": {
+      "url": "https://beta.bioimagearchive.org/search/v1/search/fts?facet.accession_id.eq=EMPIAR-10014&pagination.page_size=1",
+      "total": 1,
+      "release_date": "2014-09-17"
+    }
+  },
+  "image_results": {
+    "S-BIAD1410": {
+      "url": "https://beta.bioimagearchive.org/search/v1/search/fts/image?query=S-BIAD1410&pagination.page_size=25",
+      "total": 16,
+      "entries": [
+        {
+          "uuid": "03813b6b-98f9-457f-afdc-2a1af0c5c1b3",
+          "accession_id": "S-BIAD1410",
+          "study_release_date": "2024-10-30",
+          "original_file_reference_uuid": [
+            "1287dfe5-09bb-4cc5-a8f9-cc2be829d9b5"
+          ],
+          "representations": [
+            {
+              "uuid": "1d67ffc5-6bc3-4965-ab7a-74b271809827",
+              "object_creator": "bia_image_assignment",
+              "version": 1,
+              "image_format": ".tiff",
+              "file_uri": "https://www.ebi.ac.uk/biostudies/files/S-BIAD1410/wound_margin/wound_margin_train/wound_margin_20201115_e1/wound_margin_20201115_e1.tif",
+              "metadata_names": [
+                "file_pattern",
+                "uuid_unique_input"
+              ]
+            },
+            {
+              "uuid": "4335527a-5ba8-4488-a560-ecf5ad952663",
+              "object_creator": "bia_image_conversion",
+              "version": 1,
+              "image_format": ".ome.zarr",
+              "file_uri": "https://livingobjects.ebi.ac.uk/bioimaging-integrator-data/S-BIAD1410/bd4eb801-c0bb-4ce8-b1bf-cbc04d894d86/ca2f9aaa-fd54-4df8-9a08-6d931e579931.ome.zarr/0",
+              "metadata_names": [
+                "uuid_unique_input"
+              ]
+            }
+          ],
+          "creation_process_uuid": "fdb5e479-0011-4fbc-8f44-48cefc1bebfd"
+        },
+        {
+          "uuid": "0973618e-219f-4f87-a593-21acc3b46578",
+          "accession_id": "S-BIAD1410",
+          "study_release_date": "2024-10-30",
+          "original_file_reference_uuid": [
+            "273f68d9-bcd8-4303-a7cd-159b114b5112"
+          ],
+          "representations": [
+            {
+              "uuid": "e04e3a69-47d6-421c-bb2b-b177ad947e21",
+              "object_creator": "bia_image_assignment",
+              "version": 0,
+              "image_format": ".tiff",
+              "file_uri": "https://www.ebi.ac.uk/biostudies/files/S-BIAD1410/wound_margin/wound_margin_train/wound_margin_20200919_e1/wound_margin_20200919_e1.tif",
+              "metadata_names": [
+                "uuid_unique_input"
+              ]
+            },
+            {
+              "uuid": "6988b5c0-85fd-4ae5-9b0b-24ee6b4fef54",
+              "object_creator": "bia_image_conversion",
+              "version": 1,
+              "image_format": ".ome.zarr",
+              "file_uri": "https://livingobjects.ebi.ac.uk/bioimaging-integrator-data/S-BIAD1410/87630796-d05f-42c2-b3ab-618c9f21cd02/f49f9dce-53ec-4dfb-8e9a-e6bcb86571a9.ome.zarr/0",
+              "metadata_names": [
+                "attributes_from_bioformat2raw_conversion",
+                "uuid_unique_input"
+              ]
+            }
+          ],
+          "creation_process_uuid": "59b5fd50-2fd8-4957-b0dc-efc552e360ee"
+        },
+        {
+          "uuid": "2ae0329d-25f3-4cb7-9859-a11aaa6c4b1c",
+          "accession_id": "S-BIAD1410",
+          "study_release_date": "2024-10-30",
+          "original_file_reference_uuid": [
+            "5aa8169d-76e9-4eb9-9bdf-cd867ae6a714"
+          ],
+          "representations": [
+            {
+              "uuid": "9b45e22b-1add-4eb9-a86f-5fcba5fc56b5",
+              "object_creator": "bia_image_assignment",
+              "version": 0,
+              "image_format": ".tiff",
+              "file_uri": "https://www.ebi.ac.uk/biostudies/files/S-BIAD1410/wound_margin/wound_margin_test/wound_margin_20201111_e1/wound_margin_20201111_e1.tif",
+              "metadata_names": [
+                "uuid_unique_input"
+              ]
+            },
+            {
+              "uuid": "2a3cf1fd-0900-465a-8233-c7a9d953169b",
+              "object_creator": "bia_image_conversion",
+              "version": 2,
+              "image_format": ".ome.zarr",
+              "file_uri": "https://livingobjects.ebi.ac.uk/bioimaging-integrator-data/S-BIAD1410/2ae0329d-25f3-4cb7-9859-a11aaa6c4b1c/2a3cf1fd-0900-465a-8233-c7a9d953169b.ome.zarr/0",
+              "metadata_names": [
+                "uuid_unique_input"
+              ]
+            }
+          ],
+          "creation_process_uuid": "3dd5ef19-fa93-4df0-bf0b-2c02c85d562d"
+        },
+        {
+          "uuid": "2c43429c-f314-4734-bf52-d5e0950f1450",
+          "accession_id": "S-BIAD1410",
+          "study_release_date": "2024-10-30",
+          "original_file_reference_uuid": [
+            "cfe50399-9b3f-424b-aad3-76c172f975fe"
+          ],
+          "representations": [
+            {
+              "uuid": "7ecbb895-5838-421d-9ebc-9721c3991641",
+              "object_creator": "bia_image_assignment",
+              "version": 0,
+              "image_format": ".tiff",
+              "file_uri": "https://www.ebi.ac.uk/biostudies/files/S-BIAD1410/epidermal_cells/epidermal_cells_train/epidermal_cells_20240919_e2/epidermal_cells_20240919_e2.tif",
+              "metadata_names": [
+                "uuid_unique_input"
+              ]
+            },
+            {
+              "uuid": "4a326f5b-bbec-4d27-bcb7-72f900e58a15",
+              "object_creator": "bia_image_conversion",
+              "version": 2,
+              "image_format": ".ome.zarr",
+              "file_uri": "https://livingobjects.ebi.ac.uk/bioimaging-integrator-data/S-BIAD1410/2c43429c-f314-4734-bf52-d5e0950f1450/4a326f5b-bbec-4d27-bcb7-72f900e58a15.ome.zarr/0",
+              "metadata_names": [
+                "uuid_unique_input"
+              ]
+            }
+          ],
+          "creation_process_uuid": "bd71c5a9-84fc-4d97-ac4f-a496d20a2f97"
+        },
+        {
+          "uuid": "39f20e34-4ec5-41ef-845a-cc2a10c3d835",
+          "accession_id": "S-BIAD1410",
+          "study_release_date": "2024-10-30",
+          "original_file_reference_uuid": [
+            "079f12fc-4e95-42e0-a543-ea4dbd6f0411"
+          ],
+          "representations": [
+            {
+              "uuid": "acf3ea33-1377-4731-b203-158523c301ab",
+              "object_creator": "bia_image_assignment",
+              "version": 0,
+              "image_format": ".tiff",
+              "file_uri": "https://www.ebi.ac.uk/biostudies/files/S-BIAD1410/cardioblast_nuclei/cardioblast_nuclei_train/cardioblast_nuclei_20220826_e2/cardioblast_nuclei_20220826_e2.tif",
+              "metadata_names": [
+                "uuid_unique_input"
+              ]
+            },
+            {
+              "uuid": "29614df9-fbc2-4726-9625-c826ebf57e4f",
+              "object_creator": "bia_image_conversion",
+              "version": 1,
+              "image_format": ".ome.zarr",
+              "file_uri": "https://livingobjects.ebi.ac.uk/bioimaging-integrator-data/S-BIAD1410/39f20e34-4ec5-41ef-845a-cc2a10c3d835/29614df9-fbc2-4726-9625-c826ebf57e4f.ome.zarr/0",
+              "metadata_names": [
+                "uuid_unique_input"
+              ]
+            }
+          ],
+          "creation_process_uuid": "e87b67f0-0770-4f82-907a-feeb546d7363"
+        },
+        {
+          "uuid": "4157cc98-c206-4f7d-982e-467853c84ad7",
+          "accession_id": "S-BIAD1410",
+          "study_release_date": "2024-10-30",
+          "original_file_reference_uuid": [
+            "ec8c06b2-aecd-4d26-8684-bac1b72f0285"
+          ],
+          "representations": [
+            {
+              "uuid": "401fae1b-320b-4902-b1df-5629f53b5408",
+              "object_creator": "bia_image_assignment",
+              "version": 0,
+              "image_format": ".tiff",
+              "file_uri": "https://www.ebi.ac.uk/biostudies/files/S-BIAD1410/cardioblast_nuclei/cardioblast_nuclei_train/cardioblast_nuclei_20220826_e2/cardioblast_nuclei_20220826_e2_mask.tif",
+              "metadata_names": [
+                "uuid_unique_input"
+              ]
+            },
+            {
+              "uuid": "e5c472d6-352c-4544-adfc-5fd508a44c1c",
+              "object_creator": "bia_image_conversion",
+              "version": 1,
+              "image_format": ".ome.zarr",
+              "file_uri": "https://livingobjects.ebi.ac.uk/bioimaging-integrator-data/S-BIAD1410/4157cc98-c206-4f7d-982e-467853c84ad7/e5c472d6-352c-4544-adfc-5fd508a44c1c.ome.zarr/0",
+              "metadata_names": [
+                "uuid_unique_input"
+              ]
+            }
+          ],
+          "creation_process_uuid": "eb60ec65-95d8-401b-b03b-c5e05f723cff"
+        },
+        {
+          "uuid": "464d0759-7720-481a-8786-feaed22a08be",
+          "accession_id": "S-BIAD1410",
+          "study_release_date": "2024-10-30",
+          "original_file_reference_uuid": [
+            "2276150b-db67-4bc2-ac5f-1dac6aa2623d"
+          ],
+          "representations": [
+            {
+              "uuid": "f6d22ce2-8ccd-4c1f-869a-34a54252ca5f",
+              "object_creator": "bia_image_assignment",
+              "version": 0,
+              "image_format": ".tiff",
+              "file_uri": "https://www.ebi.ac.uk/biostudies/files/S-BIAD1410/wound_margin/wound_margin_train/wound_margin_20190424_e3/wound_margin_20190424_e3.tif",
+              "metadata_names": [
+                "uuid_unique_input"
+              ]
+            },
+            {
+              "uuid": "33a1fb92-5a7a-4650-bd10-266f411ea05d",
+              "object_creator": "bia_image_conversion",
+              "version": 2,
+              "image_format": ".ome.zarr",
+              "file_uri": "https://livingobjects.ebi.ac.uk/bioimaging-integrator-data/S-BIAD1410/464d0759-7720-481a-8786-feaed22a08be/33a1fb92-5a7a-4650-bd10-266f411ea05d.ome.zarr/0",
+              "metadata_names": [
+                "uuid_unique_input"
+              ]
+            }
+          ],
+          "creation_process_uuid": "28dd4145-2062-432f-8726-22b3c17b15ee"
+        },
+        {
+          "uuid": "55df63e7-4a8c-470e-9fea-e9851e5d54dc",
+          "accession_id": "S-BIAD1410",
+          "study_release_date": "2024-10-30",
+          "original_file_reference_uuid": [
+            "71e2e132-66d6-4cd9-ab64-f4e7b7ad9388"
+          ],
+          "representations": [
+            {
+              "uuid": "78a71f28-fa40-4d12-b032-27f04930d587",
+              "object_creator": "bia_image_assignment",
+              "version": 1,
+              "image_format": ".tiff",
+              "file_uri": "https://www.ebi.ac.uk/biostudies/files/S-BIAD1410/wound_margin/wound_margin_train/wound_margin_20211117_e3/wound_margin_20211117_e3.tif",
+              "metadata_names": [
+                "file_pattern",
+                "uuid_unique_input"
+              ]
+            },
+            {
+              "uuid": "553fbad1-9d45-4638-b16c-ae9c0b90b731",
+              "object_creator": "bia_image_conversion",
+              "version": 1,
+              "image_format": ".ome.zarr",
+              "file_uri": "https://livingobjects.ebi.ac.uk/bioimaging-integrator-data/S-BIAD1410/a7155cd6-0f39-4190-b5ea-f145b465aeda/4bfa1641-1c35-4f99-bc47-0e1b5ac3bf0c.ome.zarr/0",
+              "metadata_names": [
+                "attributes_from_bioformat2raw_conversion",
+                "uuid_unique_input"
+              ]
+            }
+          ],
+          "creation_process_uuid": "8010543f-8869-4db8-8b7a-feff9df57cc2"
+        },
+        {
+          "uuid": "6237080c-4fc5-48ba-9cd6-7be4e267fb49",
+          "accession_id": "S-BIAD1410",
+          "study_release_date": "2024-10-30",
+          "original_file_reference_uuid": [
+            "604d0f0d-132e-4b28-8a79-ab9933d41303"
+          ],
+          "representations": [
+            {
+              "uuid": "bc8fd356-9252-49ba-a6cc-974c422ef703",
+              "object_creator": "bia_image_assignment",
+              "version": 0,
+              "image_format": ".tiff",
+              "file_uri": "https://www.ebi.ac.uk/biostudies/files/S-BIAD1410/wound_margin/wound_margin_train/wound_margin_20190424_e3/wound_margin_20190424_e3_mask.tif",
+              "metadata_names": [
+                "uuid_unique_input"
+              ]
+            },
+            {
+              "uuid": "778d7991-cd74-4c0b-b144-b353b231bcbe",
+              "object_creator": "bia_image_conversion",
+              "version": 1,
+              "image_format": ".ome.zarr",
+              "file_uri": "https://livingobjects.ebi.ac.uk/bioimaging-integrator-data/S-BIAD1410/6237080c-4fc5-48ba-9cd6-7be4e267fb49/778d7991-cd74-4c0b-b144-b353b231bcbe.ome.zarr/0",
+              "metadata_names": [
+                "uuid_unique_input"
+              ]
+            }
+          ],
+          "creation_process_uuid": "ca04ac5e-29a0-4c80-b6e2-694e8f0b1387"
+        },
+        {
+          "uuid": "863bf0a9-02eb-4294-bbbb-c9263eaff570",
+          "accession_id": "S-BIAD1410",
+          "study_release_date": "2024-10-30",
+          "original_file_reference_uuid": [
+            "a1e0430f-334a-4b5b-b471-b63ae8104ed5"
+          ],
+          "representations": [
+            {
+              "uuid": "5c6ce4b7-af81-43f9-b710-0ca4a1ef07a5",
+              "object_creator": "bia_image_assignment",
+              "version": 0,
+              "image_format": ".tiff",
+              "file_uri": "https://www.ebi.ac.uk/biostudies/files/S-BIAD1410/wound_margin/wound_margin_train/wound_margin_20191023_e3/wound_margin_20191023_e3_mask.tif",
+              "metadata_names": [
+                "uuid_unique_input"
+              ]
+            },
+            {
+              "uuid": "3ec389a1-a889-4ce5-9124-bd98c9b2f574",
+              "object_creator": "bia_image_conversion",
+              "version": 1,
+              "image_format": ".ome.zarr",
+              "file_uri": "https://livingobjects.ebi.ac.uk/bioimaging-integrator-data/S-BIAD1410/863bf0a9-02eb-4294-bbbb-c9263eaff570/3ec389a1-a889-4ce5-9124-bd98c9b2f574.ome.zarr/0",
+              "metadata_names": [
+                "uuid_unique_input"
+              ]
+            }
+          ],
+          "creation_process_uuid": "65d5aa59-584f-4a4b-ba18-3d1e4ba05b39"
+        },
+        {
+          "uuid": "8b17a724-0c47-43bf-ab0c-321f0d7b6231",
+          "accession_id": "S-BIAD1410",
+          "study_release_date": "2024-10-30",
+          "original_file_reference_uuid": [
+            "02e78c1b-fae5-4fbe-990e-a0f87afbb89d"
+          ],
+          "representations": [
+            {
+              "uuid": "411ad1f0-d10d-449a-b89c-ca2d61ef52cc",
+              "object_creator": "bia_image_assignment",
+              "version": 0,
+              "image_format": ".tiff",
+              "file_uri": "https://www.ebi.ac.uk/biostudies/files/S-BIAD1410/epidermal_cells/epidermal_cells_train/epidermal_cells_20240919_e2/epidermal_cells_20240919_e2_mask.tif",
+              "metadata_names": [
+                "uuid_unique_input"
+              ]
+            },
+            {
+              "uuid": "7fd1690a-8c65-4ec2-9744-aa6fda54a47b",
+              "object_creator": "bia_image_conversion",
+              "version": 1,
+              "image_format": ".ome.zarr",
+              "file_uri": "https://livingobjects.ebi.ac.uk/bioimaging-integrator-data/S-BIAD1410/8b17a724-0c47-43bf-ab0c-321f0d7b6231/7fd1690a-8c65-4ec2-9744-aa6fda54a47b.ome.zarr/0",
+              "metadata_names": [
+                "uuid_unique_input"
+              ]
+            }
+          ],
+          "creation_process_uuid": "e45796a3-1494-4de8-91ee-558655eda2f7"
+        },
+        {
+          "uuid": "8bc0758a-3fdc-4a03-8533-aae8d1271d63",
+          "accession_id": "S-BIAD1410",
+          "study_release_date": "2024-10-30",
+          "original_file_reference_uuid": [
+            "3fa83cca-e08e-40f5-880c-fc1565c1eda4"
+          ],
+          "representations": [
+            {
+              "uuid": "895cb423-5d14-4009-a522-008a8beb2fb0",
+              "object_creator": "bia_image_assignment",
+              "version": 1,
+              "image_format": ".tiff",
+              "file_uri": "https://www.ebi.ac.uk/biostudies/files/S-BIAD1410/cardioblast_nuclei/cardioblast_nuclei_test/cardioblast_nuclei_20200121_e3/cardioblast_nuclei_20200121_e3.tif",
+              "metadata_names": [
+                "file_pattern",
+                "uuid_unique_input"
+              ]
+            },
+            {
+              "uuid": "e69e498f-0618-44ac-a5bf-806ad40093b6",
+              "object_creator": "bia_image_conversion",
+              "version": 1,
+              "image_format": ".ome.zarr",
+              "file_uri": "https://livingobjects.ebi.ac.uk/bioimaging-integrator-data/S-BIAD1410/f1605694-7e5d-48b7-b2bb-0b5a45380e5e/b5f33154-03fc-422d-aac9-3f73374db0ea.ome.zarr/0",
+              "metadata_names": [
+                "uuid_unique_input"
+              ]
+            }
+          ],
+          "creation_process_uuid": "6be99b40-936e-4465-9918-6dbd88ac2cf9"
+        },
+        {
+          "uuid": "d5fbd10b-ef43-4b71-97bb-74614224afd9",
+          "accession_id": "S-BIAD1410",
+          "study_release_date": "2024-10-30",
+          "original_file_reference_uuid": [
+            "bbde1a67-fd24-416f-a8e3-af662741ad23"
+          ],
+          "representations": [
+            {
+              "uuid": "5aa0ac3c-a827-42d6-a2ae-7d5f04911be7",
+              "object_creator": "bia_image_assignment",
+              "version": 1,
+              "image_format": ".tiff",
+              "file_uri": "https://www.ebi.ac.uk/biostudies/files/S-BIAD1410/wound_margin/wound_margin_train/wound_margin_20200921_e4/wound_margin_20200921_e4.tif",
+              "metadata_names": [
+                "file_pattern",
+                "uuid_unique_input"
+              ]
+            },
+            {
+              "uuid": "23ce564d-bfb7-4506-aa38-673875a78905",
+              "object_creator": "bia_image_conversion",
+              "version": 1,
+              "image_format": ".ome.zarr",
+              "file_uri": "https://livingobjects.ebi.ac.uk/bioimaging-integrator-data/S-BIAD1410/3b023113-4511-4a70-91c3-02455af7bfb1/9f21e520-4683-4997-889d-dfb362488639.ome.zarr/0",
+              "metadata_names": [
+                "uuid_unique_input"
+              ]
+            }
+          ],
+          "creation_process_uuid": "133fc0c5-fe49-4e3c-a95e-83024870a489"
+        },
+        {
+          "uuid": "e4cdc2fb-0ce3-4334-87eb-90195449643a",
+          "accession_id": "S-BIAD1410",
+          "study_release_date": "2024-10-30",
+          "original_file_reference_uuid": [
+            "fcbeb187-f43a-4926-ab9d-476db360680d"
+          ],
+          "representations": [
+            {
+              "uuid": "d8314b58-8937-4959-889d-cbfe28dce53c",
+              "object_creator": "bia_image_assignment",
+              "version": 0,
+              "image_format": ".tiff",
+              "file_uri": "https://www.ebi.ac.uk/biostudies/files/S-BIAD1410/wound_margin/wound_margin_test/wound_margin_20201111_e1/wound_margin_20201111_e1_mask.tif",
+              "metadata_names": [
+                "uuid_unique_input"
+              ]
+            },
+            {
+              "uuid": "b32abf5e-0641-46f1-b2df-78de2de8d673",
+              "object_creator": "bia_image_conversion",
+              "version": 2,
+              "image_format": ".ome.zarr",
+              "file_uri": "https://livingobjects.ebi.ac.uk/bioimaging-integrator-data/S-BIAD1410/e4cdc2fb-0ce3-4334-87eb-90195449643a/b32abf5e-0641-46f1-b2df-78de2de8d673.ome.zarr/0",
+              "metadata_names": [
+                "uuid_unique_input"
+              ]
+            }
+          ],
+          "creation_process_uuid": "63d9d5ae-f4d4-4cd3-bf69-0d650f87d87e"
+        },
+        {
+          "uuid": "f88f286c-b514-4a83-a0d0-04f8caa51431",
+          "accession_id": "S-BIAD1410",
+          "study_release_date": "2024-10-30",
+          "original_file_reference_uuid": [
+            "24ebb2d8-7b1f-46f9-8a16-f3e72e8079ce"
+          ],
+          "representations": [
+            {
+              "uuid": "28e0085c-22b0-437b-b888-b29b29144ad6",
+              "object_creator": "bia_image_assignment",
+              "version": 0,
+              "image_format": ".tiff",
+              "file_uri": "https://www.ebi.ac.uk/biostudies/files/S-BIAD1410/wound_margin/wound_margin_train/wound_margin_20191023_e3/wound_margin_20191023_e3.tif",
+              "metadata_names": [
+                "uuid_unique_input"
+              ]
+            },
+            {
+              "uuid": "f37214fc-8f71-4a48-86d6-bb064b9f1423",
+              "object_creator": "bia_image_conversion",
+              "version": 1,
+              "image_format": ".ome.zarr",
+              "file_uri": "https://livingobjects.ebi.ac.uk/bioimaging-integrator-data/S-BIAD1410/f88f286c-b514-4a83-a0d0-04f8caa51431/f37214fc-8f71-4a48-86d6-bb064b9f1423.ome.zarr/0",
+              "metadata_names": [
+                "uuid_unique_input"
+              ]
+            }
+          ],
+          "creation_process_uuid": "2f507c8f-58c8-4242-ac3f-226dfcf787b8"
+        },
+        {
+          "uuid": "fb4b2aad-191a-4085-9b3d-8e912aa34a33",
+          "accession_id": "S-BIAD1410",
+          "study_release_date": "2024-10-30",
+          "original_file_reference_uuid": [
+            "ac454b2b-ff28-4276-be1c-7ace3dc7090b"
+          ],
+          "representations": [
+            {
+              "uuid": "62d3799b-48bb-4c58-906d-110177ec6d0a",
+              "object_creator": "bia_image_assignment",
+              "version": 1,
+              "image_format": ".tiff",
+              "file_uri": "https://www.ebi.ac.uk/biostudies/files/S-BIAD1410/cardioblast_nuclei/cardioblast_nuclei_train/cardioblast_nuclei_20220828_e1/cardioblast_nuclei_20220828_e1.tif",
+              "metadata_names": [
+                "file_pattern",
+                "uuid_unique_input"
+              ]
+            },
+            {
+              "uuid": "839ab29c-e835-4519-ac3e-9f807ef393ee",
+              "object_creator": "bia_image_conversion",
+              "version": 1,
+              "image_format": ".ome.zarr",
+              "file_uri": "https://livingobjects.ebi.ac.uk/bioimaging-integrator-data/S-BIAD1410/4e7cdbb6-5cbf-4d27-8c42-39c43a920155/d39cdfae-b11d-4699-b017-92d750f5338f.ome.zarr/0",
+              "metadata_names": [
+                "uuid_unique_input"
+              ]
+            }
+          ],
+          "creation_process_uuid": "8958a139-dac3-48d0-893a-f42509f47116"
+        }
+      ]
+    },
+    "S-BIAD570": {
+      "url": "https://beta.bioimagearchive.org/search/v1/search/fts/image?query=S-BIAD570&pagination.page_size=1",
+      "total": 0,
+      "entries": []
+    },
+    "S-BIAD1": {
+      "url": "https://beta.bioimagearchive.org/search/v1/search/fts/image?query=S-BIAD1&pagination.page_size=1",
+      "total": 0,
+      "entries": []
+    },
+    "EMPIAR-10014": {
+      "url": "https://beta.bioimagearchive.org/search/v1/search/fts/image?query=EMPIAR-10014&pagination.page_size=1",
+      "total": 0,
+      "entries": []
+    }
+  },
+  "caveats": [
+    "Only image-level results searchable in the new API; the public paper says conversion conditions search visibility.",
+    "0 image hits does not imply the original study contains no images or no access elsewhere.",
+    "Study release_date is NOT the timestamp of OME-Zarr conversion.",
+    "Representation version is a model/data revision number, NOT an adoption date.",
+    "Image records are not independent labs, scientific H0/H1 tests or converter treatment assignments.",
+    "No sampled raw image bytes were downloaded or scientifically validated."
+  ]
+}
