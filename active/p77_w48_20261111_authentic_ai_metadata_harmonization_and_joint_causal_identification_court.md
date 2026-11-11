@@ -1,5 +1,8 @@
 # EPISTEME-P77 W48 — Authentic AI Harmonization Evidence and the Three-Level Identification Gap
 
+> **2026-11-11 W49 SOURCE-ARRIVAL CORRIGENDUM (preserve W48's historical first-pass judgment):** All four primary PDF objects previously marked *candidate missing* are now present in the user's actual Google Drive and read in W49. Long, Ostropolets, and Sundaram journal papers were normalized/moved (same IDs and byte sizes) to 10_PAPERS; Sheridan, Schneider & Klein's PNNL-38797 is dated **December 2025** on its primary-source cover (NOT a 2026 report) and was moved to 20_NON_PAPER_SOURCES. Their companion supplements/reproducibility data remain separately unverified. Authoritative updated read and exact source IDs: [P77 W49](p77_w49_20261111_four_original_pdf_intake_and_harmonization_evidence_court.md). Existing W48 candidate-missing bullets below represent the state *before* these arrivals and are **superseded for main PDFs**. No new Z→A→T identification or P78/PAPER promotion.
+
+
 **Date:** 2026-11-11 KST. **Scope:** source-based bounded candidate screening, *not* a new intervention or a fitted causal analysis. **Binding:** [P77 strategy](../STRATEGY_P77_CURRENT.md), [W15 preregistration-design-only](p77_w15_20261105_matched_rival_observability_protocol.md), [W46](p77_w46_20261111_original_economic_rival_matched_equilibrium_court.md), [W47](p77_w47_20261111_statistical_discriminability_dpi_and_raw_access_negative_control.md). **P77 ACTIVE / P78 HOLD / PAPER HOLD / novelty NOT CERTIFIED.**
 
 ## 1. Question and pre-specified observable gates
