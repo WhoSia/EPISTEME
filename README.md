@@ -12,6 +12,10 @@ EPISTEME is **not closed**, but no new independent scientific mechanism is certi
 
 > Founding question (September 18, 2026): Can AI-assisted translation and entrenched scientific or technical infrastructures change whether an improved alternative standard can be adopted and *tested*? The broad claim is already strongly anticipated by standard economics, history/philosophy of science, archival science and measurement studies; we do not claim it as a discovery.
 
+## P77 W48 — Authentic AI Harmonization vs Joint Causal Identification (2026-11-11)
+
+[W48 original-source candidate audit](active/p77_w48_20261111_authentic_ai_metadata_harmonization_and_joint_causal_identification_court.md) and [current research verdict](RESEARCH_STATUS.md): Long et al. (2026) reports real GPT-4-assisted biomedical metadata standardization on 31 datasets, whereas a distinct JMIR 2026 investigation reports terminology heterogeneity across 144 institutions. **Not a linked cohort or causal chain:** neither a matched non-AI intervention plus time-series community-standard choice nor independently adjudicated scientific hypothesis-test change was verified. Existing BIA bioformats2raw remains non-AI counterexample; Paper2Agent original PDF already held. P77 ACTIVE / P78 HOLD / PAPER HOLD / independent novelty NOT CERTIFIED. The missing-original queue excludes held papers and is pending DOI-specific source checks.
+
 ## Title, lineage and authority
 
 The P77 title above is the user's **confirmed official generation name**, not a manuscript title or a certified novel scientific theory. The earlier provisional title, *Research-Program Reconstitution, Empirical Asset Recovery, Prior-Art Saturation & Scientific Problem Selection*, remains in the dated November 2 W1 record as historical provenance. The original Lab title, *EPISTEME — Epistemic Path-dependence, Infrastructure, Standards, Translation, Evolution, Migration & Entrenchment*, is a separate founding identity and has not been retroactively renamed.
