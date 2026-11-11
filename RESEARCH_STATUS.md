@@ -1,5 +1,10 @@
 # EPISTEME-P77 — Research Identity Adjudication: Historical Testability, Philosophical Reconstitution & Terminal Review
 
+## 2026-11-11 — P77 W48 authentic AI harmonization and linked Z/A/T identification screening
+
+[W48 source-backed candidate and rival court](active/p77_w48_20261111_authentic_ai_metadata_harmonization_and_joint_causal_identification_court.md). Genuine AI harmonization now found in Long et al. (2026): 31 metadata datasets, reported expert-reviewed fields and ADNI/GP2 header mapping. Separate JMIR 2026 study: 144 institutions and heterogeneous terminology use across 60 sources. **These are distinct populations, treatment definitions, denominators and dates: aggregating them cannot identify AI conversion → community standards choice → independent scientific H0/H1 test admissibility.** BIA remains deterministic non-AI benchmark; held Paper2Agent provides a strong existing scientific-agent replication competitor, not a missing paper. Candidate primary source PDFs require Drive DOI-level custody confirmation. No intervention executed, raw dataset downloaded, causal effect estimated or new independent mechanism certified. **P77 ACTIVE / P78 HOLD / PAPER HOLD.**
+
+
 ## 2026-11-11 — P77 W46–W47 original standard-economics rivals and actual epistemic discriminability negative controls
 
 [W46 original literature and equal-parameter economic equilibrium rival court](active/p77_w46_20261111_original_economic_rival_matched_equilibrium_court.md), [W46 source](analysis/p77_w46_matched_rival_equilibrium_and_scm_identification.py), [W47 hypothesis discrimination bound and preserved-raw-path court](active/p77_w47_20261111_statistical_discriminability_dpi_and_raw_access_negative_control.md), [W47 source](analysis/p77_w47_discriminability_and_preserved_alternative_control.py).
