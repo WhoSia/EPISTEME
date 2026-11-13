@@ -12,6 +12,10 @@ EPISTEME is **not closed**, but no new independent scientific mechanism is certi
 
 > Founding question (September 18, 2026): Can AI-assisted translation and entrenched scientific or technical infrastructures change whether an improved alternative standard can be adopted and *tested*? The broad claim is already strongly anticipated by standard economics, history/philosophy of science, archival science and measurement studies; we do not claim it as a discovery.
 
+## P77 W51 — Cellosaurus Accession Replay and Comparator Source Study (2026-11-13)
+
+[W51 record](active/p77_w51_20261113_cellosaurus_accession_replay_and_code_study.md) · [source and results in Drive](https://drive.google.com/drive/folders/1NucHNWKsfY2ZJyDTnQgpaofqnj36suA4) · [Notion ledger](https://app.notion.com/p/417ef561cf92818299d5e9fb8f62190b). On 600 shared BioSample IDs the archived LLM-assisted output matches 559 reference outputs, direct MetaSRA 495. Published MetaSRA precision does not reproduce from the archive. The MetaSRA 206/422 JSONs overlap fully on the 206 input attributes and differ on inferred annotations. **P77 ACTIVE / P78 HOLD / PAPER HOLD.**
+
 ## P77 W50 — Published Workbook Reanalysis and Matched Non-LLM Control (2026-11-13)
 
 [W50 audit](active/p77_w50_20261113_author_workbook_reanalysis_and_matched_non_llm_control.md) · [Python recalculation](analysis/p77_w50_recheck.py) · [official Notion record](https://app.notion.com/p/417ef561cf928118b5e9fcfee6e8b166). Author workbook v3 supports the BioSample RM-ANOVA statistic and both Friedman statistics. GEO workbook RM-ANOVA differs from the published table. The 36 recall cells match three cancer strata × two query types, leaving the reported disjointness and model identity unresolved. Long's ADSXLIST source codebook gives a concrete deterministic baseline; MetaSRA is the relevant non-LLM retrieval comparator. **P77 ACTIVE / P78 HOLD / PAPER HOLD.**
