@@ -1,5 +1,9 @@
 # EPISTEME-P77 — Research Identity Adjudication: Historical Testability, Philosophical Reconstitution & Terminal Review
 
+## 2026-11-13 — P77 W50 author-workbook reanalysis and matched non-LLM comparison
+
+[W50 findings](active/p77_w50_20261113_author_workbook_reanalysis_and_matched_non_llm_control.md) · [executed recalculation](analysis/p77_w50_recheck.py) · [Notion record](https://app.notion.com/p/417ef561cf928118b5e9fcfee6e8b166). Zenodo v3 adds the worksheet missing in cited v1. Public workbook rows match three cancer strata × two tissue queries, not a verified set of six disjoint per-repository samples. BioSample RM-ANOVA and both Friedman statistics were computationally recovered. GEO RM-ANOVA gives F(2,10)=2.74025, p=.11248 from the worksheet; printed F≈1.08 and p=.439 are mutually incompatible at that df. GEO model label is ambiguous in the workbook. Long and JMIR supplements were read in rendered form; actual source bytes and record-level accession replay remain pending. MetaSRA (tissue) and deterministic versioned source dictionaries (ADNI) provide strong comparators. **P77 ACTIVE / P78 HOLD / PAPER HOLD / independent novelty uncertified.**
+
 ## 2026-11-11 — P77 W49 four newly held primary PDFs, provenance-preserving intake and domain-limited negative controls
 
 [W49 full original-PDF read and custody court](active/p77_w49_20261111_four_original_pdf_intake_and_harmonization_evidence_court.md). Four actual PDFs newly arrived in 00_INTAKE: Long (2026), Ostropolets (2026), Sundaram/Gonçalves/Musen (2026) and Sheridan/Schneider/Klein (**December 2025**, report). Original Drive IDs preserved; scholarly papers normalized into central 10_PAPERS and technical report into 20_NON_PAPER_SOURCES; names/parents/byte sizes re-read, no raw byte rewrite or new independent SHA checks. Removed those four **main source objects** from missing queue, but companions/data remain unverified.
