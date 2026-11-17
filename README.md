@@ -12,6 +12,10 @@ EPISTEME is **not closed**, but no new independent scientific mechanism is certi
 
 > Founding question (September 18, 2026): Can AI-assisted translation and entrenched scientific or technical infrastructures change whether an improved alternative standard can be adopted and *tested*? The broad claim is already strongly anticipated by standard economics, history/philosophy of science, archival science and measurement studies; we do not claim it as a discovery.
 
+## P77 Director Decision — One Empirical Case Before Further Benchmarking (2026-11-17)
+
+[Decision](active/p77_20261117_director_decision_case_selection.md) · [Notion record](https://app.notion.com/p/41bef561cf9281f9a72be3e0e526306f). Shift the main line from metadata scores to a bounded BioImage Archive source/converted-route and actual-test feasibility case. Preserve W49–W51 replays. FAIRkit remains an AI-specific evidence probe. **P77 ACTIVE / P78 HOLD / PAPER HOLD.**
+
 ## P77 W51 — Cellosaurus Accession Replay and Comparator Source Study (2026-11-13)
 
 [W51 record](active/p77_w51_20261113_cellosaurus_accession_replay_and_code_study.md) · [source and results in Drive](https://drive.google.com/drive/folders/1NucHNWKsfY2ZJyDTnQgpaofqnj36suA4) · [Notion ledger](https://app.notion.com/p/417ef561cf92818299d5e9fb8f62190b). On 600 shared BioSample IDs the archived LLM-assisted output matches 559 reference outputs, direct MetaSRA 495. Published MetaSRA precision does not reproduce from the archive. The MetaSRA 206/422 JSONs overlap fully on the 206 input attributes and differ on inferred annotations. **P77 ACTIVE / P78 HOLD / PAPER HOLD.**
