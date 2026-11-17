@@ -1,5 +1,9 @@
 # EPISTEME-P77 — Research Identity Adjudication: Historical Testability, Philosophical Reconstitution & Terminal Review
 
+## 2026-11-17 — P77 director decision: one empirical feasibility probe
+
+[Decision](active/p77_20261117_director_decision_case_selection.md) · [Notion record](https://app.notion.com/p/41bef561cf9281f9a72be3e0e526306f). Pause expansion of metadata benchmarks as the main line. Allocate up to two scoped sessions to an empirical-access case on the BioImage Archive OME-Zarr transition. Restrict the comparison to one figure/test and distinguish deposition completeness, eligibility for image-level search, effective access to the retained source path, and actual scientific reanalysis. S-BIAD602 is an independent reproducibility audit, with no established causal link to conversion policy. FAIRkit is a separate, limited query for identifiable AI deployment, observed standard choice and a real downstream test. Reassess continuation on evidence of the original endpoint. **P77 ACTIVE / P78 HOLD / PAPER HOLD.**
+
 ## 2026-11-13 — P77 W51 accession-level replay and comparator source study
 
 [W51 record](active/p77_w51_20261113_cellosaurus_accession_replay_and_code_study.md) · [Python replay](analysis/p77_w51_replay_cellosaurus.py) · [Notion](https://app.notion.com/p/417ef561cf92818299d5e9fb8f62190b). Four Ikeda Zenodo files match published MD5s, and two MetaSRA annotation JSONs match Git blob hashes. All six were archived in Drive with one derived replay receipt. Archived outputs match 495/600 and 559/600 exact IDs/blanks for direct MetaSRA and LLM-assisted. Direct MetaSRA Table 4 precision differs from archived output (.903 versus .867); the study manifest is needed. The 206-row MetaSRA source is contained by input attributes in the 422-row source and differs in inferred terms for 62 shared inputs. This is a comparator-code and saved-output study. **P77 ACTIVE / P78 HOLD / PAPER HOLD / independent novelty uncertified.**
