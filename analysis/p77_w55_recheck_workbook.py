@@ -53,17 +53,17 @@ def audit(path):
     findings = []
     for repository, specification in SHEETS.items():
         detailed = workbook[specification["detail"]]
-        for metric, columns in (
-            ("recall", (1, 2, 3)),
-            ("precision", (0, 1, 2)),
-            ("f1", (2, 3, 4)),
+        for metric, source_offset in (
+            ("recall", 1),
+            ("precision", 0),
+            ("f1", 2),
         ):
             summary_cols = specification[metric]
             for method in range(3):
                 # Each cancer block has three method rows. Organ and blood
                 # queries occupy different metric triplets in the detail sheet.
                 source_values = [
-                    detailed.cell(row + method, SOURCE_COLUMNS[index][0] + columns[0]).value
+                    detailed.cell(row + method, SOURCE_COLUMNS[index][0] + source_offset).value
                     for index, row in enumerate(SOURCE_ROWS)
                 ]
                 # Overview precision starts on row 3; recall/F1 on row 4.
