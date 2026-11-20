@@ -1,5 +1,10 @@
 # EPISTEME-P77 — Research Identity Adjudication: Historical Testability, Philosophical Reconstitution & Terminal Review
 
+## P77 W56 — Original 2021 NGFF and 2019 metadata-quality rival papers admitted (2026-11-21)
+
+The [two actual newly held original publisher PDFs](active/p77_w56_20261121_ome_ngff_metadata_quality_two_original_prior_art_court.md) are now in [EPISTEME Drive W56](https://drive.google.com/drive/folders/1_yyXry-6POaKxLSctaAfliBGrR2tPIKb). Moore et al. 2021 (OME-NGFF, DOI 10.1038/s41592-021-01326-w) and Gonçalves & Musen 2019 (BioSample/BioSamples field-value quality, DOI 10.1038/sdata.2019.21) provide authentic non-AI access-format and metadata-semantic prior art, respectively. Their published measurements concern technical latency and 2017 metadata, not a longitudinal AI→community adoption→scientific testability chain. [Current missing source register: **21 evidence lines**](active/p77_w56_20261121_missing_source_register_21.md) and [W56 director's stop/reopen criteria](active/p77_w56_20261121_director_decision_after_original_rival_court.md). [Notion updated](https://app.notion.com/p/41eef561cf92813caa0de210e2c49385). Preserve W55 as historical 23-line state; the active 21-line list supersedes it. **P77 REVIEW ACTIVE, independent BIA causal line PAUSED, P78/PAPER HOLD.**
+
+
 > **CURRENT DIRECTOR MANDATE · 2026-11-05:** [STRATEGY_P77_CURRENT.md](STRATEGY_P77_CURRENT.md) — EPISTEME remains active in P77. Restore the original TLP/AI translation and standards question; downshift LEP case expansion; undertake a bounded, adversarial **up-to-12-week** theoretical/historical reconstruction. **Goal: test for an independent fundamental explanation, not produce a paper or promise innovation.** Keep rival defeats, negative evidence and archival provenance. **P78 / PAPER HOLD.** [Official Notion decision](https://app.notion.com/p/40eef561cf9281bd9b7be9700af4ab53).
 
 **Official P77 title (confirmed 2026-11-04):** EPISTEME-P77 — Research Identity Adjudication: Historical Testability, Philosophical Reconstitution & Terminal Review.
