@@ -1,6 +1,8 @@
 # EPISTEME-P77 — RESEARCH-DIRECTOR STRATEGY (CURRENT BINDING)
 
-> **2026-11-05 · TOP PRIORITY:** Keep EPISTEME active in P77, downgrade LEP case accumulation to a comparative asset, and dedicate a *bounded 12-week research residency* to the founding AI-translation / scientific-standards question. The aim is a demonstrable foundational explanatory residual, not another paper. **Novelty is unproven; time alone does not guarantee innovation.**
+> **2026-11-21 · CURRENT ALLOCATION:** [The W53 two-probe review](active/p77_w53_20261121_director_decision.md) pauses the independent empirical case line and preserves the material for Research OS reuse. EPISTEME remains open, with P78 and PAPER on hold. The evidence required for reopening is recorded in the W53 decision.
+
+> **2026-11-05 · ORIGINAL RESIDENCY ALLOCATION:** Keep EPISTEME active in P77, downgrade LEP case accumulation to a comparative asset, and dedicate a *bounded 12-week research residency* to the founding AI-translation / scientific-standards question. The aim is a demonstrable foundational explanatory residual, not another paper. **Novelty is unproven; time alone does not guarantee innovation.**
 >
 > **P78 HOLD · PAPER HOLD · NO AUTOMATIC LAB CLOSURE.**
 
