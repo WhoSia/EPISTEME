@@ -2,7 +2,9 @@
 
 **Current total: 21 ledger lines**; separate *original PDFs absent from Drive* from *specific historical run/manifests unlocated* and *public but not archived*. This supersedes the W55 **active** count of 23; W55's historical 23 is preserved as the state at that date. [Canonical Notion register](https://app.notion.com/p/41eef561cf92813caa0de210e2c49385).
 
-**Newly resolved 2026-11-21:** B02 Moore et al. (2021) exact original DOI 10.1038/s41592-021-01326-w, Drive ID `1UoZL8vX1AtcZ55TfKLJHYxZKC_BM8Uvf`; B09 Gonçalves & Musen (2019) DOI 10.1038/sdata.2019.21, Drive ID `1bc3Lw6qJacO6Zgf5hNlWkoNYwhOsk0sH`. Original PDFs, not mere available online pages, confirmed in Research OS 00 and canonicalized into [EPISTEME W56](https://drive.google.com/drive/folders/1_yyXry-6POaKxLSctaAfliBGrR2tPIKb). [W56 original full-text verdict](p77_w56_20261121_ome_ngff_metadata_quality_two_original_prior_art_court.md).
+**Later custody readback:** The original PDFs are currently in the Research OS 10_PAPERS literature commons, not in the empty W56 project folder. Original IDs and sizes are unchanged.
+
+**Newly resolved 2026-11-21:** B02 Moore et al. (2021) exact original DOI 10.1038/s41592-021-01326-w, Drive ID `1UoZL8vX1AtcZ55TfKLJHYxZKC_BM8Uvf`; B09 Gonçalves & Musen (2019) DOI 10.1038/sdata.2019.21, Drive ID `1bc3Lw6qJacO6Zgf5hNlWkoNYwhOsk0sH`. Original PDFs, not mere available online pages, confirmed in Research OS 00 and canonicalized into [Research OS 10_PAPERS](https://drive.google.com/drive/folders/1D2M4LHcejREhlyp6vTd71xxLLx-6ldUP). [W56 original full-text verdict](p77_w56_20261121_ome_ngff_metadata_quality_two_original_prior_art_court.md).
 
 ## F — Existing Figure 2E technical replay and separate P77 causal reopening (7)
 | ID | Missing evidence | Primary route | Direct use |
