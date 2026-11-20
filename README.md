@@ -12,6 +12,10 @@ EPISTEME is **not closed**, but no new independent scientific mechanism is certi
 
 > Founding question (September 18, 2026): Can AI-assisted translation and entrenched scientific or technical infrastructures change whether an improved alternative standard can be adopted and *tested*? The broad claim is already strongly anticipated by standard economics, history/philosophy of science, archival science and measurement studies; we do not claim it as a discovery.
 
+## P77 W55 — Original Intake and Workbook Row Audit (2026-11-21)
+
+[Notion original-source reading and updated 23-item missing register](https://app.notion.com/p/41eef561cf92813caa0de210e2c49385) · [Drive W55 originals](https://drive.google.com/drive/folders/1FbEnW3SFoB-Nf6cpxHpol5vAFPqwqAj9) · [Executable audit](analysis/p77_w55_recheck_workbook.py) · [Per-query JSON](analysis/p77_w55_workbook_alignment_receipt.json). Seven newly received originals/companions were renamed and moved to the EPISTEME project Drive, with stable IDs and verified byte equality. The Sundaram v3 author workbook has 0/36 recall, 16/36 precision, 21/36 F1 query-row mismatches between its overview and detail blocks, although each metric's values match as a multiset. The row-wise fidelity finding does not change reported macro averages. Preserve the original case-line PAUSE, P78 HOLD and PAPER HOLD.
+
 ## P77 W53 — WT Velocity Replay and Case Decision (2026-11-21)
 
 [Executed replay](active/p77_w53_20261121_wt_velocity_replay_and_case_decision.md) · [Director decision](active/p77_w53_20261121_director_decision.md) · [Literature intake](active/p77_w53_20261121_original_literature_intake.md) · [Missing sources](active/p77_w53_20261121_missing_source_queue.md). One WT embryo, two executed forward PIV pairs and nine pixel-equal TIFF/Zarr frames. Original stored TIFF and OME-Zarr time fields are nonfinite, and the camera record and deposit note specify 30 seconds. Same deposited masks and time yield identical computed fields across formats. Index-only discovery omitted the two analysis masks. Replayed after Drive readback. **P77 independent case line PAUSED / P78 HOLD / PAPER HOLD.**
