@@ -12,6 +12,10 @@ EPISTEME is **not closed**, but no new independent scientific mechanism is certi
 
 > Founding question (September 18, 2026): Can AI-assisted translation and entrenched scientific or technical infrastructures change whether an improved alternative standard can be adopted and *tested*? The broad claim is already strongly anticipated by standard economics, history/philosophy of science, archival science and measurement studies; we do not claim it as a discovery.
 
+## P77 W52 — Figure 2E Archive Route and Literature Audit (2026-11-21)
+
+[W52 empirical audit](active/p77_w52_20261121_s_biad602_figure_2e_route_audit.md) · [Source intake](active/p77_w52_20261121_intake_and_claim_register.md) · [Missing source queue](active/p77_w52_20261121_missing_source_queue.md). Current retained file directories carry candidate input across all three Figure 2E arms. Image-level accession search returns five objects and two sampled OME-Zarr time scales are nonfinite strings. Original paper inputs and actual test re-execution remain unverified. **P77 ACTIVE / P78 HOLD / PAPER HOLD.**
+
 ## P77 Director Decision — One Empirical Case Before Further Benchmarking (2026-11-17)
 
 [Decision](active/p77_20261117_director_decision_case_selection.md) · [Notion record](https://app.notion.com/p/41bef561cf9281f9a72be3e0e526306f). Shift the main line from metadata scores to a bounded BioImage Archive source/converted-route and actual-test feasibility case. Preserve W49–W51 replays. FAIRkit remains an AI-specific evidence probe. **P77 ACTIVE / P78 HOLD / PAPER HOLD.**
