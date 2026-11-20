@@ -12,6 +12,10 @@ EPISTEME is **not closed**, but no new independent scientific mechanism is certi
 
 > Founding question (September 18, 2026): Can AI-assisted translation and entrenched scientific or technical infrastructures change whether an improved alternative standard can be adopted and *tested*? The broad claim is already strongly anticipated by standard economics, history/philosophy of science, archival science and measurement studies; we do not claim it as a discovery.
 
+## P77 W53 — WT Velocity Replay and Case Decision (2026-11-21)
+
+[Executed replay](active/p77_w53_20261121_wt_velocity_replay_and_case_decision.md) · [Director decision](active/p77_w53_20261121_director_decision.md) · [Literature intake](active/p77_w53_20261121_original_literature_intake.md) · [Missing sources](active/p77_w53_20261121_missing_source_queue.md). One WT embryo, two executed forward PIV pairs and nine pixel-equal TIFF/Zarr frames. Original stored TIFF and OME-Zarr time fields are nonfinite, and the camera record and deposit note specify 30 seconds. Same deposited masks and time yield identical computed fields across formats. Index-only discovery omitted the two analysis masks. Replayed after Drive readback. **P77 independent case line PAUSED / P78 HOLD / PAPER HOLD.**
+
 ## P77 W52 — Figure 2E Archive Route and Literature Audit (2026-11-21)
 
 [W52 empirical audit](active/p77_w52_20261121_s_biad602_figure_2e_route_audit.md) · [Source intake](active/p77_w52_20261121_intake_and_claim_register.md) · [Missing source queue](active/p77_w52_20261121_missing_source_queue.md). Current retained file directories carry candidate input across all three Figure 2E arms. Image-level accession search returns five objects and two sampled OME-Zarr time scales are nonfinite strings. Original paper inputs and actual test re-execution remain unverified. **P77 ACTIVE / P78 HOLD / PAPER HOLD.**
