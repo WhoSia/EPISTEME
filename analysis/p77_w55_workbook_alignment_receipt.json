@@ -1,0 +1,504 @@
+{
+  "source_md5": "66fa6ffbf5470a73c9737f3d94470bbc",
+  "findings": [
+    {
+      "repository": "BioSample",
+      "metric": "recall",
+      "method": 0,
+      "row_disagreements": [],
+      "source_values": [
+        0.042,
+        0.264755480607082,
+        0.170454545454545,
+        0.246753246753246,
+        0.0,
+        0.5
+      ],
+      "overview_values": [
+        0.042,
+        0.264755480607082,
+        0.170454545454545,
+        0.246753246753246,
+        0.0,
+        0.5
+      ],
+      "multiset_equal": true,
+      "mean_source": 0.20399387880247885,
+      "mean_overview": 0.20399387880247885
+    },
+    {
+      "repository": "BioSample",
+      "metric": "recall",
+      "method": 1,
+      "row_disagreements": [],
+      "source_values": [
+        0.045,
+        0.106239460370994,
+        0.183441558441558,
+        0.246753246753246,
+        0.2,
+        0.484375
+      ],
+      "overview_values": [
+        0.045,
+        0.106239460370994,
+        0.183441558441558,
+        0.246753246753246,
+        0.2,
+        0.484375
+      ],
+      "multiset_equal": true,
+      "mean_source": 0.210968210927633,
+      "mean_overview": 0.210968210927633
+    },
+    {
+      "repository": "BioSample",
+      "metric": "recall",
+      "method": 2,
+      "row_disagreements": [],
+      "source_values": [
+        0.724,
+        0.952782462057335,
+        0.99025974025974,
+        0.506493506493506,
+        0.95,
+        0.78125
+      ],
+      "overview_values": [
+        0.724,
+        0.952782462057335,
+        0.99025974025974,
+        0.506493506493506,
+        0.95,
+        0.78125
+      ],
+      "multiset_equal": true,
+      "mean_source": 0.8174642848017634,
+      "mean_overview": 0.8174642848017634
+    },
+    {
+      "repository": "BioSample",
+      "metric": "precision",
+      "method": 0,
+      "row_disagreements": [
+        "ovary-blood",
+        "liver-blood"
+      ],
+      "source_values": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0,
+        1.0
+      ],
+      "overview_values": [
+        1.0,
+        1.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "multiset_equal": true,
+      "mean_source": 0.8333333333333334,
+      "mean_overview": 0.8333333333333334
+    },
+    {
+      "repository": "BioSample",
+      "metric": "precision",
+      "method": 1,
+      "row_disagreements": [
+        "liver-organ",
+        "lung-organ",
+        "liver-blood"
+      ],
+      "source_values": [
+        0.91,
+        0.926470588235294,
+        0.974137931034482,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "overview_values": [
+        0.91,
+        1.0,
+        0.926470588235294,
+        1.0,
+        0.974137931034482,
+        1.0
+      ],
+      "multiset_equal": true,
+      "mean_source": 0.9684347532116293,
+      "mean_overview": 0.9684347532116293
+    },
+    {
+      "repository": "BioSample",
+      "metric": "precision",
+      "method": 2,
+      "row_disagreements": [
+        "liver-organ",
+        "lung-organ",
+        "ovary-blood",
+        "liver-blood"
+      ],
+      "source_values": [
+        0.803,
+        0.964163822525597,
+        0.931297709923664,
+        0.896551724137931,
+        0.73076923076923,
+        1.0
+      ],
+      "overview_values": [
+        0.803,
+        0.896551724137931,
+        0.964163822525597,
+        0.73076923076923,
+        0.931297709923664,
+        1.0
+      ],
+      "multiset_equal": true,
+      "mean_source": 0.8876304145594037,
+      "mean_overview": 0.8876304145594037
+    },
+    {
+      "repository": "BioSample",
+      "metric": "f1",
+      "method": 0,
+      "row_disagreements": [
+        "liver-organ",
+        "lung-organ",
+        "ovary-blood",
+        "liver-blood"
+      ],
+      "source_values": [
+        0.0798319327731092,
+        0.418666666666666,
+        0.29126213592233,
+        0.395833333333333,
+        0.0,
+        0.666666666666666
+      ],
+      "overview_values": [
+        0.0798319327731092,
+        0.395833333333333,
+        0.418666666666666,
+        0.0,
+        0.29126213592233,
+        0.666666666666666
+      ],
+      "multiset_equal": true,
+      "mean_source": 0.3087101225603507,
+      "mean_overview": 0.3087101225603507
+    },
+    {
+      "repository": "BioSample",
+      "metric": "f1",
+      "method": 1,
+      "row_disagreements": [
+        "liver-organ",
+        "lung-organ",
+        "ovary-blood",
+        "liver-blood"
+      ],
+      "source_values": [
+        0.0875,
+        0.190620272314674,
+        0.308743169398907,
+        0.395833333333333,
+        0.333333333333333,
+        0.652631578947368
+      ],
+      "overview_values": [
+        0.0875,
+        0.395833333333333,
+        0.190620272314674,
+        0.333333333333333,
+        0.308743169398907,
+        0.652631578947368
+      ],
+      "multiset_equal": true,
+      "mean_source": 0.3281102812212692,
+      "mean_overview": 0.3281102812212692
+    },
+    {
+      "repository": "BioSample",
+      "metric": "f1",
+      "method": 2,
+      "row_disagreements": [
+        "liver-organ",
+        "lung-organ",
+        "ovary-blood",
+        "liver-blood"
+      ],
+      "source_values": [
+        0.761795166858458,
+        0.95843935538592,
+        0.959874114870181,
+        0.647302904564315,
+        0.826086956521739,
+        0.87719298245614
+      ],
+      "overview_values": [
+        0.761795166858458,
+        0.647302904564315,
+        0.95843935538592,
+        0.826086956521739,
+        0.959874114870181,
+        0.87719298245614
+      ],
+      "multiset_equal": true,
+      "mean_source": 0.8384485801094588,
+      "mean_overview": 0.8384485801094588
+    },
+    {
+      "repository": "GEO",
+      "metric": "recall",
+      "method": 0,
+      "row_disagreements": [],
+      "source_values": [
+        0.0,
+        0.0942760942760942,
+        0.0,
+        0.0,
+        0.8,
+        0.0
+      ],
+      "overview_values": [
+        0.0,
+        0.0942760942760942,
+        0.0,
+        0.0,
+        0.8,
+        0.0
+      ],
+      "multiset_equal": true,
+      "mean_source": 0.14904601571268236,
+      "mean_overview": 0.14904601571268236
+    },
+    {
+      "repository": "GEO",
+      "metric": "recall",
+      "method": 1,
+      "row_disagreements": [],
+      "source_values": [
+        0.0,
+        0.0,
+        0.122807017543859,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "overview_values": [
+        0.0,
+        0.0,
+        0.122807017543859,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "multiset_equal": true,
+      "mean_source": 0.020467836257309833,
+      "mean_overview": 0.020467836257309833
+    },
+    {
+      "repository": "GEO",
+      "metric": "recall",
+      "method": 2,
+      "row_disagreements": [],
+      "source_values": [
+        0.435897435897435,
+        0.646319569120287,
+        0.91578947368421,
+        0.0,
+        0.0,
+        0.642276422764227
+      ],
+      "overview_values": [
+        0.435897435897435,
+        0.646319569120287,
+        0.91578947368421,
+        0.0,
+        0.0,
+        0.642276422764227
+      ],
+      "multiset_equal": true,
+      "mean_source": 0.44004715024435986,
+      "mean_overview": 0.44004715024435986
+    },
+    {
+      "repository": "GEO",
+      "metric": "precision",
+      "method": 0,
+      "row_disagreements": [
+        "ovary-blood",
+        "liver-blood"
+      ],
+      "source_values": [
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "overview_values": [
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "multiset_equal": true,
+      "mean_source": 0.3333333333333333,
+      "mean_overview": 0.3333333333333333
+    },
+    {
+      "repository": "GEO",
+      "metric": "precision",
+      "method": 1,
+      "row_disagreements": [
+        "lung-organ",
+        "lung-blood"
+      ],
+      "source_values": [
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "overview_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "multiset_equal": true,
+      "mean_source": 0.16666666666666666,
+      "mean_overview": 0.16666666666666666
+    },
+    {
+      "repository": "GEO",
+      "metric": "precision",
+      "method": 2,
+      "row_disagreements": [
+        "lung-organ",
+        "liver-blood",
+        "lung-blood"
+      ],
+      "source_values": [
+        0.22077922077922,
+        0.803571428571428,
+        0.5625,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "overview_values": [
+        0.22077922077922,
+        0.803571428571428,
+        0.0,
+        0.0,
+        1.0,
+        0.5625
+      ],
+      "multiset_equal": true,
+      "mean_source": 0.4311417748917747,
+      "mean_overview": 0.4311417748917747
+    },
+    {
+      "repository": "GEO",
+      "metric": "f1",
+      "method": 0,
+      "row_disagreements": [
+        "liver-organ",
+        "lung-organ",
+        "ovary-blood",
+        "liver-blood"
+      ],
+      "source_values": [
+        0.0,
+        0.172307692307692,
+        0.0,
+        0.0,
+        0.888888888888889,
+        0.0
+      ],
+      "overview_values": [
+        0.0,
+        0.0,
+        0.172307692307692,
+        0.888888888888889,
+        0.0,
+        0.0
+      ],
+      "multiset_equal": true,
+      "mean_source": 0.1768660968660968,
+      "mean_overview": 0.1768660968660968
+    },
+    {
+      "repository": "GEO",
+      "metric": "f1",
+      "method": 1,
+      "row_disagreements": [
+        "lung-organ",
+        "liver-blood"
+      ],
+      "source_values": [
+        0.0,
+        0.0,
+        0.21875,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "overview_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.21875,
+        0.0
+      ],
+      "multiset_equal": true,
+      "mean_source": 0.036458333333333336,
+      "mean_overview": 0.036458333333333336
+    },
+    {
+      "repository": "GEO",
+      "metric": "f1",
+      "method": 2,
+      "row_disagreements": [
+        "liver-organ",
+        "lung-organ",
+        "liver-blood"
+      ],
+      "source_values": [
+        0.293103448275862,
+        0.716417910447761,
+        0.696929238985313,
+        0.0,
+        0.0,
+        0.782178217821782
+      ],
+      "overview_values": [
+        0.293103448275862,
+        0.0,
+        0.716417910447761,
+        0.0,
+        0.696929238985313,
+        0.782178217821782
+      ],
+      "multiset_equal": true,
+      "mean_source": 0.41477146925511965,
+      "mean_overview": 0.41477146925511965
+    }
+  ]
+}
