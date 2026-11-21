@@ -104,10 +104,16 @@ def audit(notebooks):
     append_positions = [i for i, code in enumerate(gpt)
                         if "llm_samples.append(eval(ans))" in code]
     exported_gpt = "dict_sample['LLM'] = llm_samples[i]" in "\n".join(gpt)
-    if not reset_positions or not append_positions:
-        raise ValueError("Expected GPT-4 reset/append cells missing")
-    reset_prior_to_append = any(reset < append for reset in reset_positions
-                                for append in append_positions)
+    old_append_positions = [i for i, code in enumerate(gpt)
+                            if "llm_samples.append(d['LLM'])" in code]
+    if not reset_positions or not append_positions or not old_append_positions:
+        raise ValueError("Expected GPT-4 old-output, reset and new-output cells missing")
+    reset_prior_to_append = any(
+        prior < reset < generated
+        for prior in old_append_positions
+        for reset in reset_positions
+        for generated in append_positions
+    )
 
     refinement = checked_source(notebooks["metadata-refine.ipynb"])
     has_blood_query = bool(re.search(
