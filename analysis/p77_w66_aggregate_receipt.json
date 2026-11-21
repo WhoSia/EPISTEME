@@ -1,0 +1,81 @@
+{
+  "court": "EPISTEME-P77-W66",
+  "date": "2026-11-22",
+  "source": {
+    "drive_url": "https://drive.google.com/file/d/1aEtrveLusvUspkPJF-1t0UYrx5ZWYOBK/view",
+    "file": "Sundaram Zenodo v2-v3 Data.zip",
+    "size_bytes": 3992768,
+    "sha256": "bebd5b8771bd8e572f5efe7fe9c9f0177dcca98e874021b5fefbdd240f81595c"
+  },
+  "parser_factorial": {
+    "retrieval_cells_including_repeated_BioSample_views": 56,
+    "changed_by_tissue_type_alias_only": 1,
+    "changed_by_casefold_strip_only": 34,
+    "metric_contrasts_vs_source": 108,
+    "strict_reversals": {
+      "alias_only": 0,
+      "normalize_only": 2,
+      "alias_and_normalize": 2
+    }
+  },
+  "original_tissue_to_released_heuristic_label": {
+    "liver": {
+      "rows": 800,
+      "normalized_tissue_values": 89,
+      "conflicted_tissue_values": 0,
+      "rows_with_a_repeated_tissue_value": 725,
+      "zero_conflict_circular_offsets_among_800": 1,
+      "minimum_conflicts_in_nonzero_circular_offsets": 172
+    },
+    "lung": {
+      "rows": 800,
+      "normalized_tissue_values": 73,
+      "conflicted_tissue_values": 0,
+      "rows_with_a_repeated_tissue_value": 766,
+      "zero_conflict_circular_offsets_among_800": 1,
+      "minimum_conflicts_in_nonzero_circular_offsets": 164
+    },
+    "ovarian": {
+      "rows": 800,
+      "normalized_tissue_values": 49,
+      "conflicted_tissue_values": 0,
+      "rows_with_a_repeated_tissue_value": 780,
+      "zero_conflict_circular_offsets_among_800": 1,
+      "minimum_conflicts_in_nonzero_circular_offsets": 319
+    }
+  },
+  "ovarian_blood_query_case": {
+    "released_heuristic_blood_labels": 154,
+    "original_BioSample_exact": {
+      "tp": 38,
+      "retrieved": 38,
+      "fn": 116,
+      "f1": 0.3958333333333333
+    },
+    "GPT4_CEDAR_exact": {
+      "tp": 78,
+      "retrieved": 87,
+      "fn": 76,
+      "f1": 0.6473029045643154
+    },
+    "original_BioSample_value_normalized": {
+      "tp": 153,
+      "retrieved": 153,
+      "fn": 1,
+      "f1": 0.996742671009772
+    },
+    "GPT4_CEDAR_value_normalized": {
+      "tp": 103,
+      "retrieved": 112,
+      "fn": 51,
+      "f1": 0.7744360902255639
+    }
+  },
+  "negative_control": {
+    "circular_offsets": 800,
+    "reversal_count_recall": 794,
+    "reversal_count_f1": 721,
+    "warning": "Circular shifts deliberately break original label positions; these counts are descriptive falsification diagnostics, not a p value, empirical independent replicate or valid manuscript accuracy test."
+  },
+  "research_boundary": "Heuristic labels align by archived row position and are perfectly functionally consistent with normalized original tissue strings in-sample; independent biological reference accuracy, manuscript run provenance A08 and Z→A→T causal effects are not established."
+}
