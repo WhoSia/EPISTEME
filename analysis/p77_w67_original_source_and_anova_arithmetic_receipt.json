@@ -1,0 +1,91 @@
+{
+  "court": "EPISTEME-P77-W67",
+  "date": "2026-11-22",
+  "sources": {
+    "zenodo_zip": {
+      "url": "https://drive.google.com/file/d/1aEtrveLusvUspkPJF-1t0UYrx5ZWYOBK/view",
+      "size_bytes": 3992768,
+      "sha256": "bebd5b8771bd8e572f5efe7fe9c9f0177dcca98e874021b5fefbdd240f81595c"
+    },
+    "R2_original": {
+      "url": "https://drive.google.com/file/d/1vQg-1h7cL65CpAt2UPi3VZRto7FAFFAE/view",
+      "sha256": "d8e6f1235e3d187824b1d0ce4d761e55e7908c54b73e95c909a4ea392cfa75e0",
+      "statistic_pdf_page": 16,
+      "duplicate_pdf_page": 31
+    }
+  },
+  "source_grain": {
+    "per_repository_source_rows_stated_in_paper": 2400,
+    "original_BioSample_rows_by_cancer": {
+      "liver": 800,
+      "lung": 800,
+      "ovarian": 800
+    },
+    "unique_canonical_source_json_objects_by_cancer": {
+      "liver": 752,
+      "lung": 780,
+      "ovarian": 777
+    },
+    "distinct_canonical_source_json_objects": 2309,
+    "repeated_source_object_positions": 91,
+    "pairwise_cancer_intersections_of_identical_source_objects": 0,
+    "six_times_800_memberships": 4800,
+    "minimum_repeated_memberships_if_only_the_published_2400_rows": 2400,
+    "conditional_statement": "Only if the six distinct 800-source sets are drawn from the same 2400 archived BioSample records is disjointness mathematically impossible. Unarchived new data or a different statistical unit could resolve the mismatch."
+  },
+  "sphericity": {
+    "BioSample_published_var_DD_minus_baseline": 0.013,
+    "BioSample_published_var_CEDAR_minus_baseline": 0.08,
+    "BioSample_unknown_var_CEDAR_minus_DD_bounds": [
+      0.0285019380136116,
+      0.1574980619863884
+    ],
+    "note": "Three pairwise-difference variances, not just two, are required for three-condition sphericity. Difference scores share baseline, so independence cannot be presumed. No original 6x3 subjects or covariance was provided."
+  },
+  "R2_reported_F_p": {
+    "BioSample": {
+      "F": 27.68,
+      "df1": 2,
+      "df2": 10,
+      "p_reported": 0.0001,
+      "p_from_displayed_F": 0.00008383778242804627,
+      "consistent_accounting_for_p_and_F_rounding": true
+    },
+    "GEO": {
+      "F_approx": 1.08,
+      "df1": 2,
+      "df2": 10,
+      "p_reported": 0.439,
+      "p_from_displayed_F": 0.3761249346716259,
+      "p_possible_with_F_rounding": [
+        0.3745821765609036,
+        0.3776753238903627
+      ],
+      "p_rounding_interval": [
+        0.4385,
+        0.4395
+      ],
+      "consistent_accounting_for_rounding": false,
+      "F_implied_by_reported_p": 0.8949089325396331,
+      "significance_at_alpha_005_unchanged": true
+    }
+  },
+  "validation": {
+    "local_unit_test_cases": 18,
+    "local_unit_test_passed": 18,
+    "actual_Zenodo_hash_and_CRC_passed": true,
+    "reported_GEO_F_p_checked_against_rendered_original_R2_page": true,
+    "original_author_ANOVA_reproduced": false
+  },
+  "status": {
+    "missing_evidence_categories": 18,
+    "ledger_split": "F7/A6/B5",
+    "A09": "9/9 acquired",
+    "B10": "1/2 partial",
+    "B11": "2/3 partial",
+    "A08": "original statistical subject/run manifest missing",
+    "P77": "identity review active",
+    "P78": "HOLD",
+    "PAPER": "HOLD"
+  }
+}
