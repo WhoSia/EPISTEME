@@ -5,7 +5,7 @@ import io
 import json
 import unittest
 import zipfile
-from w58_receipt_court import analyze, MEMBER
+from p77_w58_receipt_court import analyze, MEMBER
 
 
 def fixture():
